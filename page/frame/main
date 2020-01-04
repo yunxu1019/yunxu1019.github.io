@@ -1,1 +1,1 @@
-018layer$glance,cless,a,bfunction c(){var b=a({left:'/frame/left',top:'/frame/top',main:'/page/grinch'});return b}return b(c,'.-j{padding-top:0}.-j>div:not([layer=left]):not([layer=top]){padding-top:48px}','-j main main')
+018layer$glance,cless,a,bfunction c(){var b=a({left:'/frame/left',top:'/frame/top',main:'/page/grinch'});return b}return b(c,'.-m{padding-top:0}.-m>div:not([layer=left]):not([layer=top]){padding-top:48px}','-m main main')
