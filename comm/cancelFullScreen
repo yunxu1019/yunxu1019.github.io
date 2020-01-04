@@ -1,0 +1,1 @@
+00ydocument,noop,a,bfunction c(){(a.exitFullscreen||a.msExitFullscreen||a.mozCancelFullScreen||a.webkitCancelFullScreen||b).call(a)}return c

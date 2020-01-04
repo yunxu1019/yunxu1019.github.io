@@ -1,0 +1,1 @@
+012Object,isString,a,bfunction c(d,c,e){if(arguments.length===3)e===null?d.removeAttribute(c,e):d.setAttribute(c,e);else if(c instanceof a)for(var f in c)d.setAttribute(f,c[f]);else if(b(c))return d.getAttribute(c)}return c

@@ -1,0 +1,1 @@
+02gcreateElement,attr,input,appendChild,b,c,a,efunction d(a){a||(a=b('form')),this.form=a}return d.prototype={append:function(d,f){b('input'),c(a,'name',d),c(a,'value',f),e(this.form,a)}},d

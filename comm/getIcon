@@ -1,0 +1,1 @@
+function b(b){return b.icon?a.test(b.icon)?b.icon:a.test(b.url)?/^\//.test(b.icon)?b.url.replace(/^((?:https?\:)?(?:\/\/)?[^\/]+)[\s\S]+$/i,'$1')+b.icon:b.url.replace(/[\?\#][\s\S]*$/,'').replace(/^((?:https?\:)?(?:\/\/)?[^\/]+[\s\S]+?)[^\/]*$/,function(c,a){return a+'/'+b.icon}):b.icon:void 0}var a=/^(https?\:|\/\/)/i;return b

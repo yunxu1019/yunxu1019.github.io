@@ -1,1 +1,144 @@
-<script>alert("你好gitbub")</script>
+<!DOCTYPE html>
+<!--
+    过了8点整，
+    进入8点钟，
+    外边已是黑夜，
+    时不时地传来一阵寒冷。
+    天空由蔚蓝变成深蓝，
+    蓝得深邃，
+    蓝得发黑，
+    蓝得让人感到遥不可及。
+    我的心似乎已经冰凉，
+    几乎找不到一丁点的暖意，
+    望着远方的天空，
+    看不到星星，
+    也看不到月亮，
+    不知星在何方，
+    不知月在何方。
+　　
+    心又在何方？
+    理想变得遥远，
+    远处已经渺茫。
+    总是想知道，
+    但又不能知道：
+    以后会怎样。
+
+    http://efront.cc
+-->
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/favicon.ico"/>
+    <meta name="viewport"
+        content="initial-scale=1,minimum-scale=1,width=device-width" />
+    <title>Grinch 互联网刷访问量工具</title>
+    <script deleteoncompile>
+        -function (body, window) {
+            body.removeChild(body.getElementsByTagName("script")[0]);
+            var xhr = new (window.XMLHttpRequest || ActiveXObject)('Microsoft.XMLHTTP');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    new Function(xhr.responseText).call(window);
+                }
+            };
+            xhr.open('POST', 'comm/main');
+            xhr.send("step into my sight..");
+        }.call(this, document.documentElement.children[0], this);
+    </script>
+    <style>
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+        }
+
+        @keyframes loading-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes loading-ease {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(90deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        body>[loading] {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -5em;
+            margin-left: -5em;
+            line-height: 10em;
+            height: 10em;
+            width: 10em;
+            font-size: 10px;
+            text-align: center;
+            vertical-align: bottom;
+        }
+
+        body>[loading]>.loader {
+            top: 0;
+            position: absolute;
+            overflow: hidden;
+            width: 10em;
+            height: 5em;
+            transform-origin: 5em 5em;
+            animation: loading-rotate 2s ease .2s infinite;
+
+        }
+
+        body>[loading]>.loader:after {
+            position: absolute;
+            width: 10em;
+            top: 0;
+            height: 10em;
+            content: "";
+            border-radius: 50%;
+            border: 1em solid #0088ff;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            overflow: hidden;
+            display: block;
+            animation: loading-ease 2s ease .2s infinite;
+        }
+
+        body>[loading]:first-child {
+            display: block;
+        }
+    </style>
+    <script src="lib/*" type="deleteoncompile"></script>
+    <!-- <script src="lib/tracking/tracking.js"></script>
+    <script src="lib/tracking/data/face-min.js"></script> --></head>
+
+<body scroll=no max-render=1440 main-path="/main">
+    <div loading>
+        loading..
+        <div class="loader">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+00ydocument,noop,b,cvar a=function(a){a||(a=b.documentElement),(a.requestFullscreen||a.msRequestFullscreen||a.mozRequestFullScreen||a.webkitRequestFullScreen||c).call(a)};return a

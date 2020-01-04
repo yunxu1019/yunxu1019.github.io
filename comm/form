@@ -1,0 +1,1 @@
+00kdocument,afunction b(b){return b||(b=a.createElement('form')),b}return b
