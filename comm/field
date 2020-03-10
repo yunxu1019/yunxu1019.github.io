@@ -1,1 +1,1 @@
-00woption,cless,a,bfunction c(){var b=a.apply(null,arguments);return b.removeAttribute('tabindex'),b}return b(c,'.-tf>.track{display:none;box-shadow:none}','-tf field field')
+00woption,cless,a,bfunction c(){var b=a.apply(null,arguments);return b.removeAttribute('tabindex'),b}return b(c,'.-th>.track{display:none;box-shadow:none}','-th field field')
