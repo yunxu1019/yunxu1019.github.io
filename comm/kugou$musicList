@@ -1,1 +1,1 @@
-return []
+00cdata,bvar a=b.getInstance('musicList');return a.forEach(function(b){b.activate&&(a.active_hash=b.hash)}),a

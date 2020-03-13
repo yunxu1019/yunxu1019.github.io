@@ -1,0 +1,1 @@
+00gwindow,areturn a.webkitAudioContext||a.AudioContext
