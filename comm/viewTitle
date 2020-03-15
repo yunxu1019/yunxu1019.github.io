@@ -1,1 +1,1 @@
-00ecless,areturn a('\n<div ng-if=\'showTitle!==false\' ng-bind="viewTitle"></div><div class="close" ng-if=\'closeable!==false\' ng-click=closeView()>×</div>','.-zo.close{display:block;position:absolute;right:0;top:0}.-zo.close:hover{color:#fff;background:#f00}','-zo viewTitle viewTitle')
+00ecless,areturn a('\n<div ng-if=\'showTitle!==false\' ng-bind="viewTitle"></div><div class="close" ng-if=\'closeable!==false\' ng-click=closeView()>×</div>','.-zn.close{display:block;position:absolute;right:0;top:0}.-zn.close:hover{color:#fff;background:#f00}','-zn viewTitle viewTitle')
