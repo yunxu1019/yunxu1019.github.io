@@ -1,0 +1,11 @@
+04anavigator,document,createElement,cless,navigator,document,createElement,clessvar isIE = /edge|msie/i.test(navigator.userAgent) || typeof document.uniqueID === 'string';
+function main() {
+    var block = document.createElement('input');
+    block.type = 'checkbox';
+    if (isIE) {
+        block.setAttribute('ie', isIE);
+        block['with'] = createElement('label');
+    }
+    return block;
+}
+return cless(main, '.-ba[ie] {\n  width: 46px;\n  height: 24px;\n  margin: 0;\n  border-radius: 12px;\n  cursor: pointer;\n  opacity: 0;\n  z-index: 1;\n  position: relative;\n  vertical-align: middle;\n  margin-right: -46px;\n}\n.-ba[ie] + label,\n.-ba:not([ie]) {\n  display: inline-block;\n  width: 46px;\n  margin: 0;\n  height: 24px;\n  border-radius: 12px;\n  border: none;\n  position: relative;\n  outline: none;\n  cursor: pointer;\n  vertical-align: middle;\n  background-color: #ccc;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  -ms-appearance: none;\n  -o-appearance: none;\n  appearance: none;\n}\n.-ba[ie] + label:before,\n.-ba:not([ie]):before {\n  background-color: #26f;\n  transition: all 0.1s ease-out;\n  left: 50%;\n  top: 50%;\n  right: 50%;\n  bottom: 50%;\n  content: "";\n  position: absolute;\n  border-radius: inherit;\n}\n.-ba[ie] + label:after,\n.-ba:not([ie]):after {\n  border-radius: 11px;\n  content: "";\n  display: block;\n  margin-left: -22px;\n  left: 50%;\n  width: 22px;\n  height: 22px;\n  top: 50%;\n  margin-top: -11px;\n  background-color: #fff;\n  box-shadow: 0 0 20px -6px rgba(0, 0, 0, 0.3);\n  transition: margin-left 0.2s ease-out, width 0.2s ease-out;\n  position: absolute;\n}\n.-ba[ie] + label:active:after,\n.-ba:not([ie]):active:after {\n  width: 32px;\n}\n.-ba[ie]:checked + label:before,\n.-ba:not([ie]):checked:before {\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n}\n.-ba[ie]:checked + label:after,\n.-ba:not([ie]):checked:after {\n  margin-left: 0;\n}\n.-ba[ie]:checked + label:active:after,\n.-ba:not([ie]):checked:active:after {\n  margin-left: -10px;\n}\n', '-ba swap swap');

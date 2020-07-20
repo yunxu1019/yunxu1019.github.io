@@ -1,1 +1,344 @@
-0ckItem,Object,isNode,Function,clearTimeout,setTimeout,list,Array,isFunction,document,div,html,button,addClass,removeClass,onclick,active,transition,isArray,getTreeFromData,remove,cless,c,e,f,g,h,i,j,k,l,m,n,o,p,a,q,r,s,d,t,u,v,wfunction x(i){var e=[];e.tab=-Infinity,e.count=0;var a=[e];for(var g=0,j=i.length;g<j;g++){var h=i[g],b=new c(h);b.root=e;for(var f=a.length-1;f>=0;f--){var d=a[f];if(d.tab<h.tab){b.parent=d,d.push(b),a.splice(f+1,a.length-f-1,b);break}d.parent.count+=d.count||d.length||1}}while(a.length>1){var b=a.pop();a[a.length-1].count+=b.count||b.length||1}return e}function b(j,i){i===void 0&&(i=!0);var c=[j],a=[0],d=[],e=1;a:while(a.length){var f=a.length-1,g=a[f],h=c[f];if(g>=h.length){c.pop(),a.pop();continue a}var b=h[g];b.parent=h,d.push(b),a[f]=++g,!(i&&b.isClosed())&&b.length&&(c.push(b),a.push(0),a.length>e&&(e=a.length))}return d.deep=e,d}function y(a,g){var b=a&&a.tab+1||1,d=a.length;g.map(function(f){if(f instanceof e){f.tab=b;var d=new c(f);d.parent=a,d.root=a.root,a.push(d)}});var f=a.length-d;while(a)a.count+=f,a=a.parent}function z(){var F,B;[].forEach.call(arguments,function(a){f(a)?F=a:a instanceof g&&(B=a)});var z=[],e=null,G,H,w,A,C=0,D=function(){h(C),C=i.apply(this,arguments)},c=j(F,function(f){var i=z;if(f>=i.length)return;var b=i[f],g;if(!b)return;var j=new k(b.tab+1).join('<t></t>');if(l(B)){var t=B(f,b);if(!t)return;g=m.createElement('div'),g.innerHTML=j,g.appendChild(t)}else g=n(),o(g,j+'<c>'+b.name+'</c>'+(b.test?'<i>_test</i>':'')+(b.isClosed()&&b.length?' <a>'+b.count+'</a>':''));var e=p(g);a(e,'tab'+b.tab),b.isChecked()?a(e,'checked'):b.isSelected()&&a(e,'selected'),b.isActive()&&a(e,'actived');var u=b.getClass();u&&a(e,u);var h=function(c){c===void 0&&(c=b.isClosed()),q(b.target,'open empty closed'),b.length?c?a(b.target,'closed'):a(b.target,'open'):a(b.target,'empty')};return e.style.zIndex=1,b.target=e,f===G?(w=e,h(!0)):h(),f===H&&(A=e),b.closed=b.isClosed(),r(e,function(){if(!s(c,b.value,b))return;G=f,H=b.length+f;var i=function(){b.forEach(function(a){a.target&&(a.target.style.zIndex=0)})},l=function(){b.forEach(function(a){a.target&&(a.target.style.zIndex=1)}),h()},a=function(){if(E(),!b.isClosed()&&b.length&&w){var a=w.nextSibling;if(!a)return;var e;A&&A.offsetTop?e=w.offsetHeight+w.offsetTop-A.offsetTop-A.offsetHeight:e=w.offsetHeight+w.offsetTop-c.scrollHeight,h(!1),i();var f=d(a,{transition:'margin-top .2s ease-out',marginTop:e+'px'});D(l,f)}};if(b.isClosed()&&b.length){i(),h(!0);var g=b[b.length-1].target,e=b[0].target;if(!e)return a();var j;g?j=e.offsetTop-g.offsetTop-g.offsetHeight:j=e.offsetTop-c.scrollHeight;var k=d(e,{transition:'margin-top .2s ease-out',marginTop:j+'px'},!0);k?D(a,k):a()}else a()}),e});c.setData=function(a){t(a)&&(a[0]&&'tab'in a[0]?e=x(a):e=u(a),z=b(e))},c.addData=function(c,a){a===void 0&&(a=e),y(a,c),z=b(e)};var E=function(){var a=c.index();z=b(e,!0),v(c.children),c.go(a)};return c.refresh=E,c}return w(z,'.-zl{height:100%;background:#222d32}.-zl>div{display:block;text-align:left;height:auto;background-color:inherit;color:inherit;padding-right:10px}.-zl t{display:inline-block;width:16px}','-zl tree tree')
+0lyItem,Object,isNode,Function,clearTimeout,setTimeout,list,Array,isFunction,document,div,html,button,addClass,removeClass,onclick,active,transition,fromOffset,isArray,getTreeFromData,css,remove,cless,Item,Object,isNode,Function,clearTimeout,setTimeout,list,Array,isFunction,document,div,html,button,addClass,removeClass,onclick,active,transition,fromOffset,isArray,getTreeFromData,css,remove,clessfunction getTreeFromArray(array) {
+    var root = [];
+    root.tab = -Infinity;
+    root.count = 0;
+    root.total = 0;
+    var path = [root];
+    for (var cx = 0, dx = array.length; cx < dx; cx++) {
+        var arg = array[cx];
+        var item = new Item(arg);
+        item.root = root;
+        for (var cy = path.length - 1; cy >= 0; cy--) {
+            var parentElement = path[cy];
+            if (parentElement.tab < arg.tab) {
+                item.parent = parentElement;
+                parentElement.push(item);
+                path.splice(cy + 1, path.length - cy - 1, item);
+                break;
+            }
+            parentElement.parent.count += parentElement.count || parentElement.length || 1;
+            parentElement.parent.total += (parentElement.total || parentElement.length) + 1;
+        }
+    }
+    while (path.length > 1) {
+        var item = path.pop();
+        path[path.length - 1].count += item.count || item.length || 1;
+    }
+    return root;
+}
+function buildCrack(com, set) {
+    var count = com.length;
+    for (var cx = 0, dx = com.length; cx < dx; cx++) {
+        var c = com[cx];
+        if (!c.isClosed() && c.length) {
+            count += buildCrack(c, false);
+        }
+    }
+    if (set !== false) {
+        com.crack = count;
+    }
+    return count;
+}
+function getCrackTarget(com) {
+    for (var cx = com.length - 1; cx >= 0; cx--) {
+        var c = com[cx];
+        if (!c.isClosed() && c.length) {
+            var t = getCrackTarget(c);
+            if (t) {
+                return t;
+            }
+        }
+        if (c.target)
+            return c.target;
+    }
+    return com.target;
+}
+function getArrayFromTree(root, skipClosed) {
+    if (skipClosed === void 0) {
+        skipClosed = true;
+    }
+    var path = [root], pathcx = [0];
+    var result = [];
+    var max_deep = 1;
+    loop:
+        while (pathcx.length) {
+            var pathindex = pathcx.length - 1;
+            var cx = pathcx[pathindex];
+            var item = path[pathindex];
+            if (cx >= item.length) {
+                path.pop();
+                pathcx.pop();
+                continue loop;
+            }
+            var elem = item[cx];
+            elem.parent = item;
+            result.push(elem);
+            pathcx[pathindex] = ++cx;
+            if (!skipClosed || !elem.isClosed()) {
+                if (elem.length) {
+                    path.push(elem);
+                    pathcx.push(0);
+                    if (pathcx.length > max_deep) {
+                        max_deep = pathcx.length;
+                    }
+                }
+            }
+        }
+    result.deep = max_deep;
+    return result;
+}
+function appendTo(parent, datas) {
+    var tab = parent && parent.tab + 1 || 1;
+    var length = parent.length;
+    datas.map(function (data) {
+        if (data instanceof Object) {
+            data.tab = tab;
+            var item = new Item(data);
+            item.parent = parent;
+            item.root = parent.root;
+            parent.push(item);
+        }
+    });
+    var delta = parent.length - length;
+    while (parent) {
+        parent.count += delta;
+        parent = parent.parent;
+    }
+}
+function tree() {
+    var element, generator;
+    [].forEach.call(arguments, function (arg) {
+        if (isNode(arg)) {
+            element = arg;
+        } else if (arg instanceof Function) {
+            generator = arg;
+        }
+    });
+    var dom = [], root = null;
+    var changed_index, changed_offset;
+    var saved_top, saved_offset, timer = 0, timeout = function () {
+            clearTimeout(timer);
+            timer = setTimeout.apply(this, arguments);
+        };
+    var banner = list(element, function (index) {
+        var coms = dom;
+        if (index >= coms.length)
+            return;
+        var com = coms[index];
+        var span;
+        if (!com)
+            return;
+        if (com.target) {
+            com.target.index = index;
+            com.target.refresh();
+            return com.target;
+        }
+        var tabs = new Array(com.tab + 1).join('<t></t>');
+        if (isFunction(generator)) {
+            var elem = generator(index, com);
+            if (!elem)
+                return;
+            span = document.createElement('div');
+            span.innerHTML = tabs;
+            span.appendChild(elem);
+        } else {
+            span = div();
+            html(span, tabs + '<c>' + com.name + '</c>' + (com.test ? '<i>_test</i>' : '') + '<a class=count>' + com.count + '</a>');
+        }
+        var _div = button(span);
+        _div.index = index;
+        if (!com.saved) {
+            com.saved = {};
+        }
+        _div.refresh = function () {
+            var saved = com.saved;
+            if (saved.checked !== com.isChecked()) {
+                saved.checked = com.isChecked();
+                if (saved.checked) {
+                    addClass(_div, 'checked');
+                } else {
+                    removeClass(_div, 'checked');
+                }
+            } else if (saved.selected !== com.isSelected()) {
+                saved.selected = com.isSelected();
+                if (saved.selected) {
+                    addClass(_div, 'selected');
+                } else {
+                    removeClass(_div, 'selected');
+                }
+            }
+            if (saved.actived !== com.isActive()) {
+                saved.actived = com.isActive();
+                if (saved.actived) {
+                    addClass(_div, 'actived');
+                } else {
+                    removeClass(_div, 'actived');
+                }
+            }
+            var class1 = com.getClass();
+            if (class1) {
+                addClass(_div, class1);
+            }
+            _div.style.zIndex = 1;
+            _div.itemid = com.id;
+            if (_div.index === changed_index) {
+                saved_top = _div;
+                setState(true);
+            } else {
+                setState();
+            }
+            if (_div.index === changed_offset) {
+                saved_offset = _div;
+            }
+            com.closed = com.isClosed();
+        };
+        addClass(_div, 'tab' + com.tab);
+        var setState = function (closed) {
+            if (closed === void 0) {
+                closed = com.isClosed();
+            }
+            var saved = com.saved;
+            if (com.length) {
+                if (saved.closed !== closed) {
+                    saved.closed = closed;
+                    if (closed) {
+                        addClass(com.target, 'closed');
+                        removeClass(com.target, 'open empty');
+                    } else {
+                        addClass(com.target, 'open');
+                        removeClass(com.target, 'closed empty');
+                    }
+                }
+                if (saved.empty) {
+                    removeClass(com.target, 'empty');
+                    saved.empty = false;
+                }
+            } else {
+                if (!saved.empty) {
+                    saved.empty = true;
+                    addClass(com.target, 'empty');
+                }
+                if (saved.closed === true || saved.closed === false) {
+                    removeClass(com.target, 'closed open');
+                    saved.closed = null;
+                }
+            }
+        };
+        com.target = _div;
+        _div.refresh();
+        onclick(_div, function () {
+            var isClosed = com.isClosed();
+            if (!active(banner, com.value, com)) {
+                return;
+            }
+            if (isClosed === com.isClosed() && com.length) {
+                com.setClosed(!isClosed);
+            }
+            var index = this.index;
+            changed_index = index;
+            buildCrack(com);
+            changed_offset = com.crack + index;
+            if (!com.length) {
+                dom.forEach(function (d) {
+                    return d.target && d.target.refresh();
+                });
+                return;
+            }
+            var z0 = function () {
+                var z = function (e) {
+                    if (e.target)
+                        e.target.style.zIndex = 0;
+                    if (e instanceof Array)
+                        e.forEach(z);
+                };
+                com.forEach(z);
+            };
+            var z1 = function () {
+                var z = function (e) {
+                    if (e.target)
+                        e.target.style.zIndex = 1;
+                    if (e instanceof Array)
+                        e.forEach(z);
+                };
+                com.forEach(z);
+                setState();
+            };
+            if (com.isClosed() && com.length) {
+                z0();
+                setState(true);
+                var bottom = getCrackTarget(com);
+                var top = com[0].target;
+                if (!top)
+                    return refresh();
+                var marginTop;
+                if (!bottom || !bottom.offsetTop) {
+                    marginTop = top.offsetTop - banner.scrollHeight;
+                } else {
+                    marginTop = top.offsetTop - bottom.offsetTop - bottom.offsetHeight;
+                }
+                var res = transition(top, {
+                    transition: 'margin-top .2s ease-out',
+                    marginTop: fromOffset(marginTop)
+                }, true);
+                if (res)
+                    timeout(refresh, res);
+                else
+                    refresh();
+            } else if (!com.isClosed() && com.length) {
+                refresh();
+                var change_elem = saved_top.nextSibling;
+                if (!change_elem)
+                    return;
+                var margin_top;
+                if (!saved_offset || !saved_offset.offsetTop) {
+                    margin_top = saved_top.offsetHeight + saved_top.offsetTop - banner.scrollHeight;
+                } else {
+                    margin_top = saved_top.offsetHeight + saved_top.offsetTop - saved_offset.offsetTop - saved_offset.offsetHeight;
+                }
+                setState(false);
+                z0();
+                var res = transition(change_elem, {
+                    transition: 'margin-top .2s ease-out',
+                    marginTop: fromOffset(margin_top)
+                }, false);
+                timeout(z1, res);
+            }
+        });
+        return _div;
+    });
+    banner.setData = function (src) {
+        if (isArray(src)) {
+            if (src[0] && 'tab' in src[0]) {
+                root = getTreeFromArray(src);
+            } else {
+                root = getTreeFromData(src);
+            }
+            refresh();
+        }
+    };
+    banner.addData = function (data, parent) {
+        if (parent === void 0) {
+            parent = root;
+        }
+        appendTo(parent, data);
+        refresh();
+    };
+    var refresh = function () {
+        var index = banner.index();
+        var needremoves = dom.map(function (d) {
+            return d.target;
+        }).filter(function (d) {
+            return !!d;
+        });
+        dom = getArrayFromTree(root, true);
+        needremoves.forEach(function (_div) {
+            delete _div.initialStyle;
+            css(_div, 'transition:;margin-top:;');
+        });
+        remove(needremoves);
+        banner.go(index || 0);
+    };
+    banner.refresh = refresh;
+    return banner;
+}
+return cless(tree, '.-aw {\n  height: 100%;\n  background: #222d32;\n  color: #fff;\n}\n.-aw > div {\n  display: block;\n  text-align: left;\n  height: auto;\n  background-color: inherit;\n  color: inherit;\n  padding-right: 10px;\n}\n.-aw .count {\n  margin: 0 10px;\n  color: #ccc;\n  display: none;\n}\n.-aw .count:before {\n  content: "\uFF08 ";\n}\n.-aw .count:after {\n  content: " \uFF09";\n}\n.-aw .closed .count {\n  display: inline-block;\n}\n.-aw t {\n  display: inline-block;\n  width: 16px;\n}\n', '-aw tree tree');

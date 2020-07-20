@@ -1,1 +1,51 @@
-00uItem,Object,a,bfunction c(e){var c=[];c.tab=-Infinity,c.count=0;var d={};e=e.filter(function(a){return!!a}),e.forEach(function(b){var e=new a(b);b.id?d[b.id]=e:c.push(e)}),e.forEach(function(a){if(!a)return;var b=d[a.parentId];if(b){var c=d[a.id];delete d[a.id],b&&b.push(c)}});var h=b.keys(d).map(function(a){return d[a]});c.push.apply(c,h);var f=0,g=function(a,d){a.tab=f;var b=0;return a.parent=d,a.root=c,a.length&&(f++,a.forEach(function(a){return b+=g(a,d)}),f--),a.total=b||1};return g(c),c}return c
+01aItem,Object,Item,Objectfunction getTreeFromData(array) {
+    var root = [];
+    root.tab = -Infinity;
+    root.count = 0;
+    var map = {};
+    array = array.filter(function (a) {
+        return !!a;
+    });
+    array.forEach(function (data) {
+        var item = new Item(data);
+        if (data.id) {
+            map[data.id] = item;
+        } else {
+            root.push(item);
+        }
+    });
+    array.forEach(function (data) {
+        if (!data)
+            return;
+        var parent = map[data.parentId];
+        if (parent) {
+            var item = map[data.id];
+            delete map[data.id];
+            if (parent) {
+                parent.push(item);
+            }
+        }
+    });
+    var items = Object.keys(map).map(function (a) {
+        return map[a];
+    });
+    root.push.apply(root, items);
+    var tab = 0;
+    var run = function (item, parent) {
+        item.tab = tab;
+        var total = 0;
+        item.parent = parent;
+        item.root = root;
+        if (item.length) {
+            tab++;
+            item.forEach(function (item) {
+                return total += run(item, parent);
+            });
+            tab--;
+        }
+        return item.total = total || 1;
+    };
+    run(root);
+    return root;
+}
+return getTreeFromData;

@@ -1,0 +1,25 @@
+03ydocument,addClass,removeClass,cless,document,addClass,removeClass,clessvar checker, Checker, template, template = Checker = checker = {
+        'toString': function () {
+            return '<s>\u2713</s>';
+        }
+    };
+function main(elem) {
+    if (elem === void 0) {
+        elem = document.createElement('check');
+    }
+    var page = elem;
+    page.innerHTML = checker;
+    page.setValue = function (value) {
+        value = !!value;
+        if (value === this.value)
+            return;
+        this.value = value;
+        if (value) {
+            addClass(page, 'checked');
+        } else {
+            removeClass(page, 'checked');
+        }
+    };
+    return page;
+}
+return cless(main, '.-af {\n  display: inline-block;\n  height: 1em;\n  width: 1em;\n  border-radius: 2px;\n  border: 0.1em solid;\n  position: relative;\n  vertical-align: middle;\n  margin-right: 4px;\n}\n.-af > s {\n  display: none;\n  border-radius: 50%;\n  width: 1em;\n  height: 1em;\n  line-height: 1;\n  text-decoration: none;\n  text-align: center;\n  position: absolute;\n  margin: -0.5em;\n  font-weight: bold;\n  top: 50%;\n  left: 50%;\n}\n.-af.checked > s {\n  display: block;\n}\n', '-af checker checker');

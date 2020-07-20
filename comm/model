@@ -1,1 +1,221 @@
-060render,input,datepicker,select,isEmpty,Date,Math,remove,appendChild,Promise,on,cless,b,a,h,c,i,j,d,k,l,m,n,ofunction p(c){var d=function(){var h=c.data,i=c.readonly,d=c.field;if(!(d&&h))return;var j=function(){if(h!==c.data||d!==c.field||i!==c.readonly)return;var j=d.type||d.editor;if(/\?/.test(j))var n=j.split('?'),j=n[0],o=n[1];var r=c.getAttribute('type');if(r!==j&&c.setAttribute('type',j),k(c.children),i)c.innerHTML='<span ng-bind=get()></span>',b(c,{get:function(){var a=g[j];return a?a(d,h,o):h[d.key]}});else{var p=f[j],m=p?p(c,o):a();if(m){m!==c&&l(c,m),e.call(m,d,h);var q;m.renders.push(function(){var a=this,b=a.valid,d=a.status;if(c.valid!==b&&(c.valid=b),q===d)return;q=d,c.setAttribute('status',q)})}}};h.loading_promise||d.loading_promise?m.all([h.loading_promise,d.loading_promise]).then(j):j()};return n('changes')(c,function(b){var a=b.changes;(a.data||a.field||a.readonly)&&d()}),c}var e=function(c,d){var a=this;a.setAttribute('ng-model','data[field.key]'),b(a,{field:c,data:d})},f={input:a,date:function(e){var b=a(),d=h(e.options);return c(b,d),b},select:c,repeat:function(b,c){var b=a();return b.renders=[function(){var b=this.$scope,e=b.field,f=b.data,a=this.status,d=this.value===f[c];this.dirty?i(this.value)?e.is_required?a='required':a='empty':a=d?'pass':'error':a='clean',this.status=a,this.valid=d}],b},none:function(){}},g={date:function(d,e){var b=e[d.key],a=new j(b),c=function(a){return a>9?a:'0'+a};return+a?[a.getFullYear(),a.getMonth()+1,a.getDate()].map(c).join('-'):b},size:function(c,e){var a=e[c.key],b=d.log2(a)/10|0;return a/=d.pow(2,b*10),a=+a.toFixed(2),a+'KMGT'.charAt(b-1)+'B'}};return o(p,'','-ud model model')
+0jqseek,render,Object,extend,input,textarea,datepicker,select,colorpicker,image,checkbox,cast,radio,isEmpty,Date,Math,Function,remove,appendChild,on,getValue,setValue,Promise,cless,seek,render,Object,extend,input,textarea,datepicker,select,colorpicker,image,checkbox,cast,radio,isEmpty,Date,Math,Function,remove,appendChild,on,getValue,setValue,Promise,clessvar rebuildOptions = function () {
+    var elem = this;
+    var $scope = elem.$scope;
+    if (!$scope)
+        return;
+    var data = $scope.data, field = $scope.field;
+    if (!data || !field)
+        return;
+    var options_from = field.options_from, options = field.options;
+    var new_options = seek(data, options_from);
+    if (new_options !== options) {
+        field.options = new_options;
+        render.refresh();
+    }
+};
+var copyOptionData = function () {
+    var $scope = this.$scope;
+    if (!$scope)
+        return;
+    var data = $scope.data, field = $scope.field;
+    if (!data || !field)
+        return;
+    var option_to = field.option_to, options = field.options;
+    if (!options)
+        return;
+    var value = data[field.key];
+    var option = value instanceof Object ? value : value in options ? options[value] : value;
+    extend(data, seek(option, option_to));
+};
+var renderModel = function (field, data) {
+    var ipt = this;
+    ipt.setAttribute('ng-model', 'data[field.key]');
+    render(ipt, {
+        field: field,
+        data: data
+    });
+};
+var constructors = {
+    input: input,
+    text: textarea,
+    date: function (_a) {
+        var field = _a.field;
+        var elem = input();
+        var picker = datepicker(field.options);
+        select(elem, picker);
+        return elem;
+    },
+    color: function (field) {
+        return colorpicker();
+    },
+    image: function (_a) {
+        var field = _a.field;
+        var img = image();
+        var options = field.options;
+        if (options)
+            img.setAttribute('uploadto', options.uploadto);
+        return img;
+    },
+    checkbox: function (_a) {
+        var field = _a.field;
+        var elem = checkbox();
+        cast(elem, field);
+        return elem;
+    },
+    radio: function (_a) {
+        var field = _a.field;
+        var elem = radio();
+        cast(elem, field);
+        return elem;
+    },
+    select: function () {
+        var elem = select();
+        elem.innerHTML = '<option ng-repeat="(o,i) in field.options" ng-bind="o.name||o" _value="o.key!==undefined?o.key:i"></option>';
+        return elem;
+    },
+    'repeat': function (_, field_type) {
+        var elem = input();
+        elem.renders = [function () {
+                var _a = this.$scope, field = _a.field, data = _a.data;
+                var status = this.status;
+                var valid = this.value === data[field_type];
+                if (!this.dirty) {
+                    status = 'clean';
+                } else if (isEmpty(this.value)) {
+                    if (field.is_required) {
+                        status = 'required';
+                    } else {
+                        status = 'empty';
+                    }
+                } else {
+                    status = valid ? 'pass' : 'error';
+                }
+                this.status = status;
+                this.valid = valid;
+            }];
+        return elem;
+    },
+    'none': function () {
+    }
+};
+var readonly_types = {
+    'date': function (field, data) {
+        var string = data[field.key];
+        var value = new Date(string);
+        var toFixed = function (a) {
+            return a > 9 ? a : '0' + a;
+        };
+        return +value ? [
+            value.getFullYear(),
+            value.getMonth() + 1,
+            value.getDate()
+        ].map(toFixed).join('-') : string;
+    },
+    'size': function (field, data) {
+        var f = data[field.key];
+        var log = Math.log(f) / Math.LN2 / 10 | 0;
+        f /= Math.pow(2, log * 10);
+        f = +f.toFixed(2);
+        return f + 'KMGT'.charAt(log - 1) + 'B';
+    }
+};
+function main(elem) {
+    var build = function () {
+        var data = elem.data, readonly = elem.readonly, field = elem.field;
+        if (!field || !data)
+            return;
+        var run = function () {
+            var function_type = 'function';
+            if (data !== elem.data || field !== elem.field || readonly !== elem.readonly)
+                return;
+            var field_type = field.type || field.editor, field_editor = field.editor || field.type;
+            if (field_editor instanceof Function && field_type === field_editor) {
+                field_type = function_type;
+            }
+            if (!(field_editor instanceof Function)) {
+                field_editor = null;
+            }
+            if (/\?/.test(field_type)) {
+                var _a = field_type.split('?'), field_type = _a[0], field_ref = _a[1];
+            }
+            var type = elem.getAttribute('type');
+            if (type !== field_type) {
+                elem.setAttribute('type', field_type);
+            }
+            remove(elem.children);
+            if (readonly) {
+                elem.innerHTML = '<span ng-bind=get()></span>';
+                render(elem, {
+                    get: function () {
+                        var create = readonly_types[field_type];
+                        if (create) {
+                            return create(field, data, field_ref);
+                        }
+                        return seek(data, field.key);
+                    }
+                });
+            } else {
+                var create = field_type === 'function' ? field_editor : constructors[field_type];
+                var ipt = create ? create(elem, field_ref) : input();
+                if (ipt) {
+                    if (ipt !== elem)
+                        appendChild(elem, ipt);
+                    if (!ipt.$scope) {
+                        renderModel.call(ipt, field, data);
+                        var saved_sataus;
+                        ipt.renders.push(function () {
+                            var _a = this, valid = _a.valid, status = _a.status;
+                            if (elem.valid !== valid)
+                                elem.valid = valid;
+                            if (saved_sataus === status)
+                                return;
+                            saved_sataus = status;
+                            elem.setAttribute('status', saved_sataus);
+                        });
+                    } else {
+                        on('change')(ipt, function () {
+                            data[field.key] = getValue.call(this);
+                        });
+                        setValue.call(ipt, data[field.key]);
+                    }
+                    if ('option_to' in field) {
+                        on('change')(ipt, copyOptionData);
+                    }
+                    if ('options_from' in field) {
+                        ipt.renders.push(rebuildOptions);
+                    }
+                }
+            }
+        };
+        if (data.loading_promise || field.loading_promise) {
+            Promise.all([
+                data.loading_promise,
+                field.loading_promise
+            ]).then(run);
+        } else {
+            run();
+        }
+    };
+    on('changes')(elem, function (_a) {
+        var changes = _a.changes;
+        if (changes.data || changes.field || changes.readonly) {
+            build();
+        }
+    });
+    return elem;
+}
+extend(main, {
+    setEditors: function (map) {
+        extend(constructors, map);
+    },
+    setReadors: function (map) {
+        extend(constructors, map);
+    },
+    setEditor: function (key, func) {
+        constructors[key] = func;
+    },
+    setReador: function (key, func) {
+        readonly_types[key] = func;
+    }
+});
+return cless(main, '', '-ue model model');

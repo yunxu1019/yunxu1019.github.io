@@ -1,1 +1,35 @@
-02kisString,Error,Object,Array,Function,a,b,c,d,efunction f(g,f,h){switch(arguments.length){case 2:h=f;f='default';break;case 3:if(!a(f)&&a(h)){var j=f;f=h,h=j}break;case 1:h=g;g=this;f='default';break;default:throw new b('\u53c2\u6570\u6570\u91cf\u4e0d\u6b63\u786e')}if(!(g instanceof c))return;var i='cast('+f+')';f='care('+f+')',g[f]instanceof d&&(g[f].forEach(function(a){a instanceof e&&a.call(g,h,g[i])}),g[i]=h)}return f
+042isString,Error,Object,Array,Function,isString,Error,Object,Array,Functionfunction cast(target, type, data) {
+    switch (arguments.length) {
+    case 2:
+        data = type;
+        type = 'default';
+        break;
+    case 3:
+        if (!isString(type) && isString(data)) {
+            var temp = type;
+            type = data;
+            data = temp;
+        }
+        break;
+    case 1:
+        data = target;
+        target = this;
+        type = 'default';
+        break;
+    default:
+        throw new Error('\u53c2\u6570\u6570\u91cf\u4e0d\u6b63\u786e');
+    }
+    if (!(target instanceof Object))
+        return;
+    var datakey = 'cast(' + type + ')';
+    type = 'care(' + type + ')';
+    if (target[type] instanceof Array) {
+        target[type].forEach(function (listener) {
+            if (listener instanceof Function) {
+                listener.call(target, data, target[datakey]);
+            }
+        });
+        target[datakey] = data;
+    }
+}
+return cast;

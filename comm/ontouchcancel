@@ -1,1 +1,2 @@
-008on,bvar a=b('touchcancel');return a
+00aon,onvar ontouchcancel = on('touchcancel');
+return ontouchcancel;

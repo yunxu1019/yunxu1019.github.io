@@ -1,1 +1,89 @@
-080Function,extendTouchEvent,onmousemove,window,onmouseup,ontouchmove,ontouchend,ontouchcancel,Error,onmousedown,ontouchstart,a,b,d,c,e,f,g,h,i,j,kfunction l(l,r,p){var m=r.start,o=r.move,s=r.end,n=!1,t,u,v,w,x,A=function(b){o instanceof a&&o.call(l,b)},B=function(c){b(c),o instanceof a&&o.call(l,c)},q=function(b){if(b.touches&&b.touches.length)return;t&&t(),v&&v(),u&&u(),x&&x(),w&&w(),n=!1,s instanceof a&&s.call(l,b)},y=function(){if(n)return;n=!0,t=d(c,A),v=e(c,q)},z=function(){if(n)return;n=!0,u=f(l,B),w=g(l,q),x=h(l,q)};if(!m){if(!p)throw new i('\u8bf7\u4f20\u5165touchstartEvent\u6216\u8005mousedownEvent');p.type==='mousedown'?y():(b(p),p.preventDefault(),z());return}j(l,function(b){y(b),m instanceof a&&m.call(this,b)}),k(l,function(c){z(c),b(c),m instanceof a&&m.call(this,c)})}return l
+0duwindow,isFunction,extendTouchEvent,onmousemove,onmouseup,ontouchmove,ontouchend,ontouchcancel,Error,onmousedown,ontouchstart,window,isFunction,extendTouchEvent,onmousemove,onmouseup,ontouchmove,ontouchend,ontouchcancel,Error,onmousedown,ontouchstartvar moveListeners = [], offhook;
+function mousemove(event) {
+    moveListeners.forEach(function (a) {
+        return a(event);
+    });
+}
+function addHookListeners(on, hook) {
+    var index = moveListeners.indexOf(hook);
+    if (~index) {
+        moveListeners.splice(index, 1);
+    }
+    if (!moveListeners.length) {
+        offhook = on(window, mousemove);
+    }
+    moveListeners.push(hook);
+}
+function removeAllListeners() {
+    moveListeners.splice(0, moveListeners.length);
+    if (isFunction(offhook))
+        offhook();
+    offhook = null;
+}
+function moveupon(target, _a, initialEvent) {
+    var start = _a.start, move = _a.move, end = _a.end;
+    var touchLocked = false;
+    var offmouseup, offtouchend, offtouchcancel;
+    var mousemove = function (event) {
+        if (isFunction(move))
+            move.call(target, event);
+    };
+    var touchmove = function (event) {
+        extendTouchEvent(event);
+        if (isFunction(move))
+            move.call(target, event);
+    };
+    var cancel = function (event) {
+        if (event.touches && event.touches.length)
+            return;
+        removeAllListeners();
+        if (isFunction(offmouseup))
+            offmouseup();
+        if (isFunction(offtouchcancel))
+            offtouchcancel();
+        if (isFunction(offtouchend))
+            offtouchend();
+        touchLocked = false;
+        if (isFunction(end))
+            end.call(target, event);
+    };
+    var hookmouse = function () {
+        if (touchLocked)
+            return;
+        touchLocked = true;
+        addHookListeners(onmousemove, mousemove);
+        offmouseup = onmouseup(window, cancel);
+    };
+    var hooktouch = function () {
+        if (touchLocked)
+            return;
+        touchLocked = true;
+        addHookListeners(ontouchmove, touchmove);
+        offtouchend = ontouchend(target, cancel);
+        offtouchcancel = ontouchcancel(target, cancel);
+    };
+    if (!start) {
+        if (!initialEvent)
+            throw new Error('\u8bf7\u4f20\u5165touchstartEvent\u6216\u8005mousedownEvent');
+        if (initialEvent.type === 'touchstart') {
+            extendTouchEvent(initialEvent);
+            initialEvent.preventDefault();
+            hooktouch();
+        } else {
+            hookmouse();
+        }
+        return;
+    }
+    onmousedown(target, function (event) {
+        hookmouse(event);
+        if (isFunction(start))
+            start.call(this, event);
+    });
+    ontouchstart(target, function (event) {
+        extendTouchEvent(event);
+        hooktouch(event);
+        if (isFunction(start))
+            start.call(this, event);
+    });
+}
+return moveupon;

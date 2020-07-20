@@ -1,1 +1,9 @@
-018layer$glance,cless,a,bfunction c(){var b=a({left:'/frame/left',top:'/frame/top',main:'/page/grinch'});return b}return b(c,'.-n{padding-top:0;width:100%}','-n main main')
+022layer$glance,cless,layer$glance,clessfunction main() {
+    var page = layer$glance({
+        left: '/frame/left',
+        top: '/frame/top',
+        main: '/page/grinch'
+    });
+    return page;
+}
+return cless(main, '.-n {\n  padding-top: 0;\n  width: 100%;\n}\n', '-n main main');

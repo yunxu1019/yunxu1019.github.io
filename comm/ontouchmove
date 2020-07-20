@@ -1,1 +1,2 @@
-008on,bvar a=b('touchmove');return a
+00aon,onvar ontouchmove = on('touchmove');
+return ontouchmove;

@@ -1,1 +1,55 @@
-02iinnerWidth,innerHeight,css,fromOffset,c,d,g,efunction a(c,a,b){return a===+b?-a/2:c*a/(a-b)}function f(a,b,c){return a*(c-b)}function b(b,f,l){l===void 0&&(l=!1);var m=this,j=m.offsetHeight,k=m.offsetWidth,n=this.offsetParent||{},o=n.clientWidth,h=o===void 0?c:o,p=n.clientHeight,i=p===void 0?d:p;l||(b+k>h&&(b=h-k),f+j>i&&(f=i-j),b<0&&(b=0),f<0&&(f=0));var q=a(b,k,h),r=a(f,j,i),s=b-q,t=f-r;g(this,'left:'+s*100/h+'%;top:'+t*100/ i+'%;margin-left:'+e(q)+';margin-top:'+e(r))}return b.getPosition=function(b){var e=b.offsetLeft,f=b.offsetTop,l=b.offsetHeight,m=b.offsetWidth,g=this.offsetParent||{},h=g.clientWidth,i=h===void 0?c:h,j=g.clientHeight,k=j===void 0?d:j,n=a(e,m,i),o=a(f,l,k),p=e-n,q=f-o;return[p/ i,q/k]},b.setPosition=function(a,k){var l=k[0],m=k[1],e=a.offsetLeft,g=a.offsetTop,n=a.offsetHeight,o=a.offsetWidth,h=this.offsetParent||{},i=h.clientWidth,p=i===void 0?c:i,j=h.clientHeight,q=j===void 0?d:j,e=f(l,o,p),g=f(m,n,q);b.call(a,e,g)},b
+046innerWidth,innerHeight,css,fromOffset,innerWidth,innerHeight,css,fromOffsetfunction getMarginLeft(offsetLeft, offsetWidth, innerWidth) {
+    if (offsetWidth === +innerWidth)
+        return -offsetWidth / 2;
+    return offsetLeft * offsetWidth / (offsetWidth - innerWidth);
+}
+function getOffsetLeft(x, offsetWidth, innerWidth) {
+    return x * (innerWidth - offsetWidth);
+}
+function move(offsetLeft, offsetTop, preventOverflow) {
+    if (preventOverflow === void 0) {
+        preventOverflow = true;
+    }
+    var _a = this, offsetHeight = _a.offsetHeight, offsetWidth = _a.offsetWidth;
+    var _b = this.offsetParent || {}, _c = _b.clientWidth, clientWidth = _c === void 0 ? innerWidth : _c, _d = _b.clientHeight, clientHeight = _d === void 0 ? innerHeight : _d;
+    if (preventOverflow !== false) {
+        if (offsetLeft + offsetWidth > clientWidth) {
+            offsetLeft = clientWidth - offsetWidth;
+        }
+        if (offsetTop + offsetHeight > clientHeight) {
+            offsetTop = clientHeight - offsetHeight;
+        }
+        if (offsetLeft < 0) {
+            offsetLeft = 0;
+        }
+        if (offsetTop < 0) {
+            offsetTop = 0;
+        }
+    }
+    var marginLeft = getMarginLeft(offsetLeft, offsetWidth, clientWidth);
+    var marginTop = getMarginLeft(offsetTop, offsetHeight, clientHeight);
+    var left = offsetLeft - marginLeft;
+    var top = offsetTop - marginTop;
+    css(this, 'left:' + left * 100 / clientWidth + '%;top:' + top * 100 / clientHeight + '%;margin-left:' + fromOffset(marginLeft) + ';margin-top:' + fromOffset(marginTop));
+}
+move.getPosition = function (target) {
+    var offsetLeft = target.offsetLeft, offsetTop = target.offsetTop, offsetHeight = target.offsetHeight, offsetWidth = target.offsetWidth;
+    var _a = this.offsetParent || {}, _b = _a.clientWidth, clientWidth = _b === void 0 ? innerWidth : _b, _c = _a.clientHeight, clientHeight = _c === void 0 ? innerHeight : _c;
+    var marginLeft = getMarginLeft(offsetLeft, offsetWidth, clientWidth);
+    var marginTop = getMarginLeft(offsetTop, offsetHeight, clientHeight);
+    var left = offsetLeft - marginLeft;
+    var top = offsetTop - marginTop;
+    return [
+        left / clientWidth,
+        top / clientHeight
+    ];
+};
+move.setPosition = function (target, _a) {
+    var x = _a[0], y = _a[1];
+    var offsetLeft = target.offsetLeft, offsetTop = target.offsetTop, offsetHeight = target.offsetHeight, offsetWidth = target.offsetWidth;
+    var _b = this.offsetParent || {}, _c = _b.clientWidth, clientWidth = _c === void 0 ? innerWidth : _c, _d = _b.clientHeight, clientHeight = _d === void 0 ? innerHeight : _d;
+    var offsetLeft = getOffsetLeft(x, offsetWidth, clientWidth);
+    var offsetTop = getOffsetLeft(y, offsetHeight, clientHeight);
+    move.call(target, offsetLeft, offsetTop);
+};
+return move;

@@ -1,1 +1,127 @@
-0cicloneVisible,getScreenPosition,css,fromOffset,setOpacity,isArray,Math,MOVELOCK_DELTA,getComputedStyle,document,zIndex,dispatch,move,remove,moveupon,extendTouchEvent,onmousedown,ontouchstart,l,m,b,c,n,o,p,f,q,g,r,d,s,h,t,u,v,wfunction a(j,n,A){if(/^(?:select|input|textarea)$/i.test(n.target.tagName))return;if(j.dragable===!1)return;if(n.preventDefault(),o(j)){var m=j.slice(1);j=j[0]}else var m=j['with']?[].concat(j['with']):[];var l={x:j.offsetLeft-n.clientX,y:j.offsetTop-n.clientY},k,v=j.style.opacity,w=j.style.filter,x=m.map(function(a){return{opacity:a.style.opacity,filter:a.style.filter}}),u,y=function(h){if(h.moveLocked)return;if(!l.ing){var n=p.abs;if(n(j.offsetLeft-h.clientX-l.x<f)&&n(j.offsetTop-h.clientY-l.y)<f)return;l.ing=!0,/absolute|fixed/.test(q(j).position)?(k=j,m=[]):(k=e(j),i(g.body,k)),u=m.map(e),u.map(function(a){return g.body.appendChild(a)}),l.x+=k.offsetLeft-j.offsetLeft,l.y+=k.offsetTop-j.offsetTop,k.style.zIndex=r(),u.map(function(a){return a.style.zIndex=k.style.zIndex}),d('dragstart',j)}a.target=k,h.moveLocked=!0;var v=l.x+h.clientX,w=l.y+h.clientY,o=-k.offsetLeft,t=-k.offsetTop;s.call(k,v,w,A),o+=k.offsetLeft,t+=k.offsetTop,u.map(function(a){return b(a,'left:'+c(a.offsetLeft+o)+';top:'+c(a.offsetTop+t)+';')}),d('dragmove',j)},z=function(){k!==j&&(h(k),b(j,{opacity:v,filter:w})),h(u),m.map(function(a,c){return b(a,x[c])}),l.ing&&d('dragend',j),a.target=null,l=null};t(j,{move:y,end:z},n)}var e=function(a){var d=l(a),e=m(a);return b(d,'position:absolute;left:'+c(e.left)+';top:'+c(e.top)+';user-select:none;'),n(a,0),d},i=function(a,b){a.appendChild(b)},j=function(b){a(this,b)},k=function(b){u(b),a(this,b)};return a.on=function(a){v(a,j),w(a,k)},a
+0mecloneVisible,getScreenPosition,css,fromOffset,setOpacity,isArray,Math,MOVELOCK_DELTA,getComputedStyle,document,zIndex,dispatch,move,remove,moveupon,extendTouchEvent,getTargetIn,onmousedown,ontouchstart,cloneVisible,getScreenPosition,css,fromOffset,setOpacity,isArray,Math,MOVELOCK_DELTA,getComputedStyle,document,zIndex,dispatch,move,remove,moveupon,extendTouchEvent,getTargetIn,onmousedown,ontouchstartvar toCloneTarget = function (target, isMovingSource) {
+    var clone = cloneVisible(target);
+    var position = getScreenPosition(target);
+    css(clone, 'position:absolute;left:' + fromOffset(position.left) + ';top:' + fromOffset(position.top) + ';user-select:none;');
+    setOpacity(target, isMovingSource !== false ? 0 : 1);
+    return clone;
+};
+var appendChild = function (a, b) {
+    a.appendChild(b);
+};
+function drag(target, initialEvent, preventOverflow, isMovingSource) {
+    if (/^(?:select|input|textarea)$/i.test(initialEvent.target.tagName))
+        return;
+    if (target.dragable === false)
+        return;
+    initialEvent.preventDefault();
+    if (isArray(target)) {
+        var extraTargets = target.slice(1);
+        target = target[0];
+    } else {
+        var extraTargets = target['with'] ? [].concat(target['with']) : [];
+    }
+    var saved_delta = {
+        x: target.offsetLeft - initialEvent.clientX,
+        y: target.offsetTop - initialEvent.clientY
+    };
+    var clone;
+    var saved_opacity = target.style.opacity;
+    var saved_filter = target.style.filter;
+    var extraStyles = extraTargets.map(function (e) {
+        return {
+            opacity: e.style.opacity,
+            filter: e.style.filter
+        };
+    });
+    var extraClones;
+    var mousemove = function (event) {
+        if (event.moveLocked)
+            return;
+        if (!saved_delta.ing) {
+            var abs = Math.abs;
+            if (abs(target.offsetLeft - event.clientX - saved_delta.x < MOVELOCK_DELTA) && abs(target.offsetTop - event.clientY - saved_delta.y) < MOVELOCK_DELTA)
+                return;
+            saved_delta.ing = true;
+            if (!/absolute|fixed/.test(getComputedStyle(target).position)) {
+                clone = toCloneTarget(target, isMovingSource);
+                appendChild(document.body, clone);
+            } else {
+                clone = target;
+                extraTargets = [];
+            }
+            extraClones = extraTargets.map(toCloneTarget);
+            extraClones.map(function (c) {
+                return document.body.appendChild(c);
+            });
+            saved_delta.x += clone.offsetLeft - target.offsetLeft;
+            saved_delta.y += clone.offsetTop - target.offsetTop;
+            clone.style.zIndex = zIndex();
+            extraClones.map(function (e) {
+                return e.style.zIndex = clone.style.zIndex;
+            });
+            dispatch('dragstart', target);
+        }
+        drag.target = clone;
+        event.moveLocked = true;
+        var offsetLeft = saved_delta.x + event.clientX;
+        var offsetTop = saved_delta.y + event.clientY;
+        var cloneDeltaLeft = -clone.offsetLeft;
+        var cloneDeltaTop = -clone.offsetTop;
+        move.call(clone, offsetLeft, offsetTop, preventOverflow);
+        cloneDeltaLeft += clone.offsetLeft;
+        cloneDeltaTop += clone.offsetTop;
+        if (extraClones)
+            extraClones.map(function (clone) {
+                return css(clone, 'left:' + fromOffset(clone.offsetLeft + cloneDeltaLeft) + ';top:' + fromOffset(clone.offsetTop + cloneDeltaTop) + ';');
+            });
+        dispatch('dragmove', target);
+    };
+    var clear = function () {
+        if (clone !== target)
+            remove(clone), css(target, {
+                opacity: saved_opacity,
+                filter: saved_filter
+            });
+        remove(extraClones);
+        extraTargets.map(function (target, cx) {
+            return css(target, extraStyles[cx]);
+        });
+        if (saved_delta.ing)
+            dispatch('dragend', target);
+        drag.target = null;
+        saved_delta = null;
+    };
+    moveupon(target, {
+        move: mousemove,
+        end: clear
+    }, initialEvent);
+}
+var mousedrag = function (event) {
+    drag(this, event);
+};
+var touchdrag = function (event) {
+    extendTouchEvent(event);
+    drag(this, event);
+};
+var bindActionTarget = function (action, actionTarget) {
+    return function (event) {
+        if (getTargetIn(actionTarget, event.target)) {
+            action.call(actionTarget, event);
+        }
+    };
+};
+drag.on = function (target, actionTarget) {
+    if (actionTarget === void 0) {
+        actionTarget = target.dragTarget;
+    }
+    if (actionTarget) {
+        var _mousedrag = bindActionTarget(mousedrag, actionTarget);
+        var _touchdrag = bindActionTarget(touchdrag, actionTarget);
+    } else {
+        var _mousedrag = mousedrag;
+        var _touchdrag = touchdrag;
+    }
+    onmousedown(target, _mousedrag);
+    ontouchstart(target, _touchdrag);
+};
+return drag;

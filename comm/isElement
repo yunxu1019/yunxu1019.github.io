@@ -1,1 +1,4 @@
-00gisNode,afunction b(b){return!!(a(b)&&b.children)}return b
+00qisNode,isNodefunction isElement(o) {
+    return !!(isNode(o) && o.children);
+}
+return isElement;

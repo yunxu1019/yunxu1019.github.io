@@ -1,0 +1,9 @@
+02mcss,document,care,cless,css,document,care,clessvar setsrc = function (src) {
+    css(this, { backgroundImage: 'url(\'' + src + '\')' });
+};
+function img() {
+    var image = document.createElement('png');
+    care(image, setsrc);
+    return image;
+}
+return cless(img, '.-bs {\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100px;\n  height: 100px;\n  display: inline-block;\n}\n', '-bs img img');

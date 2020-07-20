@@ -1,1 +1,7 @@
-var a=function(a){var b=[];while(a.nextSibling)a=a.nextSibling,a.nodeType===1&&b.push(a);return b};return a
+var getFollowedElementSiblings = function (target) {
+    var nextElements = [];
+    while (target.nextSibling)
+        target = target.nextSibling, target.nodeType === 1 && nextElements.push(target);
+    return nextElements;
+};
+return getFollowedElementSiblings;

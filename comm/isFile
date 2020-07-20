@@ -1,0 +1,7 @@
+00qwindow,windowvar File = window.File;
+function isFile(a) {
+    if (File) {
+        return a instanceof File;
+    }
+}
+return isFile;

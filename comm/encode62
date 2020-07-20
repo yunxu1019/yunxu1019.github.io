@@ -1,1 +1,56 @@
-02kparseInt,Date,repeat,String,isNumber,a,c,g,f,hvar e='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',d={};e.split('').forEach(function(a,b){return d[a]=b});var b={src:e,map:d,time_delta:a('zzzzz',36),timedecode:function(b){var d=this.time_delta,e=b.slice(b.length-d.toString(36).length,b.length),f=a((new c-a(e,36))/d)*d,g=f+a(e,36);return this.encode(b.slice(0,b.length-d.toString(36).length),g.toString(36))},timeencode:function(i){var a=this.time_delta,e=a/6|0,b=+new c-e,f=b%a,d=f.toString(36),h=a.toString(36);return this.encode(i,b.toString(36))+g('0',h.length-d.length)+d},timeupdate:function(b){var d=this.time_delta,e=b.slice(b.length-d.toString(36).length,b.length),f=a((new c-a(e,36))/d)*d,g=f+a(e,36);return g+(d>>1)>+new c?b:this.timeencode(this.timedecode(b))},encode:function(e,a){if(!a)return e;var b=f(e);a=f(a);var c=this.src,b=b.replace(/\w/g,function(b,g){var e=d[b];if(!h(e))return b;var f=e^a.charCodeAt(g%a.length)%c.length;return f>=c.length?b:c[f]});return b}};return b.decode62=b.encode62=b.encode,b
+042parseInt,Date,repeat,String,isNumber,parseInt,Date,repeat,String,isNumbervar src = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+var map = {};
+src.split('').forEach(function (s, i) {
+    return map[s] = i;
+});
+var encode62 = {
+    src: src,
+    map: map,
+    time_delta: parseInt('zzzzz', 36),
+    timedecode: function (string) {
+        var time_delta = this.time_delta;
+        var time_rest = string.slice(string.length - time_delta['toString'](36).length, string.length);
+        var time_start = parseInt((new Date() - parseInt(time_rest, 36)) / time_delta) * time_delta;
+        var time_stamp = time_start + parseInt(time_rest, 36);
+        return this.encode(string.slice(0, string.length - time_delta['toString'](36).length), time_stamp['toString'](36));
+    },
+    timeencode: function (string) {
+        var time_delta = this.time_delta;
+        var time_free = time_delta / 6 | 0;
+        var time_stamp = +new Date() - time_free;
+        var time_rest = time_stamp % time_delta;
+        var time_rest_str = time_rest['toString'](36);
+        var time_delta_str = time_delta['toString'](36);
+        return this.encode(string, time_stamp['toString'](36)) + repeat('0', time_delta_str.length - time_rest_str.length) + time_rest_str;
+    },
+    timeupdate: function (string) {
+        var time_delta = this.time_delta;
+        var time_rest = string.slice(string.length - time_delta['toString'](36).length, string.length);
+        var time_start = parseInt((new Date() - parseInt(time_rest, 36)) / time_delta) * time_delta;
+        var time_stamp = time_start + parseInt(time_rest, 36);
+        if (time_stamp + (time_delta >> 1) > +new Date()) {
+            return string;
+        } else {
+            return this.timeencode(this.timedecode(string));
+        }
+    },
+    encode: function (data, sign) {
+        if (!sign)
+            return data;
+        var result = String(data);
+        sign = String(sign);
+        var src = this.src;
+        var result = result.replace(/\w/g, function (w, cx) {
+            var code = map[w];
+            if (!isNumber(code))
+                return w;
+            var s = code ^ sign.charCodeAt(cx % sign.length) % src.length;
+            if (s >= src.length)
+                return w;
+            return src[s];
+        });
+        return result;
+    }
+};
+encode62.decode62 = encode62.encode62 = encode62.encode;
+return encode62;

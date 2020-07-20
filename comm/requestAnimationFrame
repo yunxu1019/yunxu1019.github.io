@@ -1,1 +1,8 @@
-01kDate,window,setTimeout,c,a,evar b=+new c,d=a.requestAnimationFrame||a.mozRequestAnimationFrame||a.webkitRequestAnimationFrame||a.msRequestAnimationFrame||function(f){var a=+new c,d=a-b>16?0:a%16;return b=d+a,e(f,d)};return d
+02iDate,window,setTimeout,Date,window,setTimeoutvar lastAnimateTime = +new Date();
+var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+    var currentTime = +new Date();
+    var deltaTime = currentTime - lastAnimateTime > 16 ? 0 : currentTime % 16;
+    lastAnimateTime = deltaTime + currentTime;
+    return setTimeout(callback, deltaTime);
+};
+return requestAnimationFrame;

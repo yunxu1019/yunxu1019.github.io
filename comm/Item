@@ -1,1 +1,59 @@
-01wObject,String,Array,extend,a,c,d,efunction b(e){if(this.value=e instanceof a?e:a.create(e),this.valueOf=function(){return e},this.toString=function(){return c(e)},this.children=this,e.children instanceof d){var f=e.children.map(function(a){return new b(a)});f.forEach(function(a){return a.parent=a}),this.push.apply(this,f)}e instanceof a&&(this.name=e.name,this.tab=e.tab,this.icon=e.icon,this.color=e.color,this.test=e.test),this.count=0}return b.prototype=e([],{isClosed:function(){return this.value.closed},isActive:function(){return this.value.active||this.value.actived},isSelected:function(){return this.value.selected},isChecked:function(){return this.value.checked},getClass:function(){return this.value['class']}}),b
+02yObject,String,Array,extend,Object,String,Array,extendvar id = 0;
+function Item(value) {
+    this.value = value instanceof Object ? value : Object.create(value);
+    this['valueOf'] = function () {
+        return value;
+    };
+    this['toString'] = function () {
+        return String(value);
+    };
+    this.children = this;
+    if (value.children instanceof Array) {
+        var children = value.children.map(function (item) {
+            return new Item(item);
+        });
+        children.forEach(function (item) {
+            return item.parent = item;
+        });
+        this.push.apply(this, children);
+    }
+    if (value instanceof Object) {
+        this.name = value.name;
+        this.tab = value.tab;
+        this.icon = value.icon;
+        this.color = value.color;
+        this.test = value.test;
+    }
+    this.count = 0;
+    this.total = 0;
+    this.crack = 0;
+    this.id = ++id;
+}
+Item.prototype = extend([], {
+    isClosed: function () {
+        return !!this.value.closed;
+    },
+    setClosed: function (value) {
+        this.value.closed = value;
+    },
+    isActive: function () {
+        return !!(this.value.active || this.value.actived);
+    },
+    setActive: function (value) {
+        if ('active' in this.value) {
+            this.value.active = value;
+        } else {
+            this.value.actived = value;
+        }
+    },
+    isSelected: function () {
+        return !!this.value.selected;
+    },
+    isChecked: function () {
+        return !!this.value.checked;
+    },
+    getClass: function () {
+        return !!this.value['class'];
+    }
+});
+return Item;

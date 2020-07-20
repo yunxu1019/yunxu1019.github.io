@@ -1,1 +1,202 @@
-0aiDate,css,getScreenPosition,isNode,document,onmousemove,moveupon,getTargetIn,isArray,removeClass,addClass,onmouseleave,list,autodragchildren,appendChild,cless,y,f,n,o,p,g,q,h,r,i,s,t,u,v,b,wfunction x(x){var k=o(x)?x:p.createElement('table'),m=[];g(k,l),q(k,{start:function(){},move:j}),g(k,function(b){if(!h(n,b.target))return;var a=h(w,b.target);r(a)||(a=[]),a.map(function(a){a.ying=!0}),m.map(function(a){a.ying||i(a,'y-ing')}),m=a.map(function(a){return s(a,'y-ing'),delete a.ying,a})}),t(k,function(){m.map(function(a){i(a,'y-ing')})});var f=u(k),n=f.getElementsByTagName('thead')[0],y=f.getElementsByTagName('tbody')[0],w=function(a){if(f.resizing)return!1;if(!e.test(a.tagName))return!1;var b=[];[].map.call(n.children,function(a){c(a,b)});var g=a.colstart,h=a.colend;return d(f,g,h)};return v(n,w,function(j,m,k,c,l){var d=l.children,e=d[j],g=d[k],h=a(f,g.colstart,g.colend),i=a(f,e.colstart,e.colend);c===b.before?i.map(function(e,f){var d=h[f],a=d[0]||d.next;a?e.map(function(b){c(a,b)}):(a=d.prev)&&e.map(function(c){b.after(a,c),a=c})}):i.map(function(e,f){var d=h[f],a=d[d.length-1]||d.prev;a?e.map(function(b){c(a,b),a=b}):(a=d.next)&&e.map(function(c){b.before(a,c)})})}),f}var c=function(f,c,d,e){var a=0,b=[];return[].map.call(f.children,function(f){while(c[a]>0)c[a++]--;var i=+f.getAttribute('colspan')||1,g=+f.getAttribute('rowspan')||1;g=g>1?g-1:0,i=i>1?i-1:0;for(var j=a,h=i+a;j<=h;j++)c[j]>=g||(c[j]=g);f.colstart=a,f.colend=h,a>=d&&h<=e?b.push(f):h+1<=d?b.prev=f:a-1>=e&&!b.next&&(b.next=f),a=h+1}),b},a=function(g,d,e){var f=[],b=[];return[].map.call(g.children,function(h){if(m.test(h.tagName)){var g=c(h,f,d,e);b.push(g)}else{var g=a(h,d,e);b.push.apply(b,g)}}),b},d=function(b,c,d){return[].concat.apply([],a(b,c,d))},j=function(b){var a=this.resizing;if(!a)return;b.moveLocked=!0;var c=a.restX,d=a.target,e=b.clientX-c;d.style.width=e+'px',a.clientX=b.clientX},k=function(f,c){var a=d(f,c,c);while(a.length){var b=a.shift(),e=b.getAttribute('colspan')||1;if(1===+e)return b}},l=function(b){if(b.which)return;var a=b.target;while(a&&!e.test(a.tagName))a=a.parentNode;var d;if(a){var c=n(a);(b.clientX-c.left<7||c.right-b.clientX<7)&&(b.preventDefault(),b.clientX-c.left<7&&(a=a.previousSibling),a&&(a=k(this,a.colend)),a&&(f(this,{cursor:'e-resize'}),d={target:a,restX:b.clientX-a.offsetWidth},this.resizing=d))}d||(this.resizing=!1,f(this,{cursor:'default'}))},e=/^t[hd]$/i,m=/^tr$/i;return w(x,'.-va{text-align:center;border-collapse:collapse;table-layout:fixed;white-space:nowrap}.-va.dragging{box-shadow:0 0 20px -6px rgba(0,0,0,0.2)}.-va thead,.-va tbody,.-va th,.-va td,.-va tr,.-va table{box-sizing:border-box}.-va .y-ing:before{content:"";display:block;position:absolute;left:0;top:0;bottom:0;right:0;background-color:rgba(0,0,0,0.06)}.-va .y-ing>*{position:relative}.-va>thead{user-select:none;line-height:36px}.-va>thead>tr>td,.-va>thead>tr>th{position:relative;color:#fff;background-color:#999;width:100px}.-va>tbody{line-height:32px}.-va>tbody>tr>td,.-va>tbody>tr>th{position:relative;width:100px}.-va>tbody>tr:nth-child(even)>td,.-va>tbody>tr:nth-child(even)>th{background-color:#eee}.-va>tbody>tr:nth-child(odd)>td,.-va>tbody>tr:nth-child(odd)>th{background-color:#fff}.-va>tbody>tr:hover>td,.-va>tbody>tr:hover>th{background:#dddddd}','-va table table')
+0huDate,css,getScreenPosition,isElement,document,onmousemove,moveupon,getTargetIn,isArray,removeClass,addClass,onmouseleave,list,autodragchildren,appendChild,cless,Date,css,getScreenPosition,isElement,document,onmousemove,moveupon,getTargetIn,isArray,removeClass,addClass,onmouseleave,list,autodragchildren,appendChild,clessvar recover = function (element) {
+    moveMargin(element, 0);
+};
+var moveMargin = function (element, movePixels) {
+    if (element.moved === movePixels)
+        return;
+    element.moved = movePixels;
+    element.moving = new Date();
+    css(element, {
+        marginLeft: movePixels ? movePixels + 'px' : '',
+        marginRight: movePixels ? -movePixels + 'px' : ''
+    });
+};
+var markRowTds = function (tr, deltas, colstart, colend) {
+    var inc = 0;
+    var collections = [];
+    [].map.call(tr.children, function (td) {
+        while (deltas[inc] > 0) {
+            deltas[inc++]--;
+        }
+        var colspan = +td.getAttribute('colspan') || 1;
+        var rowspan = +td.getAttribute('rowspan') || 1;
+        rowspan = rowspan > 1 ? rowspan - 1 : 0;
+        colspan = colspan > 1 ? colspan - 1 : 0;
+        for (var cx = inc, dx = colspan + inc; cx <= dx; cx++) {
+            if (!(deltas[cx] >= rowspan))
+                deltas[cx] = rowspan;
+        }
+        td.colstart = inc;
+        td.colend = dx;
+        if (inc >= colstart && dx <= colend) {
+            collections.push(td);
+        } else if (dx + 1 <= colstart) {
+            collections.prev = td;
+        } else if (inc - 1 >= colend && !collections.next) {
+            collections.next = td;
+        }
+        inc = dx + 1;
+    });
+    return collections;
+};
+var getRowsOfTdsByCol = function (table, start, end) {
+    var savedRowDeltas = [];
+    var savedCollections = [];
+    [].map.call(table.children, function (tr) {
+        if (trElementReg.test(tr.tagName)) {
+            var collections = markRowTds(tr, savedRowDeltas, start, end);
+            savedCollections.push(collections);
+        } else {
+            var collections = getRowsOfTdsByCol(tr, start, end);
+            savedCollections.push.apply(savedCollections, collections);
+        }
+    });
+    return savedCollections;
+};
+var getTdsByCol = function (table, start, end) {
+    return [].concat.apply([], getRowsOfTdsByCol(table, start, end));
+};
+var resizeTarget = function (event) {
+    var resizing = this.resizing;
+    if (!resizing)
+        return;
+    event.moveLocked = true;
+    var restX = resizing.restX, target = resizing.target;
+    var targetX = event.clientX - restX;
+    target.style.width = targetX + 'px';
+    resizing.clientX = event.clientX;
+};
+var getFirstSingleColCell = function (table, col) {
+    var tds = getTdsByCol(table, col, col);
+    while (tds.length) {
+        var td = tds.shift();
+        var colspan = td.getAttribute('colspan') || 1;
+        if (1 === +colspan)
+            return td;
+    }
+};
+var adaptTarget = function (event) {
+    if (event.which)
+        return;
+    var target = event.target;
+    while (target && !tdElementReg.test(target.tagName)) {
+        target = target.parentNode;
+    }
+    var result;
+    if (target) {
+        var position = getScreenPosition(target);
+        if (event.clientX - position.left < 7 || position.right - event.clientX < 7) {
+            event.preventDefault();
+            if (event.clientX - position.left < 7) {
+                target = target.previousSibling;
+            }
+            if (target)
+                target = getFirstSingleColCell(this, target.colend);
+            if (target) {
+                css(this, { 'cursor': 'e-resize' });
+                result = {
+                    target: target,
+                    restX: event.clientX - target.offsetWidth
+                };
+                this.resizing = result;
+            }
+        }
+    }
+    if (!result) {
+        this.resizing = false;
+        css(this, { 'cursor': 'default' });
+    }
+};
+var tdElementReg = /^t[hd]$/i;
+var trElementReg = /^tr$/i;
+function table(elem) {
+    var tableElement = isElement(elem) ? elem : document.createElement('table');
+    var activeCols = [];
+    onmousemove(tableElement, adaptTarget);
+    moveupon(tableElement, {
+        start: function () {
+        },
+        move: resizeTarget
+    });
+    onmousemove(tableElement, function (event) {
+        if (!getTargetIn(thead, event.target))
+            return;
+        var tds = getTargetIn(cellMatchManager, event.target);
+        if (!isArray(tds))
+            tds = [];
+        tds.map(function (td) {
+            td.ying = true;
+        });
+        activeCols.map(function (td) {
+            if (!td.ying)
+                removeClass(td, 'y-ing');
+        });
+        activeCols = tds.map(function (td) {
+            addClass(td, 'y-ing');
+            delete td.ying;
+            return td;
+        });
+    });
+    onmouseleave(tableElement, function () {
+        activeCols.map(function (td) {
+            removeClass(td, 'y-ing');
+        });
+    });
+    var table = tableElement.hasAttribute('ng-src') || tableElement.hasAttribute('src') ? list(tableElement) : tableElement;
+    var thead;
+    var cellMatchManager = function (element) {
+        if (!thead)
+            thead = table.getElementsByTagName('thead')[0];
+        if (table.resizing)
+            return false;
+        if (!tdElementReg.test(element.tagName))
+            return false;
+        var savedRowDeltas = [];
+        [].map.call(thead.children, function (tr) {
+            markRowTds(tr, savedRowDeltas);
+        });
+        var colstart = element.colstart, colend = element.colend;
+        return getTdsByCol(table, colstart, colend);
+    };
+    table.dragbox = function () {
+        return thead;
+    };
+    autodragchildren(table, cellMatchManager, function (src, dst, rel, append, parentNode) {
+        var children = parentNode.children;
+        var srcElement = children[src];
+        var dstElement = children[rel];
+        var dstTds = getRowsOfTdsByCol(table, dstElement.colstart, dstElement.colend);
+        var srcTds = getRowsOfTdsByCol(table, srcElement.colstart, srcElement.colend);
+        if (append === appendChild.before) {
+            srcTds.map(function (src, cx) {
+                var dst = dstTds[cx];
+                var d = dst[0] || dst.next;
+                if (d)
+                    src.map(function (s) {
+                        append(d, s);
+                    });
+                else if (d = dst.prev)
+                    src.map(function (s) {
+                        appendChild.after(d, s);
+                        d = s;
+                    });
+            });
+        } else {
+            srcTds.map(function (src, cx) {
+                var dst = dstTds[cx];
+                var d = dst[dst.length - 1] || dst.prev;
+                if (d)
+                    src.map(function (s) {
+                        append(d, s);
+                        d = s;
+                    });
+                else if (d = dst.next)
+                    src.map(function (s) {
+                        appendChild.before(d, s);
+                    });
+            });
+        }
+    });
+    return table;
+}
+return cless(table, '.-vb {\n  border-collapse: collapse;\n  table-layout: fixed;\n  white-space: nowrap;\n}\n.-vb.dragging {\n  box-shadow: 0 0 20px -6px rgba(0, 0, 0, 0.2);\n}\n.-vb thead,\n.-vb tbody,\n.-vb th,\n.-vb td,\n.-vb tr,\n.-vb table {\n  box-sizing: border-box;\n}\n.-vb .y-ing:before {\n  content: "";\n  position: absolute;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  right: 0;\n  background-color: rgba(0, 0, 0, 0.06);\n}\n.-vb .y-ing > * {\n  position: relative;\n}\n.-vb > thead {\n  user-select: none;\n  line-height: 36px;\n}\n.-vb > thead > tr > td,\n.-vb > thead > tr > th {\n  padding: 0 10px;\n  position: relative;\n  color: #fff;\n  background-color: #999;\n}\n.-vb > tbody {\n  line-height: 32px;\n}\n.-vb > tbody > tr > td,\n.-vb > tbody > tr > th {\n  padding: 0 10px;\n  position: relative;\n}\n.-vb > tbody > tr:nth-child(even) > td,\n.-vb > tbody > tr:nth-child(even) > th {\n  background-color: #eee;\n}\n.-vb > tbody > tr:nth-child(odd) > td,\n.-vb > tbody > tr:nth-child(odd) > th {\n  background-color: #fff;\n}\n.-vb > tbody > tr:hover > td,\n.-vb > tbody > tr:hover > th {\n  background: #dddddd;\n}\n', '-vb table table');

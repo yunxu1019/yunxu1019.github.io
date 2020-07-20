@@ -1,1 +1,169 @@
-0e0preventOverflowScrolling,moveupon,Math,MOVELOCK_DELTA,freeOffset,fromOffset,div,Object,on,zimoli,appendChild,getScreenPosition,parseInt,getComputedStyle,addClass,removeClass,css,setTimeout,dispatch,window,cless,p,q,b,e,f,g,r,s,h,a,i,t,j,k,l,c,d,u,v,w,xfunction y(f,A){A===void 0&&(A='');var b=r();if(b.innerHTML=m,f instanceof s)var x=f,n=x.left,p=x.top,f=x.main;var B=b.children,e=B[0],y=B[1];h('append')(b,function(){var d=2;a['switch'](A,b,f);var c=function(){if(--d!==0)return;if(n){var c=a.go(n,null,e);c.setAttribute('layer','left'),i.replace(e,c),e=c,o({page:b,toLeft:b.closeLeft,toRight:b.openLeft,menu:e})}if(p){var c=a.go(p,null,y);c.setAttribute('layer','top'),i.replace(y,c),y=c}a()};n?a.prepare(n,c):c(),p?a.prepare(p,c):c()});var q=!1,C=function(){var a=t(e),b=a.left+a.width;return b<=0},z=function(){if(q){var a=j(k(b).paddingLeft)===0;l(b,'close'),c(b,'open'),d(b,'margin-left:0'),a&&c(b,'close open')}else l(b,'open'),c(b,'close'),d(b,'margin-left:'+g(e.offsetWidth)),u(function(){var a=j(k(b).paddingLeft)===0;a||d(b,'margin-left:0')},20)};return h('transitionend')(b,function(a){if(a.target!==this)return;v(w,'render')}),b.closeLeft=function(){q=!0,z()},b.openLeft=function(){q=!1,z()},b.switchLeft=function(){q=!C(),z()},b}var m,n,n=m={toString:function(){return'<div layer=left></div><div layer=top></div>'}},o=function(d){var i,j,a,h,c=d.page,k=d.menu;p(c),q(c,{start:function(d){i=d.clientX,j=d.clientY,h=k.offsetWidth;var b=d.target;if(a=null,/(input|textarea)/i.test(b.tagName))a=!1;else{var e=b.childNodes;for(var c=0,f=e.length;c<f;c++){var g=e[c];if(g.nodeType===3){a=!1;break}}if(a!==!1)do{var l=b.getAttribute('contenteditable')!==null;if(l){a=!1;break}b=b.parentNode}while(b.nodeType==1)}},move:function(d){if(a===!1)return;if(d.moveLocked)return;var h=i-d.clientX,k=j-d.clientY;if(!a){if(b.abs(h)<e&&b.abs(k)<e)return;b.abs(k)>=b.abs(h)?a=-1:(a={restX:f(c.style.left||0)-i},c.style.transition='none')}if(a===-1)return;d.moveLocked=!0,a.deltaX=h;var l=d.clientX+a.restX;c.style.left=g(l)},end:function(){if(c.style.transition='',a&&a!==-1){var b=f(c.style.left||0);a.deltaX<0&&b>h*.3||a.deltaX>0&&b>h*.7||!a.deltaX&&b>h>>1?(c.style.left=0,d.toRight()):(d.toLeft(),c.style.left=0)}}})};return x(y,'.-uy{line-height:1.6;width:100%;height:100%;max-width:100%;position:relative;border-radius:3px;overflow:hidden;padding-left:260px;box-sizing:border-box;overflow:visible;padding-top:44px;transition:padding-left .2s ease-out,margin-left .2s ease-out,left .2s ease-out}.-uy>[layer=left]{background-color:#222d32;color:#fff;width:260px;margin-left:-260px;height:100%;position:absolute;top:0}.-uy>[layer=top]{min-height:44px;width:100%;position:absolute;top:0;border-bottom:1px solid rgba(0,0,0,0.16)}.-uy.close{padding-left:0 !important}@media all and (min-width:961px){.-uy.open{margin-left:0 !important}}@media all and (max-width:960px){.-uy{border-radius:0;padding-left:0 !important;margin-left:0}}','-uy glance glance')
+0nepreventOverflowScrolling,moveupon,Math,MOVELOCK_DELTA,freeOffset,fromOffset,div,Object,on,zimoli,appendChild,getScreenPosition,parseInt,getComputedStyle,addClass,removeClass,css,setTimeout,dispatch,window,cless,preventOverflowScrolling,moveupon,Math,MOVELOCK_DELTA,freeOffset,fromOffset,div,Object,on,zimoli,appendChild,getScreenPosition,parseInt,getComputedStyle,addClass,removeClass,css,setTimeout,dispatch,window,clessvar glance, Glance, template, template = Glance = glance = {
+        'toString': function () {
+            return '<div layer=left></div><div layer=top></div>';
+        }
+    };
+var dragview = function (dragview) {
+    var savedX, savedY, moving, offsetWidth;
+    var page = dragview.page, menu = dragview.menu;
+    preventOverflowScrolling(page);
+    moveupon(page, {
+        start: function (event) {
+            savedX = event.clientX;
+            savedY = event.clientY;
+            offsetWidth = menu.offsetWidth;
+            var target = event.target;
+            moving = null;
+            if (/(input|textarea)/i.test(target.tagName)) {
+                moving = false;
+            } else {
+                var childNodes = target.childNodes;
+                for (var cx = 0, dx = childNodes.length; cx < dx; cx++) {
+                    var child = childNodes[cx];
+                    if (child.nodeType === 3) {
+                        moving = false;
+                        break;
+                    }
+                }
+                if (moving !== false)
+                    do {
+                        var contentEditbale = target.getAttribute('contenteditable') !== null;
+                        if (contentEditbale) {
+                            moving = false;
+                            break;
+                        }
+                        target = target.parentNode;
+                    } while (target.nodeType == 1);
+            }
+        },
+        move: function (event) {
+            if (moving === false)
+                return;
+            if (event.moveLocked)
+                return;
+            var deltaX = savedX - event.clientX;
+            var deltaY = savedY - event.clientY;
+            if (!moving) {
+                if (Math.abs(deltaX) < MOVELOCK_DELTA && Math.abs(deltaY) < MOVELOCK_DELTA)
+                    return;
+                if (Math.abs(deltaY) >= Math.abs(deltaX)) {
+                    moving = -1;
+                } else {
+                    moving = { restX: freeOffset(page.style.left || 0) - savedX };
+                    page.style.transition = 'none';
+                }
+            }
+            if (moving === -1)
+                return;
+            event.moveLocked = true;
+            moving.deltaX = deltaX;
+            var left = event.clientX + moving.restX;
+            page.style.left = fromOffset(left);
+        },
+        end: function () {
+            page.style.transition = '';
+            if (moving && moving !== -1) {
+                var left = freeOffset(page.style.left || 0);
+                if (moving.deltaX < 0 && left > offsetWidth * .3 || moving.deltaX > 0 && left > offsetWidth * .7 || !moving.deltaX && left > offsetWidth >> 1) {
+                    page.style.left = 0;
+                    dragview.toRight();
+                } else {
+                    dragview.toLeft();
+                    page.style.left = 0;
+                }
+            }
+        }
+    });
+};
+function main(mainPath, historyName) {
+    if (historyName === void 0) {
+        historyName = '';
+    }
+    var layer = div();
+    layer.innerHTML = glance;
+    if (mainPath instanceof Object) {
+        var _a = mainPath, leftPath = _a.left, topPath = _a.top, mainPath = _a.main;
+    }
+    var _b = layer.children, leftLayer = _b[0], topLayer = _b[1];
+    on('append')(layer, function () {
+        var index = 2;
+        zimoli['switch'](historyName, layer, mainPath);
+        var hook = function () {
+            if (--index !== 0)
+                return;
+            if (leftPath) {
+                var page = zimoli.go(leftPath, null, leftLayer);
+                page.setAttribute('layer', 'left');
+                appendChild.replace(leftLayer, page);
+                leftLayer = page;
+                dragview({
+                    page: layer,
+                    toLeft: layer.closeLeft,
+                    toRight: layer.openLeft,
+                    menu: leftLayer
+                });
+            }
+            if (topPath) {
+                var page = zimoli.go(topPath, null, topLayer);
+                page.setAttribute('layer', 'top');
+                appendChild.replace(topLayer, page);
+                topLayer = page;
+            }
+            zimoli();
+        };
+        if (leftPath) {
+            zimoli.prepare(leftPath, hook);
+        } else
+            hook();
+        if (topPath) {
+            zimoli.prepare(topPath, hook);
+        } else
+            hook();
+    });
+    var closed = false;
+    var isClosed = function () {
+        var computed = getScreenPosition(leftLayer);
+        var delta = computed.left + computed.width;
+        return delta <= 0;
+    };
+    var bindClass = function () {
+        if (closed) {
+            var collapse = parseInt(getComputedStyle(layer).paddingLeft) === 0;
+            addClass(layer, 'close');
+            removeClass(layer, 'open');
+            css(layer, 'margin-left:0');
+            if (collapse) {
+                removeClass(layer, 'close open');
+            }
+        } else {
+            addClass(layer, 'open');
+            removeClass(layer, 'close');
+            css(layer, 'margin-left:' + fromOffset(leftLayer.offsetWidth));
+            setTimeout(function () {
+                var collapse = parseInt(getComputedStyle(layer).paddingLeft) === 0;
+                if (!collapse) {
+                    css(layer, 'margin-left:0');
+                }
+            }, 20);
+        }
+    };
+    on('transitionend')(layer, function (event) {
+        if (event.target !== this)
+            return;
+        dispatch(window, 'render');
+    });
+    layer.closeLeft = function () {
+        closed = true;
+        bindClass();
+    };
+    layer.openLeft = function () {
+        closed = false;
+        bindClass();
+    };
+    layer.switchLeft = function () {
+        closed = !isClosed();
+        bindClass();
+    };
+    return layer;
+}
+return cless(main, '.-uz {\n  line-height: 1.6;\n  width: 100%;\n  height: 100%;\n  max-width: 100%;\n  position: relative;\n  border-radius: 3px;\n  overflow: hidden;\n  padding-left: 260px;\n  box-sizing: border-box;\n  overflow: visible;\n  padding-top: 44px;\n  transition: padding-left 0.2s ease-out, margin-left 0.2s ease-out, left 0.2s ease-out;\n}\n.-uz > [layer=left] {\n  background-color: #222d32;\n  color: #fff;\n  width: 260px;\n  margin-left: -260px;\n  height: 100%;\n  position: absolute;\n  top: 0;\n}\n.-uz > [layer=top] {\n  min-height: 44px;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.16);\n}\n.-uz.close {\n  padding-left: 0 !important;\n}\n@media all and (min-width: 961px) {\n  .-uz.open {\n    margin-left: 0 !important;\n  }\n}\n@media all and (max-width: 960px) {\n  .-uz {\n    border-radius: 0;\n    padding-left: 0 !important;\n    margin-left: 0;\n  }\n}\n', '-uz glance glance');

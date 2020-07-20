@@ -1,0 +1,36 @@
+05ydocument,Promise,navigator,alert,on,window,setTimeout,document,Promise,navigator,alert,on,window,setTimeoutfunction chooseFile(accept, multiple) {
+    var form = document.createElement('form');
+    form.innerHTML = '<input type=\'file\'' + (accept ? ' accept="' + accept + '"' : '') + (multiple ? ' multiple' : '') + ' />';
+    var input = form.children[0];
+    var result = new Promise(function (ok) {
+        if (/msie\s+[2-9]/i.test(navigator.userAgent))
+            return alert('\u65e0\u6cd5\u5728\u5f53\u524d\u6d4f\u89c8\u5668\u64cd\u4f5c\uFF01');
+        on('change')(input, function () {
+            var _this = this;
+            if (!this.files) {
+                var value = this.value;
+                if (!value)
+                    return;
+                var ActiveXObject = window.ActiveXObject;
+                if (!ActiveXObject) {
+                    alert('\u60a8\u7684\u6d4f\u89c8\u5668\u73af\u5883\u65e0\u6cd5\u9009\u62e9\u6587\u4ef6\uFF01');
+                    return;
+                }
+                try {
+                    var fso = new ActiveXObject('Scripting.FileSystemObject');
+                    var file = fso.GetFile(value);
+                    ok([file]);
+                } catch (e) {
+                    alert(e + '\u6253\u5f00\u6587\u4ef6\u5931\u8d25\uFF01');
+                }
+            } else {
+                setTimeout(function () {
+                    ok(_this.files);
+                }, 100);
+            }
+        });
+    });
+    input.click();
+    return result;
+}
+return chooseFile;

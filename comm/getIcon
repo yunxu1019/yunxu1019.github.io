@@ -1,1 +1,15 @@
-function b(b){return b.icon?a.test(b.icon)?b.icon:a.test(b.url)?/^\//.test(b.icon)?b.url.replace(/^((?:https?\:)?(?:\/\/)?[^\/]+)[\s\S]*$/i,'$1')+b.icon:b.url.replace(/[\?\#][\s\S]*$/,'').replace(/^((?:https?\:)?(?:\/\/)?[^\/]+[\s\S]*?)\/?[^\/]*$/,function(c,a){return a+'/'+b.icon}):b.icon:void 0}var a=/^(https?\:|\/\/)/i;return b
+var reg = /^(https?\:|\/\/)/i;
+function getIcon(item) {
+    if (!item.icon)
+        return;
+    if (reg.test(item.icon))
+        return item.icon;
+    if (!reg.test(item.url))
+        return item.icon;
+    if (/^\//.test(item.icon))
+        return item.url.replace(/^((?:https?\:)?(?:\/\/)?[^\/]+)[\s\S]*$/i, '$1') + item.icon;
+    return item.url.replace(/[\?\#][\s\S]*$/, '').replace(/^((?:https?\:)?(?:\/\/)?[^\/]+[\s\S]*?)\/?[^\/]*$/, function (_, a) {
+        return a + '/' + item.icon;
+    });
+}
+return getIcon;

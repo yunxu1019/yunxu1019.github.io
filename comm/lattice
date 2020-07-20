@@ -1,1 +1,122 @@
-0ayonresize,window,parseFloat,freePixel,Math,addClass,removeClass,list,css,fromPixel,div,appendChild,onappend,onremove,lazy,remove,isNode,isArray,isFinite,cless,j,k,l,m,n,d,e,f,g,h,o,p,q,r,s,t,i,u,v,wfunction x(w,x,k,u){k===void 0&&(k=x<<1);var j,y=function(){var a=u||i.src||[],f=l(m(i.clientWidth));if(j=f/x|0,j>=a.length){j=a.length;var g=n.ceil(f/k);g>=a.length&&(j=g),d(i,b)}else e(i,b);j<1?(j=1,d(i,c)):e(i,c)};if(u)var i=f(w,function(d){var a=j*d,b=u.slice(a,a+j).map(function(a){return g(a,{width:(1e6/j|0)/1e4+'%',maxWidth:h(k)}),a});if(!b.length)return!1;var c=o();return p(c,b),c});else{var i=f(w),z=i.insertBefore;i.insertBefore=function(a){return v(a),z.apply(i,arguments)}}var v=function(a){g(a,{width:(1e6/j|0)/1e4+'%',maxWidth:h(k)}),a['with']&&a['with'].forEach(v)};return q(i,function(){a.push(i)}),r(i,function(){for(var b=a.length-1;b>=0;b--)a[b]===i&&a.splice(b,1)}),i.resize=s(function(){var b=j,a=i.index();if(y(),b===j)return;var c=a*(b||1);a=c/j||0,t(i.children),i.go(a)},0),i.renders||(i.renders=[]),i.renders.unshift(i.resize),i}function y(){var b,a,c,d;return[].forEach.call(arguments,function(e){i(e)?b=e:u(e)?d=e:v(e)&&(a?e>=a?c=e:(c=a,a=e):a=e)}),i(b)&&!a&&(a=+(b.getAttribute('min-width')||b.getAttribute('item-width'))),x(b,a||100,c,d)}j(k,function(){for(var b=0,c=a.length;b<c;b++)a[b].resize()});var a=[],b='complete',c='lack';return w(y,'','-ux lattice lattice')
+0gqonresize,window,parseFloat,freePixel,Math,addClass,removeClass,list,css,fromPixel,div,appendChild,onappend,onremove,lazy,isNode,isArray,isFinite,cless,onresize,window,parseFloat,freePixel,Math,addClass,removeClass,list,css,fromPixel,div,appendChild,onappend,onremove,lazy,isNode,isArray,isFinite,clessonresize(window, function () {
+    for (var cx = 0, dx = mountedLattices.length; cx < dx; cx++) {
+        mountedLattices[cx].resize();
+    }
+});
+var mountedLattices = [];
+var complete_class = 'complete';
+var inadequate_class = 'lack';
+function lattice(element, minWidth, maxWidth, layers) {
+    if (maxWidth === void 0) {
+        maxWidth = minWidth << 1;
+    }
+    var boxCount;
+    var resize = function () {
+        var _layers = layers || _box.src || [];
+        var clientWidth = parseFloat(freePixel(_box.clientWidth));
+        boxCount = clientWidth / minWidth | 0;
+        if (boxCount >= _layers.length) {
+            boxCount = _layers.length;
+            var minCount = Math.ceil(clientWidth / maxWidth);
+            if (minCount >= _layers.length) {
+                boxCount = minCount;
+            }
+            addClass(_box, complete_class);
+        } else
+            removeClass(_box, complete_class);
+        if (boxCount < 1)
+            boxCount = 1, addClass(_box, inadequate_class);
+        else
+            removeClass(_box, inadequate_class);
+        _box.paddingMax = boxCount;
+    };
+    if (layers) {
+        var _box = list(element, function (index) {
+            var offset = boxCount * index;
+            var objs = layers.slice(offset, offset + boxCount).map(function (a) {
+                css(a, {
+                    width: (1e6 / boxCount | 0) / 1e4 + '%',
+                    maxWidth: fromPixel(maxWidth)
+                });
+                return a;
+            });
+            if (!objs.length)
+                return false;
+            var _container = div();
+            appendChild(_container, objs);
+            return _container;
+        });
+    } else {
+        var _box = list(element);
+        var insertBefore = _box.insertBefore;
+        _box.insertBefore = function (element) {
+            build(element);
+            return insertBefore.apply(_box, arguments);
+        };
+    }
+    var build = function (element) {
+        css(element, {
+            width: (1e6 / boxCount | 0) / 1e4 + '%',
+            maxWidth: fromPixel(maxWidth)
+        });
+        if (element['with']) {
+            element['with'].forEach(build);
+        }
+    };
+    var _onappend = function () {
+        mountedLattices.push(_box);
+        _box.resize();
+    };
+    onappend(_box, _onappend);
+    onremove(_box, function () {
+        for (var cx = mountedLattices.length - 1; cx >= 0; cx--) {
+            if (mountedLattices[cx] === _box) {
+                mountedLattices.splice(cx, 1);
+            }
+        }
+    });
+    _box.resize = lazy(function () {
+        var savedCount = boxCount;
+        var index = _box.index();
+        resize();
+        if (savedCount === boxCount)
+            return;
+        var realIndex = index * (savedCount || 1);
+        index = realIndex / boxCount || 0;
+        _box.clean();
+        [].forEach.call(_box.children, function (c) {
+            build(c);
+        });
+        _box.go(index);
+    }, 0);
+    if (!_box.renders)
+        _box.renders = [];
+    _box.renders.unshift(_box.resize);
+    return _box;
+}
+function main() {
+    var element, minWidth, maxWidth, layers;
+    [].forEach.call(arguments, function (arg) {
+        if (isNode(arg)) {
+            element = arg;
+        } else if (isArray(arg)) {
+            layers = arg;
+        } else if (isFinite(arg)) {
+            if (minWidth) {
+                if (arg >= minWidth) {
+                    maxWidth = arg;
+                } else {
+                    maxWidth = minWidth;
+                    minWidth = arg;
+                }
+            } else {
+                minWidth = arg;
+            }
+        }
+    });
+    if (isNode(element) && !minWidth) {
+        minWidth = +(element.getAttribute('min-width') || element.getAttribute('item-width'));
+    }
+    return lattice(element, minWidth || 240, maxWidth, layers);
+}
+return cless(main, '', '-uy lattice lattice');

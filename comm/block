@@ -1,1 +1,6 @@
-01eisElement,div,cless,a,b,cfunction d(c){return a(c)?c:b(c)}return c(d,'.-ar{display:block;position:relative;background:#f2f4f6}.-ar>.bg{border:1px solid rgba(0,0,0,0.1);position:absolute;left:0;right:0;top:0;bottom:0;overflow:hidden}.-ar>.bg:after{margin:-75pt -75pt;width:225pt;height:150pt;right:0;bottom:0}.-ar>.bg:before{width:45pt;height:75pt;margin:-41.25pt -26.25pt;left:0;top:0}.-ar>.bg:after,.-ar>.bg:before{content:"";background-color:rgba(90,200,250,0.1);position:absolute;border-radius:50%}','-ar block block')
+026isElement,div,cless,isElement,div,clessfunction block(elem) {
+    if (isElement(elem))
+        return elem;
+    return div(elem);
+}
+return cless(block, '.-ae {\n  display: block;\n  position: relative;\n  background: #f2f4f6;\n  border-radius: 4px 0 4px 0;\n}\n.-ae > .bg {\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: inherit;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  overflow: hidden;\n}\n.-ae > .bg:after {\n  margin: -75pt -75pt;\n  width: 225pt;\n  height: 150pt;\n  right: 0;\n  bottom: 0;\n}\n.-ae > .bg:before {\n  width: 45pt;\n  height: 75pt;\n  margin: -41.25pt -26.25pt;\n  left: 0;\n  top: 0;\n}\n.-ae > .bg:after,\n.-ae > .bg:before {\n  content: "";\n  background-color: rgba(90, 200, 250, 0.1);\n  position: absolute;\n  border-radius: 50%;\n}\n', '-ae block block');

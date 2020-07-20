@@ -1,1 +1,42 @@
-036history,getTargetIn,document,appendChild,remove,c,d,b,e,fvar a=[];return a.pop=function(j){if(j){var g=a.lastIndexOf(j);~g&&(a.splice(g,1),a.length===0&&c.back());return}var f=0,k;for(var e=a.length-1;e>=0;e--){var h=a[e];if(d(h,b.activeElement))break;var i=h.style.zIndex;i>f&&(f=i,k=e)}return f>0&&(e=k),e<0&&(e=a.length-1),a.splice(e,1)[0]},a.mount=function(c){if(c.parentNode)return;a.push(c),e(b.documentElement,c)},a.unmount=function(b){if(!b.parentNode)return;a.pop(b),f(b)},a
+04egetTargetIn,document,appendChild,remove,getTargetIn,document,appendChild,removevar rootElements = [];
+rootElements.pop = function (elem) {
+    if (elem) {
+        var index = rootElements.lastIndexOf(elem);
+        if (~index) {
+            rootElements.splice(index, 1);
+        }
+        return;
+    }
+    var maxZIndex = 0, maxCX;
+    for (var cx = rootElements.length - 1; cx >= 0; cx--) {
+        var element = rootElements[cx];
+        if (getTargetIn(element, document.activeElement)) {
+            break;
+        }
+        var zIndex = element.style.zIndex;
+        if (zIndex > maxZIndex) {
+            maxZIndex = zIndex;
+            maxCX = cx;
+        }
+    }
+    if (maxZIndex > 0) {
+        cx = maxCX;
+    }
+    if (cx < 0) {
+        cx = rootElements.length - 1;
+    }
+    return rootElements.splice(cx, 1)[0];
+};
+rootElements.mount = function (elem) {
+    if (elem.parentNode)
+        return;
+    rootElements.push(elem);
+    appendChild(document.documentElement, elem);
+};
+rootElements.unmount = function (elem) {
+    if (!elem.parentNode)
+        return;
+    rootElements.pop(elem);
+    remove(elem);
+};
+return rootElements;

@@ -1,1 +1,13 @@
-function a(a){return[a.getFullYear(),a.getMonth()+1,a.getDate(),a.getHours(),a.getMinutes(),a.getSeconds(),a.getMilliseconds(),a.getDay()]}return a
+function getSplitedDate(date) {
+    return [
+        date.getFullYear(),
+        date.getMonth() + 1,
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds(),
+        date.getDay()
+    ];
+}
+return getSplitedDate;

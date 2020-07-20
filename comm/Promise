@@ -1,1 +1,197 @@
-var b=this,d=b.Array,g=b.setTimeout,h=b.Function,i=b.console,j=b.Error,e=function(a){return typeof a==='function'};if(b.Promise)var a=b.Promise;else{var c=function(b){return b instanceof a||b&&e(b.then)&&e(b['catch'])},f=function(l,m,n,o){var e,f,c,d,b,g=function(a,b){e?a.apply(null,e):f?b.apply(null,f):(c=a,d=b)},h=new a(g),i=function(){if(!b){try{var a=m.apply(null,arguments);c?c(a):e=[a]}catch(a){d?d(a):f=[a]}b=!0}},j=function(){b||(c?c.apply(null,arguments):e=arguments,b=!0)},k=function(){b||(d?d.apply(null,arguments):f=arguments,b=!0)};return l.push(i),n.push(j),o.push(k),h},a=function(j){var a=this,h=this.PromiseFulfillReactions=[],i=this.PromiseRejectReactions=[],d=this.oked,e=this.ohed,f=function(e){c(e)?e.then(f)['catch'](b):(d=a.oked=arguments,a.run(h,d))},b=function(b){e=a.ohed=arguments,a.run(i,e)};g(function(){try{j(f,b)}catch(a){b(a)}},0)};a.prototype={then:function(b){var a=f(this.PromiseFulfillReactions,b,this.PromiseFulfillReactions,this.PromiseRejectReactions);return this.oked&&this.run(this.PromiseFulfillReactions,this.oked),this.ohed&&this.run(this.PromiseRejectReactions,this.ohed),a},'catch':function(b){var a=f(this.PromiseRejectReactions,b,this.PromiseFulfillReactions,this.PromiseRejectReactions);return this.ohed&&this.run(this.PromiseRejectReactions,this.ohed),this.oked&&this.run(this.PromiseFulfillReactions,this.oked),a},run:function(b,c){do{var a=b.shift();a instanceof h&&a.apply(null,c)}while(b.length);this.PromiseRejectReactions.splice(0),this.PromiseFulfillReactions.splice(0)}},a.all=function(b){return new a(function(h,j){if(!(b&&b.length))return h();try{var i=0,k=0,e=d(b.length);for(var a=0,g=b.length;a<g;a++){var f=b[a];c(f)?(f.then(function(a){return function(b){e[a]=b,++i===g&&h(e)}}(a)),f['catch'](function(a){k++===0&&j(a)})):(e[a]=f,++i===g&&h(e))}}catch(a){j(a)}})},a.race=function(b){return new a(function(k,g){try{var h=0,i=0,j=d(b.length);for(var a=0,f=b.length;a<f;a++){var e=b[a];c(e)?e.then(function(a){return function(a){++h===0&&k(a)}}(a))['catch'](function(a){i++===f&&g(a)}):j[a]=e}}catch(a){g(a)}})},a.reject=function(b){return new a(function(c,a){a(b)})},a.resolve=function(){var b=arguments;return new a(function(a,c){a.apply(null,b)})}}return a
+var window = this;
+var Array = window.Array;
+var setTimeout = window.setTimeout;
+var Function = window.Function;
+var console = window.console;
+var Error = window.Error;
+var isFunction = function (f) {
+    return typeof f === 'function';
+};
+if (window.Promise) {
+    var Promise = window.Promise;
+} else {
+    var isPromise = function (pendding) {
+        return pendding instanceof Promise || pendding && isFunction(pendding.then) && isFunction(pendding['catch']);
+    };
+    var concat = function (okfun, ohfun, oks, ohs) {
+        var _oked, _ohed, _ok, _oh, removeed;
+        var runable = function (ok, oh) {
+            if (_oked) {
+                ok.apply(null, _oked);
+            } else if (_ohed) {
+                oh.apply(null, _ohed);
+            } else {
+                _ok = ok;
+                _oh = oh;
+            }
+        };
+        var _promise = new Promise(runable);
+        var onpermit = function (f, args) {
+            if (!removeed) {
+                try {
+                    var pendding = f.apply(null, args);
+                    if (_ok)
+                        _ok(pendding);
+                    else
+                        _oked = [pendding];
+                } catch (e) {
+                    if (_oh)
+                        _oh(e);
+                    else
+                        _ohed = [e];
+                }
+                removeed = true;
+            }
+        };
+        var onresolve = function () {
+            if (okfun instanceof Function)
+                onpermit(okfun, arguments);
+            if (!removeed) {
+                if (_ok)
+                    _ok.apply(null, arguments);
+                else
+                    _oked = arguments;
+                removeed = true;
+            }
+        };
+        var onreject = function () {
+            if (ohfun instanceof Function)
+                onpermit(ohfun, arguments);
+            if (!removeed) {
+                if (_oh)
+                    _oh.apply(null, arguments);
+                else
+                    _ohed = arguments;
+                removeed = true;
+            }
+        };
+        oks.push(onresolve);
+        ohs.push(onreject);
+        return _promise;
+    };
+    var Promise = function (executor) {
+        var _this = this;
+        var PromiseFulfillReactions = this.PromiseFulfillReactions = [], PromiseRejectReactions = this.PromiseRejectReactions = [], oked = this.oked, ohed = this.ohed;
+        var ResolvingFunctions_resolve = function (result) {
+            if (isPromise(result)) {
+                result.then(ResolvingFunctions_resolve)['catch'](ResolvingFunctions_reject);
+            } else {
+                oked = _this.oked = arguments;
+                _this.run(PromiseFulfillReactions, oked);
+            }
+        };
+        var ResolvingFunctions_reject = function (e) {
+            ohed = _this.ohed = arguments;
+            _this.run(PromiseRejectReactions, ohed);
+        };
+        try {
+            executor(ResolvingFunctions_resolve, ResolvingFunctions_reject);
+        } catch (e) {
+            ResolvingFunctions_reject(e);
+        }
+    };
+    Promise.prototype = {
+        then: function (onok, onoh) {
+            var _promise = concat(onok, onoh, this.PromiseFulfillReactions, this.PromiseRejectReactions);
+            this.oked && this.run(this.PromiseFulfillReactions, this.oked);
+            this.ohed && this.run(this.PromiseRejectReactions, this.ohed);
+            return _promise;
+        },
+        'catch': function (f) {
+            return this.then(null, f);
+        },
+        run: function (threads, args) {
+            var _this = this;
+            if (threads.pendding)
+                return;
+            threads.pendding = true;
+            setTimeout(function (_) {
+                do {
+                    var next = threads.shift();
+                    if (next instanceof Function) {
+                        next.apply(null, args);
+                    }
+                } while (threads.length);
+                _this.PromiseRejectReactions.splice(0, _this.PromiseRejectReactions.length);
+                _this.PromiseFulfillReactions.splice(0, _this.PromiseFulfillReactions.length);
+                threads.pendding = false;
+            }, 0);
+        }
+    };
+    Promise.all = function (penddings) {
+        return new Promise(function (ok, oh) {
+            if (!(penddings && penddings.length)) {
+                return ok();
+            }
+            try {
+                var resolved_count = 0, rejected_count = 0, results = Array(penddings.length);
+                for (var cx = 0, dx = penddings.length; cx < dx; cx++) {
+                    var pendding = penddings[cx];
+                    if (isPromise(pendding)) {
+                        pendding.then(function (cx) {
+                            return function (arg) {
+                                results[cx] = arg;
+                                if (++resolved_count === dx) {
+                                    ok(results);
+                                }
+                            };
+                        }(cx));
+                        pendding['catch'](function (e) {
+                            if (rejected_count++ === 0) {
+                                oh(e);
+                            }
+                        });
+                    } else {
+                        results[cx] = pendding;
+                        if (++resolved_count === dx) {
+                            ok(results);
+                        }
+                    }
+                    ;
+                }
+            } catch (e) {
+                oh(e);
+            }
+        });
+    };
+    Promise.race = function (penddings) {
+        return new Promise(function (ok, oh) {
+            try {
+                var resolved_count = 0, rejected_count = 0, results = Array(penddings.length);
+                for (var cx = 0, dx = penddings.length; cx < dx; cx++) {
+                    var pendding = penddings[cx];
+                    if (isPromise(pendding)) {
+                        pendding.then(function (cx) {
+                            return function (arg) {
+                                if (++resolved_count === 0) {
+                                    ok(arg);
+                                }
+                            };
+                        }(cx))['catch'](function (e) {
+                            if (rejected_count++ === dx) {
+                                oh(e);
+                            }
+                        });
+                    } else {
+                        results[cx] = pendding;
+                    }
+                    ;
+                }
+            } catch (e) {
+                oh(e);
+            }
+        });
+    };
+    Promise.reject = function (error) {
+        return new Promise(function (ok, oh) {
+            oh(error);
+        });
+    };
+    Promise.resolve = function () {
+        var args = arguments;
+        return new Promise(function (ok, oh) {
+            ok.apply(null, args);
+        });
+    };
+}
+return Promise;

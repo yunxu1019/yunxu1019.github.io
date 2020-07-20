@@ -1,1 +1,26 @@
-01iString,isString,merge,a,b,cfunction d(m,i){var n=m.className,j=a(n).trim().split(/\s+/),e={};for(var d=0,f=j.length;d<f;d++){var g=j[d];e[g]=!0}if(b(i)){var k=i.trim().split(/\s+/);for(var d=0,f=k.length;d<f;d++){var g=k[d];e[g]=!0}}else c(e,i);var l=[];for(var h in e)h&&e[h]&&l.push(h);m.className=l.join(' ')}return d
+02eString,isString,merge,String,isString,mergefunction addClass(target, classNames) {
+    var _className = target.className;
+    var arr = String(_className).trim().split(/\s+/);
+    var cls = {};
+    for (var cx = 0, dx = arr.length; cx < dx; cx++) {
+        var c = arr[cx];
+        cls[c] = true;
+    }
+    if (isString(classNames)) {
+        var clsNames = classNames.trim().split(/\s+/);
+        for (var cx = 0, dx = clsNames.length; cx < dx; cx++) {
+            var c = clsNames[cx];
+            cls[c] = true;
+        }
+    } else {
+        merge(cls, classNames);
+    }
+    var newarr = [];
+    for (var k in cls) {
+        if (k && cls[k]) {
+            newarr.push(k);
+        }
+    }
+    target.className = newarr.join(' ');
+}
+return addClass;

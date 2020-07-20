@@ -1,1 +1,2 @@
-008on,bvar a=b('click');return a
+00aon,onvar onclick = on('click');
+return onclick;

@@ -1,1 +1,9 @@
-01aisFunction,document,a,bfunction c(c,d){return arguments.length===2&&(c.innerHTML='',a(d)&&(d=d()),a(c.setText)?c.setText(d):c.appendChild(b.createTextNode(d))),a(c.getText)?c.getText():c.innerText}return c
+026isFunction,document,isFunction,documentfunction text(node, text) {
+    if (arguments.length === 2) {
+        node.innerHTML = '';
+        isFunction(text) && (text = text());
+        isFunction(node.setText) ? node.setText(text) : node.appendChild(document.createTextNode(text));
+    }
+    return isFunction(node.getText) ? node.getText() : node.innerText;
+}
+return text;

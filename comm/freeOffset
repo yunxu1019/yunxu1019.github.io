@@ -1,0 +1,3 @@
+046calcPixel,parseFloat,renderPixelRatio,calcPixel,parseFloat,renderPixelRatioreturn function (d) {
+    return calcPixel(parseFloat(d) / renderPixelRatio);
+};

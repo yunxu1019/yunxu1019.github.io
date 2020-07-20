@@ -1,1 +1,263 @@
-0fwonkeydown,document,rootElements,history,css,fromOffset,isString,isNode,Error,remove,once,Event,Array,zIndex,onremove,Cleanup,innerHeight,innerWidth,getComputedStyle,extend,getScreenPosition,Math,overlap,arriswise,fromPixel,appendChild,K,c,u,L,a,i,M,v,k,l,w,N,x,j,m,y,n,o,O,P,z,A,Q,R,B,SK(c,function(a){a.which===27&&u.length&&L.back()});var p='opacity:0;transform:scale(1.2);transition:.1s opacity ease-out,.2s transform ease-out;',f=function(a){a.initialStyle=p},q=function(b){a(b,{marginLeft:i(-b.offsetWidth/2),marginTop:i(-b.offsetHeight/2),left:'50%',top:'50%'})},r=function(b){return a(b,'min-height:10px;min-width:10px;position:absolute;background-color:#fff;'),b},s=function(b){return a(b,'position:absolute;background-color:#fff;'),b},b=function(a){if(M(a))return C.apply(null,arguments);if(v(a))return D.apply(null,arguments);throw new k('path isn\'t valid:'+a)},C=function(c,h,j){if(c===void 0&&(c=''),!(b.go&&b.prepare))throw new k('\u5f53\u524d\u73af\u5883\u65e0\u6cd5\u4f7f\u7528');var a;if(/^#/.test(c)){c=c.replace(/^#/,'');var d=function(){l(a&&a.mask),a=b.create(c,h),r(a),f(a),g(a,j)}}else if(/^@/.test(c)){c=c.replace(/^@/,'');var d=function(){a=b.create(c,h),r(a),f(a),e(a)}}else if(/^!/.test(c)){c=c.replace(/^!/,'');var d=function(){a=b.create(c,h),s(a),f(a),g(a)}}else var d=function(){a=b.create(c,h),s(a),f(a),e(a)};var i=function(){if(l(a),d(),!a)throw new k('\u8def\u5f84\u4e0d\u5b58\u5728:'+c);a.style.opacity=0,a.$reload=i,a.parentNode?q(a):w('append')(a,function(){q(a),a.style.opacity=1})};return b.prepare(c,i),a},D=function(b,a){return v(a)?a.isMask?(g(b,a),b):F(b,a):(a instanceof N?I(b,a):a instanceof x?H(b,a):a?g(b):e(b),b)};a('.mask','position:absolute;position:fixed;left:0;right:0;bottom:0;top:0;width:auto;height:auto;background:#000;opacity:0.2;transform:scale(1);');var E=function(){var b=c.createElement('div');return b.initialStyle=p,a(b,'z-index:'+j()),b.className='mask',b.isMask=!0,b},g=function(b,c){return c===void 0&&(c=E()),m(b,c.clean),a(b,'z-index:'+j()+';'),c.parentNode&&d(b),b['with']?b['with']instanceof x?~b['with'].indexOf(b)||b['with'].push(c):b['with']!==b&&(b['with']=[b['with'],c]):b['with']=[c],c.clean||(c.clean=new y(b['with'])),b.parentNode||d(b),b},F=function(b,a){var f=a.offsetParent,c=a.nextSibling,e=a.previousSibling;c&&(c.offsetLeft-a.offsetLeft>=a.offsetWidth/2||a.offsetLeft-c.offsetLeft>=c.offsetWidth/2)||e&&(e.offsetLeft-a.offsetLeft>=a.offsetWidth/2||a.offsetLeft-e.offsetLeft>=e.offsetWidth/2)?h(d,b,a):f?n-a.offsetHeight>o-a.offsetWidth&&f.clientWidth!==a.offsetWidth?h(d,b,a):t(d,b,a):/inline|cell/i.test(O(a).display)?h(d,b,a):t(d,b,a)},h=function(h,b,e){b.origin||(b.origin={height:b.style.height,width:b.style.width,minWidth:b.style.minWidth,display:b.style.display}),a(b,'position:absolute;z-index:'+j());var f=m(e,function(){l(b)}),g=m(b,function(){f(),g(),c.removeEventListener&&(c.removeEventListener('scroll',d,!0),c.removeEventListener('resize',d))});h(b);var d=function(){P(b.style,b.origin);var c=z(e),d=z(b.offsetParent),g=A.max(c.top,n-c.top-c.height),h=A.max(c.left+c.width,o-c.left),j=b.offsetHeight;j>g&&a(b,'height:'+g+'px;'),a(b,'min-width:auto;');var f=b.offsetWidth;f<e.offsetWidth&&(f=e.offsetWidth),f>h&&(f=h),f!==b.offsetWidth&&a(b,'width:'+f+'px'),c.top+b.offsetHeight+c.height>n?a(b,'bottom:'+(d.height-c.top+d.top)+'px;top:auto;'):a(b,'top:'+(c.top-d.top+c.height)+'px;bottom:auto;'),c.left+b.offsetWidth>o?a(b,'right:'+(d.width+d.left-c.left-c.width)+'px;left:auto;'):a(b,'left:'+(c.left-d.left)+'px;right:auto;');var i=e.offsetParent;i&&(Q(c,i)>0?b.style.display=b.origin.display:b.style.display='none')};c.addEventListener&&(c.addEventListener('scroll',d,!0),c.addEventListener('resize',d)),d()},G=arguments[arguments.length-1],t=R(h,G.concat([].slice.call(arguments,0))),e=function(b){a(b,'z-index:'+j()+';'),d(b)},H=function(b,c){var d=c[0],f=c[1];a(b,{position:'absolute',left:B(d),top:B(f)}),e(b)},I=function(b,c){var d=c.clientX,f=c.clientY;a(b,{position:'absolute',left:i(d),top:i(f)}),e(b)},d=function(a){w('remove')(a,J),b.global?b.global(a,!0):S(c.body,a)},J=new y(u);return b
+0q2onkeydown,document,rootElements,history,css,fromOffset,isString,isNode,Error,remove,once,Event,Array,zIndex,onremove,Cleanup,innerHeight,innerWidth,getComputedStyle,extend,getScreenPosition,Math,overlap,arriswise,fromPixel,appendChild,onkeydown,document,rootElements,history,css,fromOffset,isString,isNode,Error,remove,once,Event,Array,zIndex,onremove,Cleanup,innerHeight,innerWidth,getComputedStyle,extend,getScreenPosition,Math,overlap,arriswise,fromPixel,appendChild;onkeydown(document, function (e) {
+    if (e.which === 27 && rootElements.length) {
+        history.back();
+    }
+});
+var animationStyle = 'opacity:0;transform:scale(1.2);transition:.1s opacity ease-out,.2s transform ease-out;';
+var setInitialStyle = function (element) {
+    if (!element.initialStyle)
+        element.initialStyle = animationStyle;
+};
+var setPosition = function (element) {
+    css(element, {
+        marginLeft: fromOffset(-element.offsetWidth / 2),
+        marginTop: fromOffset(-element.offsetHeight / 2),
+        left: '50%',
+        top: '50%'
+    });
+};
+var windowFactory = function (window) {
+    css(window, 'min-height:10px;min-width:10px;position:absolute;background-color:#fff;');
+    return window;
+};
+var loadingFactory = function (element) {
+    css(element, 'position:absolute;background-color:#fff;');
+    return element;
+};
+var popup = function (path) {
+    if (isString(path)) {
+        return popup_path.apply(null, arguments);
+    }
+    if (isNode(path)) {
+        return popup_view.apply(null, arguments);
+    }
+    throw new Error('path isn\'t valid:' + path);
+};
+var popup_path = function (path, parameters, target) {
+    if (path === void 0) {
+        path = '';
+    }
+    if (!popup.go || !popup.prepare)
+        throw new Error('\u5f53\u524d\u73af\u5883\u65e0\u6cd5\u4f7f\u7528');
+    var element;
+    if (/^#/.test(path)) {
+        path = path.replace(/^#/, '');
+        var load = function () {
+            remove(element && element.mask);
+            element = popup.create(path, parameters);
+            windowFactory(element);
+            setInitialStyle(element);
+            popup_with_mask(element, target);
+        };
+    } else if (/^@/.test(path)) {
+        path = path.replace(/^@/, '');
+        var load = function () {
+            element = popup.create(path, parameters);
+            windowFactory(element);
+            setInitialStyle(element);
+            popup_as_single(element);
+        };
+    } else if (/^!/.test(path)) {
+        path = path.replace(/^!/, '');
+        var load = function () {
+            element = popup.create(path, parameters);
+            loadingFactory(element);
+            setInitialStyle(element);
+            popup_with_mask(element);
+        };
+    } else {
+        var load = function () {
+            element = popup.create(path, parameters);
+            loadingFactory(element);
+            setInitialStyle(element);
+            popup_as_single(element);
+        };
+    }
+    var fullfill = function () {
+        remove(element);
+        load();
+        if (!element)
+            throw new Error('\u8def\u5f84\u4e0d\u5b58\u5728:' + path);
+        element.style.opacity = 0;
+        element.$reload = fullfill;
+        if (element.parentNode)
+            setPosition(element);
+        else
+            once('append')(element, function () {
+                setPosition(element);
+                element.style.opacity = 1;
+            });
+    };
+    popup.prepare(path, fullfill);
+    return element;
+};
+var popup_view = function (element, target) {
+    if (isNode(target)) {
+        if (target.isMask) {
+            popup_with_mask(element, target);
+            return element;
+        }
+        return popup_as_extra(element, target);
+    }
+    if (target instanceof Event) {
+        popup_to_event(element, target);
+    } else if (target instanceof Array) {
+        popup_to_point(element, target);
+    } else if (target) {
+        popup_with_mask(element);
+    } else {
+        popup_as_single(element);
+    }
+    return element;
+};
+css('.mask', 'position:absolute;position:fixed;left:0;right:0;bottom:0;top:0;width:auto;height:auto;background:#000;opacity:0.2;transform:scale(1);display:block');
+var createMask = function () {
+    var mask = document.createElement('mask');
+    mask.initialStyle = animationStyle;
+    css(mask, 'z-index:' + zIndex() + ';');
+    mask.className = 'mask';
+    mask.isMask = true;
+    return mask;
+};
+var popup_with_mask = function (element, mask) {
+    if (mask === void 0) {
+        mask = createMask();
+    }
+    onremove(element, mask.clean);
+    css(element, 'z-index:' + zIndex() + ';');
+    if (mask.parentNode) {
+        global(element);
+    }
+    if (!element['with']) {
+        element['with'] = [mask];
+    } else if (element['with'] instanceof Array) {
+        if (!~element['with'].indexOf(element))
+            element['with'].push(mask);
+    } else {
+        if (element['with'] !== element)
+            element['with'] = [
+                element['with'],
+                mask
+            ];
+    }
+    if (!mask.clean) {
+        mask.clean = new Cleanup(element['with']);
+    }
+    if (!element.parentNode)
+        global(element);
+    return element;
+};
+var popup_as_extra = function (element, target) {
+    var offsetParent = target.offsetParent, nextSibling = target.nextSibling, previousSibling = target.previousSibling;
+    if (nextSibling && (nextSibling.offsetLeft - target.offsetLeft >= target.offsetWidth / 2 || target.offsetLeft - nextSibling.offsetLeft >= nextSibling.offsetWidth / 2) || previousSibling && (previousSibling.offsetLeft - target.offsetLeft >= target.offsetWidth / 2 || target.offsetLeft - previousSibling.offsetLeft >= previousSibling.offsetWidth / 2)) {
+        popup_as_yextra(global, element, target);
+    } else if (offsetParent) {
+        if (innerHeight - target.offsetHeight > innerWidth - target.offsetWidth && offsetParent.clientWidth !== target.offsetWidth) {
+            popup_as_yextra(global, element, target);
+        } else {
+            popup_as_xextra(global, element, target);
+        }
+    } else if (/inline|cell/i.test(getComputedStyle(target).display)) {
+        popup_as_yextra(global, element, target);
+    } else {
+        popup_as_xextra(global, element, target);
+    }
+};
+var popup_as_yextra = function (global, element, target) {
+    if (!element.origin) {
+        element.origin = {
+            height: element.style.height,
+            width: element.style.width,
+            minWidth: element.style.minWidth,
+            display: element.style.display
+        };
+    }
+    css(element, 'position:absolute;z-index:' + zIndex());
+    var release1 = onremove(target, function () {
+        remove(element);
+    });
+    var release2 = onremove(element, function () {
+        release1();
+        release2();
+        if (document.removeEventListener) {
+            document.removeEventListener('scroll', reshape, true);
+            document.removeEventListener('resize', reshape);
+        }
+    });
+    global(element);
+    var reshape = function () {
+        extend(element.style, element.origin);
+        var position = getScreenPosition(target);
+        var viewrect = getScreenPosition(element.offsetParent);
+        var maxHeight = Math.max(position.top, innerHeight - position.top - position.height);
+        var maxWidth = Math.max(position.left + position.width, innerWidth - position.left);
+        var height = element.offsetHeight;
+        if (height > maxHeight) {
+            css(element, 'height:' + maxHeight + 'px;');
+        }
+        css(element, 'min-width:auto;');
+        var aimedWidth = element.offsetWidth;
+        if (aimedWidth < target.offsetWidth) {
+            aimedWidth = target.offsetWidth;
+        }
+        if (aimedWidth > maxWidth) {
+            aimedWidth = maxWidth;
+        }
+        if (aimedWidth !== element.offsetWidth) {
+            css(element, 'width:' + aimedWidth + 'px');
+        }
+        if (position.top + element.offsetHeight + position.height > innerHeight) {
+            css(element, 'bottom:' + (viewrect.height - position.top + viewrect.top) + 'px;top:auto;');
+        } else {
+            css(element, 'top:' + (position.top - viewrect.top + position.height) + 'px;bottom:auto;');
+        }
+        if (position.left + element.offsetWidth > innerWidth) {
+            css(element, 'right:' + (viewrect.width + viewrect.left - position.left - position.width) + 'px;left:auto;');
+        } else {
+            css(element, 'left:' + (position.left - viewrect.left) + 'px;right:auto;');
+        }
+        var offsetParent = target.offsetParent;
+        if (offsetParent) {
+            if (overlap(position, offsetParent) > 0) {
+                element.style.display = element.origin.display;
+            } else {
+                element.style.display = 'none';
+            }
+            ;
+        }
+    };
+    if (document.addEventListener) {
+        document.addEventListener('scroll', reshape, true);
+        document.addEventListener('resize', reshape);
+    }
+    reshape();
+};
+var popup_as_xextra = arriswise(popup_as_yextra, arguments);
+var popup_as_single = function (element) {
+    css(element, 'z-index:' + zIndex() + ';');
+    global(element);
+};
+var popup_to_point = function (element, _a) {
+    var x = _a[0], y = _a[1];
+    css(element, {
+        position: 'absolute',
+        left: fromPixel(x),
+        top: fromPixel(y)
+    });
+    popup_as_single(element);
+};
+var popup_to_event = function (element, _a) {
+    var clientX = _a.clientX, clientY = _a.clientY;
+    css(element, {
+        position: 'absolute',
+        left: fromOffset(clientX),
+        top: fromOffset(clientY)
+    });
+    popup_as_single(element);
+};
+var global = function (element) {
+    once('remove')(element, cleanup);
+    popup.global ? popup.global(element, true) : appendChild(document.body, element);
+};
+var cleanup = new Cleanup(rootElements);
+return popup;

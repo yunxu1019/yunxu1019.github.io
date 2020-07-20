@@ -1,1 +1,125 @@
-0ciisNode,isString,isArray,isFinite,div,document,onclick,remove,appendChild,Error,String,button,isFunction,css,zIndex,on,drag,preventOverflowScrolling,setTimeout,popup,fromOffset,cless,a,b,l,m,n,o,c,f,d,g,h,p,q,i,r,s,t,u,v,w,j,xfunction y(){var x,z,A,H,F=!0,I=0;[].map.call(arguments,function(c){typeof c==='boolean'?F=c:a(c)?((b(x)||a(x))&&(z=x),x=c):b(c)?a(x)?z=c:(b(x)&&(z=x),x=c):l(c)?A=c:m(c)&&(I=c|0)});var y=n();y.innerHTML='<div class=head></div><div class=body></div><div class=option></div>';var E=y.children,B=E[0],C=E[1],J=E[2];if(F){var D=o.createElement('i');D.title='\u5173\u95ed',D.className='close',c(D,function(){f(y)}),d(B,D)}if(b(z)?B.innerHTML=z:a(z)&&B.appendChild(z),b(x))C.innerHTML=x;else if(a(x))d(C,x);else throw new g('\u6d88\u606f\u4f53\u4e0d\u5408\u6cd5\uff01');if(x=h(C.innerText).replace(/\s+/g,' '),k.test(h(C.innerText).replace(/\s+/g,'')))throw new g('\u60a8\u7684\u4f20\u8fbe\u4e86\u6709\u6b67\u4e49\u7684\u4fe1\u606f\uff1a'+x);if(!A){for(var G in e)if(x.indexOf(G)>=0){A=e[G];break}A||(A=['\u786e\u8ba4','\u53d6\u6d88'])}var K=A.map(function(b,e,g){if(a(b))return b;var d=p(b);return c(d,function(){if(q(H)&&H(b,e,g)===!1)return;f(y)}),d});return c(y,function(){i(this,{zIndex:r()})}),s('dblclick')(B,function(){}),t.on(y),u(y),d(J,K),y.initialStyle='transform:scale(.9);opacity:0;transition:transform .3s,opacity .2s',v(function(){if(y.parentNode)return;w(y),i(y,{marginLeft:j(-y.offsetWidth/2),marginTop:j(-y.offsetHeight/2),left:'50%',top:'50%'})}),y}var k=/^\u786e[\s\u0060]*?\u8ba4[\s\u0060]*?\u53d6[\s\u0060]*?\u6d88/i,e={\u662f:['\u662f\u7684','\u4e0d\u662f'],\u786e\u8ba4:['\u786e\u8ba4','\u53d6\u6d88'],\u662f\u5426:['\u662f','\u5426'],\u662f\u5417:['\u662f','\u4e0d\u662f'],\u8bf7:['\u5b8c\u6210','\u53d6\u6d88']};return x(y,'.-tt{position:absolute;margin:0 auto;top:50%;max-width:100%;max-height:100%;overflow:auto;cursor:default;background-color:#fff;border:1px solid rgba(0,0,0,0.0667);box-shadow:0 0 16px -6px rgba(0,0,0,0.2)}.-tt>.head{line-height:50px;position:relative;padding-left:16px;position:sticky;top:0;background:inherit;z-index:2}.-tt>.head .close{display:block;position:absolute;height:32px;line-height:32px;right:0;top:0;width:44px;text-align:center;font-family:\'Times New Roman\',Times,serif;font-size:28px}.-tt>.head .close:hover{background:#f00;color:#fff}.-tt>.head .close:active{background:rgba(255,0,0,0.5333)}.-tt>.head .close:after{content:"×"}.-tt>.body{padding:0 16px}.-tt>.body>*{max-width:100%}.-tt>.option{position:sticky;bottom:0;background:inherit;text-align:center;padding:10px;white-space:nowrap}.-tt>.option>div{display:inline-block;width:auto;min-width:80px;position:relative}.-tt>.option>div+div{margin-left:10px}','-tt confirm confirm')
+0k6isNode,isString,isArray,isFinite,div,document,onclick,remove,appendChild,Error,String,button,isFunction,css,zIndex,on,drag,preventOverflowScrolling,setTimeout,popup,fromOffset,cless,isNode,isString,isArray,isFinite,div,document,onclick,remove,appendChild,Error,String,button,isFunction,css,zIndex,on,drag,preventOverflowScrolling,setTimeout,popup,fromOffset,clessvar isOptionalReg = /^\u662f\u5426|\u662f[\u5417\u5427]$|[\uff1f?]$|\u8bf7|^\u96be\u9053|^\u786e\u8ba4/i;
+var conflictReg = /^\u786e[\s\u0060]*?\u8ba4[\s\u0060]*?\u53d6[\s\u0060]*?\u6d88/i;
+var defaultOptions = {
+    \u662f: [
+        '\u662f\u7684',
+        '\u4e0d\u662f'
+    ],
+    \u786e\u8ba4: [
+        '\u786e\u8ba4',
+        '\u53d6\u6d88'
+    ],
+    \u662f\u5426: [
+        '\u662f',
+        '\u5426'
+    ],
+    \u662f\u5417: [
+        '\u662f',
+        '\u4e0d\u662f'
+    ],
+    \u8bf7: [
+        '\u5b8c\u6210',
+        '\u53d6\u6d88'
+    ]
+};
+function confirm() {
+    var message, title, options, callback, closable = true, selected = 0;
+    [].map.call(arguments, function (arg) {
+        if (typeof arg === 'boolean') {
+            closable = arg;
+        } else if (isNode(arg)) {
+            if (isString(message) || isNode(message)) {
+                title = message;
+            }
+            message = arg;
+        } else if (isString(arg)) {
+            if (isNode(message)) {
+                title = arg;
+            } else {
+                if (isString(message)) {
+                    title = message;
+                }
+                message = arg;
+            }
+        } else if (isArray(arg)) {
+            options = arg;
+        } else if (isFinite(arg)) {
+            selected = arg | 0;
+        }
+    });
+    var element = div();
+    element.innerHTML = '<div class=head></div><div class=body></div><div class=option></div>';
+    var _a = element.children, head = _a[0], body = _a[1], option = _a[2];
+    if (closable) {
+        var closebtn = document.createElement('i');
+        closebtn.title = '\u5173\u95ed';
+        closebtn.className = 'close';
+        onclick(closebtn, function () {
+            remove(element);
+        });
+        appendChild(head, closebtn);
+    }
+    if (isString(title)) {
+        head.innerHTML = title;
+    } else if (isNode(title)) {
+        head.appendChild(title);
+    }
+    if (isString(message)) {
+        body.innerHTML = message;
+    } else if (isNode(message)) {
+        appendChild(body, message);
+    } else {
+        throw new Error('\u6d88\u606f\u4f53\u4e0d\u5408\u6cd5\uFF01');
+    }
+    message = String(body.innerText).replace(/\s+/g, ' ');
+    if (conflictReg.test(String(body.innerText).replace(/\s+/g, ''))) {
+        throw new Error('\u60a8\u7684\u4f20\u8fbe\u4e86\u6709\u6b67\u4e49\u7684\u4fe1\u606f\uFF1A' + message);
+    }
+    if (!options) {
+        for (var k in defaultOptions) {
+            if (message.indexOf(k) >= 0) {
+                options = defaultOptions[k];
+                break;
+            }
+        }
+        if (!options) {
+            options = [
+                '\u786e\u8ba4',
+                '\u53d6\u6d88'
+            ];
+        }
+    }
+    var buttons = options.map(function (label, index, options) {
+        if (isNode(label))
+            return label;
+        var btn = button(label);
+        onclick(btn, function () {
+            if (isFunction(callback) && callback(label, index, options) === false)
+                return;
+            remove(element);
+        });
+        return btn;
+    });
+    onclick(element, function () {
+        css(this, { zIndex: zIndex() });
+    });
+    on('dblclick')(head, function () {
+    });
+    drag.on(element);
+    preventOverflowScrolling(element);
+    appendChild(option, buttons);
+    element.initialStyle = 'transform:scale(.9);opacity:0;transition:transform .3s,opacity .2s';
+    setTimeout(function () {
+        if (element.parentNode)
+            return;
+        popup(element);
+        css(element, {
+            marginLeft: fromOffset(-element.offsetWidth / 2),
+            marginTop: fromOffset(-element.offsetHeight / 2),
+            left: '50%',
+            top: '50%'
+        });
+    });
+    return element;
+}
+return cless(confirm, '.-tt {\n  position: absolute;\n  margin: 0 auto;\n  top: 50%;\n  max-width: 100%;\n  max-height: 100%;\n  overflow: auto;\n  cursor: default;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.0667);\n  box-shadow: 0 0 16px -6px rgba(0, 0, 0, 0.2);\n}\n.-tt > .head {\n  line-height: 50px;\n  position: relative;\n  padding-left: 16px;\n  position: sticky;\n  top: 0;\n  background: inherit;\n  z-index: 2;\n}\n.-tt > .head .close {\n  display: block;\n  position: absolute;\n  height: 32px;\n  line-height: 32px;\n  right: 0;\n  top: 0;\n  width: 44px;\n  text-align: center;\n  font-family: \'Times New Roman\', Times, serif;\n  font-size: 28px;\n}\n.-tt > .head .close:hover {\n  background: #f00;\n  color: #fff;\n}\n.-tt > .head .close:active {\n  background: rgba(255, 0, 0, 0.5333);\n}\n.-tt > .head .close:after {\n  content: "\xD7";\n}\n.-tt > .body {\n  padding: 0 16px;\n}\n.-tt > .body > * {\n  max-width: 100%;\n}\n.-tt > .option {\n  position: sticky;\n  bottom: 0;\n  background: inherit;\n  text-align: center;\n  padding: 10px;\n  white-space: nowrap;\n}\n.-tt > .option > div {\n  display: inline-block;\n  width: auto;\n  min-width: 80px;\n  position: relative;\n}\n.-tt > .option > div + div {\n  margin-left: 10px;\n}\n', '-tt confirm confirm');

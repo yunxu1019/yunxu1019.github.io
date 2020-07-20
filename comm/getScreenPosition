@@ -1,1 +1,44 @@
-024innerWidth,innerHeight,undefined,a,b,cfunction d(d){if(d||(d={offsetTop:0,offsetLeft:0,offsetWidth:+a,offsetHeight:+b}),!d.getBoundingClientRect){var f=d.offsetLeft,g=d.offsetTop,h=d.offsetWidth,i=d.offsetHeight;while(d.offsetParent)d=d.offsetParent,f+=d.offsetLeft-d.scrollLeft+d.clientLeft,g+=d.offsetTop-d.scrollTop+d.clientTop;var j=f+h,k=g+i;return{left:f,right:j,bottom:k,top:g,width:h,height:i}}var e=d.getBoundingClientRect(),f=e.left,g=e.top,h=e.width,i=e.height,j=e.right,k=e.bottom;return e={left:f,top:g,width:h,height:i,right:j,bottom:k},e.width===c&&(e.width=e.right-e.left,e.height=e.bottom-e.top),e}return d
+03minnerWidth,innerHeight,undefined,innerWidth,innerHeight,undefinedfunction getScreenPosition(target) {
+    if (!target) {
+        target = {
+            offsetTop: 0,
+            offsetLeft: 0,
+            offsetWidth: +innerWidth,
+            offsetHeight: +innerHeight
+        };
+    }
+    ;
+    if (!target.getBoundingClientRect) {
+        var left = target.offsetLeft, top = target.offsetTop, width = target.offsetWidth, height = target.offsetHeight;
+        while (target.offsetParent) {
+            target = target.offsetParent;
+            left += target.offsetLeft - target.scrollLeft + target.clientLeft;
+            top += target.offsetTop - target.scrollTop + target.clientTop;
+        }
+        var right = left + width, bottom = top + height;
+        return {
+            left: left,
+            right: right,
+            bottom: bottom,
+            top: top,
+            width: width,
+            height: height
+        };
+    }
+    var rect = target.getBoundingClientRect();
+    var left = rect.left, top = rect.top, width = rect.width, height = rect.height, right = rect.right, bottom = rect.bottom;
+    rect = {
+        left: left,
+        top: top,
+        width: width,
+        height: height,
+        right: right,
+        bottom: bottom
+    };
+    if (rect.width === undefined) {
+        rect.width = rect.right - rect.left;
+        rect.height = rect.bottom - rect.top;
+    }
+    return rect;
+}
+return getScreenPosition;

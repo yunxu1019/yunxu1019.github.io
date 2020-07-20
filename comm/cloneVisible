@@ -1,1 +1,243 @@
-04yString,undefined,getComputedStyle,overlap,document,getScreenPosition,extend,j,a,b,n,c,e,kfunction f(a,m){if(!a||a.nodeType>3||a.nodeType==2)return;var j=a.style;if(!j)return a.cloneNode();if(!h(a))return;j=b(a);var k=c.createElement(a.tagName),i=k.style;d(j,i);var l=e(a);return k.value=a.value,m&&i.position==='absolute'?(i.left=l.left-m.left+'px',i.top=l.top-m.top+'px'):(i.margin=j.margin,i.left=j.left,i.top=j.top),i.width=l.width+'px',i.height=l.height+'px',i.boxSizing='border-box',g(a,k,function(b){var a=f(b,l);a&&k.appendChild(a)}),k}var l='font,color,textShadow,opacity,writingMode,blockSize,wordSpacing,letterSpacing,whiteSpace'.split(','),m='font,color,borderRadius,borderWidth,borderColor,borderStyle,verticalAlign,textAlign,textShadow,background,opacity,padding,boxShadow,overflow,position,writingMode,blockSize,wordSpacing,letterSpacing,textIndent,lineHeight,display,appearance,webkitAppearance,mozAppearance'.split(','),d=function(e,b,c){c===void 0&&(c=m);for(var d=0,f=c.length;d<f;d++){var a=c[d];a in b&&(b[a]||e[a])&&b[a]!==e[a]&&(b[a]=e[a]||'')}},g=function(b,c,f){switch(j(c.tagName).toLowerCase()){case'input':case'textarea':c.placeholder=b.placeholder;c.value=b.value;break;case'select':var e='option[value="'+j(b.value===null||b.value===a?'':b.value).replace(/"/g,'\\"')+'"]';var d=b.querySelector&&b.querySelector(e);d?c.innerHTML=d.outerHTML:c.innerHTML=b.innerHTML;c.value=b.value;break;case'img':c.src=b.src;break;default:[].forEach.call(b.childNodes,f)}},h=function(a){if(!(a&&a.parentNode)||a.nodeType>3||a.nodeType==2)return;var c=a.style;return c||(a=a.parentNode),c=b(a),c.display==='none'?void 0:c.visibility==='hidden'||c.visibility==='collapse'?void 0:+c.opacity===0?void 0:c.position==='fixed'?void 0:c.overflow==='hidden'&&(a.offsetHeight===0||a.offsetWidth===0)?void 0:n(a,a.parentNode)?!0:void 0},i=function(r){var i=c.createElement('clone'),j,m,n,o,q=c.createElement('x'),p=function(r){if(!h(r))return;if(r.nodeType===3){var k=q.cloneNode();k.appendChild(r.cloneNode());var w=r.parentNode;w.removeChild(r),w.appendChild(k);var x=e(k),s=x.left,t=x.top,y=x.width,u=x.height,v=b(k);d(v,k.style,l),k.style.lineHeight=u+'px',w.removeChild(k),w.appendChild(r),i.appendChild(k)}else if(r.nodeType!==1)return;else{var v=b(r);if(/(?:hidden)/.test(v.overflow)){var k=f(r);i.appendChild(k)}else{var k=c.createElement(r.tagName);d(v,k.style),i.appendChild(k),g(r,k,p)}var z=e(r),s=z.left,t=z.top,y=z.width,u=z.height}var A=s+y,B=t+u;k.tempstyle={left:s,top:t,width:y,height:u},(j===a||j>s)&&(j=s),(m===a||m>t)&&(m=t),(n===a||n<A)&&(n=A),(o===a||o<B)&&(o=B)};return p(r),k(i.style,{position:'absolute',left:j+'px',top:m+'px',width:n-j+'px',height:o-m+'px'}),[].map.call(i.children,function(b){var a=b.tempstyle,c=a.left,d=a.top,e=a.width,f=a.height;k(b.style,{position:'absolute',display:'block',margin:0,boxSizing:'border-box',left:c-j+'px',top:d-m+'px',width:e+'px',height:f+'px'})}),i};return i.cell=f,i
+09inavigator,getComputedStyle,String,undefined,overlap,document,getScreenPosition,extend,navigator,getComputedStyle,String,undefined,overlap,document,getScreenPosition,extendvar cloneProperties = 'fontSize,fontFamily,color,textShadow,opacity,writingMode,blockSize,wordSpacing,letterSpacing,whiteSpace'.split(',');
+var cloneProperties2 = 'position,float,clear,margin,color,verticalAlign,textAlign,textShadow,opacity,boxShadow,overflow,writingMode,blockSize,wordSpacing,letterSpacing,textIndent,lineHeight,display,appearance,webkitAppearance,MozAppearance'.split(',');
+var pushProperty = function (key, props) {
+    props.split(',').forEach(function (k) {
+        cloneProperties2.push(key + k);
+    });
+};
+if (/firefox|Trident/i.test(navigator.userAgent)) {
+    pushProperty('border', 'Collapse,ImageRepeat,BlockEndStyle,BlockStartStyle,BottomStyle,InlineEndStyle,InlineStartStyle,LeftStyle,RightStyle,TopStyle,ImageOutset,ImageSlice,ImageSource,ImageWidth,Spacing,BlockEndWidth,BlockStartWidth,BottomWidth,InlineEndWidth,InlineStartWidth,LeftWidth,RightWidth,TopWidth,BottomLeftRadius,BottomRightRadius,EndEndRadius,EndStartRadius,StartEndRadius,StartStartRadius,TopLeftRadius,TopRightRadius,BlockEndColor,BlockStartColor,BottomColor,InlineEndColor,InlineStartColor,LeftColor,RightColor,TopColor');
+    pushProperty('padding', 'BlockEnd,BlockStart,Bottom,InlineEnd,InlineStart,Left,Right,Top');
+    pushProperty('margin', 'BlockEnd,BlockStart,Bottom,InlineEnd,InlineStart,Left,Right,Top');
+    pushProperty('background', 'Attachment,BlendMode,Clip,Image,Origin,PositionX,PositionY,Repeat,Size,Color,Position');
+    pushProperty('font', 'Kerning,OpticalSizing,SizeAdjust,Stretch,Style,Synthesis,VariantCaps,VariantEastAsian,VariantLigatures,VariantNumeric,VariantPosition,Weight,Family,FeatureSettings,LanguageOverride,Size,VariantAlternates,VariationSettings,Variant');
+} else {
+    pushProperty('border', 'Style,Width,Color,Image,Radius');
+    cloneProperties2.push('padding', 'font', 'background');
+}
+var copyStyle = function (srcStyle, dstStyle, cloneProperties) {
+    if (cloneProperties === void 0) {
+        cloneProperties = cloneProperties2;
+    }
+    for (var cx = 0, dx = cloneProperties.length; cx < dx; cx++) {
+        var k = cloneProperties[cx];
+        if (k in dstStyle) {
+            if ((dstStyle[k] || srcStyle[k]) && dstStyle[k] !== srcStyle[k]) {
+                dstStyle[k] = srcStyle[k] || '';
+            }
+        }
+    }
+};
+var getZIndex = function (node) {
+    return node.nodeType === 1 ? +getComputedStyle(node).zIndex || 0 : 0;
+};
+var cloneChildren = function (td, copy, clone) {
+    switch (String(copy.tagName).toLowerCase()) {
+    case 'input':
+    case 'textarea':
+        copy.placeholder = td.placeholder;
+        copy.setAttribute('value', td.value);
+        break;
+    case 'select':
+        var selector = 'option[value="' + String(td.value === null || td.value === undefined ? '' : td.value).replace(/"/g, '\\"') + '"]';
+        var opt = td.querySelector && td.querySelector(selector);
+        if (opt) {
+            copy.innerHTML = opt.outerHTML;
+        } else {
+            copy.innerHTML = td.innerHTML;
+        }
+        copy.value = td.value;
+        break;
+    case 'img':
+        copy.src = td.src;
+        break;
+    case 'svg':
+        copy.innerHTML = td.innerHTML;
+        [].forEach.call(td.attributes || [], function (a) {
+            if (/^[\w\-]+$/i.test(a.name))
+                copy.setAttribute(a.name, a.value);
+        });
+        break;
+    default:
+        var children = [].slice.call(td.childNodes, 0).filter(isMaybeVisible);
+        children.sort(function (a, b) {
+            return getZIndex(a) - getZIndex(b);
+        }).forEach(clone);
+    }
+    var before = clonePseudo(td, ':before'), after = clonePseudo(td, ':after');
+    if (before)
+        copy.insertBefore(before, copy.firstChild);
+    if (after)
+        copy.appendChild(after);
+};
+var isMaybeVisible = function (node) {
+    if (!node || !node.parentNode || node.nodeType > 3 || node.nodeType === 2)
+        return;
+    if (/^(style|link|script|meta)$/i.test(node))
+        return;
+    var style = node.style;
+    if (!style) {
+        node = node.parentNode;
+    }
+    style = getComputedStyle(node);
+    if (style.display === 'none')
+        return;
+    if (style.visibility === 'hidden' || style.visibility === 'collapse')
+        return;
+    if (+style.opacity === 0)
+        return;
+    if (style.position === 'fixed')
+        return;
+    if (style.overflow === 'hidden') {
+        if (node.offsetHeight === 0 || node.offsetWidth === 0)
+            return;
+    }
+    if (!overlap(node, node.offsetParent))
+        return;
+    return true;
+};
+var clonePseudo = function (node, pseudo) {
+    var pseudoStyle = getComputedStyle(node, pseudo);
+    if (pseudoStyle.content === 'none' || !pseudoStyle.content)
+        return;
+    var copy = document.createElement(pseudo.slice(1));
+    copy.innerText = pseudoStyle.content.replace(/^"|"$/g, '').replace(/\\([\s\S])/g, '$1');
+    copyStyle(pseudoStyle, copy.style);
+    return copy;
+};
+var hasPseudo = function (node, pseudo) {
+    var pseudoStyle = getComputedStyle(node, pseudo);
+    return pseudoStyle.content && pseudoStyle.content !== 'none';
+};
+var cloneCanvas = function (canvas) {
+    var clonedCanvas = canvas.cloneNode(false);
+    clonedCanvas.width = canvas.width;
+    clonedCanvas.height = canvas.height;
+    if (!canvas.getContext)
+        return clonedCanvas;
+    var ctx = canvas.getContext('2d');
+    var clonedCtx = clonedCanvas.getContext('2d');
+    if (clonedCtx) {
+        if (ctx) {
+            clonedCtx.putImageData(ctx.getImageData(0, 0, canvas.width, canvas.height), 0, 0);
+        } else {
+            clonedCtx.drawImage(canvas, 0, 0);
+        }
+    }
+    return clonedCanvas;
+};
+var cloneVisible = function (td) {
+    var result = document.createElement('clone');
+    var _left, _top, _right, _bottom;
+    var span = document.createElement('x');
+    var hasSvg = false;
+    var clone = function (td) {
+        if (!isMaybeVisible(td))
+            return;
+        if (td.nodeType === 3) {
+            var copy = span.cloneNode();
+            copy.appendChild(td.cloneNode());
+            var parentNode = td.parentNode;
+            parentNode.removeChild(td);
+            parentNode.appendChild(copy);
+            var _a = getScreenPosition(copy), left = _a.left, top = _a.top, width = _a.width, height = _a.height;
+            var style = getComputedStyle(copy);
+            copyStyle(style, copy.style, cloneProperties);
+            copy.style.lineHeight = height + 'px';
+            parentNode.removeChild(copy);
+            parentNode.appendChild(td);
+            result.appendChild(copy);
+        } else if (td.nodeType !== 1)
+            return;
+        else {
+            var style = getComputedStyle(td);
+            if (/(?:hidden)/.test(style.overflow) || hasPseudo(td, ':after')) {
+                var copy = cloneCell(td);
+                result.appendChild(copy);
+            } else {
+                var copy = document.createElement(td.tagName);
+                copyStyle(style, copy.style);
+                result.appendChild(copy);
+                cloneChildren(td, copy, clone);
+            }
+            var _b = getScreenPosition(td), left = _b.left, top = _b.top, width = _b.width, height = _b.height;
+            if (!hasSvg && /^svg$/i.test(td.tagName)) {
+                hasSvg = true;
+            }
+        }
+        var right = left + width;
+        var bottom = top + height;
+        copy.tempstyle = {
+            left: left,
+            top: top,
+            width: width,
+            height: height
+        };
+        if (_left === undefined || _left > left)
+            _left = left;
+        if (_top === undefined || _top > top)
+            _top = top;
+        if (_right === undefined || _right < right)
+            _right = right;
+        if (_bottom === undefined || _bottom < bottom)
+            _bottom = bottom;
+    };
+    clone(td);
+    extend(result.style, {
+        position: 'absolute',
+        left: _left + 'px',
+        top: _top + 'px',
+        width: _right - _left + 'px',
+        height: _bottom - _top + 'px'
+    });
+    [].map.call(result.children, function (element) {
+        var _a = element.tempstyle, left = _a.left, top = _a.top, width = _a.width, height = _a.height;
+        extend(element.style, {
+            position: 'absolute',
+            display: 'block',
+            margin: 0,
+            boxSizing: 'border-box',
+            left: left - _left + 'px',
+            top: top - _top + 'px',
+            width: width + 'px',
+            height: height + 'px'
+        });
+    });
+    if (hasSvg)
+        result.innerHTML = result.innerHTML;
+    return result;
+};
+function cloneCell(node, parentPosition) {
+    if (!node || node.nodeType > 3 || node.nodeType === 2)
+        return;
+    var style = node.style;
+    if (!style)
+        return node.cloneNode();
+    if (!isMaybeVisible(node))
+        return;
+    style = getComputedStyle(node);
+    var clone = document.createElement(node.tagName);
+    var cloneStyle = clone.style;
+    copyStyle(style, cloneStyle);
+    var screenPosition = getScreenPosition(node);
+    clone.value = node.value;
+    if (parentPosition && cloneStyle.position === 'absolute') {
+        cloneStyle.left = screenPosition.left - parentPosition.left + 'px';
+        cloneStyle.top = screenPosition.top - parentPosition.top + 'px';
+    } else {
+        cloneStyle.margin = style.margin;
+        cloneStyle.left = style.left;
+        cloneStyle.top = style.top;
+    }
+    cloneStyle.width = screenPosition.width + 'px';
+    cloneStyle.height = screenPosition.height + 'px';
+    cloneStyle.boxSizing = 'border-box';
+    cloneChildren(node, clone, function (child) {
+        var childClone = cloneCell(child, screenPosition);
+        if (childClone)
+            clone.appendChild(childClone);
+    });
+    return clone;
+}
+cloneVisible.cell = cloneCell;
+return cloneVisible;

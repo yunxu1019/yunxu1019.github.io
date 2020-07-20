@@ -1,0 +1,10 @@
+012div,cless,div,clessvar profile, Profile, template, template = Profile = profile = {
+        'toString': function () {
+            return '';
+        }
+    };
+var page = div();
+function main() {
+    return page;
+}
+return cless(main, '', '-rk profile profile');

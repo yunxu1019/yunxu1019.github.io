@@ -1,1 +1,90 @@
-028String,Array,getSplitedDate,Date,d,e,b,afunction f(a,b){return b===void 0&&(b=2),a=d(a),a.length>=b?a:new e(b-a.length+1).join('0')+a}function g(j,d){var k=new a(j);if(!+k)return j;if(d&&!/^[\-\/]+$/.test(d))return d.call(k,d);d&&(d=d.charAt(0));var e=b(k),l=e[0],g=e[1],m=e[2],h=e[3],o=e[4],x=e[5],y=e[6],r=e[7],i=b(new a),p=i[0],q=i[1],s=i[2],t=i[3],u=i[4],v=new a(p,q-1,s),w=new a(l,g-1,m),n=(v-w)/24/36e5,j=h+':'+f(o);if(n<6&&n>2)return'\u661f\u671f'+c[r]+h+'\u70b9';switch(n){case 0:return o===u&&h===t?'\u521a\u521a':j;case 1:return'\u6628\u5929'+h+'\u70b9';case 2:return'\u524d\u5929'+h+'\u70b9';default:switch(p-l){case 0:return''+g+(d||'\u6708')+m+(d?'':'\u65e5')+' ';case 1:return q%12-g%12===1?''+g+(d||'\u6708')+m+(d?'':'\u65e5')+' ':'\u53bb\u5e74'+g+'\u6708';case 2:return'\u524d\u5e74'+g+'\u6708'}return''+l+(d||'\u5e74')}}var c='\u5929\u4e00\u4e8c\u4e09\u56db\u4e94\u516d';return g
+03mString,Array,getSplitedDate,Date,String,Array,getSplitedDate,Datefunction fixLength(minute, length) {
+    if (length === void 0) {
+        length = 2;
+    }
+    minute = String(minute);
+    if (minute.length >= length)
+        return minute;
+    return new Array(length - minute.length + 1).join('0') + minute;
+}
+var days = '\u5929\u4e00\u4e8c\u4e09\u56db\u4e94\u516d';
+function format(formater) {
+    var v = getSplitedDate(this);
+    var o = {};
+    'yMdhmsSD'.split('').forEach(function (k, i) {
+        o[k] = v[i];
+    });
+    '\u5e74\u6708\u65e5\u65f6\u5206\u79d2'.split('').forEach(function (k, i) {
+        o[k] = v[i];
+    });
+    o.Y = o.y;
+    o.D = o.d;
+    o.H = o.h;
+    o.Day = v[v.length - 1];
+    formater.replace(/[yY\u5e74]+|[M\u6708]+|[hH\u65f6]+|\u6beb\u79d2|[m+\u5206]+|[sS]{3}|[Ss\u79d2]+|[\u661f\u671f\u5468\u5929][dD]*|[dD]{3}|[\u65e5\u53f7dD]+/g, function (m) {
+        if (/^[dD]{3}$/.test(m)) {
+            return o.Day;
+        }
+        if (/\u661f\u671f\u5468\u5929/.test(m)) {
+            var v = days[o.Day];
+            if (!/[\u5929\u661f\u671f]/.test(m)) {
+                m = m.replace(/\u5929/g, '\u65e5');
+            }
+        } else {
+            var a = m.charAt(0);
+            var v = o[a];
+        }
+        var l = m.replace(/\W+/g, '');
+        var b = m.split(/[\w\u5929]+/).map(function (a) {
+            return a || fixLength(v, l.length);
+        }).join('');
+        return b;
+    });
+}
+function filterTime(time, format) {
+    var value = new Date(time);
+    if (!+value) {
+        return time;
+    }
+    if (format && !/^[\-\/]+$/.test(format)) {
+        return format.call(value, format);
+    }
+    if (format) {
+        format = format.charAt(0);
+    }
+    var splited = getSplitedDate(value);
+    var year = splited[0], month = splited[1], date = splited[2], hour = splited[3], minute = splited[4], second = splited[5], milli = splited[6], day = splited[7];
+    var _a = getSplitedDate(new Date()), year1 = _a[0], month1 = _a[1], date1 = _a[2], hour1 = _a[3], minute1 = _a[4];
+    var today = new Date(year1, month1 - 1, date1);
+    var thatday = new Date(year, month - 1, date);
+    var delta = (today - thatday) / 24 / 36e5;
+    var time = hour + ':' + fixLength(minute);
+    if (delta < 6 && delta > 2) {
+        return '\u661f\u671f' + days[day] + hour + '\u70b9';
+    }
+    switch (delta) {
+    case 0:
+        if (minute === minute1 && hour === hour1) {
+            return '\u521a\u521a';
+        }
+        return time;
+    case 1:
+        return '\u6628\u5929' + hour + '\u70b9';
+    case 2:
+        return '\u524d\u5929' + hour + '\u70b9';
+    default:
+        switch (year1 - year) {
+        case 0:
+            return '' + month + (format || '\u6708') + date + (format ? '' : '\u65e5') + ' ';
+        case 1:
+            if (month1 % 12 - month % 12 === 1) {
+                return '' + month + (format || '\u6708') + date + (format ? '' : '\u65e5') + ' ';
+            }
+            return '\u53bb\u5e74' + month + '\u6708';
+        case 2:
+            return '\u524d\u5e74' + month + '\u6708';
+        }
+        return '' + year + (format || '\u5e74');
+    }
+}
+return filterTime;

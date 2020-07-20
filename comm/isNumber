@@ -1,1 +1,4 @@
-00gNumber,afunction b(b){return typeof b==='number'||b instanceof a}return b
+00qNumber,Numberfunction isNumber(o) {
+    return typeof o === 'number' || o instanceof Number;
+}
+return isNumber;

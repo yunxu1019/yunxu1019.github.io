@@ -1,1 +1,25 @@
-00woption,cless,a,bfunction c(){var b=a.apply(null,arguments);return b.removeAttribute('tabindex'),b}return b(c,'.-th>.track{display:none;box-shadow:none}','-th field field')
+04iisElement,option,care,render,model,cless,isElement,option,care,render,model,clessvar field, Field, template, template = Field = field = {
+        'toString': function () {
+            return '<div class="head"><span ng-bind=field.name></span></div><div class="body"><model _data=data _field=field></model></div><div class="foot"><span ng-bind=field.msg></span></div>';
+        }
+    };
+function main(elem) {
+    var result = elem;
+    if (isElement(elem) && elem.hasAttribute('ng-src')) {
+        elem = option(elem);
+        care(elem, function (p) {
+            var f = p[0], data = p[1];
+            elem.innerHTML = field;
+            render(elem, {
+                model: model,
+                data: data,
+                field: f
+            });
+        }, false);
+    } else {
+        result = option.apply(null, arguments);
+    }
+    result.removeAttribute('tabindex');
+    return result;
+}
+return cless(main, '.-th {\n  height: auto;\n  box-shadow: none !important;\n}\n.-th > .head {\n  vertical-align: top;\n}\n.-th > .head .image {\n  margin: 10px 0;\n}\n.-th > .body {\n  text-align: left;\n}\n.-th > .body .image {\n  margin: 10px 0;\n}\n.-th > .body .input {\n  width: 100%;\n}\n.-th > .track {\n  display: none;\n  box-shadow: none;\n}\n.-th > .foot span {\n  vertical-align: middle;\n}\n', '-th field field');

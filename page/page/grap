@@ -1,1 +1,28 @@
-02odiv,render,button,console,data,cless,f,g,h,b,c,ifunction j(d){return g(a,{button:h,api:{url:'https://baidu.com',method:'get'},search:function(){var a=this.api,d=a.url,e=a.method;b.log(c),c.fromApi({method:e,url:d},{page:1}).loading_promise.then(function(a){b.log(a)})}}),a}var d,e,e=d={toString:function(){return'<input ng-model=api.method placeholder="\u5730\u5740"><input ng-model=api.url placeholder="\u5730\u5740"><button ng-click=search()>\u641c\u7d22</button><textarea ng-model="api.result"></textarea><list ng-src="item in results"><result></result></list>'}},a=f();return a.innerHTML=d,i(j,'.-re{padding-top:46px}','-re grap grap')
+042div,render,button,console,data,cless,div,render,button,console,data,clessvar grap, Grap, template, template = Grap = grap = {
+        'toString': function () {
+            return '<input ng-model=api.method placeholder="\u5730\u5740"><input ng-model=api.url placeholder="\u5730\u5740"><button ng-click=search()>\u641c\u7d22</button><textarea ng-model="api.result"></textarea><list ng-src="item in results"><result></result></list>';
+        }
+    };
+var page = div();
+page.innerHTML = grap;
+function main(params) {
+    render(page, {
+        button: button,
+        api: {
+            url: 'https://baidu.com',
+            method: 'get'
+        },
+        search: function () {
+            var _a = this.api, url = _a.url, method = _a.method;
+            console.log(data);
+            data.fromApi({
+                method: method,
+                url: url
+            }, { page: 1 }).loading_promise.then(function (res) {
+                console.log(res);
+            });
+        }
+    });
+    return page;
+}
+return cless(main, '.-rf {\n  padding-top: 46px;\n}\n', '-rf grap grap');

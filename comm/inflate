@@ -1,1 +1,734 @@
-00iconsole,Dfunction E(){this.next=null,this.list=null}function F(){this.e=0,this.b=0,this.n=0,this.t=null}function n(z,q,A,B,C,m){this.BMAX=16,this.N_MAX=288,this.status=0,this.root=null,this.m=0;var v,g=[],w,r,t,d,a,b,i,j=[],h,f,k,c=new F,o=[],x=[],e,l=[],u,s,n,y,p;for(p=this.root=null,a=0;a<this.BMAX+1;a++)g[a]=0;for(a=0;a<this.BMAX+1;a++)j[a]=0;for(a=0;a<this.BMAX;a++)o[a]=null;for(a=0;a<this.N_MAX;a++)x[a]=0;for(a=0;a<this.BMAX+1;a++)l[a]=0;w=q>256?z[256]:this.BMAX,h=z,f=0,a=q;do g[h[f]]++,f++;while(--a>0);if(g[0]===q){this.root=null,this.m=0,this.status=0;return}for(b=1;b<=this.BMAX;b++)if(g[b]!==0)break;for(i=b,m<b&&(m=b),a=this.BMAX;a!==0;a--)if(g[a]!==0)break;for(t=a,m>a&&(m=a),s=1<<b;b<a;b++,s<<=1)if((s-=g[b])<0){this.status=2,this.m=m;return}if((s-=g[a])<0){this.status=2,this.m=m;return}g[a]+=s,l[1]=b=0,h=g,f=1,u=2;while(--a>0)l[u++]=b+=h[f++];h=z,f=0,a=0;do(b=h[f++])!==0&&(x[l[b]++]=a);while(++a<q);for(q=l[t],l[0]=a=0,h=x,f=0,d=-1,e=j[0]=0,k=null,n=0,null;i<=t;i++){v=g[i];while(v-->0){while(i>e+j[1+d]){if(e+=j[1+d],d++,n=(n=t-e)>m?m:n,(r=1<<(b=i-e))>v+1){r-=v+1,u=i;while(++b<n){if((r<<=1)<=g[++u])break;r-=g[u]}}for(e+b>w&&e<w&&(b=w-e),n=1<<b,j[1+d]=b,k=[],y=0;y<n;y++)k[y]=new F;p?p=p.next=new E:p=this.root=new E,p.next=null,p.list=k,o[d]=k,d>0&&(l[d]=a,c.b=j[d],c.e=16+b,c.t=k,b=(a&(1<<e)-1)>>e-j[d],o[d-1][b].e=c.e,o[d-1][b].b=c.b,o[d-1][b].n=c.n,o[d-1][b].t=c.t)}for(c.b=i-e,f>=q?c.e=99:h[f]<A?(c.e=h[f]<256?16:15,c.n=h[f++]):(c.e=C[h[f]-A],c.n=B[h[f++]-A]),r=1<<i-e,b=a>>e;b<n;b+=r)k[b].e=c.e,k[b].b=c.b,k[b].n=c.n,k[b].t=c.t;for(b=1<<i-1;(a&b)!==0;b>>=1)a^=b;a^=b;while((a&(1<<e)-1)!==l[d])e-=j[d],d--}}this.m=j[1],this.status=s!==0&&t!==1?1:0}function M(){return u.length===x?-1:u[x++]&255}function b(a){while(l<a)p|=M()<<l,l+=8}function c(a){return p&L[a]}function a(a){p>>=a,l-=a}function r(q,r,p){var l,n,o;if(p===0)return 0;for(o=0;;){b(f),n=i.list[c(f)],l=n.e;while(l>16){if(l===99)return-1;a(n.b),l-=16,b(l),n=n.t[c(l)],l=n.e}if(a(n.b),l===16){if(e&=j-1,q[r+o++]=g[e++]=n.n,o===p)return p;continue}if(l===15)break;b(l),d=n.n+c(l),a(l),b(k),n=w.list[c(k)],l=n.e;while(l>16){if(l===99)return-1;a(n.b),l-=16,b(l),n=n.t[c(l)],l=n.e}a(n.b),b(l),m=e-n.n-c(l),a(l);while(d>0&&o<p)d--,m&=j-1,e&=j-1,q[r+o++]=g[e++]=g[m++];if(o===p)return p}return h=-1,o}function N(i,k,m){var f;if(f=l&7,a(f),b(16),f=c(16),a(16),b(16),f!==(~p&65535))return-1;a(16),d=f,f=0;while(d>0&&f<m)d--,e&=j-1,b(8),i[k+f++]=g[e++]=c(8),a(8);return d===0&&(h=-1),f}function O(d,e,g){if(!o){var a,c=[],b;for(a=0;a<144;a++)c[a]=8;for(null;a<256;a++)c[a]=9;for(null;a<280;a++)c[a]=7;for(null;a<288;a++)c[a]=8;if(s=7,b=new n(c,288,257,y,z,s),b.status!==0)return D.error('HufBuild error: '+b.status),-1;for(o=b.root,s=b.m,a=0;a<30;a++)c[a]=5;if(t=5,b=new n(c,30,0,A,B,t),b.status>1)return o=null,D.error('HufBuild error: '+b.status),-1;K=b.root,t=b.m}return i=o,w=K,f=s,k=t,r(d,e,g)}function P(s,t,u){var e,d,l,m,p,q,j,o,h=[],g;for(e=0;e<316;e++)h[e]=0;if(b(5),j=257+c(5),a(5),b(5),o=1+c(5),a(5),b(4),q=4+c(4),a(4),j>286||o>30)return-1;for(d=0;d<q;d++)b(3),h[C[d]]=c(3),a(3);for(null;d<19;d++)h[C[d]]=0;if(f=7,g=new n(h,19,19,null,null,f),g.status!==0)return-1;i=g.root,f=g.m,m=j+o,e=l=0;while(e<m)if(b(f),p=i.list[c(f)],d=p.b,a(d),d=p.n,d<16)h[e++]=l=d;else if(d===16){if(b(2),d=3+c(2),a(2),e+d>m)return-1;while(d-->0)h[e++]=l}else if(d===17){if(b(3),d=3+c(3),a(3),e+d>m)return-1;while(d-->0)h[e++]=0;l=0}else{if(b(7),d=11+c(7),a(7),e+d>m)return-1;while(d-->0)h[e++]=0;l=0}if(f=I,g=new n(h,j,257,y,z,f),f===0&&(g.status=1),g.status!==0&&g.status!==1)return-1;for(i=g.root,f=g.m,e=0;e<o;e++)h[e]=h[e+j];return k=J,g=new n(h,o,0,A,B,k),w=g.root,k=g.m,k===0&&j>257?-1:g.status!==0?-1:r(s,t,u)}function Q(){g||(g=[]),e=0,p=0,l=0,h=-1,q=!1,d=m=0,i=null}function R(n,o,k){var f,l;f=0;while(f<k){if(q&&h===-1)return f;if(d>0){if(h!==v)while(d>0&&f<k)d--,m&=j-1,e&=j-1,n[o+f++]=g[e++]=g[m++];else{while(d>0&&f<k)d--,e&=j-1,b(8),n[o+f++]=g[e++]=c(8),a(8);d===0&&(h=-1)}if(f===k)return f}if(h===-1){if(q)break;b(1),c(1)!==0&&(q=!0),a(1),b(2),h=c(2),a(2),i=null,d=0}switch(h){case v:l=N(n,o+f,k-f);break;case G:i?l=r(n,o+f,k-f):l=O(n,o+f,k-f);break;case H:i?l=r(n,o+f,k-f):l=P(n,o+f,k-f);break;default:l=-1;break}if(l===-1)return q?0:-1;f+=l}return f}function S(c){var a=[],b;Q(),u=c,x=0;do b=R(a,a.length,1024);while(b>0);return u=null,a}var j=32768,v=0,G=1,H=2,I=9,J=6,g,e,o=null,K,s,t,p,l,h,q,d,m,i,w,f,k,u,x,L=[0,1,3,7,15,31,63,127,255,511,1023,2047,4095,8191,16383,32767,65535],y=[3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258,0,0],z=[0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0,99,99],A=[1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577],B=[0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13],C=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15];return S
+00uconsole,consolevar WSIZE = 32768, STORED_BLOCK = 0, STATIC_TREES = 1, DYN_TREES = 2, lbits = 9, dbits = 6, slide, wp, fixed_tl = null, fixed_td, fixed_bl, fixed_bd, bit_buf, bit_len, method, eof, copy_leng, copy_dist, tl, td, bl, bd, inflate_data, inflate_pos, MASK_BITS = [
+        0,
+        1,
+        3,
+        7,
+        15,
+        31,
+        63,
+        127,
+        255,
+        511,
+        1023,
+        2047,
+        4095,
+        8191,
+        16383,
+        32767,
+        65535
+    ], cplens = [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        15,
+        17,
+        19,
+        23,
+        27,
+        31,
+        35,
+        43,
+        51,
+        59,
+        67,
+        83,
+        99,
+        115,
+        131,
+        163,
+        195,
+        227,
+        258,
+        0,
+        0
+    ], cplext = [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        0,
+        99,
+        99
+    ], cpdist = [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        13,
+        17,
+        25,
+        33,
+        49,
+        65,
+        97,
+        129,
+        193,
+        257,
+        385,
+        513,
+        769,
+        1025,
+        1537,
+        2049,
+        3073,
+        4097,
+        6145,
+        8193,
+        12289,
+        16385,
+        24577
+    ], cpdext = [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11,
+        12,
+        12,
+        13,
+        13
+    ], border = [
+        16,
+        17,
+        18,
+        0,
+        8,
+        7,
+        9,
+        6,
+        10,
+        5,
+        11,
+        4,
+        12,
+        3,
+        13,
+        2,
+        14,
+        1,
+        15
+    ];
+function HuftList() {
+    this.next = null;
+    this.list = null;
+}
+function HuftNode() {
+    this.e = 0;
+    this.b = 0;
+    this.n = 0;
+    this.t = null;
+}
+function HuftBuild(b, n, s, d, e, mm) {
+    this.BMAX = 16;
+    this.N_MAX = 288;
+    this.status = 0;
+    this.root = null;
+    this.m = 0;
+    var a;
+    var c = [];
+    var el;
+    var f;
+    var g;
+    var h;
+    var i;
+    var j;
+    var k;
+    var lx = [];
+    var p;
+    var pidx;
+    var q;
+    var r = new HuftNode();
+    var u = [];
+    var v = [];
+    var w;
+    var x = [];
+    var xp;
+    var y;
+    var z;
+    var o;
+    var tail;
+    tail = this.root = null;
+    for (i = 0; i < this.BMAX + 1; i++) {
+        c[i] = 0;
+    }
+    for (i = 0; i < this.BMAX + 1; i++) {
+        lx[i] = 0;
+    }
+    for (i = 0; i < this.BMAX; i++) {
+        u[i] = null;
+    }
+    for (i = 0; i < this.N_MAX; i++) {
+        v[i] = 0;
+    }
+    for (i = 0; i < this.BMAX + 1; i++) {
+        x[i] = 0;
+    }
+    el = n > 256 ? b[256] : this.BMAX;
+    p = b;
+    pidx = 0;
+    i = n;
+    do {
+        c[p[pidx]]++;
+        pidx++;
+    } while (--i > 0);
+    if (c[0] === n) {
+        this.root = null;
+        this.m = 0;
+        this.status = 0;
+        return;
+    }
+    for (j = 1; j <= this.BMAX; j++) {
+        if (c[j] !== 0) {
+            break;
+        }
+    }
+    k = j;
+    if (mm < j) {
+        mm = j;
+    }
+    for (i = this.BMAX; i !== 0; i--) {
+        if (c[i] !== 0) {
+            break;
+        }
+    }
+    g = i;
+    if (mm > i) {
+        mm = i;
+    }
+    for (y = 1 << j; j < i; j++, y <<= 1) {
+        if ((y -= c[j]) < 0) {
+            this.status = 2;
+            this.m = mm;
+            return;
+        }
+    }
+    if ((y -= c[i]) < 0) {
+        this.status = 2;
+        this.m = mm;
+        return;
+    }
+    c[i] += y;
+    x[1] = j = 0;
+    p = c;
+    pidx = 1;
+    xp = 2;
+    while (--i > 0) {
+        x[xp++] = j += p[pidx++];
+    }
+    p = b;
+    pidx = 0;
+    i = 0;
+    do {
+        if ((j = p[pidx++]) !== 0) {
+            v[x[j]++] = i;
+        }
+    } while (++i < n);
+    n = x[g];
+    x[0] = i = 0;
+    p = v;
+    pidx = 0;
+    h = -1;
+    w = lx[0] = 0;
+    q = null;
+    z = 0;
+    for (null; k <= g; k++) {
+        a = c[k];
+        while (a-- > 0) {
+            while (k > w + lx[1 + h]) {
+                w += lx[1 + h];
+                h++;
+                z = (z = g - w) > mm ? mm : z;
+                if ((f = 1 << (j = k - w)) > a + 1) {
+                    f -= a + 1;
+                    xp = k;
+                    while (++j < z) {
+                        if ((f <<= 1) <= c[++xp]) {
+                            break;
+                        }
+                        f -= c[xp];
+                    }
+                }
+                if (w + j > el && w < el) {
+                    j = el - w;
+                }
+                z = 1 << j;
+                lx[1 + h] = j;
+                q = [];
+                for (o = 0; o < z; o++) {
+                    q[o] = new HuftNode();
+                }
+                if (!tail) {
+                    tail = this.root = new HuftList();
+                } else {
+                    tail = tail.next = new HuftList();
+                }
+                tail.next = null;
+                tail.list = q;
+                u[h] = q;
+                if (h > 0) {
+                    x[h] = i;
+                    r.b = lx[h];
+                    r.e = 16 + j;
+                    r.t = q;
+                    j = (i & (1 << w) - 1) >> w - lx[h];
+                    u[h - 1][j].e = r.e;
+                    u[h - 1][j].b = r.b;
+                    u[h - 1][j].n = r.n;
+                    u[h - 1][j].t = r.t;
+                }
+            }
+            r.b = k - w;
+            if (pidx >= n) {
+                r.e = 99;
+            } else if (p[pidx] < s) {
+                r.e = p[pidx] < 256 ? 16 : 15;
+                r.n = p[pidx++];
+            } else {
+                r.e = e[p[pidx] - s];
+                r.n = d[p[pidx++] - s];
+            }
+            f = 1 << k - w;
+            for (j = i >> w; j < z; j += f) {
+                q[j].e = r.e;
+                q[j].b = r.b;
+                q[j].n = r.n;
+                q[j].t = r.t;
+            }
+            for (j = 1 << k - 1; (i & j) !== 0; j >>= 1) {
+                i ^= j;
+            }
+            i ^= j;
+            while ((i & (1 << w) - 1) !== x[h]) {
+                w -= lx[h];
+                h--;
+            }
+        }
+    }
+    this.m = lx[1];
+    this.status = y !== 0 && g !== 1 ? 1 : 0;
+}
+function GET_BYTE() {
+    if (inflate_data.length === inflate_pos) {
+        return -1;
+    }
+    return inflate_data[inflate_pos++] & 255;
+}
+function NEEDBITS(n) {
+    while (bit_len < n) {
+        bit_buf |= GET_BYTE() << bit_len;
+        bit_len += 8;
+    }
+}
+function GETBITS(n) {
+    return bit_buf & MASK_BITS[n];
+}
+function DUMPBITS(n) {
+    bit_buf >>= n;
+    bit_len -= n;
+}
+function inflate_codes(buff, off, size) {
+    var e;
+    var t;
+    var n;
+    if (size === 0) {
+        return 0;
+    }
+    n = 0;
+    for (;;) {
+        NEEDBITS(bl);
+        t = tl.list[GETBITS(bl)];
+        e = t.e;
+        while (e > 16) {
+            if (e === 99) {
+                return -1;
+            }
+            DUMPBITS(t.b);
+            e -= 16;
+            NEEDBITS(e);
+            t = t.t[GETBITS(e)];
+            e = t.e;
+        }
+        DUMPBITS(t.b);
+        if (e === 16) {
+            wp &= WSIZE - 1;
+            buff[off + n++] = slide[wp++] = t.n;
+            if (n === size) {
+                return size;
+            }
+            continue;
+        }
+        if (e === 15) {
+            break;
+        }
+        NEEDBITS(e);
+        copy_leng = t.n + GETBITS(e);
+        DUMPBITS(e);
+        NEEDBITS(bd);
+        t = td.list[GETBITS(bd)];
+        e = t.e;
+        while (e > 16) {
+            if (e === 99) {
+                return -1;
+            }
+            DUMPBITS(t.b);
+            e -= 16;
+            NEEDBITS(e);
+            t = t.t[GETBITS(e)];
+            e = t.e;
+        }
+        DUMPBITS(t.b);
+        NEEDBITS(e);
+        copy_dist = wp - t.n - GETBITS(e);
+        DUMPBITS(e);
+        while (copy_leng > 0 && n < size) {
+            copy_leng--;
+            copy_dist &= WSIZE - 1;
+            wp &= WSIZE - 1;
+            buff[off + n++] = slide[wp++] = slide[copy_dist++];
+        }
+        if (n === size) {
+            return size;
+        }
+    }
+    method = -1;
+    return n;
+}
+function inflate_stored(buff, off, size) {
+    var n;
+    n = bit_len & 7;
+    DUMPBITS(n);
+    NEEDBITS(16);
+    n = GETBITS(16);
+    DUMPBITS(16);
+    NEEDBITS(16);
+    if (n !== (~bit_buf & 65535)) {
+        return -1;
+    }
+    DUMPBITS(16);
+    copy_leng = n;
+    n = 0;
+    while (copy_leng > 0 && n < size) {
+        copy_leng--;
+        wp &= WSIZE - 1;
+        NEEDBITS(8);
+        buff[off + n++] = slide[wp++] = GETBITS(8);
+        DUMPBITS(8);
+    }
+    if (copy_leng === 0) {
+        method = -1;
+    }
+    return n;
+}
+function inflate_fixed(buff, off, size) {
+    if (!fixed_tl) {
+        var i;
+        var l = [];
+        var h;
+        for (i = 0; i < 144; i++) {
+            l[i] = 8;
+        }
+        for (null; i < 256; i++) {
+            l[i] = 9;
+        }
+        for (null; i < 280; i++) {
+            l[i] = 7;
+        }
+        for (null; i < 288; i++) {
+            l[i] = 8;
+        }
+        fixed_bl = 7;
+        h = new HuftBuild(l, 288, 257, cplens, cplext, fixed_bl);
+        if (h.status !== 0) {
+            console.error('HufBuild error: ' + h.status);
+            return -1;
+        }
+        fixed_tl = h.root;
+        fixed_bl = h.m;
+        for (i = 0; i < 30; i++) {
+            l[i] = 5;
+        }
+        fixed_bd = 5;
+        h = new HuftBuild(l, 30, 0, cpdist, cpdext, fixed_bd);
+        if (h.status > 1) {
+            fixed_tl = null;
+            console.error('HufBuild error: ' + h.status);
+            return -1;
+        }
+        fixed_td = h.root;
+        fixed_bd = h.m;
+    }
+    tl = fixed_tl;
+    td = fixed_td;
+    bl = fixed_bl;
+    bd = fixed_bd;
+    return inflate_codes(buff, off, size);
+}
+function inflate_dynamic(buff, off, size) {
+    var i;
+    var j;
+    var l;
+    var n;
+    var t;
+    var nb;
+    var nl;
+    var nd;
+    var ll = [];
+    var h;
+    for (i = 0; i < 286 + 30; i++) {
+        ll[i] = 0;
+    }
+    NEEDBITS(5);
+    nl = 257 + GETBITS(5);
+    DUMPBITS(5);
+    NEEDBITS(5);
+    nd = 1 + GETBITS(5);
+    DUMPBITS(5);
+    NEEDBITS(4);
+    nb = 4 + GETBITS(4);
+    DUMPBITS(4);
+    if (nl > 286 || nd > 30) {
+        return -1;
+    }
+    for (j = 0; j < nb; j++) {
+        NEEDBITS(3);
+        ll[border[j]] = GETBITS(3);
+        DUMPBITS(3);
+    }
+    for (null; j < 19; j++) {
+        ll[border[j]] = 0;
+    }
+    bl = 7;
+    h = new HuftBuild(ll, 19, 19, null, null, bl);
+    if (h.status !== 0) {
+        return -1;
+    }
+    tl = h.root;
+    bl = h.m;
+    n = nl + nd;
+    i = l = 0;
+    while (i < n) {
+        NEEDBITS(bl);
+        t = tl.list[GETBITS(bl)];
+        j = t.b;
+        DUMPBITS(j);
+        j = t.n;
+        if (j < 16) {
+            ll[i++] = l = j;
+        } else if (j === 16) {
+            NEEDBITS(2);
+            j = 3 + GETBITS(2);
+            DUMPBITS(2);
+            if (i + j > n) {
+                return -1;
+            }
+            while (j-- > 0) {
+                ll[i++] = l;
+            }
+        } else if (j === 17) {
+            NEEDBITS(3);
+            j = 3 + GETBITS(3);
+            DUMPBITS(3);
+            if (i + j > n) {
+                return -1;
+            }
+            while (j-- > 0) {
+                ll[i++] = 0;
+            }
+            l = 0;
+        } else {
+            NEEDBITS(7);
+            j = 11 + GETBITS(7);
+            DUMPBITS(7);
+            if (i + j > n) {
+                return -1;
+            }
+            while (j-- > 0) {
+                ll[i++] = 0;
+            }
+            l = 0;
+        }
+    }
+    bl = lbits;
+    h = new HuftBuild(ll, nl, 257, cplens, cplext, bl);
+    if (bl === 0) {
+        h.status = 1;
+    }
+    if (h.status !== 0) {
+        if (h.status !== 1) {
+            return -1;
+        }
+    }
+    tl = h.root;
+    bl = h.m;
+    for (i = 0; i < nd; i++) {
+        ll[i] = ll[i + nl];
+    }
+    bd = dbits;
+    h = new HuftBuild(ll, nd, 0, cpdist, cpdext, bd);
+    td = h.root;
+    bd = h.m;
+    if (bd === 0 && nl > 257) {
+        return -1;
+    }
+    if (h.status !== 0) {
+        return -1;
+    }
+    return inflate_codes(buff, off, size);
+}
+function inflate_start() {
+    if (!slide) {
+        slide = [];
+    }
+    wp = 0;
+    bit_buf = 0;
+    bit_len = 0;
+    method = -1;
+    eof = false;
+    copy_leng = copy_dist = 0;
+    tl = null;
+}
+function inflate_internal(buff, off, size) {
+    var n, i;
+    n = 0;
+    while (n < size) {
+        if (eof && method === -1) {
+            return n;
+        }
+        if (copy_leng > 0) {
+            if (method !== STORED_BLOCK) {
+                while (copy_leng > 0 && n < size) {
+                    copy_leng--;
+                    copy_dist &= WSIZE - 1;
+                    wp &= WSIZE - 1;
+                    buff[off + n++] = slide[wp++] = slide[copy_dist++];
+                }
+            } else {
+                while (copy_leng > 0 && n < size) {
+                    copy_leng--;
+                    wp &= WSIZE - 1;
+                    NEEDBITS(8);
+                    buff[off + n++] = slide[wp++] = GETBITS(8);
+                    DUMPBITS(8);
+                }
+                if (copy_leng === 0) {
+                    method = -1;
+                }
+            }
+            if (n === size) {
+                return n;
+            }
+        }
+        if (method === -1) {
+            if (eof) {
+                break;
+            }
+            NEEDBITS(1);
+            if (GETBITS(1) !== 0) {
+                eof = true;
+            }
+            DUMPBITS(1);
+            NEEDBITS(2);
+            method = GETBITS(2);
+            DUMPBITS(2);
+            tl = null;
+            copy_leng = 0;
+        }
+        switch (method) {
+        case STORED_BLOCK:
+            i = inflate_stored(buff, off + n, size - n);
+            break;
+        case STATIC_TREES:
+            if (tl) {
+                i = inflate_codes(buff, off + n, size - n);
+            } else {
+                i = inflate_fixed(buff, off + n, size - n);
+            }
+            break;
+        case DYN_TREES:
+            if (tl) {
+                i = inflate_codes(buff, off + n, size - n);
+            } else {
+                i = inflate_dynamic(buff, off + n, size - n);
+            }
+            break;
+        default:
+            i = -1;
+            break;
+        }
+        if (i === -1) {
+            if (eof) {
+                return 0;
+            }
+            return -1;
+        }
+        n += i;
+    }
+    return n;
+}
+function inflate(arr) {
+    var buff = [], i;
+    inflate_start();
+    inflate_data = arr;
+    inflate_pos = 0;
+    do {
+        i = inflate_internal(buff, buff.length, 1024);
+    } while (i > 0);
+    inflate_data = null;
+    return buff;
+}
+return inflate;

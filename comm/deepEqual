@@ -1,1 +1,117 @@
-046isNumber,isNaN,Math,SAFE_CIRCLE_DEPTH,console,Object,Function,l,m,n,o,i,a,hfunction r(b,c){if(b===c)return!0;if(b instanceof a&&c instanceof a){var e=a.keys(b),g=a.keys(c);if(e.length!==g.length)return!1;e.sort(),g.sort();for(var f=0,j=e.length;f<j;f++){var h=e[f],i=g[f];if(h!==i)return!1;if(!d(b[h],c[i]))return!1}return!0}return d(b,c)}function p(l,m){if(l===m)return!0;if(!(l instanceof a&&m instanceof a))return d(l,m);var n=k(l,m,0);if(n)for(var h=0;h<b.length;h+=3){var i=b[h],j=b[h+1],o=b[h+2];if(!k(i,j,o)){n=!1;break}i[c]=!0,j[c]=!0}while(h>0){h-=3;var i=b[h],j=b[h+1];delete i[c],delete j[c]}return b.splice(0,b.length),g=e,f=0,n}var d=function(a,b){return a===b||l(a)&&l(b)&&m(a)&&m(b)},c='__zimo1i_deep_equal_mark_label',b=[],e=n.min(o,1024)*n.min(o,1024),q=16,f=0,g=e,j=function(a){if(f>g){if(g=(f/e+1|0)*e,g>=q*e)return i.warn('\u5bf9\u8c61\u8fc7\u5927\uff0cdeepEqual\u672a\u80fd\u5b8c\u6210\u6bd4\u5bf9'),!1;i.warn(a)}return!0},k=function(e,g,s){if(e===g)return!0;if(e.constructor!==g.constructor)return!1;var o=a.keys(e),r=a.keys(g);if(o.length!==r.length)return!1;o.sort(),r.sort();var p=[];for(var k=0,q=o.length;k<q;k++){var l=o[k];if(r[k]!==l)return!1;var m=e[l],n=g[l];if(m instanceof a&&n instanceof a){m!==n&&p.push(l);continue}if(!d(m,n))return!1}if(f+=o.length,!j('\u5bf9\u8c61\u8fc7\u5927\uff0cdeepEqual\u5c06\u6d88\u8017\u66f4\u591a\u7684\u65f6\u95f4'))return!1;if(p.length&&!(e[c]&&g[c]))for(var k=0,q=p.length;k<q;k++){var l=p[k];if(f+=3,!j('\u6df1\u5c42\u5bf9\u8c61\u8fc7\u591a\uff0cdeepEqual\u5c06\u6d88\u8017\u66f4\u591a\u7684\u5185\u5b58'))return!1;b.push(e[l],g[l],s+1)}if(e.valueOf instanceof h&&g.valueOf instanceof h){var m=e.valueOf(),n=g.valueOf();if(!(m instanceof a&&n instanceof a))return d(m,n)}try{if(s===0&&e.toString instanceof h&&g.toString instanceof h&&!e.join&&!g.join)return e.toString()===g.toString()}catch(a){i.warn(a)}return!0};return p.shallow=r,p
+06uisNumber,isNaN,Math,SAFE_CIRCLE_DEPTH,console,Object,Function,isNumber,isNaN,Math,SAFE_CIRCLE_DEPTH,console,Object,Functionvar singleEqual = function (o1, o2) {
+    return o1 === o2 || isNumber(o1) && isNumber(o2) && isNaN(o1) && isNaN(o2);
+};
+var deepEqualMarkLabel = '__zimo1i_deep_equal_mark_label';
+var restcompare = [];
+var ALLOW_CACHE_LENGTH = Math.min(SAFE_CIRCLE_DEPTH, 1024) * Math.min(SAFE_CIRCLE_DEPTH, 1024);
+var ALLOW_REST_DEPTH = 16;
+var count = 0, inc = ALLOW_CACHE_LENGTH;
+var checkMemery = function (msg) {
+    if (count > inc) {
+        inc = (count / ALLOW_CACHE_LENGTH + 1 | 0) * ALLOW_CACHE_LENGTH;
+        if (inc >= ALLOW_REST_DEPTH * ALLOW_CACHE_LENGTH) {
+            console.warn('\u5bf9\u8c61\u8fc7\u5927\uFF0CdeepEqual\u672a\u80fd\u5b8c\u6210\u6bd4\u5bf9');
+            return false;
+        }
+        console.warn(msg);
+    }
+    return true;
+};
+var objectEqual = function (o1, o2, deep) {
+    if (o1 === o2)
+        return true;
+    if (o1['constructor'] !== o2['constructor'])
+        return false;
+    var keys1 = Object.keys(o1), keys2 = Object.keys(o2);
+    if (keys1.length !== keys2.length)
+        return false;
+    keys1.sort(), keys2.sort();
+    var restkeys = [];
+    for (var cx = 0, dx = keys1.length; cx < dx; cx++) {
+        var k = keys1[cx];
+        if (keys2[cx] !== k)
+            return false;
+        var v1 = o1[k], v2 = o2[k];
+        if (v1 instanceof Object && v2 instanceof Object) {
+            if (v1 !== v2)
+                restkeys.push(k);
+            continue;
+        }
+        if (!singleEqual(v1, v2))
+            return false;
+    }
+    count += keys1.length;
+    if (!checkMemery('\u5bf9\u8c61\u8fc7\u5927\uFF0CdeepEqual\u5c06\u6d88\u8017\u66f4\u591a\u7684\u65f6\u95f4'))
+        return false;
+    if (restkeys.length && !(o1[deepEqualMarkLabel] && o2[deepEqualMarkLabel])) {
+        for (var cx = 0, dx = restkeys.length; cx < dx; cx++) {
+            var k = restkeys[cx];
+            count += 3;
+            if (!checkMemery('\u6df1\u5c42\u5bf9\u8c61\u8fc7\u591a\uFF0CdeepEqual\u5c06\u6d88\u8017\u66f4\u591a\u7684\u5185\u5b58'))
+                return false;
+            restcompare.push(o1[k], o2[k], deep + 1);
+        }
+    }
+    if (o1['valueOf'] instanceof Function && o2['valueOf'] instanceof Function) {
+        var v1 = o1['valueOf'](), v2 = o2['valueOf']();
+        if (!(v1 instanceof Object && v2 instanceof Object))
+            return singleEqual(v1, v2);
+    }
+    try {
+        if (deep === 0 && o1['toString'] instanceof Function && o2['toString'] instanceof Function && !o1.join && !o2.join)
+            return o1['toString']() === o2['toString']();
+    } catch (e) {
+        console.warn(e);
+    }
+    return true;
+};
+function shallowEqual(o1, o2) {
+    if (o1 === o2)
+        return true;
+    if (o1 instanceof Object && o2 instanceof Object) {
+        var keys1 = Object.keys(o1), keys2 = Object.keys(o2);
+        if (keys1.length !== keys2.length)
+            return false;
+        keys1.sort(), keys2.sort();
+        for (var cx = 0, dx = keys1.length; cx < dx; cx++) {
+            var key1 = keys1[cx];
+            var key2 = keys2[cx];
+            if (key1 !== key2)
+                return false;
+            if (!singleEqual(o1[key1], o2[key2]))
+                return false;
+        }
+        return true;
+    }
+    return singleEqual(o1, o2);
+}
+function deepEqual(o1, o2) {
+    if (o1 === o2)
+        return true;
+    if (o1 instanceof Object && o2 instanceof Object) {
+        var result = objectEqual(o1, o2, 0);
+        if (result)
+            for (var cx = 0; cx < restcompare.length; cx += 3) {
+                var v1 = restcompare[cx], v2 = restcompare[cx + 1], deep1 = restcompare[cx + 2];
+                if (!objectEqual(v1, v2, deep1)) {
+                    result = false;
+                    break;
+                }
+                v1[deepEqualMarkLabel] = true;
+                v2[deepEqualMarkLabel] = true;
+            }
+        while (cx > 0) {
+            cx -= 3;
+            var v1 = restcompare[cx], v2 = restcompare[cx + 1];
+            delete v1[deepEqualMarkLabel];
+            delete v2[deepEqualMarkLabel];
+        }
+        restcompare.splice(0, restcompare.length);
+        inc = ALLOW_CACHE_LENGTH, count = 0;
+        return result;
+    } else {
+        return singleEqual(o1, o2);
+    }
+}
+deepEqual.shallow = shallowEqual;
+return deepEqual;

@@ -1,1 +1,64 @@
-04oisNode,clearTimeout,isFunction,setTimeout,createEvent,dispatch,isArray,d,e,b,f,g,h,ifunction a(g,j){if(!g)return;if(d(g))if(j!==!1)var h=arguments;else var h=[g];else var h=g;for(var i=h.length-1;i>=0;i--){if(g=h[i],!g)continue;if(g.removeTimer&&e(g.removeTimer),g.initialStyle&&j!==!1&&b(a.transition)){var k=a.transition(g,!0);k?g.removeTimer=f(function(b){return function(){a(b,!1)}}(g),+k||100):a(g,!1)}else c(g),g.parentNode&&g.parentNode.removeChild(g),g['with']&&a(g['with'],j)}}function c(a,d){if(!a.isMounted)return;var e=a.onremove;a.isMounted=!1,d||(d=g('remove')),h(a,d),i(e)&&e.map(function(a){a.call(this,d)},a),b(e)&&e.call(a,d);var f=a.childNodes;if(f)for(var j=0,k=f.length;j<k;j++)c(f[j],d)}return a
+07uisNode,clearTimeout,isFunction,setTimeout,createEvent,dispatch,isArray,isNode,clearTimeout,isFunction,setTimeout,createEvent,dispatch,isArrayfunction remove(node, transition) {
+    if (!node)
+        return;
+    if (isNode(node)) {
+        if (transition !== false) {
+            var args = arguments;
+        } else {
+            var args = [node];
+        }
+    } else {
+        var args = node;
+    }
+    for (var cx = args.length - 1; cx >= 0; cx--) {
+        node = args[cx];
+        if (!node)
+            continue;
+        if (node.removeTimer)
+            clearTimeout(node.removeTimer);
+        if (node.initialStyle && transition !== false && isFunction(remove.transition)) {
+            var duration = remove.transition(node, true);
+            if (duration) {
+                node.removeTimer = setTimeout(function (node) {
+                    return function () {
+                        remove(node, false);
+                    };
+                }(node), +duration || 100);
+            } else {
+                remove(node, false);
+            }
+        } else {
+            _onremove(node);
+            node.parentNode && node.parentNode.removeChild(node);
+            if (node['with']) {
+                remove(node['with'], transition);
+            }
+        }
+    }
+}
+function _onremove(node, event) {
+    if (!node || node.isMounted === false)
+        return;
+    var children = node.childNodes;
+    if (node.isMounted) {
+        var onremove = node.onremove;
+        if (!event) {
+            event = createEvent('remove');
+        }
+        dispatch(node, event);
+        if (isArray(onremove)) {
+            onremove.map(function (remove_hindler) {
+                remove_hindler.call(this, event);
+            }, node);
+        }
+        if (isFunction(onremove)) {
+            onremove.call(node, event);
+        }
+        node.isMounted = false;
+    }
+    if (children)
+        for (var cx = 0, dx = children.length; cx < dx; cx++) {
+            _onremove(children[cx], event);
+        }
+}
+return remove;

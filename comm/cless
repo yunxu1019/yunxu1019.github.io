@@ -1,1 +1,50 @@
-05qdocument,color,appendChild,Promise,isFunction,addClass,console,keys,isNode,isString,a,e,f,g,h,b,c,i,j,kfunction d(l,n,p){var m=a.createElement('style');if(m.type='text/css',m.savedText=n,n=e.transform(n),m.styleSheet?m.styleSheet.cssText=n:m.innerHTML=n,f(a.getElementsByTagName('head')[0],m),l instanceof g)return l.then(function(a){return d(a,n,p)});if(h(l)){var o=function(){var a=l.apply(o,arguments);if(a)try{b(a,p)}catch(a){c.error(a,'bindClassNameError')}return a};return o.prototype=l.prototype,i(l).map(function(a){return o[a]=l[a]}),o}if(j(l))try{b(l,p)}catch(a){c.error(a,'bindClassNameError')}else if(k(l)){var q=a.createElement('div');q.innerHTML=l,[].forEach.call(q.children,function(a){b(a,p)}),l=q.innerHTML}return l}return d
+09aPromise,isFunction,keys,isNode,addClass,console,isString,document,color,appendChild,Promise,isFunction,keys,isNode,addClass,console,isString,document,color,appendChildfunction create(commFactory, className) {
+    if (commFactory instanceof Promise) {
+        return commFactory.then(function (result) {
+            return create(result, className);
+        });
+    }
+    if (isFunction(commFactory)) {
+        var result = function () {
+            var commRelease = commFactory.apply(result, arguments);
+            if (commRelease) {
+                commRelease = create(commRelease, className);
+            }
+            return commRelease;
+        };
+        result.prototype = commFactory.prototype;
+        keys(commFactory).map(function (k) {
+            return result[k] = commFactory[k];
+        });
+        return result;
+    }
+    if (isNode(commFactory)) {
+        try {
+            addClass(commFactory, className);
+        } catch (e) {
+            console.error(e, 'bindClassNameError');
+        }
+    } else if (isString(commFactory)) {
+        var template = document.createElement('div');
+        template.innerHTML = commFactory;
+        [].forEach.call(template.children, function (child) {
+            addClass(child, className);
+        });
+        commFactory = template.innerHTML;
+    }
+    return commFactory;
+}
+function cless(commFactory, innerCss, className) {
+    var stylesheet = document.createElement('style');
+    stylesheet.type = 'text/css';
+    stylesheet.savedText = innerCss;
+    innerCss = color.transform(innerCss);
+    if (stylesheet.styleSheet) {
+        stylesheet.styleSheet.cssText = innerCss;
+    } else {
+        stylesheet.innerHTML = innerCss;
+    }
+    appendChild(document.getElementsByTagName('head')[0], stylesheet);
+    return create(commFactory, className);
+}
+return cless;

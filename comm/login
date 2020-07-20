@@ -1,1 +1,3 @@
-function a(){}return a
+function login() {
+}
+return login;

@@ -1,1 +1,32 @@
-01ywindow,document,on,isNumber,f,g,b,avar c='onmousewheel'in f||'onmousewheel'in g?b('mousewheel'):b('DOMMouseScroll'),d=function(b){if(a(b.deltaY))return;if(a(b.wheelDeltaY))b.deltaY=b.wheelDeltaY,b.deltaX=b.wheelDeltaX;else if(a(b.axis)&&b.detail){var c=b.detail;c>0?c=120-120/(1+c/12):c=120/(1-c/12)-120,b.axis===1?(b.deltaX=c,b.deltaY=0):(b.deltaX=0,b.deltaY=c)}else a(b.wheelDelta)&&(b.deltaY=b.wheelDelta)},e=function(a,b){return c(a,function(a){return d(a),b.call(this,a)})};return e
+032window,document,on,isNumber,window,document,on,isNumbervar _onmousewheel = 'onmousewheel' in window || 'onmousewheel' in document ? on('mousewheel') : on('DOMMouseScroll');
+var addDeltaY = function (event) {
+    if (isNumber(event.deltaY))
+        return;
+    if (isNumber(event.wheelDeltaY)) {
+        event.deltaY = event.wheelDeltaY;
+        event.deltaX = event.wheelDeltaX;
+    } else if (isNumber(event.axis) && event.detail) {
+        var delta = event.detail;
+        if (delta > 0) {
+            delta = 120 - 120 / (1 + delta / 12);
+        } else {
+            delta = 120 / (1 - delta / 12) - 120;
+        }
+        if (event.axis === 1) {
+            event.deltaX = delta;
+            event.deltaY = 0;
+        } else {
+            event.deltaX = 0;
+            event.deltaY = delta;
+        }
+    } else if (isNumber(event.wheelDelta)) {
+        event.deltaY = event.wheelDelta;
+    }
+};
+var onmousewheel = function (target, handler) {
+    return _onmousewheel(target, function (event) {
+        addDeltaY(event);
+        return handler.call(this, event);
+    });
+};
+return onmousewheel;

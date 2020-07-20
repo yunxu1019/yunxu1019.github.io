@@ -1,1 +1,18 @@
-01gon,isFunction,isNode,c,d,efunction b(b){return a[b]?a[b]:a[b]=function(d,e){var a=c(b)(d,function(b){return a(),e.call(this,b)});return a}}function f(a,c,f){return d(f)&&e(c)?b(a)(c,f):b(a)}var a={};return f
+02aon,isFunction,isNode,on,isFunction,isNodevar oncetree = {};
+function _once(key) {
+    if (oncetree[key])
+        return oncetree[key];
+    return oncetree[key] = function (target, handler) {
+        var off = on(key)(target, function (event) {
+            off();
+            return handler.call(this, event);
+        });
+        return off;
+    };
+}
+function once(key, target, handler) {
+    if (isFunction(handler) && isNode(target))
+        return _once(key)(target, handler);
+    return _once(key);
+}
+return once;

@@ -1,0 +1,23 @@
+02akugou$musicList,Math,kugou$musicList,Mathreturn [
+    {
+        name: '\u5217\u8868\u5faa\u73af',
+        next: function (index) {
+            index++;
+            index %= kugou$musicList.length;
+            return index;
+        }
+    },
+    {
+        name: '\u968f\u673a\u64ad\u653e',
+        next: function (index) {
+            var delta = (kugou$musicList.length - 1) * Math.random() | 0;
+            return index + delta;
+        }
+    },
+    {
+        name: '\u5355\u66f2\u5faa\u73af',
+        next: function (index) {
+            return index;
+        }
+    }
+];

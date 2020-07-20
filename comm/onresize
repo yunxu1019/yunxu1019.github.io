@@ -1,1 +1,2 @@
-008on,bvar a=b('resize');return a
+00aon,onvar onresize = on('resize');
+return onresize;

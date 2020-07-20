@@ -1,1 +1,2 @@
-008on,bvar a=b('mousemove');return a
+00aon,onvar onmousemove = on('mousemove');
+return onmousemove;

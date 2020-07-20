@@ -1,1 +1,368 @@
-02gMath,isNaN,parseInt,console,extend,a,H,s,I,tfunction u(v,B){var o=v[0],q=v[1],r=v[2],C=v[3];if(H(B))return[o,q,r,C];var e=p(3)/3,a=.3333333333333333,s=z(B),h=y(B),b=1-s,c=(s+a*b)*o+(a*b-e*h)*q+(a*b+e*h)*r,d=(a*b+e*h)*o+(s+a*b)*q+(a*b-e*h)*r,k=(a*b-e*h)*o+(a*b+e*h)*q+(s+a*b)*r,w=f([c,d,k]),D=i(c,d,k),t=[w-c,w-d,w-k];if(D<0)var u=c<0?0:d<0?1:2,x=g(t,-D/t[u]),l=x[0],m=x[1],n=x[2];else{var E=j(c,d,k);if(E>255)var u=c>255?0:d>255?1:2,A=g(t,(255-E)/t[u]),l=A[0],m=A[1],n=A[2];else var l,m,n=l=m=0}return c+=l,d+=m,k+=n,[c,d,k,C]}function J(b,a){var c=b[0],d=b[1],e=b[2],h=b[3],f=382.5,g=c+d+e,a=((g-f)*a+f)/g,i=a*c,j=a*d,k=a*e;return[i,j,k,h]}function e(a){return b(a)}function K(h){var e=h[0],c=h[1],d=h[2];e/=255,c/=255,d/=255;var a=j(e,c,d),b=i(e,c,d),f,g,k;return a===b?f=NaN:a===e?c>=d?f=60*(c-d)/(a-b):f=360+60*(c-d)/(a-b):a===c?f=120+60*(d-e)/(a-b):a===d&&(f=240+60*(e-c)/(a-b)),k=(a+b)/2,a===b?g=NaN:k<.5?g=(a-b)/(a+b):g=(a-b)/(2-(a+b)),[f,g,k]}function L(a,b,c){return a<0&&(a+=1),a>1&&(a-=1),a<.16666666666666666?b+(c-b)*6*a:a<.5?c:a<.6666666666666666?b+(c-b)*6*(.6666666666666666-a):b}function v(d){var b=d[0],c=d[1],a=d[2],e=a<.5?a*(1+c):a+c-a*c,f=2*a-e;b/=360;var g=b+.3333333333333333,h=b,i=b-.3333333333333333;return[g,h,i].map(function(a){return L(a,f,e)})}function b(d){var p;if(k.test(d)){var g=k.exec(d),e=g[0],q=g[1],r=g[2],t=g[3],o=g[4];return p=v([q,r,t]),a=p[0],b=p[1],c=p[2],[a,b,c,o||1]}if(l.test(d)){var h=l.exec(d),e=h[0],a=h[1],b=h[2],c=h[3],o=h[4];return[a>255?255:a,b>255?255:b,c>255?255:c,o||1]}if(m.test(d)){var i=m.exec(d).map(function(a){return s(a+a,16)}),e=i[0],a=i[1],b=i[2],c=i[3],f=i[4];return[a,b,c,f>=0?f/255:1]}if(n.test(d)){var j=n.exec(d).map(function(a){return s(a,16)}),e=j[0],a=j[1],b=j[2],c=j[3],f=j[4];return[a,b,c,f>=0?f/255:1]}}function w(a){var c=a[0],d=a[1],e=a[2],b=a[3];return b>=0&&b<1?'rgba('+c+','+d+','+e+','+b+')':'#'+[c,d,e].map(E).join('')}function o(d,c,e){var a=b(c);return a?(a=d(a,e),w(a)):(I.warn('\u989c\u8272\u6570\u636e\u4e0d\u6b63\u786e:'+c),c)}function x(a){var b=a[0],c=a[1],d=a[2];return[c-d,d-b,b-c]}function f(a){var b=a[0],c=a[1],d=a[2];return p(b*b+c*c+d*d)}function g(c,b){if(!b)var b=1/f(c);if(!b)return b=a.sqrt(3)/3,[b,b,b];var d=c[0],e=c[1],g=c[2];return[d*b,e*b,g*b]}function M(c,d){c=b(c),d=b(d),c=x(c),d=x(d);var h=g(c),i=h[0],j=h[1],k=h[2],l=g(d),m=l[0],n=l[1],o=l[2],p=[j*o-n*k,k*m-o*i,i*n-m*j],q=i*m+j*n+k*o,r=p[0]>0?f(p):-f(p),e=a.asin(r>1?1:r<-1?-1:r),s=a.acos(q>1?1:q<-1?-1:q);return e<0?e=a.PI*2-s:e=s,e}function N(e,f){if(!(h(e)&&h(f)))return!1;var a=b(e),g=a[0],i=a[1],j=a[2],k=a[3],c=b(f),l=c[0],m=c[1],n=c[2],o=c[3];return d(g-l)<1&&d(i-m)<1&&d(j-n)<1&&d(k-o)<.01}function h(a){return l.test(a)||m.test(a)||n.test(a)||k.test(a)}var i=a.min,j=a.max,y=a.sin,z=a.cos,A=a.round,p=a.sqrt,B=a.random,C=a.PI,q=a.abs,d=q===void 0?function(a){return a<0?-a:a}:q,D=function(a){return j(i(A(a),255),0)},E=function(a){return a=D(a),a<16?'0'+a.toString(16):a.toString(16)},k=/^hsla?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:,\s*([\d\.]+))?\)$/i,l=/^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:,\s*([\d\.]+))?\)$/i,m=/^#([\da-f])([\da-f])([\da-f])([\da-f])?$/i,n=/^#([\da-f]{2})([\da-f]{2})([\da-f]{2})([\da-f]{2})?$/i,r='#d16969',F=/rgba?\s*\([\,\.\d]+\)|#[\da-f]{3,8}/ig,G=function(a){return h(a)?(c.rotate!==0&&(a=e.rotate(a,c.rotate)),c.contrast!==1&&(a=e.contrast(a,c.contrast)),a):a},c={rotate:0,contrast:1};return t(e,{setTransformer:function(a){t(c,a)},rotate:function(a,b){return o(u,a,b)},contrast:function(a,b){return o(J,a,b)},rgb2hsl:K,hsl2rgb:v,angle:M,parse:b,equal:N,stringify:w,isColor:h,transform:function(a){return a.replace(F,G)},random:function(a){return a===void 0&&(a=r),r=o(u,a,(B()*.4+.4)*C)}}),e
+03uMath,isNaN,parseInt,console,extend,Math,isNaN,parseInt,console,extendvar min = Math.min, max = Math.max, sin = Math.sin, cos = Math.cos, round = Math.round, sqrt = Math.sqrt, random = Math.random, PI = Math.PI, _a = Math.abs, abs = _a === void 0 ? function (a) {
+        return a < 0 ? -a : a;
+    } : _a;
+function rotate_rgb(RGBA, theta) {
+    var r = RGBA[0], g = RGBA[1], b = RGBA[2], a = RGBA[3];
+    if (isNaN(theta))
+        return [
+            r,
+            g,
+            b,
+            a
+        ];
+    var u = sqrt(3) / 3;
+    var pu = 1 / 3;
+    var cosa = cos(theta);
+    var sina = sin(theta);
+    var vera = 1 - cosa;
+    var red = (cosa + pu * vera) * r + (pu * vera - u * sina) * g + (pu * vera + u * sina) * b;
+    var green = (pu * vera + u * sina) * r + (cosa + pu * vera) * g + (pu * vera - u * sina) * b;
+    var blue = (pu * vera - u * sina) * r + (pu * vera + u * sina) * g + (cosa + pu * vera) * b;
+    var m = mode([
+        red,
+        green,
+        blue
+    ]);
+    var _min = min(red, green, blue);
+    var d = [
+        m - red,
+        m - green,
+        m - blue
+    ];
+    if (_min < 0) {
+        var index = red < 0 ? 0 : green < 0 ? 1 : 2;
+        var _a = single(d, -_min / d[index]), dr = _a[0], dg = _a[1], db = _a[2];
+    } else {
+        var _max = max(red, green, blue);
+        if (_max > 255) {
+            var index = red > 255 ? 0 : green > 255 ? 1 : 2;
+            var _b = single(d, (255 - _max) / d[index]), dr = _b[0], dg = _b[1], db = _b[2];
+        } else {
+            var dr, dg, db = dr = dg = 0;
+        }
+    }
+    red += dr;
+    green += dg;
+    blue += db;
+    return [
+        red,
+        green,
+        blue,
+        a
+    ];
+}
+function contrast_rgb(RGBA, ratio) {
+    var r = RGBA[0], g = RGBA[1], b = RGBA[2], a = RGBA[3];
+    var middle = 127.5 * 3;
+    var total = r + g + b;
+    var ratio = ((total - middle) * ratio + middle) / total;
+    var red = ratio * r;
+    var green = ratio * g;
+    var blue = ratio * b;
+    return [
+        red,
+        green,
+        blue,
+        a
+    ];
+}
+var trim16 = function (a) {
+    return max(min(round(a), 15), 0);
+};
+var trim256 = function (a) {
+    return max(min(round(a), 255), 0);
+};
+var hex256 = function (num) {
+    num = trim256(num);
+    if (num < 16)
+        return '0' + num['toString'](16);
+    return num['toString'](16);
+};
+var hex16 = function (num) {
+    num = trim16(num);
+    return num['toString'](16);
+};
+function color(rgba) {
+    return parse(rgba);
+}
+function rgb2hsl(_a) {
+    var r = _a[0], g = _a[1], b = _a[2];
+    r /= 255;
+    g /= 255;
+    b /= 255;
+    var _max = max(r, g, b), _min = min(r, g, b);
+    var h, s, l;
+    if (_max === _min) {
+        h = NaN;
+    } else if (_max === r) {
+        if (g >= b) {
+            h = 60 * (g - b) / (_max - _min);
+        } else {
+            h = 360 + 60 * (g - b) / (_max - _min);
+        }
+    } else if (_max === g) {
+        h = 120 + 60 * (b - r) / (_max - _min);
+    } else if (_max === b) {
+        h = 240 + 60 * (r - g) / (_max - _min);
+    }
+    l = (_max + _min) / 2;
+    if (_max === _min) {
+        s = NaN;
+    } else {
+        if (l < .5) {
+            s = (_max - _min) / (_max + _min);
+        } else {
+            s = (_max - _min) / (2 - (_max + _min));
+        }
+    }
+    return [
+        h,
+        s,
+        l
+    ];
+}
+function t2rgb(t, p, q) {
+    if (t < 0)
+        t += 1;
+    if (t > 1)
+        t -= 1;
+    if (t < 1 / 6)
+        return p + (q - p) * 6 * t;
+    if (t < .5)
+        return q;
+    if (t < 2 / 3)
+        return p + (q - p) * 6 * (2 / 3 - t);
+    return p;
+}
+function hsl2rgb(_a) {
+    var h = _a[0], s = _a[1], l = _a[2];
+    var q = l < .5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    h /= 360;
+    var r = h + 1 / 3;
+    var g = h;
+    var b = h - 1 / 3;
+    return [
+        r,
+        g,
+        b
+    ].map(function (t) {
+        return t2rgb(t, p, q);
+    });
+}
+function parse(color) {
+    var _a;
+    if (hslReg.test(color)) {
+        var _b = hslReg.exec(color), _ = _b[0], H = _b[1], S = _b[2], L = _b[3], a = _b[4];
+        _a = hsl2rgb([
+            H,
+            S,
+            L
+        ]), R = _a[0], G = _a[1], B = _a[2];
+        return [
+            R,
+            G,
+            B,
+            a || 1
+        ];
+    } else if (rgbReg.test(color)) {
+        var _c = rgbReg.exec(color), _ = _c[0], R = _c[1], G = _c[2], B = _c[3], a = _c[4];
+        return [
+            R > 255 ? 255 : R,
+            G > 255 ? 255 : G,
+            B > 255 ? 255 : B,
+            a || 1
+        ];
+    } else if (rgbHex.test(color)) {
+        var _d = rgbHex.exec(color).map(function (a) {
+                return parseInt(a + a, 16);
+            }), _ = _d[0], R = _d[1], G = _d[2], B = _d[3], A = _d[4];
+        return [
+            R,
+            G,
+            B,
+            A >= 0 ? A / 255 : 1
+        ];
+    } else if (rgbHex2.test(color)) {
+        var _e = rgbHex2.exec(color).map(function (a) {
+                return parseInt(a, 16);
+            }), _ = _e[0], R = _e[1], G = _e[2], B = _e[3], A = _e[4];
+        return [
+            R,
+            G,
+            B,
+            A >= 0 ? A / 255 : 1
+        ];
+    }
+}
+function stringify(color) {
+    var R = color[0], G = color[1], B = color[2], a = color[3];
+    if (a >= 0 && a < 1) {
+        return 'rgba(' + R + ',' + G + ',' + B + ',' + a + ')';
+    } else {
+        return '#' + [
+            R,
+            G,
+            B
+        ].map(hex256).join('');
+    }
+}
+function doWith(manager, color, args) {
+    var c = parse(color);
+    if (!c) {
+        console.warn('\u989c\u8272\u6570\u636e\u4e0d\u6b63\u786e:' + color);
+        return color;
+    }
+    c = manager(c, args);
+    return stringify(c);
+}
+function normal(_a) {
+    var r = _a[0], g = _a[1], b = _a[2];
+    return [
+        g - b,
+        b - r,
+        r - g
+    ];
+}
+function mode(_a) {
+    var r = _a[0], g = _a[1], b = _a[2];
+    return sqrt(r * r + g * g + b * b);
+}
+function single(c, u) {
+    if (!u)
+        var u = 1 / mode(c);
+    if (!u) {
+        u = Math.sqrt(3) / 3;
+        return [
+            u,
+            u,
+            u
+        ];
+    }
+    var r = c[0], g = c[1], b = c[2];
+    return [
+        r * u,
+        g * u,
+        b * u
+    ];
+}
+function angle(c1, c2) {
+    c1 = parse(c1);
+    c2 = parse(c2);
+    c1 = normal(c1);
+    c2 = normal(c2);
+    var _a = single(c1), r1 = _a[0], g1 = _a[1], b1 = _a[2];
+    var _b = single(c2), r2 = _b[0], g2 = _b[1], b2 = _b[2];
+    var c = [
+        g1 * b2 - g2 * b1,
+        b1 * r2 - b2 * r1,
+        r1 * g2 - r2 * g1
+    ];
+    var d = r1 * r2 + g1 * g2 + b1 * b2;
+    var e = c[0] > 0 ? mode(c) : -mode(c);
+    var theta = Math.asin(e > 1 ? 1 : e < -1 ? -1 : e);
+    var phi = Math.acos(d > 1 ? 1 : d < -1 ? -1 : d);
+    if (theta < 0) {
+        theta = Math.PI * 2 - phi;
+    } else {
+        theta = phi;
+    }
+    return theta;
+}
+function equal(c1, c2) {
+    if (!isColor(c1) || !isColor(c2))
+        return false;
+    var _a = parse(c1), r1 = _a[0], g1 = _a[1], b1 = _a[2], a1 = _a[3];
+    var _b = parse(c2), r2 = _b[0], g2 = _b[1], b2 = _b[2], a2 = _b[3];
+    return abs(r1 - r2) < 1 && abs(g1 - g2) < 1 && abs(b1 - b2) < 1 && abs(a1 - a2) < .01;
+}
+var hslReg = /^hsla?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:,\s*([\d\.]+))?\)$/i;
+var rgbReg = /^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)(?:,\s*([\d\.]+))?\)$/i;
+var rgbHex = /^#([\da-f])([\da-f])([\da-f])([\da-f])?$/i;
+var rgbHex2 = /^#([\da-f]{2})([\da-f]{2})([\da-f]{2})([\da-f]{2})?$/i;
+var rotated_base_color = '#d16969';
+var colorReg = /rgba?\s*\([\,\.\d]+\)|#[\da-f]{3,8}/ig;
+function isColor(text) {
+    return rgbReg.test(text) || rgbHex.test(text) || rgbHex2.test(text) || hslReg.test(text);
+}
+var replacer = function (match) {
+    if (!isColor(match))
+        return match;
+    if (colorDesigner.rotate !== 0) {
+        match = color.rotate(match, colorDesigner.rotate);
+    }
+    if (colorDesigner.contrast !== 1) {
+        match = color.contrast(match, colorDesigner.contrast);
+    }
+    return match;
+};
+var colorDesigner = {
+    rotate: 0,
+    contrast: 1
+};
+var rgb2v = function (r, g, b) {
+    r *= .299;
+    g *= .587;
+    b *= .114;
+    return r + g + b;
+};
+var v2rgb = function (v, r, g, b) {
+    var t = r + g + b || 1;
+    v = v / t;
+    r *= v;
+    g *= v;
+    b *= v;
+    return [
+        r,
+        g,
+        b
+    ];
+};
+var vsp = .587 * 255;
+var gray4 = function (RGBA, S) {
+    var r = RGBA[0], g = RGBA[1], b = RGBA[2], a = RGBA[3];
+    var v = rgb2v(r, g, b);
+    if (v >= vsp) {
+        v = 255;
+    } else {
+        v = 255 * 3;
+    }
+    var _a = v2rgb(v, r, g, b), r = _a[0], g = _a[1], b = _a[2];
+    return [
+        r,
+        g,
+        b,
+        RGBA[3]
+    ];
+};
+extend(color, {
+    setTransformer: function (transformer) {
+        extend(colorDesigner, transformer);
+    },
+    rotate: function (color, theta) {
+        return doWith(rotate_rgb, color, theta);
+    },
+    contrast: function (color, ratio) {
+        return doWith(contrast_rgb, color, ratio);
+    },
+    rgb2hsl: rgb2hsl,
+    hsl2rgb: hsl2rgb,
+    angle: angle,
+    parse: parse,
+    equal: equal,
+    stringify: stringify,
+    pair: function (c, s) {
+        return doWith(gray4, c, s);
+    },
+    isColor: isColor,
+    transform: function (text) {
+        return text.replace(colorReg, replacer);
+    },
+    random: function (base) {
+        if (base === void 0) {
+            base = rotated_base_color;
+        }
+        return rotated_base_color = doWith(rotate_rgb, base, (random() * .4 + .4) * PI);
+    }
+});
+return color;

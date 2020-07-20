@@ -1,1 +1,50 @@
-01mFunction,Object,Promise,c,d,bfunction a(e,a,f){a===void 0&&(a=1),f===void 0&&(f=null);var g=this;if(e instanceof c&&(g=e,e=this),a instanceof d){var h=a;a=f||h,f=h}return new b(function(k){var c=0,d=[],h=0,j=0,i=function(){if(c>=e.length&&h>=e.length)return k(d);var a=c,l=e[c];b.resolve(g.call(f,l,c++,e)).then(function(b){d[a]=b})['catch'](function(){j++}).then(function(){h++}).then(i)};a>e.length>>1&&(a=e.length>>1),a>=1||(a=1);while(a-->0)i()}).then(function(a){return a})}var a,a=a;return a
+02mFunction,Object,Promise,Function,Object,Promisefunction queue(list, count, context) {
+    if (count === void 0) {
+        count = 1;
+    }
+    if (context === void 0) {
+        context = null;
+    }
+    var f = this;
+    if (list instanceof Function) {
+        f = list;
+        list = this;
+    }
+    if (count instanceof Object) {
+        var temp = count;
+        count = context || temp;
+        context = temp;
+    }
+    return new Promise(function (ok) {
+        var cx = 0;
+        var result = [];
+        var loaded_count = 0;
+        var error_count = 0;
+        var run = function () {
+            if (cx >= list.length && loaded_count >= list.length)
+                return ok(result);
+            var saved_cx = cx;
+            var args = list[cx];
+            Promise.resolve(f.call(context, args, cx++, list)).then(function (data) {
+                result[saved_cx] = data;
+            })['catch'](function () {
+                error_count++;
+            }).then(function () {
+                loaded_count++;
+            }).then(run);
+        };
+        if (count > list.length >> 1) {
+            count = list.length >> 1;
+        }
+        if (!(count >= 1)) {
+            count = 1;
+        }
+        while (count-- > 0) {
+            run();
+        }
+    }).then(function (res) {
+        return res;
+    });
+}
+var queue = queue;
+return queue;

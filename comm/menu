@@ -1,1 +1,175 @@
-0cadiv,lattice,button,addClass,onappend,autodragchildren,list,css,select,appendChild,tree,isElement,render,getGenerator,on,menuItem,active,care,menuList,getTreeFromData,Error,cless,i,j,a,k,l,m,n,b,o,p,c,q,r,d,s,t,u,v,e,w,x,yfunction f(b,c,d){var a=b.splice(c,1);a.length&&b.splice(d,0,a[0])}function z(q,d){d===void 0&&(d=q.map(function(b,a){return a}));var e=q.map(function(b,a){return a in d?q[d[a]]:b}),r=i(),c=j(e,100);c.nodrag=!0;var g=a('');k(g,'more'),l(c,function(){c.go(0)}),m(c,function(a){return a.parentNode&&a.parentNode.parentNode===c},function(a,b){f(e,a,b),f(d,a,b)});var h=n(function(g){var d=e[c.children[0].children.length+g],f=d?a(d.innerText,'white'):!1;return b(f,'display:block;width:100%;height:28px;overflow:hidden;box-shadow:none;text-align:left;padding-left:20px'),f});return b(h,'min-width:180px;width:auto;height:auto;border:1px solid #000;background:#fff;padding:8px 0;'),h.go(0),o(g,h),p(r,c,g),r}function A(b){var a=this;return a=c(this),a.innerHTML='',a.setData(b),a.go(0),a}function B(a,b){if(q(a)){var b=a.getAttribute('mode');b=b&&b.toLowerCase()||'horizonal';var f=a.getAttribute('src')||a.getAttribute('ng-src')||a.getAttribute('v-src');if(f){var i=r.parseRepeat(f);if(!i){a.removeAttribute('src');var j=d(a)}else{a.removeAttribute('src');var j=d(a,i)}a.setAttribute('ng-src',i?i.srcName:f)}switch(b){case'i':case'c':case'inline':if(a)s('changes')(a,function(b){b.changes.src&&(a.setData(this.src),a.go(a.index()||0))}),c(a,function(e,c){var b=j(e,c);if(!b||b.children.length)return b;var d=t(b,c,a.useIcon);return d}),a.renders.push(function(){var c=this.src;for(var b=0,d=c;b<d;b++)if(c[b].icon)break;a.useIcon=!0});else{var k=h(a);a=A.call(a,k)}break;case'h':case'x':case'horizonal':var m='x';case'v':case'y':case'vertical':var l=function(b){u(a,b,b.value)};if(f)v(a,function(b){e(a,w(b),l,j,m)});else{var k=g(a);a=e(a,k,l)}break;default:throw new x('\u4e0d\u652f\u6301\u7684\u83dc\u5355\u7c7b\u578b\uff1a'+b)}}else b=b||'horizonal',a=z.apply(null,arguments);return a.setAttribute('mode',b),a}var g=function(d){var a=[],b=0,c=function(d){var f=d.children.length>1?d.children[0].innerHTML:d.innerHTML;b++,f&&a.push({name:f,tab:b,href:d.getAttribute('path')||d.getAttribute('href'),'class':d.className,closed:!0});var e=a.length-1;d.children.length>1&&[].forEach.call(d.children[1].children,c),a[e].children=a.splice(e+1,a.length-e),b--};return[].forEach.call(d.children,c),a},h=function(d){var b=[],a=0,c=function(d){var e=d.children.length>1?d.children[0].innerHTML:d.innerHTML;a++,e&&b.push({name:e,tab:a,href:d.getAttribute('path')||d.getAttribute('href'),'class':d.className,closed:!0}),d.children.length>1&&[].forEach.call(d.children[1].children,c),a--};return[].forEach.call(d.children,c),b};return y(B,'.-ub{white-space:nowrap}.-ub>div.lack+div.more{width:100%}.-ub>div>div,.-ub>div>div>div{position:relative;display:inline-block;width:100%;height:100%;background:transparent}.-ub>.more{position:absolute;right:0;width:40px;height:100%;color:#fff;background:transparent;border-right:1px solid #18333c}.-ub>.more::after{content:"";position:absolute;display:block;width:8px;height:8px;right:20px;top:50%;margin:-4px;box-sizing:border-box;border-top:2px solid;border-bottom:2px solid}body:active .-ub>.lattice>div>div{transition:margin .1s}.-ub>.lattice{right:40px;position:absolute;left:0;top:0;bottom:0;width:auto}.-ub>.lattice.complete{right:0}.-ub>.lattice.lack>div{opacity:0}.-ub>.complete+.more{display:none}.-ub>.lack+.more{width:100%}.-ub[mode=vertical]{display:block}.-ub[mode=horizonal]{display:block;overflow:hidden;text-overflow:hidden;height:40px;position:relative;border:1px solid #18333c;background-color:#18333c;box-shadow:inset 0 0 12px #51ddf6,inset 0 -120px 120px -120px #51ddf6;border-right:none}.-ub[mode=inline]{height:auto;box-shadow:none;padding:0;margin:0}.-ub[mode=inline] .tab1{border-left:3px solid transparent;display:block;height:44px;line-height:44px;font-size:14px;color:#b8c7ce}.-ub[mode=inline] .tab1.open{color:#fff;background:#1e282c}.-ub[mode=inline] .tab1.open s:after{top:-10px}.-ub[mode=inline] .tab1.checked,.-ub[mode=inline] .tab1.actived,.-ub[mode=inline] .tab1.selected{border-left-color:#3c8dbc}.-ub[mode=inline] .tab1 s{display:block;height:5px;width:20px;right:10px;position:absolute;overflow:hidden;top:50%;margin-top:-2.5px;text-decoration:none}.-ub[mode=inline] .tab1 s:after{content:"×";box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:20px;height:20px;padding:0;font-weight:normal;text-align:center;display:block;text-align:start;position:absolute;right:0;left:0;color:#fff;transition:top .2s ease-out}.-ub[mode=inline] .tab1.closed s:after{top:-5px}.-ub[mode=inline] .tab1.empty s{display:none}.-ub[mode=inline]>.button{box-shadow:none}.-ub[mode=inline]>.button>b{font-weight:normal}.-ub[mode=inline]>.button:not(.tab1){display:block;height:36px;line-height:36px;font-size:14px;background:#2c3b41;color:#8aa4af}.-ub[mode=inline]>.button:not(.tab1).checked,.-ub[mode=inline]>.button:not(.tab1).actived,.-ub[mode=inline]>.button:not(.tab1).selected{color:#fff}.-ub[mode=inline]>.button i{margin-right:10px}.-ub[mode=inline]>.button.hover{text-shadow:none;color:#fff}','-ub menu menu')
+0jediv,lattice,button,addClass,autodragchildren,list,css,select,onappend,appendChild,tree,isElement,render,getGenerator,menuItem,care,active,menuList,getTreeFromData,Error,cless,div,lattice,button,addClass,autodragchildren,list,css,select,onappend,appendChild,tree,isElement,render,getGenerator,menuItem,care,active,menuList,getTreeFromData,Error,clessfunction move(array, src, dst) {
+    var temp = array.splice(src, 1);
+    if (temp.length)
+        array.splice(dst, 0, temp[0]);
+}
+function menu(buttons, map) {
+    if (map === void 0) {
+        map = buttons.map(function (a, cx) {
+            return cx;
+        });
+    }
+    var btns = buttons.map(function (a, cx) {
+        return cx in map ? buttons[map[cx]] : a;
+    });
+    var menu_box = div();
+    var menu_items = lattice(btns, 100);
+    menu_items.nodrag = true;
+    var menu_extra = button('');
+    addClass(menu_extra, 'more');
+    menu_items.go(0);
+    autodragchildren(menu_items, function (e) {
+        return e.parentNode && e.parentNode.parentNode === menu_items;
+    }, function (c1, c2) {
+        move(btns, c1, c2);
+        move(map, c1, c2);
+    });
+    var extra_list = list(function (index) {
+        if (index < 0)
+            return false;
+        var btn = btns[menu_items.children[0].children.length + index];
+        var clone = btn ? button(btn.innerText, 'white') : false;
+        css(clone, 'display:block;width:100%;height:28px;overflow:hidden;box-shadow:none;text-align:left;padding:0 20px');
+        return clone;
+    });
+    css(extra_list, 'min-width:180px;width:auto;height:auto;border:1px solid #000;background:#fff;padding:4px 0;');
+    select(menu_extra, extra_list);
+    onappend(extra_list, function () {
+        extra_list.go(0);
+    });
+    appendChild(menu_box, menu_items, menu_extra);
+    return menu_box;
+}
+function inlineMenu(nodes) {
+    var container = this;
+    container = tree(this);
+    container.innerHTML = '';
+    container.setData(nodes);
+    container.go(0);
+    return container;
+}
+var getArrayNodes = function (elem) {
+    var nodes = [];
+    var deep = 0;
+    var run = function (node) {
+        var nodeName = node.children.length > 1 ? node.children[0].innerHTML : node.innerHTML;
+        deep++;
+        if (nodeName) {
+            nodes.push({
+                name: nodeName,
+                tab: deep,
+                href: node.getAttribute('path') || node.getAttribute('href'),
+                'class': node.className,
+                closed: true
+            });
+        }
+        var index = nodes.length - 1;
+        if (node.children.length > 1) {
+            [].forEach.call(node.children[1].children, run);
+        }
+        nodes[index].children = nodes.splice(index + 1, nodes.length - index);
+        deep--;
+    };
+    [].forEach.call(elem.children, run);
+    return nodes;
+};
+var getTreeNodes = function (elem) {
+    var nodes = [];
+    var deep = 0;
+    var run = function (node) {
+        var nodeName = node.children.length > 1 ? node.children[0].innerHTML : node.innerHTML;
+        deep++;
+        if (nodeName) {
+            nodes.push({
+                name: nodeName,
+                tab: deep,
+                href: node.getAttribute('path') || node.getAttribute('href'),
+                'class': node.className,
+                closed: true
+            });
+        }
+        if (node.children.length > 1) {
+            [].forEach.call(node.children[1].children, run);
+        }
+        deep--;
+    };
+    [].forEach.call(elem.children, run);
+    return nodes;
+};
+function main(elem, mode) {
+    if (isElement(elem)) {
+        var mode = elem.getAttribute('mode') || elem.getAttribute('type');
+        mode = mode ? mode.toLowerCase() : 'horizonal';
+        var src = elem.getAttribute('src') || elem.getAttribute('ng-src') || elem.getAttribute('v-src');
+        if (src) {
+            var parsedSrc = render.parseRepeat(src);
+            if (!parsedSrc) {
+                elem.removeAttribute('src');
+                var generator = getGenerator(elem);
+            } else {
+                elem.removeAttribute('src');
+                var generator = getGenerator(elem, parsedSrc);
+            }
+            elem.setAttribute('ng-src', parsedSrc ? parsedSrc.srcName : src);
+        }
+        switch (mode) {
+        case 'i':
+        case 'c':
+        case 'inline':
+        case 't':
+        case 'tree':
+            if (elem) {
+                tree(elem, function (index, item) {
+                    var e = generator(index, item);
+                    if (!e || e.children.length)
+                        return e;
+                    var m = menuItem(e, item, elem.useIcon);
+                    return m;
+                });
+                care(elem, function (data) {
+                    elem.setData(data);
+                });
+                elem.renders.push(function () {
+                    var src = this.src;
+                    for (var cx = 0, dx = src; cx < dx; cx++) {
+                        if (src[cx].icon) {
+                            break;
+                        }
+                    }
+                    elem.useIcon = true;
+                });
+            } else {
+                var nodes = getTreeNodes(elem);
+                elem = inlineMenu.call(elem, nodes);
+            }
+            break;
+        case 'h':
+        case 'x':
+        case 'horizonal':
+            var direction = 'x';
+        case 'v':
+        case 'y':
+        case 'vertical':
+            var emit = function (item) {
+                active(elem, item, item.value);
+            };
+            if (src) {
+                care(elem, function (src) {
+                    menuList(elem, getTreeFromData(src), emit, generator, direction);
+                });
+            } else {
+                var nodes = getArrayNodes(elem);
+                elem = menuList(elem, nodes, emit);
+            }
+            break;
+        default:
+            throw new Error('\u4e0d\u652f\u6301\u7684\u83dc\u5355\u7c7b\u578b\uFF1A' + mode);
+        }
+    } else {
+        mode = mode || 'horizonal';
+        elem = menu.apply(null, arguments);
+    }
+    elem.setAttribute('mode', mode);
+    return elem;
+}
+return cless(main, '.-uc {\n  white-space: nowrap;\n}\n.-uc > div.lack + div.more {\n  width: 100%;\n}\n.-uc > div > div,\n.-uc > div > div > div {\n  position: relative;\n  display: inline-block;\n  width: 100%;\n  height: 100%;\n  background: transparent;\n}\n.-uc > .more {\n  position: absolute;\n  right: 0;\n  width: 40px;\n  height: 100%;\n  color: #fff;\n  background: transparent;\n  border-right: 1px solid #18333c;\n}\n.-uc > .more::after {\n  content: "";\n  position: absolute;\n  display: block;\n  width: 8px;\n  height: 8px;\n  right: 20px;\n  top: 50%;\n  margin: -8px/2;\n  box-sizing: border-box;\n  border-top: 2px solid;\n  border-bottom: 2px solid;\n}\nbody:active .-uc > .lattice > div > div {\n  transition: margin 0.1s;\n}\n.-uc > .lattice {\n  right: 40px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  width: auto;\n}\n.-uc > .lattice > div + div {\n  display: none;\n}\n.-uc > .lattice.complete {\n  right: 0;\n}\n.-uc > .lattice.lack > div {\n  opacity: 0;\n}\n.-uc > .complete + .more {\n  display: none;\n}\n.-uc > .lack + .more {\n  width: 100%;\n}\n.-uc[mode=vertical],\n.-uc[type=vertical] {\n  display: block;\n}\n.-uc[mode=horizonal],\n.-uc[type=horizonal] {\n  display: block;\n  overflow: hidden;\n  text-overflow: hidden;\n  height: 40px;\n  position: relative;\n  border: 1px solid #18333c;\n  background-color: #18333c;\n  box-shadow: inset 0 0 12px #51ddf6, inset 0px -120px 120px -120px #51ddf6;\n  border-right: none;\n}\n.-uc[mode=horizonal] > div,\n.-uc[type=horizonal] > div {\n  vertical-align: top;\n}\n.-uc[mode=horizonal] .button,\n.-uc[type=horizonal] .button {\n  line-height: 40px;\n}\n.-uc[mode=tree],\n.-uc[type=tree],\n.-uc[mode=inline],\n.-uc[type=inline] {\n  height: auto;\n  box-shadow: none;\n  padding: 0;\n  margin: 0;\n}\n.-uc[mode=tree] .tab1,\n.-uc[type=tree] .tab1,\n.-uc[mode=inline] .tab1,\n.-uc[type=inline] .tab1 {\n  border-left: 3px solid transparent;\n  display: block;\n  height: 44px;\n  line-height: 44px;\n  font-size: 14px;\n  color: #b8c7ce;\n}\n.-uc[mode=tree] .tab1.open,\n.-uc[type=tree] .tab1.open,\n.-uc[mode=inline] .tab1.open,\n.-uc[type=inline] .tab1.open {\n  color: #fff;\n  background: #1e282c;\n}\n.-uc[mode=tree] .tab1.open s:after,\n.-uc[type=tree] .tab1.open s:after,\n.-uc[mode=inline] .tab1.open s:after,\n.-uc[type=inline] .tab1.open s:after {\n  top: -10px;\n}\n.-uc[mode=tree] .tab1.checked,\n.-uc[type=tree] .tab1.checked,\n.-uc[mode=inline] .tab1.checked,\n.-uc[type=inline] .tab1.checked,\n.-uc[mode=tree] .tab1.actived,\n.-uc[type=tree] .tab1.actived,\n.-uc[mode=inline] .tab1.actived,\n.-uc[type=inline] .tab1.actived,\n.-uc[mode=tree] .tab1.selected,\n.-uc[type=tree] .tab1.selected,\n.-uc[mode=inline] .tab1.selected,\n.-uc[type=inline] .tab1.selected {\n  border-left-color: #3c8dbc;\n}\n.-uc[mode=tree] .tab1 s,\n.-uc[type=tree] .tab1 s,\n.-uc[mode=inline] .tab1 s,\n.-uc[type=inline] .tab1 s {\n  display: block;\n  height: 5px;\n  width: 20px;\n  right: 10px;\n  position: absolute;\n  overflow: hidden;\n  top: 50%;\n  margin-top: -2.5px;\n  text-decoration: none;\n}\n.-uc[mode=tree] .tab1 s:after,\n.-uc[type=tree] .tab1 s:after,\n.-uc[mode=inline] .tab1 s:after,\n.-uc[type=inline] .tab1 s:after {\n  content: "\xD7";\n  box-sizing: border-box;\n  font-family: Arial, Helvetica, sans-serif;\n  font-size: 20px;\n  line-height: 20px;\n  height: 20px;\n  padding: 0;\n  font-weight: normal;\n  text-align: center;\n  display: block;\n  text-align: start;\n  position: absolute;\n  right: 0;\n  left: 0;\n  color: #fff;\n  transition: top 0.2s ease-out;\n}\n.-uc[mode=tree] .tab1.closed s:after,\n.-uc[type=tree] .tab1.closed s:after,\n.-uc[mode=inline] .tab1.closed s:after,\n.-uc[type=inline] .tab1.closed s:after {\n  top: -5px;\n}\n.-uc[mode=tree] .tab1.empty s,\n.-uc[type=tree] .tab1.empty s,\n.-uc[mode=inline] .tab1.empty s,\n.-uc[type=inline] .tab1.empty s {\n  display: none;\n}\n.-uc[mode=tree] > .button,\n.-uc[type=tree] > .button,\n.-uc[mode=inline] > .button,\n.-uc[type=inline] > .button {\n  box-shadow: none;\n}\n.-uc[mode=tree] > .button > b,\n.-uc[type=tree] > .button > b,\n.-uc[mode=inline] > .button > b,\n.-uc[type=inline] > .button > b {\n  font-weight: normal;\n}\n.-uc[mode=tree] > .button:not(.tab1),\n.-uc[type=tree] > .button:not(.tab1),\n.-uc[mode=inline] > .button:not(.tab1),\n.-uc[type=inline] > .button:not(.tab1) {\n  display: block;\n  height: 36px;\n  line-height: 36px;\n  font-size: 14px;\n  background: #2c3b41;\n  color: #8aa4af;\n}\n.-uc[mode=tree] > .button:not(.tab1).checked,\n.-uc[type=tree] > .button:not(.tab1).checked,\n.-uc[mode=inline] > .button:not(.tab1).checked,\n.-uc[type=inline] > .button:not(.tab1).checked,\n.-uc[mode=tree] > .button:not(.tab1).actived,\n.-uc[type=tree] > .button:not(.tab1).actived,\n.-uc[mode=inline] > .button:not(.tab1).actived,\n.-uc[type=inline] > .button:not(.tab1).actived,\n.-uc[mode=tree] > .button:not(.tab1).selected,\n.-uc[type=tree] > .button:not(.tab1).selected,\n.-uc[mode=inline] > .button:not(.tab1).selected,\n.-uc[type=inline] > .button:not(.tab1).selected {\n  color: #fff;\n}\n.-uc[mode=tree] > .button i,\n.-uc[type=tree] > .button i,\n.-uc[mode=inline] > .button i,\n.-uc[type=inline] > .button i {\n  margin-right: 10px;\n}\n.-uc[mode=tree] > .button.hover,\n.-uc[type=tree] > .button.hover,\n.-uc[mode=inline] > .button.hover,\n.-uc[type=inline] > .button.hover {\n  text-shadow: none;\n  color: #fff;\n}\n', '-uc menu menu');

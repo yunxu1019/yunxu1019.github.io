@@ -1,1 +1,29 @@
-020setTimeout,requestAnimationFrame,a,bfunction c(d,c){return function e(){if(arguments.length)return d.apply(this,arguments);if(e.ing)return e.ing=!0;c=+c;var f=function(){e.ing===!0&&d(),e.ing=!1};c>0?(a(f,c),e.ing=!0):(e.ing=b(f),c===!1||c===0?e.ing=!0:d())}}return c
+03mrequestAnimationFrame,setTimeout,requestAnimationFrame,setTimeoutfunction lazy(run, wait) {
+    var fire = function () {
+        if (fire.ing === true)
+            run.apply(this, arguments);
+        fire.ing = false;
+    };
+    return function () {
+        if (arguments.length) {
+            var args = arguments;
+            return requestAnimationFrame(function () {
+                run.apply(this, args);
+            });
+        }
+        if (fire.ing)
+            return fire.ing = true;
+        wait = +wait;
+        if (wait > 0) {
+            setTimeout(fire, wait);
+            fire.ing = true;
+        } else {
+            fire.ing = requestAnimationFrame(fire);
+            if (wait === false || wait === 0)
+                fire.ing = true;
+            else
+                run();
+        }
+    };
+}
+return lazy;

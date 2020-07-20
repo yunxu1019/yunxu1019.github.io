@@ -1,1 +1,311 @@
-0hudocument,addClass,Math,isNode,text,isFunction,isArray,remove,appendChild,speed,innerWidth,css,cancelAnimationFrame,requestAnimationFrame,createEvent,dispatch,clearTimeout,setTimeout,MOVELOCK_DELTA,onmousewheel,moveupon,onappend,onresize,window,isFinite,onremove,cless,k,r,g,s,t,l,m,j,n,u,v,b,o,w,x,y,h,c,p,z,A,B,C,D,E,F,Gfunction H(T,U){U===void 0&&(U=!0);var g=q.cloneNode();for(var V=0,a2=arguments.length;V<a2;V++){var J=arguments[V];J===!0||J===!1?U=J:s(J)?g=J:T=J}var G=d.cloneNode(),I=d.cloneNode();g.src=function(b){var a=d.cloneNode();return t(a,b),a},(l(T)||m(T))&&(g.src=T);var H=function(c,d){var b=g.src;return m(b)&&(U&&(c%=b.length,c<0&&(c+=b.length)),b=b[c]),l(b)&&(b=b(c,1-a(d))),b&&(b.parentNode!==g&&(j(b),n(g,b)),b.index=c),b},k=0,L=0,R=0,W=0,M=0,K=0,_=0,X=0,N,O=u(1),S=function(c,m){g.index=L=c;var d=g.clientWidth||+v,a=e(c),h=a+1;G=H(a,a-c),I=H(h,h-c),I===G&&(c-a<.5?I=null:G=null),m===!1&&(H(a-1,1),H(a-2,1),H(a-3,1),H(a-4,1),H(a+2,1),H(a+3,1),H(a+4,1));var l=g.childNodes;for(var i=l.length-1;i>=0;i--){var k=l[i];k!==G&&k!==I&&j(k)}if(!d)return;b(G,{position:'absolute',width:'100%',height:'100%',left:f((a-c)*d)+'px'}),b(I,{position:'absolute',width:'100%',height:'100%',left:f((h-c)*d)+'px'})},Y=function(){o(W);var b=g.clientWidth;if(a(L+k)<1.25/b)return S(-k,!1);W=w(Y),S((L*3-k)/4)},$=function(){N=0,R>0?k-e(k)>.3/(1+a(O()))?k=i(k):k=e(k):R<0?i(k)-k>.3/(1+a(O()))?k=e(k):k=i(k):k=f(k),Y();var b=x('park');b.index=-k,y(g,b),r.ing&&Z()},Z=function(){r.ing||(r.ing=!0),h(M),M=c(r,r.schedule)},r=function(){r.direction||(r.direction=1),P(r.direction)||(r.direction=-r.direction)};r.schedule=5e3;var P=function(b){h(M),r.ing&&(M=c(r,r.schedule));var a=H(b-k,1);return a=a&&a!==G,a&&(k-=b),Y(),a},a0=function(a,h){var d=g.clientWidth,e=(!G||!I)&&(G||I);if(e){var b=e.offsetLeft,c=f(d>>2);b+a>c?(a=c-b,K+=a):b+a<-c?(a=-c-b,K+=a):K=h.clientX,O(0)}else K=h.clientX,O(a);R=a/d,k+=R,S(-k)},a3=function(b){if(b.moveLocked)return;var c=b.clientX-K,d=b.clientY-_;if(!N){if(a(c)<p&&a(d)<p)return;a(d)-a(c)>0?N=-1:N=1}if(N<0)return;if(!X)return;b.moveLocked=!0,a0(c,b)},a1=0;z(g,function(a){if(!a.deltaX)return;if(a._target&&a._target!==this)return;a._target=g,h(a1),a1=c($,60);var b=-a.deltaX;a0(b,a)}),A(g,{start:function(a){o(W),h(M),X=!0,N=0,O(0),K=a.clientX,_=a.clientY},move:a3,end:function(){X=!1,$()}}),g.go=function(d){if(g.index===d)return;k=-d;var a=G;return S(d,!1),b(a,'transition:.1s opacity ease-out,.1s transform;z-index:1;left:0;'),n(g,a),c(function(){b(a,'transform:scale(.97);opacity:0;')}),c(function(){j(a),b(a,'transform:scale(1);opacity:1;transition:none')},100),b(G,'z-index:0;transform:scale(.92);opacity:0;transition:none'),c(function(){return b(G,'transform:scale(1);opacity:1;transition:.2s transform ease-out,.4s opacity')},0),r.ing&&Z(),g},g.play=function(a){return a===void 0&&(a=r.schedule),a!==r.schedule&&(r.schedule=a),Z(),g},g.next=function(a){return a===void 0&&(a=1),L+=.1,P(a),g},g.prev=function(a){return a===void 0&&(a=1),L-=.1,P(-a),g};var Q;return B(g,function(){Q&&Q(),Q=C(D,function(){P(0)}),E(g.index)&&P(0)}),F(g,function(){Q&&Q(),Q=null}),b(g,'overflow:hidden;-webkit-overflow-scrolling:auto;over-flow:auto;'),g}var d=k.createElement('div');r(d,'slider-item');var q=k.createElement('div'),e=g.floor,i=g.ceil,f=g.round,a=g.abs;return G(H,'.-zi{height:auto;user-select:none;overflow:hidden;position:relative;width:100%;padding-bottom:38.8889%}.-zi>.slider-item{position:absolute;top:0px;left:0px;right:0px;bottom:0px;width:100%;height:100%}','-zi slider slider')
+0tqdocument,addClass,Math,isNode,text,isFunction,isArray,remove,appendChild,speed,innerWidth,css,cancelAnimationFrame,requestAnimationFrame,createEvent,dispatch,clearTimeout,setTimeout,MOVELOCK_DELTA,onmousewheel,moveupon,onappend,onresize,window,isFinite,onremove,cless,document,addClass,Math,isNode,text,isFunction,isArray,remove,appendChild,speed,innerWidth,css,cancelAnimationFrame,requestAnimationFrame,createEvent,dispatch,clearTimeout,setTimeout,MOVELOCK_DELTA,onmousewheel,moveupon,onappend,onresize,window,isFinite,onremove,clessvar _slider = document.createElement('div');
+addClass(_slider, 'slider-item');
+var container = document.createElement('div');
+var floor = Math.floor;
+var ceil = Math.ceil;
+var round = Math.round;
+var abs = Math.abs;
+function slider(autoplay, circle) {
+    if (circle === void 0) {
+        circle = true;
+    }
+    var outter = container.cloneNode();
+    {
+        for (var cx = 0, dx = arguments.length; cx < dx; cx++) {
+            var arg = arguments[cx];
+            if (arg === true || arg === false) {
+                circle = arg;
+            } else if (isNode(arg)) {
+                outter = arg;
+            } else {
+                autoplay = arg;
+            }
+        }
+    }
+    var _imageMain = _slider.cloneNode();
+    var _imageHelp = _slider.cloneNode();
+    outter.src = function (index) {
+        var block = _slider.cloneNode();
+        text(block, index);
+        return block;
+    };
+    if (isFunction(autoplay) || isArray(autoplay)) {
+        outter.src = autoplay;
+    }
+    var generator = function (index, ratio) {
+        var src = outter.src;
+        if (isArray(src)) {
+            if (circle) {
+                index = index % src.length;
+                if (index < 0)
+                    index += src.length;
+            }
+            src = src[index];
+        }
+        if (isFunction(src)) {
+            src = src(index, 1 - abs(ratio), ratio);
+        }
+        if (src) {
+            if (src.parentNode !== outter) {
+                remove(src);
+                appendChild(outter, src);
+            }
+            src.index = index;
+        }
+        return src;
+    };
+    var negative_index = 0, current_index = 0, delta_negative_index = 0, timer_animate = 0, timer_playyer = 0, saved_x = 0, saved_y = 0, moving = 0, direction, _speed = speed(1);
+    var reshape = function (index, ising) {
+        outter.index = current_index = index;
+        var width = outter.clientWidth || +innerWidth;
+        var indexLeft = floor(index);
+        var indexRight = indexLeft + 1;
+        _imageMain = generator(indexLeft, indexLeft - index);
+        _imageHelp = generator(indexRight, indexRight - index);
+        if (_imageHelp === _imageMain) {
+            if (index - indexLeft < .5) {
+                _imageHelp = null;
+            } else {
+                _imageMain = null;
+            }
+        }
+        ;
+        if (ising === false) {
+            generator(indexLeft - 1, 1);
+            generator(indexLeft - 2, 1);
+            generator(indexLeft - 3, 1);
+            generator(indexLeft - 4, 1);
+            generator(indexLeft + 2, 1);
+            generator(indexLeft + 3, 1);
+            generator(indexLeft + 4, 1);
+        }
+        var childNodes = outter.childNodes;
+        for (var dx = childNodes.length - 1; dx >= 0; dx--) {
+            var childNode = childNodes[dx];
+            if (childNode !== _imageMain && childNode !== _imageHelp) {
+                remove(childNode);
+            }
+        }
+        if (indexLeft === index)
+            remove(_imageHelp);
+        if (!width)
+            return;
+        css(_imageMain, {
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            left: round((indexLeft - index) * width) + 'px'
+        });
+        css(_imageHelp, {
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            left: round((indexRight - index) * width) + 'px'
+        });
+    };
+    var animate = function () {
+        cancelAnimationFrame(timer_animate);
+        var width = outter.clientWidth;
+        if (abs(current_index + negative_index) < 1.25 / width)
+            return reshape(-negative_index, false);
+        timer_animate = requestAnimationFrame(animate);
+        reshape((current_index * 3 - negative_index) / 4);
+    };
+    var park = function () {
+        direction = 0;
+        if (delta_negative_index > 0) {
+            if (negative_index - floor(negative_index) > .3 / (1 + abs(_speed())))
+                negative_index = ceil(negative_index);
+            else
+                negative_index = floor(negative_index);
+        } else if (delta_negative_index < 0) {
+            if (ceil(negative_index) - negative_index > .3 / (1 + abs(_speed())))
+                negative_index = floor(negative_index);
+            else
+                negative_index = ceil(negative_index);
+        } else {
+            negative_index = round(negative_index);
+        }
+        animate();
+        var event = createEvent('park');
+        event.index = -negative_index;
+        dispatch(outter, event);
+        if (player.ing)
+            play();
+    };
+    var play = function () {
+        if (!player.ing) {
+            player.ing = true;
+        }
+        clearTimeout(timer_playyer);
+        timer_playyer = setTimeout(player, player.schedule);
+    };
+    var player = function () {
+        if (!player.direction) {
+            player.direction = 1;
+        }
+        if (!switchBy(player.direction)) {
+            player.direction = -player.direction;
+        }
+    };
+    player.schedule = 5e3;
+    var switchBy = function (count) {
+        clearTimeout(timer_playyer);
+        if (player.ing) {
+            timer_playyer = setTimeout(player, player.schedule);
+        }
+        var enabled = generator(count - negative_index, 1);
+        enabled = enabled && enabled !== _imageMain;
+        if (enabled)
+            negative_index -= count;
+        animate();
+        return enabled;
+    };
+    var moveDeltaX = function (deltax, event) {
+        var width = outter.clientWidth;
+        var singleTarget = (!_imageMain || !_imageHelp) && (_imageMain || _imageHelp);
+        if (singleTarget) {
+            var current_Left = singleTarget.offsetLeft;
+            var avail_deltaWidth = round(width >> 2);
+            if (current_Left + deltax > avail_deltaWidth) {
+                deltax = avail_deltaWidth - current_Left;
+                saved_x += deltax;
+            } else if (current_Left + deltax < -avail_deltaWidth) {
+                deltax = -avail_deltaWidth - current_Left;
+                saved_x += deltax;
+            } else {
+                saved_x = event.clientX;
+            }
+            _speed(0);
+        } else {
+            saved_x = event.clientX;
+            _speed(deltax);
+        }
+        delta_negative_index = deltax / width;
+        negative_index += delta_negative_index;
+        reshape(-negative_index);
+    };
+    var mousemove = function (event) {
+        if (event.moveLocked)
+            return;
+        var deltax = event.clientX - saved_x;
+        var deltay = event.clientY - saved_y;
+        if (!direction) {
+            if (abs(deltax) < MOVELOCK_DELTA && abs(deltay) < MOVELOCK_DELTA)
+                return;
+            if (abs(deltay) - abs(deltax) > 0) {
+                direction = -1;
+            } else {
+                direction = 1;
+            }
+        }
+        if (direction < 0) {
+            return;
+        }
+        if (!moving) {
+            return;
+        }
+        event.moveLocked = true;
+        moveDeltaX(deltax, event);
+    };
+    var stop_wheel_timer = 0;
+    onmousewheel(outter, function (event) {
+        if (!event.deltaX)
+            return;
+        if (event._target && event._target !== this)
+            return;
+        event._target = outter;
+        clearTimeout(stop_wheel_timer);
+        stop_wheel_timer = setTimeout(park, 60);
+        var deltax = -event.deltaX;
+        moveDeltaX(deltax, event);
+    });
+    moveupon(outter, {
+        start: function (event) {
+            cancelAnimationFrame(timer_animate);
+            clearTimeout(timer_playyer);
+            moving = true;
+            direction = 0;
+            _speed(0);
+            saved_x = event.clientX;
+            saved_y = event.clientY;
+        },
+        move: mousemove,
+        end: function () {
+            moving = false;
+            park();
+        }
+    });
+    outter.go = function (index) {
+        if (outter.index === index)
+            return;
+        negative_index = -index;
+        var _removingMain = _imageMain;
+        reshape(index, false);
+        css(_removingMain, 'transition:.1s opacity ease-out,.1s transform;z-index:1;left:0;');
+        appendChild(outter, _removingMain);
+        setTimeout(function () {
+            css(_removingMain, 'transform:scale(.97);opacity:0;');
+        });
+        setTimeout(function () {
+            remove(_removingMain);
+            css(_removingMain, 'transform:;opacity:;transition:');
+            css(_imageMain, 'transform:;opacity:;transition:');
+        }, 300);
+        css(_imageMain, 'z-index:0;transform:scale(.92);opacity:0;transition:none');
+        setTimeout(function () {
+            return css(_imageMain, 'transform:scale(1);opacity:1;transition:.2s transform ease-out,.4s opacity');
+        }, 0);
+        if (player.ing)
+            play();
+        return outter;
+    };
+    outter.play = function (schedule) {
+        if (schedule === void 0) {
+            schedule = player.schedule;
+        }
+        if (schedule !== player.schedule) {
+            player.schedule = schedule;
+            play();
+        } else if (!player.ing) {
+            play();
+        }
+        return outter;
+    };
+    outter.stop = function () {
+        player.ing = false;
+        return outter;
+    };
+    outter.next = function (count) {
+        if (count === void 0) {
+            count = 1;
+        }
+        current_index += .1;
+        switchBy(count);
+        return outter;
+    };
+    outter.prev = function (count) {
+        if (count === void 0) {
+            count = 1;
+        }
+        current_index -= .1;
+        switchBy(-count);
+        return outter;
+    };
+    var cancel_resize;
+    onappend(outter, function () {
+        cancel_resize && cancel_resize();
+        cancel_resize = onresize(window, function () {
+            switchBy(0);
+        });
+        if (isFinite(outter.index))
+            switchBy(0);
+    });
+    onremove(outter, function () {
+        cancel_resize && cancel_resize();
+        cancel_resize = null;
+    });
+    css(outter, 'overflow:hidden;-webkit-overflow-scrolling:auto;over-flow:auto;');
+    return outter;
+}
+return cless(slider, '.-as {\n  height: auto;\n  user-select: none;\n  overflow: hidden;\n  position: relative;\n  width: 100%;\n  padding-bottom: 38.8889%;\n}\n.-as > .slider-item {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  bottom: 0px;\n  width: 100%;\n  height: 100%;\n}\n', '-as slider slider');

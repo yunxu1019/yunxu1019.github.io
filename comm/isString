@@ -1,1 +1,4 @@
-00gString,bvar a=function a(c){return typeof c==='string'||c instanceof b};return a
+00qString,Stringvar isString = function isString(o) {
+    return typeof o === 'string' || o instanceof String;
+};
+return isString;

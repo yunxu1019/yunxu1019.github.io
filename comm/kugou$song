@@ -1,1 +1,36 @@
-02sdiv,care,render,filterTime,block,cless,c,d,e,f,g,hfunction i(b){return b===void 0&&(b=c()),d(b,function(c){b.innerHTML=a,e(this,{filterTime:f,song:c})}),g(b)}var a,b,b=a={toString:function(){return'<div class="bg"></div><div ng-bind=song.name||song.songName></div><div class="filterTime(song.timeLength)"></div>'}};return h(i,'.-az{height:50px;padding:10px;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#fff}.-az:hover{background:#f2f4f6}.-az:active{background:#f2f2f2}.-az.activate:after{position:absolute;right:10px;top:50%;line-height:20px;color:#2292e4;content:"playing..";display:inline-block;margin-top:-10px}','-az song song')
+0a6document,filterTime,img,kugou$playState,kugou$musicList,render,care,String,mark,block,cless,document,filterTime,img,kugou$playState,kugou$musicList,render,care,String,mark,block,clessvar song, Song, template, template = Song = song = {
+        'toString': function () {
+            return '<div class="bg"></div><png class="logo" ng-if="song.imgurl" ng-src=song.imgurl></png><div class="song" ng-model=song.songMarked></div><div class="singer" ng-model=song.singerMarked></div><div class="filterTime(song.timeLength)"></div><div class="play-state" ng-if="song.hash===musicList.active_hash" ng-class={error:playState.error}><div ng-style="{width:playState.width}"></div></div>';
+        }
+    };
+function main(elem) {
+    elem = elem || document.createElement('song');
+    if (!elem.innerHTML)
+        elem.innerHTML = song;
+    var $scope = {
+        filterTime: filterTime,
+        png: img,
+        playState: kugou$playState,
+        song: {},
+        musicList: kugou$musicList
+    };
+    render(elem, $scope);
+    care(elem, function (item) {
+        var songName = String(item.name || item.songName || item.songname_original || '');
+        var singerName = String(item.singer || item.singerName || item.singername || '');
+        if (~songName.indexOf(singerName)) {
+            if (/\s*\-\s*/.test(songName)) {
+                singerName = songName.replace(/^([\s\S]*?)\s*\-\s*[\s\S]*$/, '$1');
+                songName = songName.replace(/^[\s\S]*?\s*\-\s*/, '');
+            }
+        }
+        $scope.song = {
+            hash: item.hash,
+            imgurl: item.imgurl,
+            songMarked: mark(songName, elem.mark),
+            singerMarked: mark(singerName, elem.mark)
+        };
+    });
+    return block(elem);
+}
+return cless(main, '.-bu {\n  height: 52px;\n  line-height: 40px;\n  padding: 10px;\n  font-size: 16px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  background: #fff;\n  border: 2px solid transparent;\n}\n.-bu:hover {\n  border-color: #2cf;\n}\n.-bu:active {\n  border-color: #29c;\n}\n.-bu > .logo {\n  height: 40px;\n  width: 40px;\n  margin: -6px -4px;\n}\n.-bu > .logo + .song {\n  margin-left: -38px;\n  padding-left: 46px;\n  line-height: 30px;\n  display: inline-block;\n  vertical-align: top;\n}\n.-bu > .song {\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.-bu b {\n  border: 1px solid rgba(31, 74, 59, 0.8314);\n  color: rgba(31, 74, 59, 0.8314);\n  font-weight: normal;\n  background: rgba(168, 235, 212, 0.8314);\n}\n.-bu > .singer {\n  position: absolute;\n  left: 6px;\n  top: 4px;\n  text-align: center;\n  line-height: 12px;\n  font-size: 12px;\n  color: #888;\n}\n.-bu > .play-state {\n  position: absolute;\n  bottom: 2px;\n  right: 4px;\n  left: 4px;\n  display: block;\n  background: rgba(44, 123, 181, 0.1333);\n  height: 2px;\n  border-radius: 2px 0 2px 0;\n  overflow: hidden;\n}\n.-bu > .play-state > div {\n  width: 100%;\n  height: 100%;\n  border-radius: inherit;\n  background: #2c7bb5;\n}\n.-bu > .play-state.error {\n  background-color: #c26;\n}\n', '-bu song song');

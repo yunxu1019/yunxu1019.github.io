@@ -1,1 +1,31 @@
-064vbox,data,render,lattice,document,appendChild,rootElements,once,Array,kugou$player,cless,e,a,b,f,g,h,i,j,k,l,mfunction n(n){var d=e();d.innerHTML=c;var m=a.asyncInstance(n.api);return b(d,{lattice:f,items:m,play:function(c){if(c.children){var e=g.createElement('hidden');h(d,e),i.push(e);var f=d.$scope.items;j('remove')(e,function(){d.$scope.items=f,b.refresh()}),d.$scope.items=c.children instanceof k?c.children:a.asyncInstance(c.children)}else c.id&&l.play(c.id.replace(/^songs\_/i,''))}}),d}var c,d,d=c={toString:function(){return'<lattice elementid=list item-width=200 ng-src="item in items"><div class="item" ng-click="play(item)"><div class="inner"><div class="name" ng-bind="item.name"></div></div></div></lattice><div class="loading" ng-if=!items||items?.is_loading>\u6b63\u5728\u52a0\u8f7d..</div>'}};return m(n,'.-ra{background:#fff;padding:0 !important}.-ra .item{display:inline-block;height:90px;vertical-align:top;position:relative}.-ra .item>div{padding:16px}.-ra .item .name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.-ra .item .inner{color:#666;display:block;content:"";position:absolute;left:6px;top:6px;right:6px;bottom:6px;background:rgba(255,255,255,0.7333);border:1px solid rgba(0,0,0,0.16);border-radius:3px}.-ra .item .inner:hover{background:#ffffff}.-ra .item .inner:active{background:#f0f2f4}.-ra lattice{padding-top:48px;padding-bottom:6px;background:#f2f4f6}.play.player+.glance .-ra lattice,.pause.player+.glance .-ra lattice{padding-bottom:66px}.-ra .loading{color:#333;background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);position:absolute;left:0;right:0;bottom:0;text-align:center;top:0;line-height:40px}.-ra .loading:before{content:"";display:block;height:30%;margin-bottom:-20px}','-ra list list')
+09uvbox,data,Array,render,lattice,document,appendChild,rootElements,once,kugou$player,cless,vbox,data,Array,render,lattice,document,appendChild,rootElements,once,kugou$player,clessvar list, List, template, template = List = list = {
+        'toString': function () {
+            return '<lattice elementid=list item-width=200 ng-src="item in items"><div class="item" ng-click="play(item)"><div class="inner"><div class="name" ng-bind="item.name"></div></div></div></lattice><div class="loading" ng-if=!items||items?.is_loading>\u6b63\u5728\u52a0\u8f7d..</div>';
+        }
+    };
+function main(params) {
+    var page = vbox();
+    page.innerHTML = list;
+    var song = data.asyncInstance(params.api instanceof Array ? params.api[0] : params.api);
+    render(page, {
+        lattice: lattice,
+        items: song,
+        play: function (item) {
+            if (item.children) {
+                var hidden = document.createElement('hidden');
+                appendChild(page, hidden);
+                rootElements.push(hidden);
+                var items = page.$scope.items;
+                once('remove')(hidden, function () {
+                    page.$scope.items = items;
+                    render.refresh();
+                });
+                page.$scope.items = item.children instanceof Array ? item.children : data.asyncInstance(item.children);
+            } else if (item.id) {
+                kugou$player.play(item.id.replace(/^songs\_/i, ''));
+            }
+        }
+    });
+    return page;
+}
+return cless(main, '.-rb {\n  background: #fff;\n  padding: 0 !important;\n}\n.-rb .item {\n  display: inline-block;\n  height: 90px;\n  vertical-align: top;\n  position: relative;\n}\n.-rb .item > div {\n  padding: 16px;\n}\n.-rb .item .name {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.-rb .item .inner {\n  color: #666;\n  display: block;\n  content: "";\n  position: absolute;\n  left: 6px;\n  top: 6px;\n  right: 6px;\n  bottom: 6px;\n  background: rgba(255, 255, 255, 0.7333);\n  border: 1px solid rgba(0, 0, 0, 0.16);\n  border-radius: 3px;\n}\n.-rb .item .inner:hover {\n  background: #ffffff;\n}\n.-rb .item .inner:active {\n  background: #f0f2f4;\n}\n.-rb lattice {\n  padding-top: 48px;\n  padding-bottom: 6px;\n  background: #f2f4f6;\n}\n.play.player + .glance .-rb lattice,\n.pause.player + .glance .-rb lattice {\n  padding-bottom: 66px;\n}\n.-rb .loading {\n  color: #333;\n  background: rgba(255, 255, 255, 0.2);\n  backdrop-filter: blur(10px);\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  text-align: center;\n  top: 0;\n  line-height: 40px;\n}\n.-rb .loading:before {\n  content: "";\n  display: block;\n  height: 30%;\n  margin-bottom: -20px;\n}\n', '-rb list list');

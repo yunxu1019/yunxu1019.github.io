@@ -1,1 +1,84 @@
-06gremove,generate,viewTitle,appendChild,extend,rgba,render,popup,move,document,on,drag,cless,a,d,e,f,b,g,h,i,j,k,l,m,nfunction o(d){var a=d||k.createElement('form');return/form/i.test(a.tagName)&&l('submit')(a,function(a){a.preventDefault()}),m.on(a),b(a,c),a}var c={dragable:!0,resizable:!0,closeable:!0,showTitle:!0,viewTitle:'',left:0,top:0,add:function(a){return this},hide:function(){return this.savePosition(),a(this),this},load:function(a){return this},setTitle:function(a){var c=this.$scope;this.titleElements||(this.titleElements=d(e),c.showTitle=!0,f(this,[].concat.apply([],this.titleElements)));switch(typeof a){case'object':b(c,a);break;case'boolean':this.showTitle=a;break;case'number':c.color=g(a);case'string':c.viewTitle=a}return h(this.titleElements,this),this},release:function(){return a(this),this},closeView:function(){return this.release(),this},moveTo:function(a,b){return this.left=a,this.top=b,this.loadPosition(),this},moveBy:function(a,b){return this.moveTo(this.offsetLeft+a,this.offsetTop+b)},show:function(){return i(this),this.loadPosition(),this},savePosition:function(){return this.left=this.offsetLeft,this.top=this.offsetTop,this},loadPosition:function(){return j.call(this,this.left,this.top),this}};return n(o,'.-vh{padding:46px 0 4px 0;max-width:100%;width:360px;height:auto;overflow:hidden;box-sizing:border-box}.-vh>.body,.-vh>:not(:first-child):not(:last-child){padding:10px 0;background:#f2f4f6;overflow:auto;display:block;width:100%;position:relative;box-sizing:border-box}.-vh>.body:nth-child(2):nth-last-child(2),.-vh>.body:nth-child(2):nth-last-child(1){height:100%}.-vh>.head,.-vh>:first-child{background:#fff;z-index:1;margin-top:-44px;position:relative;line-height:40px;color:#333;padding:2px 16px 0 16px;border-bottom:1px solid rgba(0,0,0,0.16)}.-vh>.foot{white-space:nowrap;overflow:auto}.-vh>.foot,.-vh>:last-child:not(:nth-child(2)){text-align:right;line-height:46px;padding:0 16px;border-top:1px solid rgba(0,0,0,0.16);background:#fff}.-vh>.foot .button,.-vh>:last-child:not(:nth-child(2)) .button{padding:0 20px;min-width:60px;vertical-align:middle}.-vh>.foot .button+.button,.-vh>:last-child:not(:nth-child(2)) .button+.button{margin-left:10px}.-vh input{width:100%}','-vh view view')
+09iremove,generate,viewTitle,appendChild,extend,rgba,render,popup,move,document,on,cless,remove,generate,viewTitle,appendChild,extend,rgba,render,popup,move,document,on,clessvar prototype = {
+    dragable: true,
+    resizable: true,
+    closeable: true,
+    showTitle: true,
+    viewTitle: '',
+    left: 0,
+    top: 0,
+    add: function (element) {
+        return this;
+    },
+    hide: function () {
+        this.savePosition();
+        remove(this);
+        return this;
+    },
+    load: function (url) {
+        return this;
+    },
+    setTitle: function (arg) {
+        var scope = this.$scope;
+        if (!this.titleElements) {
+            this.titleElements = generate(viewTitle);
+            scope.showTitle = true;
+            appendChild(this, [].concat.apply([], this.titleElements));
+        }
+        switch (typeof arg) {
+        case 'object':
+            extend(scope, arg);
+            break;
+        case 'boolean':
+            this.showTitle = arg;
+            break;
+        case 'number':
+            scope.color = rgba(arg);
+        case 'string':
+            scope.viewTitle = arg;
+        }
+        render(this.titleElements, this);
+        return this;
+    },
+    release: function () {
+        remove(this);
+        return this;
+    },
+    closeView: function () {
+        this.release();
+        return this;
+    },
+    moveTo: function (left, top) {
+        this.left = left;
+        this.top = top;
+        this.loadPosition();
+        return this;
+    },
+    moveBy: function (deltax, deltay) {
+        return this.moveTo(this.offsetLeft + deltax, this.offsetTop + deltay);
+    },
+    show: function () {
+        popup(this);
+        this.loadPosition();
+        return this;
+    },
+    savePosition: function () {
+        this.left = this.offsetLeft;
+        this.top = this.offsetTop;
+        return this;
+    },
+    loadPosition: function () {
+        move.call(this, this.left, this.top);
+        return this;
+    }
+};
+function view(element) {
+    var window = element || document.createElement('form');
+    if (/form/i.test(window.tagName)) {
+        on('submit')(window, function (event) {
+            event.preventDefault();
+        });
+    }
+    extend(window, prototype);
+    return window;
+}
+return cless(view, '.-vi {\n  padding: 46px 0 0 0;\n  max-width: 100%;\n  width: 360px;\n  height: auto;\n  box-sizing: border-box;\n  overflow: hidden;\n  user-select: none;\n  -ms-user-select: none;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n}\n.-vi > .body {\n  padding: 10px 0 60px 0;\n  margin-bottom: -46px;\n  background: #f2f4f6;\n  display: block;\n  width: 100%;\n  position: relative;\n  box-sizing: border-box;\n  overflow: auto;\n}\n.-vi > .body:nth-child(2):nth-last-child(2),\n.-vi > .body:nth-child(2):nth-last-child(1) {\n  height: 100%;\n}\n.-vi > .head {\n  background: #fff;\n  z-index: 1;\n  margin-top: -46px;\n  height: 46px;\n  position: relative;\n  line-height: 42px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: #333;\n  padding: 2px 16px 0 16px;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.16);\n}\n.-vi > .head > * {\n  vertical-align: middle;\n}\n.-vi > .foot {\n  white-space: nowrap;\n  overflow: auto;\n}\n.-vi > .foot {\n  text-align: right;\n  line-height: 44px;\n  height: 46px;\n  padding: 0 16px;\n  border-top: 1px solid rgba(0, 0, 0, 0.16);\n  background: #fff;\n  position: relative;\n}\n.-vi > .foot .button {\n  padding: 0 20px;\n  min-width: 60px;\n  vertical-align: middle;\n}\n.-vi > .foot .button + .button {\n  margin-left: 10px;\n}\n', '-vi view view');

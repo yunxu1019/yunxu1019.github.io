@@ -1,1 +1,18 @@
-01sencodeURIComponent,undefined,a,bfunction c(f,c,d){c===void 0&&(c='&'),d===void 0&&(d='=');var g=[],h=c==='&'&&d==='='?a:function(a){return a};for(var e in f)f[e]!==b&&g.push(h(e)+d+h(f[e]));return g.join(c)}return c
+036encodeURIComponent,undefined,encodeURIComponent,undefinedfunction serialize(map, spliter, equals) {
+    if (spliter === void 0) {
+        spliter = '&';
+    }
+    if (equals === void 0) {
+        equals = '=';
+    }
+    var result = [];
+    var encode = spliter === '&' && equals === '=' ? encodeURIComponent : function (a) {
+        return a;
+    };
+    for (var k in map) {
+        if (map[k] !== undefined)
+            result.push(encode(k) + equals + encode(map[k]));
+    }
+    return result.join(spliter);
+}
+return serialize;

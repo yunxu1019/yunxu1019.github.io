@@ -1,1 +1,22 @@
-02klogin,div,render,button,user,cless,d,e,f,g,a,hfunction i(){var c=e();return c.innerHTML=b,f(c,{btn:g,user:a,logout:function(){a.Logout().then(function(){c.$reload()})}}),c}var b,c,c=b={toString:function(){return'<btn ng-click="logout()">\u9000\u51fa</btn>'}};return d(),h(i,'','-rj setting setting')
+04elogin,div,user,renderWithDefaults,cless,login,div,user,renderWithDefaults,clessvar setting, Setting, template, template = Setting = setting = {
+        'toString': function () {
+            return '<div><div>\u7528\u6237\u540d\uFF1A<span ng-bind="user.name"></span></div><div>\u5934\u50cf\uFF1A<image ng-src="user.avatar"></image></div><btn ng-click="logout()">\u9000\u51fa</btn></div><div class="profiles"><padding><block><div class="bg"></div></block></padding></div>';
+        }
+    };
+login();
+function main() {
+    var page = div();
+    page.innerHTML = setting;
+    var profiles = [user];
+    renderWithDefaults(page, {
+        user: user,
+        profiles: profiles,
+        logout: function () {
+            user.Logout().then(function () {
+                page.$reload();
+            });
+        }
+    });
+    return page;
+}
+return cless(main, '.-rl {\n  padding-top: 66px;\n}\n', '-rl setting setting');

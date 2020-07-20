@@ -1,1 +1,23 @@
-012isFunction,text,b,cfunction d(d,e){if(!d)return;if(!(arguments.length===2))return b(d.val)?d.val():a.test(d.tagName)?d.value:c(d);b(d.val)?d.val(e):a.test(d.tagName)?d.value=e:c(d,e)}var a=/^(input|textarea|select)$/i;return d
+01qisFunction,text,isFunction,textvar valued_elements_reg = /^(input|textarea|select)$/i;
+function val(element, value) {
+    if (!element)
+        return;
+    if (arguments.length === 2) {
+        if (isFunction(element.val)) {
+            element.val(value);
+        } else if (valued_elements_reg.test(element.tagName)) {
+            element.value = value;
+        } else {
+            text(element, value);
+        }
+    } else {
+        if (isFunction(element.val)) {
+            return element.val();
+        } else if (valued_elements_reg.test(element.tagName)) {
+            return element.value;
+        } else {
+            return text(element);
+        }
+    }
+}
+return val;

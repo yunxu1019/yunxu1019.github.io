@@ -1,1 +1,4 @@
-01awindow,clearTimeout,a,cvar b=a.cancelAnimationFrame||a.mozCancelAnimationFrame||a.webkitCancelAnimationFrame||a.msCancelAnimationFrame||function(a){return c(a)};return b
+026window,clearTimeout,window,clearTimeoutvar cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || function (id) {
+    return clearTimeout(id);
+};
+return cancelAnimationFrame;

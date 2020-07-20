@@ -1,1 +1,17 @@
-01mString,decodeURIComponent,a,bfunction c(g){var d=[],c='';for(var e=0,h=g.length;e<h;e++){var f=g[e];f>127?c=c+'%'+f.toString(16):(c&&(d.push(c),c=''),d.push(a.fromCharCode(f)))}return b(d.join(''))}return c
+02uString,decodeURIComponent,String,decodeURIComponentfunction decodeUTF8(buffer) {
+    var result = [], extra = '';
+    for (var cx = 0, dx = buffer.length; cx < dx; cx++) {
+        var temp = buffer[cx];
+        if (temp > 127) {
+            extra = extra + '%' + temp['toString'](16);
+        } else {
+            if (extra) {
+                result.push(extra);
+                extra = '';
+            }
+            result.push(String.fromCharCode(temp));
+        }
+    }
+    return decodeURIComponent(result.join(''));
+}
+return decodeUTF8;

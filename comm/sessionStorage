@@ -1,1 +1,52 @@
-02slocalStorage,document,Date,Object,window,b,f,i,j,kvar c='_zimoli_session_prefix',a={},e=function(){for(var a=0,e=b.length;a<e;a++){var d=b.key(a);d.slice(0,c.length)===c&&b.removeItem(d)}f.cookie=i.now()},g=function(){for(var a=0,f=b.length;a<f;a++){var e=b.key(a);e.slice(0,c.length)===c&&d.setItem(e,b.getItem(e))}},h=function(){e();for(var d in a)if(a.hasOwnProperty(d)){var f=c+d;b.setItem(f,a[f])}},d={length:0,removeItem:function(b){a.hasOwnProperty(b)&&d.length--,delete a[b]},setItem:function(b,c){a.hasOwnProperty(b)||d.length++,a[b]=j.prototype.toString.call(c)},getItem:function(b){return a[b]},clear:function(){a={}}};return f.cookie?g():e(),k.onbeforeunload=h,d
+04ilocalStorage,document,Date,Object,window,localStorage,document,Date,Object,windowvar session_storage_prefix = '_zimoli_session_prefix';
+var _sessionStorage = {};
+var clear = function () {
+    for (var cx = 0, dx = localStorage.length; cx < dx; cx++) {
+        var key = localStorage.key(cx);
+        if (key.slice(0, session_storage_prefix.length) === session_storage_prefix)
+            localStorage.removeItem(key);
+    }
+    document.cookie = Date.now();
+};
+var read = function () {
+    for (var cx = 0, dx = localStorage.length; cx < dx; cx++) {
+        var key = localStorage.key(cx);
+        if (key.slice(0, session_storage_prefix.length) === session_storage_prefix)
+            sessionStorage.setItem(key, localStorage.getItem(key));
+    }
+};
+var save = function () {
+    clear();
+    for (var k in _sessionStorage) {
+        if (_sessionStorage['hasOwnProperty'](k)) {
+            var key = session_storage_prefix + k;
+            localStorage.setItem(key, _sessionStorage[key]);
+        }
+    }
+};
+var sessionStorage = {
+    length: 0,
+    removeItem: function (key) {
+        if (_sessionStorage['hasOwnProperty'](key))
+            sessionStorage.length--;
+        delete _sessionStorage[key];
+    },
+    setItem: function (key, data) {
+        if (!_sessionStorage['hasOwnProperty'](key))
+            sessionStorage.length++;
+        _sessionStorage[key] = Object.prototype['toString'].call(data);
+    },
+    getItem: function (key) {
+        return _sessionStorage[key];
+    },
+    clear: function () {
+        _sessionStorage = {};
+    }
+};
+if (!document.cookie) {
+    clear();
+} else {
+    read();
+}
+window.onbeforeunload = save;
+return sessionStorage;

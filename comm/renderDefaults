@@ -1,0 +1,31 @@
+0gqObject,extend,button,input,padding,block,grid,lattice,list,vbox,radio,checker,checkbox,select,view,field,model,drop,img,image,back,swap,password,table,Object,extend,button,input,padding,block,grid,lattice,list,vbox,radio,checker,checkbox,select,view,field,model,drop,img,image,back,swap,password,tablevar renderDefaults = Object.create(null);
+extend(renderDefaults, {
+    btn: button,
+    button: button,
+    input: input,
+    padding: padding,
+    block: block,
+    grid: grid,
+    lattice: lattice,
+    list: list,
+    vbox: vbox,
+    radio: radio,
+    checker: checker,
+    checkbox: checkbox,
+    select: select,
+    view: view,
+    field: field,
+    model: model,
+    drop: drop,
+    'delete': drop,
+    close: drop,
+    remove: drop,
+    pic: img,
+    image: image,
+    back: back,
+    'switch': swap,
+    swap: swap,
+    password: password,
+    table: table
+});
+return renderDefaults;

@@ -1,0 +1,17 @@
+01q__extends,Array,__extends,Arrayvar LoadingArray = function (_super) {
+    __extends(LoadingArray, _super);
+    function LoadingArray() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.totalCount = 0;
+        _this.data = [];
+        _this.is_errored = null;
+        _this.error_message = null;
+        _this.is_loading = true;
+        _this.is_readonly = null;
+        _this.loading = null;
+        _this.loading_promise = null;
+        return _this;
+    }
+    return LoadingArray;
+}(Array);
+return LoadingArray;

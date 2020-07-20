@@ -1,0 +1,15 @@
+012div,cless,div,clessvar drop, Drop, template, template = Drop = drop = {
+        'toString': function () {
+            return '\xD7';
+        }
+    };
+function main(elem) {
+    if (elem === void 0) {
+        elem = div();
+    }
+    if (!elem.innerHTML) {
+        elem.innerHTML = drop;
+    }
+    return elem;
+}
+return cless(main, '.-am {\n  padding: 5px 10px;\n  display: none;\n  position: absolute;\n  right: 0;\n  top: 0;\n  line-height: 24px;\n  font-size: 20px;\n  cursor: pointer;\n}\n:hover > .-am {\n  display: block;\n}\n.-am:hover {\n  color: #f26;\n}\n.-am:active {\n  color: #c26;\n}\n', '-am drop drop');

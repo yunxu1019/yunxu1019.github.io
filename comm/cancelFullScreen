@@ -1,1 +1,4 @@
-00ydocument,noop,a,bfunction c(){(a.exitFullscreen||a.msExitFullscreen||a.mozCancelFullScreen||a.webkitCancelFullScreen||b).call(a)}return c
+01idocument,noop,document,noopfunction cancelFullScreen() {
+    (document.exitFullscreen || document.msExitFullscreen || document.mozCancelFullScreen || document.webkitCancelFullScreen || noop).call(document);
+}
+return cancelFullScreen;

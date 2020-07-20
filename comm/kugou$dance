@@ -1,1 +1,70 @@
-03gwindow,devicePixelRatio,Array,Object,document,care,b,a,d,e,f,gfunction c(e,m,f){f===void 0&&(f=b.devicePixelRatio||1);var c=this,a=c.getContext('2d');a.moveTo.apply(a,e[0]),a.beginPath();var h=c.width,i=c.height;for(var d=1,j=e.length;d<j;d++){var g=e[d],k=g[0],l=g[1];a.lineTo(k*h,l*i)}a.strokeStyle=m||'rgba(0,189,123,0.8314)',a.lineWidth=f,a.stroke()}function h(h){var l=this,g=this,f=g.getContext('2d');g.width!==g.offsetWidth*a&&(g.width=g.offsetWidth*a),g.height!==g.offsetHeight*a&&(g.height=g.offsetHeight*a),f.clearRect(0,0,g.width,g.height),f.beginPath(),f.strokeStyle='rgba(0,189,123,0.8314)',f.lineWidth=b.devicePixelRatio||1;var m=2,i=(this.volume>=0?this.volume:1)*h.length-.5,n=0,o=g.height/2;f.moveTo(n,o);var k=g.width/h.length;h[0]instanceof d?c.call(this,h):h[0]instanceof e?h.forEach(function(a){return c.call(l,a.data,a.color,a.width)}):([].forEach.call(h,function(d,a){var b=a*k,c=g.height/2-d/m*g.height;f.lineTo(b,c),a<=i&&a+1>i&&(f.stroke(),f.beginPath())}),f.lineWidth=1,f.strokeStyle='rgba(0,189,123,0.8314)',f.stroke(),this===j&&(f.beginPath(),f.moveTo(i*k,0),f.lineTo(i*k,g.height),f.lineWidth=1,f.strokeStyle='#ffffff',f.stroke()))}function i(b){var a=/^canvas$/i.test(b.tagName)?b:f.createElement('canvas');return g(a,h),a}var j;return i
+05mwindow,devicePixelRatio,Array,Object,document,care,window,devicePixelRatio,Array,Object,document,carevar activeDevice;
+function line(buffer, style, lineWidth) {
+    if (lineWidth === void 0) {
+        lineWidth = window.devicePixelRatio || 1;
+    }
+    var canvas = this;
+    var context = canvas.getContext('2d');
+    context.moveTo.apply(context, buffer[0]);
+    context.beginPath();
+    var width = canvas.width, height = canvas.height;
+    for (var cx = 1, dx = buffer.length; cx < dx; cx++) {
+        var _a = buffer[cx], x = _a[0], y = _a[1];
+        context.lineTo(x * width, y * height);
+    }
+    context.strokeStyle = style || 'rgba(0,189,123,0.8314)';
+    context.lineWidth = lineWidth;
+    context.stroke();
+}
+function draw(buffer) {
+    var _this = this;
+    var canvas = this;
+    var context = canvas.getContext('2d');
+    if (canvas.width !== canvas.offsetWidth * devicePixelRatio)
+        canvas.width = canvas.offsetWidth * devicePixelRatio;
+    if (canvas.height !== canvas.offsetHeight * devicePixelRatio)
+        canvas.height = canvas.offsetHeight * devicePixelRatio;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+    context.strokeStyle = 'rgba(0,189,123,0.8314)';
+    context.lineWidth = window.devicePixelRatio || 1;
+    var max = 2;
+    var v = (this.volume >= 0 ? this.volume : 1) * buffer.length - .5;
+    var x1 = 0, y1 = canvas.height / 2;
+    context.moveTo(x1, y1);
+    var ratio = canvas.width / buffer.length;
+    if (buffer[0] instanceof Array) {
+        line.call(this, buffer);
+    } else if (buffer[0] instanceof Object) {
+        buffer.forEach(function (a) {
+            return line.call(_this, a.data, a.color, a.width);
+        });
+    } else {
+        [].forEach.call(buffer, function (db, cx) {
+            var x = cx * ratio;
+            var y = canvas.height / 2 - db / max * canvas.height;
+            context.lineTo(x, y);
+            if (cx <= v && cx + 1 > v) {
+                context.stroke();
+                context.beginPath();
+            }
+        });
+        context.lineWidth = 1;
+        context.strokeStyle = 'rgba(0,189,123,0.8314)';
+        context.stroke();
+        if (this === activeDevice) {
+            context.beginPath();
+            context.moveTo(v * ratio, 0);
+            context.lineTo(v * ratio, canvas.height);
+            context.lineWidth = 1;
+            context.strokeStyle = '#ffffff';
+            context.stroke();
+        }
+    }
+}
+function dance(elem) {
+    var canvas = /^canvas$/i.test(elem.tagName) ? elem : document.createElement('canvas');
+    care(canvas, draw);
+    return canvas;
+}
+return dance;

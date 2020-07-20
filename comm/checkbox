@@ -1,0 +1,76 @@
+072document,care,Array,Object,render,button,checker,dispatch,cless,document,care,Array,Object,render,button,checker,dispatch,clessvar checkbox, Checkbox, template, template = Checkbox = checkbox = {
+        'toString': function () {
+            return '<a ng-repeat="o in options" ng-click="select(o)"><r ng-model=o.checked></r><span ng-bind=o.name||o></span></a>';
+        }
+    };
+function main(elem) {
+    if (elem === void 0) {
+        elem = document.createElement('checkbox-group');
+    }
+    care(elem, function (field) {
+        elem.innerHTML = checkbox;
+        var options = field.options;
+        if (options instanceof Array) {
+            options = options.map(function (a, i) {
+                if (a instanceof Object)
+                    return a;
+                return {
+                    key: i,
+                    name: a
+                };
+            });
+        } else if (options instanceof Object) {
+            options = Object.keys(field.options).map(function (k) {
+                return {
+                    name: options[k],
+                    key: k
+                };
+            });
+        } else {
+            options = null;
+        }
+        buildValue(elem.value, options);
+        render(elem, {
+            a: button,
+            field: field,
+            r: checker,
+            options: options,
+            select: function (a) {
+                a.checked = !a.checked;
+                elem.value = this.options.filter(function (a) {
+                    return !!a.checked;
+                });
+                buildValue(elem.value, this.options);
+                dispatch(elem, 'change');
+            }
+        });
+        if (elem.value) {
+            elem.setValue(elem.value);
+        }
+    });
+    var buildValue = function (value, options) {
+        if (!(options instanceof Array))
+            return;
+        if (!(value instanceof Array))
+            return;
+        var checked = {};
+        var optionsMap = {};
+        options.forEach(function (o) {
+            return optionsMap[o.key] = o;
+        });
+        value.forEach(function (v) {
+            var o = optionsMap[v instanceof Object ? v.key : v];
+            if (o) {
+                o.checked = true;
+                checked[o.key] = o;
+            }
+        });
+        value.checked = checked;
+    };
+    elem.setValue = function (value) {
+        var options = this.$scope.options;
+        buildValue(value, options);
+    };
+    return elem;
+}
+return cless(main, '.-wh {\n  vertical-align: top;\n}\n.-wh > a {\n  line-height: inherit;\n  margin-right: 10px;\n  vertical-align: top;\n}\n.-wh > a > span {\n  vertical-align: middle;\n}\n', '-wh checkbox checkbox');

@@ -1,1 +1,5 @@
-00yObject,extend,b,cfunction d(){return b.keys(c.apply(null,[].concat.apply([{}],arguments)))}var a=d;return a
+01iObject,extend,Object,extendfunction keysFrom() {
+    return Object.keys(extend.apply(null, [].concat.apply([{}], arguments)));
+}
+var main = keysFrom;
+return main;

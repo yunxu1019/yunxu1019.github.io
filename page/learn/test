@@ -1,1 +1,58 @@
-04uvbox,render,picture,popup,console,document,appendChild,tracking,cless,f,g,h,i,b,j,k,c,lfunction m(){return a.innerHTML=d,g(a,{images:['/@d:/data/kami.jpg','/@d:/data/kami1.jpg','/@d:/data/kami2.jpg','/@d:/data/kami3.jpg','/@d:/data/kami4.jpg','/@d:/data/kami5.jpg','/@d:/data/kami6.jpg','/@d:/data/kami7.jpg','/@d:/data/uncen.jpg'],picture:function(c,d){var a=h(c,d);i(a),b.log('click',arguments)},image1:function(e){var f=function(c,d,f,g){var b=j.createElement('div');k(e,b),b.classList.add('rect'),b.style.width=f+'px',b.style.height=g+'px',b.style.left=a.offsetLeft+c+'px',b.style.top=a.offsetTop+d+'px'},d=new c.ObjectTracker(['face']),a=e.querySelector('img');return a.onload=function(){/^data/i.test(a.src)||c.track(a,d)},d.setStepSize(1),d.on('track',function(a){a.data.length===0?b.log(a):(b.log(a),a.data.forEach(function(a){f(a.x,a.y,a.width,a.height)}))}),e}}),a}var d,e,e=d={toString:function(){return'<image1 ng-repeat="(m,i) in images"><img ng-src="m" ng-click="picture(images,i)"/></image1>'}},a=f();return l(m,'.-rt{position:relative;height:100%;width:100%}.-rt>image1{position:relative;display:inline-block;overflow:hidden;background:#ccc}.-rt img{position:relative;max-height:600px;max-width:600px;width:auto;height:auto}.-rt .rect{border:2px solid #a64ceb;left:-1000px;position:absolute;top:-1000px}','-rt test test')
+07qvbox,render,picture,popup,console,document,appendChild,tracking,cless,vbox,render,picture,popup,console,document,appendChild,tracking,clessvar test, Test, template, template = Test = test = {
+        'toString': function () {
+            return '<image1 ng-repeat="(m,i) in images"><img ng-src="m" ng-click="picture(images,i)"/></image1>';
+        }
+    };
+var page = vbox();
+function main() {
+    page.innerHTML = test;
+    render(page, {
+        images: [
+            '/@d:/data/kami.jpg',
+            '/@d:/data/kami1.jpg',
+            '/@d:/data/kami2.jpg',
+            '/@d:/data/kami3.jpg',
+            '/@d:/data/kami4.jpg',
+            '/@d:/data/kami5.jpg',
+            '/@d:/data/kami6.jpg',
+            '/@d:/data/kami7.jpg',
+            '/@d:/data/uncen.jpg'
+        ],
+        picture: function (m, i) {
+            var p = picture(m, i);
+            popup(p);
+            console.log('click', arguments);
+        },
+        image1: function (elem) {
+            var plot = function (x, y, w, h) {
+                var rect = document.createElement('div');
+                appendChild(elem, rect);
+                rect.classList.add('rect');
+                rect.style.width = w + 'px';
+                rect.style.height = h + 'px';
+                rect.style.left = img.offsetLeft + x + 'px';
+                rect.style.top = img.offsetTop + y + 'px';
+            };
+            var tracker = new tracking.ObjectTracker(['face']);
+            var img = elem.querySelector('img');
+            img.onload = function () {
+                if (!/^data/i.test(img.src))
+                    tracking.track(img, tracker);
+            };
+            tracker.setStepSize(1);
+            tracker.on('track', function (event) {
+                if (event.data.length === 0) {
+                    console.log(event);
+                } else {
+                    console.log(event);
+                    event.data.forEach(function (rect) {
+                        plot(rect.x, rect.y, rect.width, rect.height);
+                    });
+                }
+            });
+            return elem;
+        }
+    });
+    return page;
+}
+return cless(main, '.-rt {\n  position: relative;\n  height: 100%;\n  width: 100%;\n}\n.-rt > image1 {\n  position: relative;\n  display: inline-block;\n  overflow: hidden;\n  background: #ccc;\n}\n.-rt img {\n  position: relative;\n  max-height: 600px;\n  max-width: 600px;\n  width: auto;\n  height: auto;\n}\n.-rt .rect {\n  border: 2px solid #a64ceb;\n  left: -1000px;\n  position: absolute;\n  top: -1000px;\n}\n', '-rt test test');

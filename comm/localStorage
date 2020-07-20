@@ -1,1 +1,33 @@
-01unavigator,location,document,e,f,gvar d=/MSIE\s+[2-9]/.test(e.userAgent),b,c=this.globalStorage;if(c)b=c[f.hostname];else if(d){var a=g.documentElement;b={setItem:function(b,c){a.setAttribute('value',c),a.save(b)},getItem:function(b){return a.load(b),a.getAttribute('value')},removeItem:function(b){a.removeAttribute('value'),a.save(b)}},a.addBehavior('#default#userdata')}else b={setItem:function(){},getItem:function(){return null},removeItem:function(){}};return b
+032navigator,location,document,navigator,location,documentvar isIEValid = /MSIE\s+[2-9]/.test(navigator.userAgent), localStorage;
+var globalStorage = this.globalStorage;
+if (globalStorage) {
+    localStorage = globalStorage[location.hostname];
+} else if (isIEValid) {
+    var documentElement = document.documentElement;
+    localStorage = {
+        setItem: function (key, value) {
+            documentElement.setAttribute('value', value);
+            documentElement.save(key);
+        },
+        getItem: function (key) {
+            documentElement.load(key);
+            return documentElement.getAttribute('value');
+        },
+        removeItem: function (key) {
+            documentElement.removeAttribute('value');
+            documentElement.save(key);
+        }
+    };
+    documentElement.addBehavior('#default#userdata');
+} else {
+    localStorage = {
+        setItem: function () {
+        },
+        getItem: function () {
+            return null;
+        },
+        removeItem: function () {
+        }
+    };
+}
+return localStorage;

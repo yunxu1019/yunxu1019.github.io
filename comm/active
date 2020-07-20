@@ -1,1 +1,8 @@
-01ccreateEvent,dispatch,a,bfunction c(d,e,f){var c=a('active');return c.item=f,c.value=e,c=b(d,c),c&&!c.defaultPrevented}return c
+02acreateEvent,dispatch,createEvent,dispatchfunction active(target, value, item) {
+    var activeEvent = createEvent('active');
+    activeEvent.item = item;
+    activeEvent.value = value;
+    activeEvent = dispatch(target, activeEvent);
+    return activeEvent && !activeEvent.defaultPrevented;
+}
+return active;

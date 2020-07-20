@@ -1,1 +1,22 @@
-03yuser,api,cross,config,alert,JSON,document,data,zimoli,a,c,d,f,g,h,e,i,ja.setLoginPath('/user/login'),c.setBaseUrl('http://efront.cc:5989/',d),a.loadSession().then(function(b){if(!b)return;d.addCookie(b,f.api_domain),c('get','_session').success(function(b){b.ok&&b.userCtx&&b.userCtx.name||a.Logout()}).error(function(b){a.Logout(),g.error(h.parse(b).reason)})});var b=e.createElement('link');b.rel='stylesheet',b.href='fonts/font-awesome.css',i.loadConfig('config/api.json'),e.documentElement.firstChild.appendChild(b),j('/frame/main')
+05yuser,api,cross,config,alert,JSON,document,data,zimoli,user,api,cross,config,alert,JSON,document,data,zimoli;user.setLoginPath('/user/login');
+api.setBaseUrl('http://efront.cc:5989/', cross);
+user.loadSession().then(function (session) {
+    if (!session)
+        return;
+    cross.addCookie(session, config.api_domain);
+    api('get', '_session').success(function (result) {
+        if (result.ok && result.userCtx && result.userCtx.name) {
+        } else {
+            user.Logout();
+        }
+    }).error(function (error) {
+        user.Logout();
+        alert.error(JSON.parse(error).reason);
+    });
+});
+var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'fonts/font-awesome.css';
+data.loadConfig('config/api.json');
+document.documentElement.firstChild.appendChild(link);
+zimoli('/frame/main');

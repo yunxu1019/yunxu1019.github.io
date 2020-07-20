@@ -1,1 +1,2 @@
-008on,bvar a=b('remove');return a
+00aon,onvar onremove = on('remove');
+return onremove;

@@ -1,0 +1,30 @@
+04uObject,renderDefaults,extendIfNeeded,render,Object,renderDefaults,extendIfNeeded,rendervar getNeededElementReplacers = function (page) {
+    var dest = Object.create(null);
+    var foreach = [].forEach;
+    var get = function (elem) {
+        var tagName = elem.tagName;
+        tagName = tagName.toLowerCase().replace(/\-(\w)/g, function (_, a) {
+            return a.toUpperCase();
+        });
+        dest[tagName] = false;
+        foreach.call(elem.children, get);
+    };
+    get(page);
+    var res = Object.create(null);
+    Object.keys(dest).filter(function (k) {
+        return k in renderDefaults;
+    }).forEach(function (key) {
+        res[key] = renderDefaults[key];
+    });
+    return res;
+};
+function main(page, $scope) {
+    if ($scope === void 0) {
+        $scope = {};
+    }
+    var replacers = getNeededElementReplacers(page);
+    extendIfNeeded($scope, replacers);
+    render(page, $scope);
+    return page;
+}
+return main;

@@ -1,1 +1,87 @@
-02ydata,Date,extend,enrich,Function,encode62,h,i,k,l,m,dvar e='userinfo',f=h.getInstance(e),j={name:'',_id:'',_passport:'',avatar:null,isLogin:!1,roles:null},c,g,a={targetUrl:null,loginPath:null,session_time:3e5,session:'',loadSession:function(){var b=f;return b.session&&!(new i>b.session_time)&&(a.session_time=b.session_time,a.session=b.session,this.Login(b)),b.session||''},saveSession:function(b){b===void 0&&(b=this.session),this.session=b,h.setInstance(e,{roles:a.roles,name:a.name,_id:a._id,session:b,_passport:this._passport,isLogin:!!b,session_time:+new i+a.session_time})},Login:function(a){this.login(a)},Logout:function(){this.logout()}};k(a,j,f);var b=l(a);return b.setLoginPath=function(b){a.loginPath=b},b.setUserDataLoader=function(a){g=a},b.setSessionTime=function(b){a.session_time=b},b.refresh=function(){g instanceof m&&g()},b.getPassport=function(){return c||(c=d.timeencode(d.decode62(b._passport,b.session))),c=d.timeupdate(c)},b.login=function(c){a.roles=c.roles||[],a.isLogin=!0,a.name=c.name,a._id='org.couchdb.user:'+c.name,b.clean&&b.clean(a.loginPath),this.refresh()},b.logout=function(){delete b.isLogin,delete b.roles,delete b._passport,a._passport='',a.roles=null,a.isLogin=!1,c='',this.saveSession('')},b
+04mdata,Date,extend,enrich,Function,encode62,data,Date,extend,enrich,Function,encode62var USERINFO = 'userinfo';
+var userInstance = data.getInstance(USERINFO);
+var emptyProto = {
+    name: '',
+    _id: '',
+    _passport: '',
+    avatar: null,
+    isLogin: false,
+    roles: null
+};
+var passport;
+var loadUserData;
+var proto = {
+    targetUrl: null,
+    loginPath: null,
+    session_time: 3e5,
+    session: '',
+    loadSession: function () {
+        var object = userInstance;
+        if (object.session && !(new Date() > object.session_time)) {
+            proto.session_time = object.session_time;
+            proto.session = object.session;
+            this.Login(object);
+        }
+        return object.session || '';
+    },
+    saveSession: function (session) {
+        if (session === void 0) {
+            session = this.session;
+        }
+        this.session = session;
+        data.setInstance(USERINFO, {
+            roles: proto.roles,
+            name: proto.name,
+            _id: proto._id,
+            session: session,
+            _passport: this._passport,
+            isLogin: !!session,
+            session_time: +new Date() + proto.session_time
+        });
+    },
+    Login: function (userinfo) {
+        this.login(userinfo);
+    },
+    Logout: function () {
+        this.logout();
+    }
+};
+extend(proto, emptyProto, userInstance);
+var user = enrich(proto);
+user.setLoginPath = function (pathname) {
+    proto.loginPath = pathname;
+};
+user.setUserDataLoader = function (method) {
+    loadUserData = method;
+};
+user.setSessionTime = function (session_time) {
+    proto.session_time = session_time;
+};
+user.refresh = function () {
+    loadUserData instanceof Function && loadUserData();
+};
+user.getPassport = function () {
+    if (!passport) {
+        passport = encode62.timeencode(encode62.decode62(user._passport, user.session));
+    }
+    return passport = encode62.timeupdate(passport);
+};
+user.login = function (userinfo) {
+    proto.roles = userinfo.roles || [];
+    proto.isLogin = true;
+    proto.name = userinfo.name;
+    proto._id = 'org.couchdb.user:' + userinfo.name;
+    user.clean && user.clean(proto.loginPath);
+    this.refresh();
+};
+user.logout = function () {
+    delete user.isLogin;
+    delete user.roles;
+    delete user._passport;
+    proto._passport = '';
+    proto.roles = null;
+    proto.isLogin = false;
+    passport = '';
+    this.saveSession('');
+};
+return user;

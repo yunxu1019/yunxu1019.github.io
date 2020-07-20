@@ -1,1 +1,3 @@
-010renderPixelRatio,areturn function(b){return b*a+'pt'}
+01urenderPixelRatio,renderPixelRatioreturn function (d) {
+    return d * renderPixelRatio + 'pt';
+};

@@ -1,1 +1,3 @@
-00gwindow,areturn a.getComputedStyle||function a(b){return b.currentStyle}
+00qwindow,windowreturn window.getComputedStyle || function getComputedStyle(target) {
+    return target.currentStyle;
+};

@@ -1,1 +1,95 @@
-'use strict';function g(g,h){var e=a(this.length);if(!(g instanceof d))return e;if(this instanceof b)e=this.split('').map(g,h);else for(var c=0,i=this.length;c<i;c++)this[c]!==f&&(e[c]=g.call(h,this[c],c,this));return e}function j(c,e){if(!(c instanceof d))return;this instanceof b&&this.split('').forEach(c,e);for(var a=0,g=this.length;a<g;a++)this[a]!==f&&c.call(e,this[a],a,this)}function k(e,g){if(!(e instanceof d))return;var c=[];this instanceof b&&(c=this.split('').filter(e,g));for(var a=0,h=this.length;a<h;a++)this[a]!==f&&e.call(g,this[a],a,this)&&c.push(this[a]);return c}function l(d,b){b===void 0&&(b=0);for(var a=b,c=this.length;a<c;a++)if(this[a]===d)return a;return-1}function m(){return b(this).replace(/^[\s\u00a0]+|[\s\u00a0]$/g,'')}var c=this,a=c.Array,d=c.Function,b=c.String,e=c.Object,f,h={}.hasOwnProperty,i=function a(d){var b=[];for(var c in d){if(!h.call(d,c))break;b.push(c)}return b};return[].map||(a.prototype.map=g),[].forEach||(a.prototype.forEach=j),[].indexOf||(a.prototype.indexOf=l),[].filter||(a.prototype.filter=k),''.trim||(b.prototype.trim=m),e.keys||(e.keys=i),e.create||(e.create=function(b){function a(){}return a.prototype=b,new a}),function(){}.bind||(d.prototype.bind=function(c){var b=this,a=[].concat.apply([],arguments).slice(1);return function(){return b.apply(c,a.concat.apply(a,arguments))}}),g
+var _a = this, Array = _a.Array, Function = _a.Function, String = _a.String, Object = _a.Object;
+var undefined;
+function map(f, o) {
+    var res = Array(this.length);
+    if (!(f instanceof Function))
+        return res;
+    if (this instanceof String) {
+        res = this.split('').map(f, o);
+    } else {
+        for (var cx = 0, dx = this.length; cx < dx; cx++) {
+            if (this[cx] !== undefined)
+                res[cx] = f.call(o, this[cx], cx, this);
+        }
+    }
+    return res;
+}
+function forEach(f, o) {
+    if (!(f instanceof Function))
+        return;
+    if (this instanceof String) {
+        this.split('').forEach(f, o);
+    }
+    for (var cx = 0, dx = this.length; cx < dx; cx++) {
+        if (this[cx] !== undefined)
+            f.call(o, this[cx], cx, this);
+    }
+}
+function filter(f, o) {
+    if (!(f instanceof Function))
+        return;
+    var result = [];
+    if (this instanceof String) {
+        result = this.split('').filter(f, o);
+    }
+    for (var cx = 0, dx = this.length; cx < dx; cx++) {
+        if (this[cx] !== undefined)
+            if (f.call(o, this[cx], cx, this))
+                result.push(this[cx]);
+    }
+    return result;
+}
+function indexOf(searchElement, fromIndex) {
+    if (fromIndex === void 0) {
+        fromIndex = 0;
+    }
+    for (var cx = fromIndex, dx = this.length; cx < dx; cx++) {
+        if (this[cx] === searchElement)
+            return cx;
+    }
+    return -1;
+}
+function trim() {
+    return String(this).replace(/^[\s\u00a0]+|[\s\u00a0]$/g, '');
+}
+var hasOwnProperty = {}['hasOwnProperty'];
+var keys = function keys(object) {
+    var result = [];
+    for (var k in object) {
+        if (!hasOwnProperty.call(object, k))
+            break;
+        result.push(k);
+    }
+    return result;
+};
+if (![].map)
+    Array.prototype.map = map;
+if (![].forEach)
+    Array.prototype.forEach = forEach;
+if (![].indexOf)
+    Array.prototype.indexOf = indexOf;
+if (![].filter)
+    Array.prototype.filter = filter;
+if (!''.trim)
+    String.prototype.trim = trim;
+if (!Object.keys)
+    Object.keys = keys;
+if (!Object.create)
+    Object.create = function (object) {
+        function ExtendedClass() {
+        }
+        ExtendedClass.prototype = object;
+        return new ExtendedClass();
+    };
+if (!function () {
+    }.bind)
+    Function.prototype.bind = function (context) {
+        var _this = this;
+        var args = [].concat.apply([], arguments).slice(1);
+        return function () {
+            return _this.apply(context, args.concat.apply(args, arguments));
+        };
+    };
+;
+var _b = void 0, map, map = [], map;
+return map;

@@ -1,1 +1,232 @@
-0j6Math,isNode,createElement,div,isFunction,isNumber,onclick,requestAnimationFrame,document,css,addClass,speed,calcPixel,parseInt,remove,appendChild,getComputedStyle,onmousewheel,cancelAnimationFrame,getScreenPosition,MOVELOCK_DELTA,isFinite,on,moveupon,preventOverflowScrolling,arriswise,cless,a,k,l,m,b,e,n,d,o,p,q,r,s,t,u,v,w,x,c,f,g,y,z,A,B,C,Dfunction h(K){var E=a.abs,P=a.sqrt,W=a.sign||function(a){return+a>0?1:-a>0?-1:0},X=a.min,Y=a.max,h;k(K)?h=K:h=l(m),h.height=function(){return h.clientHeight},b(K)&&K(h),h.Height=h.Height||function(){return h.scrollHeight},h.Top=h.Top||function(a){return e(a)&&(h.scrollTop=a),h.scrollTop},h.stopY=h.stopY||function(a){return e(a)?a:h.Top()},h.scrollY=function(f,e){e===void 0&&(e=!0);var b=h.Top(),a=b+f,c=h.height(),d=h.Height();return a<0?(j>>=1,e&&b<=0&&O(a),a=0,b=h.Top(a)):a+c>d?(a+c-d>F&&(a=F+d-c),j>>=1,e&&b+c>=d&&O(a+c-d),b=h.Top(a)):(b=h.Top(a),O(f,!0)),b};var Q,R,I,j=0,L=function(b){b===void 0&&(b=!0);var a=E(j<<2)/M,a=E(j<<2)/M;if(a<1){j=H(0),N();return}n.preventClick=!0,U=d(function(){return L(b)}),D.call(h,-j,b),j-=W(j)*(a-P(a)*P(a-1))},C=o.createElement('img');p(C,'opacity:0;'),q(C,'y-insert');var i=C.cloneNode(),J=0,M=16,H=r(M),F=s(100),S=function(b){var a=t(b.height);if(a>1){var c=h.Top();if(c>0&&C===b){var d=c>a?a:c;a-=d,h.Top(c-d)}var e=h.Height(),f=h.height();if(c+f<e&&i===b){var d=e-f-c>a?a:e-f-c;a-=d}return b.height=a=a>16?(a*2+6)/3:a>>1,b.style.height=(a|0)+'px',1}return b.height=0,b.style.height=0,u(b),0},N=function(){S(C)+S(i)?J=d(N):h.stopY()-h.Top()&&(J=d(N))},O=function(d,e){var a=C.height||0,b=i.height||0;if(a-=d,b+=d,!e&&d<0&&a>0)C.nextSibling||h.insertBefore(C,h.childNodes[0]||null);else if(!e&&d>0&&b>0&&!i.previousSibling){i.style.marginTop=0,i.style.marginBottom=0,i.height=0,i.style.height=0,v(h,i);var f=h.scrollHeight-i.offsetTop;if(f>0){i.style.marginTop=f+'px';var c=w(h).paddingBottom;c&&(c='-'+c,c=c.replace(/^\-{2}/,'')),i.style.marginBottom=c}}b>F&&(b=F),a>F&&(a=F),b<0&&(b=0),a<0&&(a=0),(!e||b<i.height)&&(i.height=b,i.style.height=b+'px'),(!e||a<C.height)&&(C.height=a,C.style.height=a+'px')};x(h,function(a){c(U),c(J);var b=-a.deltaY;if(a.moveLocked)return;a.moveLocked=!0,a.preventDefault(),j=H(b),D.call(h,-b,!1),L(!1)});var D=function(a,c){return a=T.call(this,a),b(this.scrollY)?this.scrollY(a,c):(this.scrollTop+=a,this.scrollTop)},G=function(){return b(this.Top)?this.Top():this.scrollTop()},Z=function(){return b(this.height)?this.height():this.clientHeight},_=function(){return b(this.Height)?this.Height():this.scrollHeight},T=function(a){var d=this;if(d.YScrollBoxId===1)return a;var c=d.offsetParent;if(!c)return a;var e=f(d),g=f(c);if(e.bottom>g.bottom&&a>0){var b=e.bottom-g.bottom;b=X(a,b),D.call(c,b,!1),a-=b}else if(e.top<g.top&&a<0){var b=e.top-g.top;b=Y(a,b),D.call(c,b,!1),a-=b}else if(G.call(d)<=0&&a<0){var h=G.call(c);D.call(c,a,!1),b=G.call(c)-h,a-=b}else if(G.call(d)+Z.call(d)>=_.call(d)&&a>0){var h=G.call(c);D.call(c,a,!1),b=G.call(c)-h,a-=b}return T.call(c,a)},U,$=function(b){var c=b.clientX,d=b.clientY,e=c-Q,a=d-R;if(Q=c,R=d,b.moveLocked)return;if(h.nodrag)return;if(!I){if(E(e)<g&&E(a)<g)return;I=E(e)>=E(a)?-1:1}if(I<0)return;b.moveLocked=!0,j=H(a),D.call(h,-a,!0)},V=function(){var a=this.parentNode,b=0;while(a&&!b)y(a.YScrollBoxId)&&(b=a.YScrollBoxId),a=a.parentNode;this.YScrollBoxId=+b+1};return h.isMounted&&V.call(h),z('append')(h,V),A(h,{start:function(a){c(U),c(J),H(0),Q=a.clientX,R=a.clientY,I=0},move:$,end:function(){I=0,j=H(),L()}}),B(h),h}function E(b,a){return a===void 0&&(a='Y'),(a==='X'?j:h)(b)}var i=arguments[arguments.length-1],j=C(h,[].concat(i,[].slice.call(arguments,0)));return D(E,'.-vg{width:100%;height:100%;overflow:hidden;-webkit-overflow-scrolling:auto;over-flow:auto;user-select:none;position:relative}.-vg img.y-insert{display:block}.-vg img.x-insert{display:inline-block}','-vg vbox vbox')
+0wyvscroll,Math,isNode,createElement,div,isFunction,isNumber,onclick,requestAnimationFrame,document,addClass,speed,calcPixel,parseInt,fromOffset,remove,appendChild,getComputedStyle,navigator,onmousewheel,cancelAnimationFrame,getTargetIn,bindtouch,isFinite,on,preventOverflowScrolling,arriswise,cless,vscroll,Math,isNode,createElement,div,isFunction,isNumber,onclick,requestAnimationFrame,document,addClass,speed,calcPixel,parseInt,fromOffset,remove,appendChild,getComputedStyle,navigator,onmousewheel,cancelAnimationFrame,getTargetIn,bindtouch,isFinite,on,preventOverflowScrolling,arriswise,clessfunction ybox(generator) {
+    var scrollY = vscroll.Y;
+    var abs = Math.abs;
+    var sqrt = Math.sqrt;
+    var sign = Math.sign || function (a) {
+        return +a > 0 ? 1 : -a > 0 ? -1 : 0;
+    };
+    var min = Math.min, max = Math.max;
+    var _box;
+    if (isNode(generator)) {
+        _box = generator;
+    } else {
+        _box = createElement(div);
+    }
+    _box.height = function () {
+        return _box.clientHeight;
+    };
+    isFunction(generator) && generator(_box);
+    _box.Height = _box.Height || function () {
+        return _box.scrollHeight;
+    };
+    var _scrolledTop = _box.scrollTop;
+    _box.Top = _box.Top || function (top) {
+        if (isNumber(top)) {
+            if (_box.scrollTop !== top) {
+                _box.scrollTop = top;
+            }
+            _scrolledTop = top;
+        }
+        return _box.scrollTop;
+    };
+    _box.stopY = _box.stopY || function (stopedY) {
+        if (isNumber(stopedY)) {
+            return stopedY;
+        }
+        return _box.Top();
+    };
+    _box.scrollY = function (deltay, useIncrease) {
+        if (useIncrease === void 0) {
+            useIncrease = true;
+        }
+        var _Top = _box.Top();
+        var top = _Top + deltay;
+        var height = _box.height();
+        var scrollHeight = _box.Height();
+        if (top < 0) {
+            __speed = __speed >> 1;
+            useIncrease && _Top <= 0 && increase(top);
+            top = 0;
+            _Top = _box.Top(top);
+        } else if (top + height > scrollHeight) {
+            if (top + height - scrollHeight > increase_height) {
+                top = increase_height + scrollHeight - height;
+            }
+            __speed = __speed >> 1;
+            useIncrease && _Top + height >= scrollHeight && increase(top + height - scrollHeight);
+            _Top = _box.Top(top);
+        } else {
+            _Top = _box.Top(top);
+            increase(deltay, true);
+        }
+        return _Top;
+    };
+    var __speed = 0;
+    var smooth = function (useIncrease) {
+        if (useIncrease === void 0) {
+            useIncrease = true;
+        }
+        var abs_speed = abs(__speed << 2) / time_splitter;
+        var abs_speed = abs(__speed << 2) / time_splitter;
+        if (abs_speed < 1) {
+            __speed = _speed(0);
+            decrease();
+            return;
+        }
+        onclick.preventClick = true;
+        smooth_timer = requestAnimationFrame(function () {
+            return smooth(useIncrease);
+        });
+        scrollY.call(_box, -__speed, useIncrease);
+        __speed = __speed - sign(__speed) * (abs_speed - sqrt(abs_speed) * sqrt(abs_speed - 1));
+    };
+    var increaser_t = document.createElement('insert');
+    addClass(increaser_t, 'y-insert');
+    var increaser_b = increaser_t.cloneNode();
+    var decrease_timer = 0;
+    var time_splitter = 16;
+    var _speed = speed(time_splitter);
+    var increase_height = calcPixel(100);
+    var _decrease = function (increaser) {
+        var height = parseInt(increaser.height);
+        if (height > 1) {
+            var scrollTop = _box.Top();
+            if (scrollTop > 0 && increaser_t === increaser) {
+                var deltaY = scrollTop > height ? height : scrollTop;
+                height -= deltaY;
+                _box.Top(scrollTop - deltaY);
+            }
+            var tH = _box.Height();
+            var bH = _box.height();
+            if (scrollTop + bH < tH && increaser_b === increaser) {
+                var deltaY = tH - bH - scrollTop > height ? height : tH - bH - scrollTop;
+                height -= deltaY;
+            }
+            increaser.height = height = height > 16 ? (height * 2 + 6) / 3 : height >> 1;
+            increaser.style.height = fromOffset(height | 0);
+            return 1;
+        }
+        increaser.height = 0;
+        increaser.style.height = 0;
+        remove(increaser);
+        return 0;
+    };
+    var decrease = function () {
+        if (_decrease(increaser_t) + _decrease(increaser_b))
+            decrease_timer = requestAnimationFrame(decrease);
+        else if (_box.stopY() - _box.Top())
+            decrease_timer = requestAnimationFrame(decrease);
+    };
+    var increase = function (deltaY, minusOnly) {
+        var t_height = increaser_t.height || 0;
+        var b_height = increaser_b.height || 0;
+        t_height -= deltaY;
+        b_height += deltaY;
+        if (!minusOnly && deltaY < 0 && t_height > 0) {
+            if (!increaser_t.nextSibling) {
+                _box.insertBefore(increaser_t, _box.childNodes[0] || null);
+            }
+        } else if (!minusOnly && deltaY > 0 && b_height > 0) {
+            if (!increaser_b.previousSibling) {
+                increaser_b.style.marginTop = 0;
+                increaser_b.style.marginBottom = 0;
+                increaser_b.height = 0;
+                increaser_b.style.height = 0;
+                appendChild(_box, increaser_b);
+                var deltaMargin = _box.scrollHeight - increaser_b.offsetTop;
+                if (deltaMargin > 0) {
+                    increaser_b.style.marginTop = fromOffset(deltaMargin);
+                    var paddingBottom = getComputedStyle(_box).paddingBottom;
+                    if (paddingBottom) {
+                        paddingBottom = '-' + paddingBottom;
+                        paddingBottom = paddingBottom.replace(/^\-{2}/, '');
+                    }
+                    increaser_b.style.marginBottom = paddingBottom;
+                }
+            }
+        }
+        if (b_height > increase_height)
+            b_height = increase_height;
+        if (t_height > increase_height)
+            t_height = increase_height;
+        if (b_height < 0)
+            b_height = 0;
+        if (t_height < 0)
+            t_height = 0;
+        if (!minusOnly || b_height < increaser_b.height)
+            increaser_b.height = b_height, increaser_b.style.height = fromOffset(b_height);
+        if (!minusOnly || t_height < increaser_t.height)
+            increaser_t.height = t_height, increaser_t.style.height = fromOffset(t_height);
+    };
+    if (/Edge|Trident/i.test(navigator.userAgent)) {
+        addClass(_box, 'trident');
+    } else {
+        onmousewheel(_box, function (event) {
+            cancelAnimationFrame(smooth_timer);
+            cancelAnimationFrame(decrease_timer);
+            var deltay = -event.deltaY;
+            if (event.moveLocked)
+                return;
+            event.moveLocked = true;
+            var box;
+            if (deltay > 0) {
+                box = getTargetIn(function (e) {
+                    return e === _box || /^(?:auto|scroll)$/i.test(getComputedStyle(e).overflowY) && e.scrollTop > 0;
+                }, event.target);
+            } else {
+                box = getTargetIn(function (e) {
+                    return e === _box || /^(?:auto|scroll)$/i.test(getComputedStyle(e).overflowY) && e.scrollHeight - e.scrollTop > e.clientHeight;
+                }, event.target);
+            }
+            if (box === _box) {
+                event.preventDefault();
+                scrollY.call(_box, -deltay, false);
+                smooth(false);
+            }
+        });
+        bindtouch(_box, {
+            start: function () {
+                cancelAnimationFrame(smooth_timer);
+                cancelAnimationFrame(decrease_timer);
+                _speed(0);
+            },
+            move: function (scrolled) {
+                if (scrolled) {
+                    var deltay = scrolled.deltay;
+                    __speed = _speed(deltay);
+                    scrollY.call(this, -deltay);
+                }
+                return { y: this.Top() };
+            },
+            end: function () {
+                __speed = _speed();
+                smooth();
+            }
+        }, 'y');
+    }
+    var smooth_timer;
+    var initScrollId = function () {
+        var temp = this.parentNode;
+        var scrollId = 0;
+        while (temp && !scrollId) {
+            if (isFinite(temp.YScrollBoxId))
+                scrollId = temp.YScrollBoxId;
+            temp = temp.parentNode;
+        }
+        this.YScrollBoxId = +scrollId + 1;
+    };
+    if (_box.isMounted)
+        initScrollId.call(_box);
+    on('append')(_box, initScrollId);
+    preventOverflowScrolling(_box);
+    return _box;
+}
+var allArgumentsNames = arguments[arguments.length - 1];
+var xbox = arriswise(ybox, [].concat(allArgumentsNames, [].slice.call(arguments, 0)));
+function vbox(generator, $Y) {
+    if ($Y === void 0) {
+        $Y = 'Y';
+    }
+    return ($Y === 'X' ? xbox : ybox)(generator);
+}
+return cless(vbox, '.-vh {\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-overflow-scrolling: auto;\n  over-flow: auto;\n  user-select: none;\n  -ms-user-select: none;\n  -moz-user-select: none;\n  -webkit-user-select: none;\n  position: relative;\n}\n.-vh.trident {\n  overflow: auto;\n  scrollbar-width: none;\n  -ms-scroll-chaining: chained;\n  -ms-content-zooming: zoom;\n  -ms-scroll-rails: none;\n  -ms-content-zoom-limit-min: 100%;\n  -ms-content-zoom-limit-max: 500%;\n  -ms-scroll-snap-type: proximity;\n  -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);\n  -ms-overflow-style: none;\n}\n.-vh.trident::-webkit-scrollbar {\n  display: none;\n}\n.-vh > .y-insert {\n  display: block;\n}\n.-vh > .x-insert {\n  display: inline-block;\n}\n', '-vh vbox vbox');

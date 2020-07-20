@@ -1,1 +1,100 @@
-07qsetTimeout,remove,clearTimeout,isNode,div,popup,on,once,removeFromList,render,button,menuItem,vbox,list,cless,i,f,j,k,l,m,a,n,o,p,q,r,s,t,ufunction v(d,w,i,j,u){function x(k,l){if(d.active&&(b(),f(d.active)),!(k.children&&k.children.length))return;var p=h.cloneNode();p.innerHTML=h.innerHTML;var g=y(p,k.children,i,j);c.push(g),d.active=g,m(g,l.target);var q=a('mouseleave')(l.target,e),r=a('mouseenter')(l.target,b),s=a('mouseleave')(g,e),t=a('mouseenter')(g,b);n('remove')(g,function(){o(c,d.active),q(),r(),s(),t()})}if(u===void 0&&(u='y'),!k(d))var d=l();var y=this,h=d.tempalte||d.cloneNode();if(d.tempalte||(h.className='',h.removeAttribute('mode'),h.innerHTML=d.innerHTML,d.tempalte=h),!(j&&d.children.length)||d.menutype===1){d.innerHTML=g,d.menutype=1;var v=function(){var c=w;for(var a=0,b=c;a<b.length;a++){var d=b[a];if(d.icon)return!0}return!1};p(d,{'menu-item':function(){return q(r.apply(null,arguments))},menus:w,hasIcon:v(),open:function(a,b){i(a,b)},popMenu:x}),s(d),d.renders.unshift(function(){this.$scope.hasIcon=v()})}else t(d,function(c){var b=j(c);return b?(a('mouseenter')(b,function(a){x(this.src[c],a)}),a('click')(b,function(a){i(this.src[c],a)}),b):void 0},u);return d}var g,h,h=g={toString:function(){return'<menu-item ng-repeat="menu in menus" ng-click="open(menu,event)" ng-mouseenter="popMenu(menu,event)"\n    ng-class="{\'has-children\':menu.children&&menu.children.length}"></menu-item>'}},c=[],d=0,e=function(){b(),d=i(function(){f(c)},0)},b=function(){j(d)};return u(v,'.-uc{display:inline-block;width:auto;height:auto;background-color:#fff;box-shadow:0 0 20px -6px rgba(0,0,0,0.6);line-height:28px;padding:6px 0}.-uc>menu-item{display:block;position:relative;padding:0 16px;border-radius:0;background-color:inherit;color:inherit;box-shadow:none;text-align:inherit}.-uc>menu-item.has-children{padding:0 24px 0 16px}.-uc>menu-item.has-children:after{content:">";display:block;width:20px;height:20px;line-height:20px;font-size:18px;transform:scaleX(.56);position:absolute;right:6px;top:50%;margin-top:-10px;text-align:right}.-uc i{display:inline-block;width:20px}','-uc menuList menuList')
+0c6setTimeout,remove,clearTimeout,isNode,div,popup,on,once,removeFromList,render,button,menuItem,vbox,list,cless,setTimeout,remove,clearTimeout,isNode,div,popup,on,once,removeFromList,render,button,menuItem,vbox,list,clessvar menuList, MenuList, template, template = MenuList = menuList = {
+        'toString': function () {
+            return '<menu-item ng-repeat="menu in menus" ng-click="open(menu,event)" ng-mouseenter="popMenu(menu,event)"\n    ng-class="{\'has-children\':menu.children&&menu.children.length}"></menu-item>';
+        }
+    };
+var mounted_menus = [], releaseTimer = 0;
+var release = function () {
+    clear();
+    releaseTimer = setTimeout(function () {
+        remove(mounted_menus);
+    }, 0);
+};
+var clear = function () {
+    clearTimeout(releaseTimer);
+};
+function main(page, items, active, generator, direction) {
+    if (direction === void 0) {
+        direction = 'y';
+    }
+    if (!isNode(page)) {
+        var page = div();
+    }
+    var main = this;
+    function popMenu(item, event) {
+        if (page.active) {
+            clear();
+            remove(page.active);
+        }
+        if (!item.children || !item.children.length)
+            return;
+        var clone = template.cloneNode();
+        clone.innerHTML = template.innerHTML;
+        var menu = main(clone, item.children, active, generator);
+        mounted_menus.push(menu);
+        page.active = menu;
+        popup(menu, event.target);
+        var offleave0 = on('mouseleave')(event.target, release);
+        var offenter0 = on('mouseenter')(event.target, clear);
+        var offleave1 = on('mouseleave')(menu, release);
+        var offenter1 = on('mouseenter')(menu, clear);
+        once('remove')(menu, function () {
+            removeFromList(mounted_menus, page.active);
+            offleave0();
+            offenter0();
+            offleave1();
+            offenter1();
+        });
+    }
+    var template = page.tempalte || page.cloneNode();
+    if (!page.tempalte) {
+        template.className = '';
+        template.removeAttribute('mode');
+        template.innerHTML = page.innerHTML;
+        page.tempalte = template;
+    }
+    if (!generator || !page.children.length || page.menutype === 1) {
+        page.innerHTML = menuList;
+        page.menutype = 1;
+        var hasIcon = function () {
+            var menus = items;
+            for (var _i = 0, menus_1 = menus; _i < menus_1.length; _i++) {
+                var menu = menus_1[_i];
+                if (menu.icon) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        render(page, {
+            'menu-item': function () {
+                return button(menuItem.apply(null, arguments));
+            },
+            menus: items,
+            hasIcon: hasIcon(),
+            open: function (menu, event) {
+                active(menu, event);
+            },
+            popMenu: popMenu
+        });
+        vbox(page);
+        page.renders.unshift(function () {
+            this.$scope.hasIcon = hasIcon();
+        });
+    } else {
+        list(page, function (index) {
+            var elem = generator(index);
+            if (!elem)
+                return;
+            on('mouseenter')(elem, function (event) {
+                popMenu(this.src[index], event);
+            });
+            on('click')(elem, function (event) {
+                active(this.src[index], event);
+            });
+            return elem;
+        }, direction);
+    }
+    return page;
+}
+return cless(main, '.-ud {\n  display: inline-block;\n  width: auto;\n  height: auto;\n  background-color: #fff;\n  box-shadow: 0 0 20px -6px rgba(0, 0, 0, 0.6);\n  line-height: 28px;\n  padding: 6px 0;\n}\n.-ud > menu-item {\n  display: block;\n  position: relative;\n  padding: 0 16px;\n  border-radius: 0;\n  background-color: inherit;\n  color: inherit;\n  box-shadow: none;\n  text-align: inherit;\n}\n.-ud > menu-item.has-children {\n  padding: 0 24px 0 16px;\n}\n.-ud > menu-item.has-children:after {\n  content: ">";\n  display: block;\n  width: 20px;\n  height: 20px;\n  line-height: 20px;\n  font-size: 18px;\n  transform: scaleX(0.56);\n  position: absolute;\n  right: 6px;\n  top: 50%;\n  margin-top: -10px;\n  text-align: right;\n}\n.-ud i {\n  display: inline-block;\n  width: 20px;\n}\n', '-ud menuList menuList');

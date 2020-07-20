@@ -1,1 +1,27 @@
-01sisFunction,isNode,isFinite,a,b,cfunction d(d,e,h){if(!a(d)&&b(d)){var g=d;h!==!1?d=function(a){return a===g}:d=function(a){return a.parentNode===g}}while(e){var f=d(e);if(f)return c(f)?e:f;e=e.parentNode}return null}return d
+02yisFunction,isNode,isFinite,isFunction,isNode,isFinitefunction getTargetIn(match, childTarget, matchParent) {
+    if (!isFunction(match)) {
+        if (!isNode(match)) {
+            return null;
+        }
+        var parentNode = match;
+        if (matchParent !== false)
+            match = function (target) {
+                return target === parentNode;
+            };
+        else
+            match = function (target) {
+                return target.parentNode === parentNode;
+            };
+    }
+    while (isNode(childTarget)) {
+        var matchResult = match(childTarget);
+        if (matchResult) {
+            if (isFinite(matchResult))
+                return childTarget;
+            return matchResult;
+        }
+        childTarget = childTarget.nodeType === 1 ? childTarget.parentElement : childTarget.parentNode;
+    }
+    return null;
+}
+return getTargetIn;

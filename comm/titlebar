@@ -1,1 +1,69 @@
-08screateElement,div,button,label,back,text,document,appendChild,addClass,isArray,isString,isNode,Object,isFunction,onclick,cless,b,e,i,j,k,l,m,a,c,n,o,p,f,q,r,sfunction d(b){var a=i(b);return a}function g(){var z,g,u;for(var v=0,A=arguments.length;v<A;v++){var s=arguments[v];switch(typeof s){case'string':z=s;break;case'object':g=s;break;case'boolean':u=s;break}}u=u!==!1;var t=b(h),w=b(j),x=b(k);l(w,z||m.title),a(t,w);var i=e();if(c(i,'menus'),a(t,i),u&&(a(t,x),c(x,'back')),n(g)){if(g=g.map(function(a){return o(a)?d(a):a}),g.length>1)a(i,g);else if(g.length===1){var y=g[0];c(y,'menu'),a(i,y)}}else p(g)?a(g,g):g instanceof f&&(g=f.keys(g).map(function(c){var a=g[c],b=d(c);return q(a)&&r(b,a),b}),a(i,g));return t}var h=b(e);return g.button=d,s(g,'.-vb{color:#ffffff;opacity:0.98;z-index:2;text-align:center;line-height:50px;font-size:24px;height:50px;position:absolute;top:0px;left:0px;right:0px;width:100%;border:1px solid #18333c;background-color:rgba(24,51,60,0.6);backdrop-filter:blur(20px);box-shadow:inset 0 0 6px #51ddf6,inset 200px -160px 200px -200px #51ddf6;cursor:default}.-vb>label{overflow:hidden;text-overflow:ellipsis;padding:0 10px;display:block;max-height:100%}.-vb>div,.-vb>back{position:absolute;background-color:transparent;top:0;bottom:0;height:100%;line-height:50px}.-vb>back{display:block;left:0;width:60px}.-vb>.menus>div{height:100%;position:relative;vertical-align:top;display:inline-block;min-width:60px;background:transparent}.-vb>.menus,.-vb>.menu{min-width:60px;right:0}','-vb titlebar titlebar')
+0f6createElement,div,button,isElement,label,back,text,document,appendChild,addClass,isArray,isString,isNode,Object,isFunction,onclick,cless,createElement,div,button,isElement,label,back,text,document,appendChild,addClass,isArray,isString,isNode,Object,isFunction,onclick,clessvar nav = createElement(div);
+function btn(element) {
+    var opt = button(element);
+    return opt;
+}
+function titlebar(elem) {
+    if (isElement(elem))
+        return elem;
+    var page_title, option_buttons, use_back;
+    {
+        for (var cx = 0, dx = arguments.length; cx < dx; cx++) {
+            var arg = arguments[cx];
+            switch (typeof arg) {
+            case 'string':
+                page_title = arg;
+                break;
+            case 'object':
+                option_buttons = arg;
+                break;
+            case 'boolean':
+                use_back = arg;
+                break;
+            }
+        }
+    }
+    use_back = use_back !== false;
+    var bar = createElement(nav);
+    var title = createElement(label);
+    var _back = createElement(back);
+    text(title, page_title || document.title);
+    appendChild(bar, title);
+    var menu_group = div();
+    addClass(menu_group, 'menus');
+    appendChild(bar, menu_group);
+    if (use_back) {
+        appendChild(bar, _back);
+        addClass(_back, 'back');
+    }
+    if (isArray(option_buttons)) {
+        option_buttons = option_buttons.map(function (button) {
+            return isString(button) ? btn(button) : button;
+        });
+        if (option_buttons.length > 1) {
+            appendChild(menu_group, option_buttons);
+        } else if (option_buttons.length === 1) {
+            var button = option_buttons[0];
+            addClass(button, 'menu');
+            appendChild(menu_group, button);
+        }
+    } else if (isNode(option_buttons)) {
+        appendChild(option_buttons, option_buttons);
+    } else if (option_buttons instanceof Object) {
+        option_buttons = Object.keys(option_buttons).map(function (key) {
+            var value = option_buttons[key];
+            var button = btn(key);
+            if (isFunction(value)) {
+                onclick(button, value);
+            }
+            return button;
+        });
+        appendChild(menu_group, option_buttons);
+    }
+    bar.setTitle = function (name) {
+        text(title, name);
+    };
+    return bar;
+}
+titlebar.button = btn;
+return cless(titlebar, '.-vc {\n  color: #ffffff;\n  opacity: 0.98;\n  z-index: 2;\n  text-align: center;\n  line-height: 50px;\n  font-size: 24px;\n  height: 50px;\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  width: 100%;\n  border: 1px solid #18333c;\n  background-color: rgba(24, 51, 60, 0.6);\n  backdrop-filter: blur(20px);\n  box-shadow: inset 0 0 6px #51ddf6, inset 200px -160px 200px -200px #51ddf6;\n  cursor: default;\n}\n.-vc > label {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  padding: 0 10px;\n  display: block;\n  max-height: 100%;\n}\n.-vc > div,\n.-vc > back {\n  position: absolute;\n  background-color: transparent;\n  top: 0;\n  bottom: 0;\n  height: 100%;\n  line-height: 50px;\n}\n.-vc > back {\n  display: block;\n  left: 0;\n  width: 60px;\n}\n.-vc > .menus > div {\n  height: 100%;\n  position: relative;\n  vertical-align: top;\n  display: inline-block;\n  min-width: 60px;\n  background: transparent;\n}\n.-vc > .menus,\n.-vc > .menu {\n  min-width: 60px;\n  right: 0;\n}\n', '-vc titlebar titlebar');

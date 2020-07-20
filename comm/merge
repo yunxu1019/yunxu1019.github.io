@@ -1,1 +1,79 @@
-03ival,Array,isFunction,isElement,isDate,Date,Object,b,c,d,e,f,g,hfunction i(g,d){if(!d)return;var e=a(g);for(var c in e){var f=e[c];c in d&&b(f,d[c])}}function a(d,b){b===void 0&&(b={});var h=function(a,d){b[a]?b[a]instanceof c?b[a].push(d):b[a]=[b[a],d]:b[a]=d};if(d.length)for(var g=0,i=d.length;g<i;g++){var f=d[g],e=f&&(f.name||f.getAttribute&&f.getAttribute('name'));e?h(e,f):a(d.children,b)}else{var e=d&&(d.name||d.getAttribute&&d.getAttribute('name'));e&&(b[e]=d)}return b}function j(b,a){if(d(a)&&(a=a()),e(b))i(b,a);else if(f(a))b=new g(a);else if(a instanceof h)for(var c in a){var j=a[c];b[c]=j}}return j
+05ival,Array,isFunction,Object,isElement,isDate,Date,val,Array,isFunction,Object,isElement,isDate,Datefunction mergeToElement(node, src) {
+    if (!src)
+        return;
+    var dst_o = getNamedElements(node);
+    for (var k in dst_o) {
+        var elem = dst_o[k];
+        if (k in src) {
+            val(elem, src[k]);
+        }
+    }
+}
+function getNamedElements(node, result) {
+    if (result === void 0) {
+        result = {};
+    }
+    var save = function (key, node) {
+        if (!result[key]) {
+            result[key] = node;
+        } else if (result[key] instanceof Array) {
+            result[key].push(node);
+        } else {
+            result[key] = [
+                result[key],
+                node
+            ];
+        }
+    };
+    if (node.length) {
+        for (var cx = 0, dx = node.length; cx < dx; cx++) {
+            var nod = node[cx];
+            var key = nod && (nod.name || nod.getAttribute && nod.getAttribute('name'));
+            if (key)
+                save(key, nod);
+            else
+                getNamedElements(node.children, result);
+        }
+    } else {
+        var key = node && (node.name || node.getAttribute && node.getAttribute('name'));
+        if (key)
+            result[key] = node;
+    }
+    return result;
+}
+function merge(dst, src) {
+    if (isFunction(src)) {
+        src = src();
+    }
+    if (!(src instanceof Object)) {
+        return src;
+    }
+    if (isElement(dst)) {
+        mergeToElement(dst, src);
+    } else if (isDate(src)) {
+        dst = new Date(src);
+    } else if (dst instanceof Array) {
+        if (src instanceof Array) {
+            dst.splice(0, dst.length);
+            dst.push.apply(dst, src);
+        } else {
+            dst.forEach(function (d) {
+                return merge(d, src);
+            });
+        }
+    } else if (dst instanceof Object) {
+        if (src instanceof Array) {
+            src.forEach(function (s) {
+                return merge(dst, s);
+            });
+        } else {
+            for (var k in src) {
+                dst[k] = merge(dst[k], src[k]);
+            }
+        }
+    } else {
+        return merge(src instanceof Array ? [] : {}, src);
+    }
+    return dst;
+}
+return merge;

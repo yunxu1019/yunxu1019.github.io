@@ -1,1 +1,201 @@
-06cwindow,Array,document,console,undefined,Function,dispatch,Math,MOVELOCK_DELTA,extendTouchEvent,a,e,c,k,f,l,g,m,h,i'use strict';var j='addEventListener'in a,d={};if(j)var b=function(a){function c(b,c){if(a==='changes'&&!b.needchanges&&(b.needchanges=0),b.needchanges++,c instanceof e){c=c.slice(0),c.map(function(b){this.addEventListener(a,b)},b);var d=function(){b.needchanges--,c.map(function(b){this.removeEventListener(a,b)},b)}}else{b.addEventListener(a,c);var d=function(){b.needchanges--,b.removeEventListener(a,c)}}return d}var b='on'+a;return d[b]?d[b]:d[b]=c};else{var b=function b(i){function j(b,d,m){if(m===void 0&&(m=!1),i==='changes'&&!b.needchanges&&(b.needchanges=0),b.needchanges++,!(g in b)&&b===a&&g in c&&(b=c,j.logged||(j.logged=!0,k.warn('use',g,'on document instead of on window'))),b[h])m?b[h].unshift(d):b[h].push(d);else{b[h]=b[g]?[b[g],d]:[d],b[g]=function(c){c||(c=a.event||{}),c.preventDefault||(c.preventDefault=function(){c.returnValue=!1}),c.button&&(c.buttons===f&&(c.buttons=c.button),c.which===f&&(c.which=c.button)),!c.target&&c.srcElement&&(c.target=c.srcElement),n(b[h],c)};var n=function(d,g){for(var c=0,f=d.length;c<f;c++){var a=d[d.length+c-f];a instanceof l?a.call(b,g):a instanceof e&&n(a,g)}}}var o=function(){b.needchanges--;var a=b[h];for(var c=a.length-1;c>=0;c--)a[c]===d&&a.splice(c,1);a.length||(b[h]=null,b[g]=null)};return o}var h=i+'handlers',g='on'+i;return d[g]?d[g]:d[g]=j};'onmousedown'in a||b('mousedown')(c,function(){var a=b('mouseup')(c,function(){d(),a()},!0),d=b('mousemove')(c,function(a){a.which||g('mouseup',c)},!0)})}return function(e,k,l,n,o,p,q,j,d,f){function r(a){p=a.clientX,q=a.clientY,d=!0,f=!1,e.preventClick=!1}function s(b){var a=m.abs;(a(b.clientX-p)>=h||a(b.clientY-q)>=h)&&(e.preventClick=!0)}e=b('click'),k=b('mousedown'),l=b('mousemove'),n=b('touchstart'),o=b('touchmove'),d=!1,f=!1,k(a,r),l(a,s),n(a,function(a){i(a),r.call(this,a)}),o(a,function(a){i(a),s.call(this,a)}),a.addEventListener&&(a.addEventListener('touchend',function(h){if(!d)return;if(h.touches.length>1)return;f=!0;var i=h.target,b=h.changedTouches[0],e=c.createEvent('MouseEvents');e.touchend=!0,e.initMouseEvent('click',!0,!0,a,1,b.screenX,b.screenY,b.clientX,b.clientY,!1,!1,!1,!1,0,null),g(i,e)},!0),a.addEventListener('click',function(a){var b=d;d=!1;var c=j;if(j=a.timeStamp,!b||j-c<120||e.preventClick||f&&!a.touchend){a.preventDefault(),a.stopPropagation();return}},!0))}(),b
+0aiwindow,Array,document,console,undefined,Function,dispatch,Math,MOVELOCK_DELTA,extendTouchEvent,window,Array,document,console,undefined,Function,dispatch,Math,MOVELOCK_DELTA,extendTouchEvent'use strict';
+var is_addEventListener_enabled = 'addEventListener' in window;
+var handlersMap = {};
+var changes_key = 'changes';
+if (is_addEventListener_enabled) {
+    var on = function (k) {
+        var on_event_path = 'on' + k;
+        if (handlersMap[on_event_path])
+            return handlersMap[on_event_path];
+        function addhandler(element, handler, firstmost) {
+            if (k === changes_key) {
+                if (!element.needchanges)
+                    element.needchanges = 0;
+                element.needchanges++;
+            }
+            if (handler instanceof Array) {
+                handler = handler.slice(0);
+                handler.map(function (handler) {
+                    this.addEventListener(k, handler, firstmost);
+                }, element);
+                var remove = function () {
+                    if (k === changes_key)
+                        element.needchanges--;
+                    handler.map(function (handler) {
+                        this.removeEventListener(k, handler, firstmost);
+                    }, element);
+                };
+            } else {
+                element.addEventListener(k, handler, firstmost);
+                var remove = function () {
+                    if (k === changes_key)
+                        element.needchanges--;
+                    element.removeEventListener(k, handler, firstmost);
+                };
+            }
+            return remove;
+        }
+        return handlersMap[on_event_path] = addhandler;
+    };
+} else {
+    var on = function on(k) {
+        var handler_path = k + 'handlers';
+        var on_event_path = 'on' + k;
+        if (handlersMap[on_event_path])
+            return handlersMap[on_event_path];
+        function addhandler(element, handler, firstmost) {
+            if (firstmost === void 0) {
+                firstmost = false;
+            }
+            if (k === changes_key) {
+                if (!element.needchanges)
+                    element.needchanges = 0;
+                element.needchanges++;
+            }
+            if (!(on_event_path in element)) {
+                if (element === window && on_event_path in document) {
+                    element = document;
+                    if (!addhandler.logged)
+                        addhandler.logged = true, console.warn('use', on_event_path, 'on document instead of on window');
+                }
+            }
+            if (element[handler_path] instanceof Array) {
+                if (~element[handler_path].indexOf(handler))
+                    return;
+                if (firstmost)
+                    element[handler_path].unshift(handler);
+                else
+                    element[handler_path].push(handler);
+            } else {
+                element[handler_path] = element[on_event_path] && element[on_event_path] !== handler ? [
+                    element[on_event_path],
+                    handler
+                ] : [handler];
+                element[on_event_path] = function (e) {
+                    if (!e)
+                        e = window.event || {};
+                    if (!e.preventDefault) {
+                        e.preventDefault = function () {
+                            e.returnValue = false;
+                        };
+                    }
+                    if (e.button) {
+                        if (e.buttons === undefined)
+                            e.buttons = e.button;
+                        if (e.which === undefined)
+                            e.which = e.button;
+                    }
+                    if (!e.target && e.srcElement) {
+                        e.target = e.srcElement;
+                    }
+                    broadcast(element[handler_path], e);
+                };
+                var broadcast = function (handlers, e) {
+                    for (var cx = 0, dx = handlers.length; cx < dx; cx++) {
+                        var _handler = handlers[handlers.length + cx - dx];
+                        if (_handler instanceof Function) {
+                            _handler.call(element, e);
+                        } else if (_handler instanceof Array) {
+                            broadcast(_handler, e);
+                        }
+                    }
+                };
+            }
+            var remove = function () {
+                if (k === changes_key)
+                    element.needchanges--;
+                var handlers = element[handler_path];
+                for (var cx = handlers.length - 1; cx >= 0; cx--) {
+                    if (handlers[cx] === handler) {
+                        handlers.splice(cx, 1);
+                    }
+                }
+                if (!handlers.length) {
+                    element[handler_path] = null;
+                    element[on_event_path] = null;
+                }
+            };
+            return remove;
+        }
+        return handlersMap[on_event_path] = addhandler;
+    };
+    if (!('onmousedown' in window))
+        on('mousedown')(document, function () {
+            var cancelup = on('mouseup')(document, function () {
+                cancelmove();
+                cancelup();
+            }, true);
+            var cancelmove = on('mousemove')(document, function (event) {
+                if (!event.which)
+                    dispatch('mouseup', document);
+            }, true);
+        });
+}
+(function () {
+    var onclick = on('click');
+    var onmousedown = on('mousedown');
+    var onmousemove = on('mousemove');
+    var ontouchstart = on('touchstart');
+    var ontouchmove = on('touchmove');
+    var mouse_x, mouse_y, touch_x, touch_y, lasttime_click;
+    var needFireClick = false;
+    var isClickWithPointer = false;
+    var touchendFired = false;
+    function clickstart() {
+        needFireClick = true;
+        touchendFired = false;
+        isClickWithPointer = true;
+        onclick.preventClick = false;
+    }
+    var abs = Math.abs;
+    function clickcancel() {
+        onclick.preventClick = true;
+    }
+    onmousedown(window, function (event) {
+        mouse_x = event.clientX, mouse_y = event.clientY;
+        clickstart.call(this, event);
+    });
+    onmousemove(window, function (event) {
+        if (abs(event.clientX - mouse_x) >= MOVELOCK_DELTA || abs(event.clientY - mouse_y) >= MOVELOCK_DELTA)
+            clickcancel.call(this, event);
+    });
+    ontouchstart(window, function (event) {
+        extendTouchEvent(event);
+        touch_x = event.clientX, touch_y = event.clientY;
+        clickstart.call(this, event);
+    });
+    ontouchmove(window, function (event) {
+        extendTouchEvent(event);
+        if (abs(event.clientX - touch_x) >= MOVELOCK_DELTA || abs(event.clientY - touch_y) >= MOVELOCK_DELTA)
+            clickcancel.call(this, event);
+    });
+    if (window.addEventListener) {
+        window.addEventListener('touchend', function (event) {
+            if (event.touches.length > 1)
+                return;
+            needFireClick = true;
+            touchendFired = true;
+            var target = event.target;
+            var touch = event.changedTouches[0];
+            var clickEvent = document.createEvent('MouseEvents');
+            clickEvent.touchend = true;
+            clickEvent.initMouseEvent('click', true, true, window, 1, touch.screenX, touch.screenY, touch.clientX, touch.clientY, false, false, false, false, 0, null);
+            dispatch(target, clickEvent);
+        }, true);
+        window.addEventListener('click', function (event) {
+            if (!isClickWithPointer)
+                return;
+            var need = needFireClick;
+            needFireClick = false;
+            isClickWithPointer = false;
+            var saved_time = lasttime_click;
+            lasttime_click = event.timeStamp;
+            if (!need || lasttime_click - saved_time < 120 || onclick.preventClick || touchendFired && !event.touchend) {
+                event.preventDefault();
+                event.stopPropagation();
+                return;
+            }
+        }, true);
+    }
+}());
+return on;

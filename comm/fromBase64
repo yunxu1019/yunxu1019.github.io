@@ -1,1 +1,16 @@
-00gString,cfunction d(i){var g=c(i).replace(/[=]+$/,'');for(var d=0,e,a,h=0,f=[];a=g.charAt(h++);~a&&(e=d%4?(e<<6)+a:a,d++%4)&&f.push(255&e>>(-2*d&6)))a=b[a];return f}var a='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',b=function(c,b,d){for(c={},b=0,d=a.length;b<d;b++)c[a[b]]=b;return c}();return d
+00qString,Stringvar encoding = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+var decodeMap = function () {
+    var map = {};
+    for (var cx = 0, dx = encoding.length; cx < dx; cx++) {
+        map[encoding[cx]] = cx;
+    }
+    return map;
+}();
+function fromBase64(input) {
+    var str = String(input).replace(/[=]+$/, '');
+    for (var bc = 0, bs, buffer, idx = 0, output = []; buffer = str.charAt(idx++); ~buffer && (bs = bc % 4 ? (bs << 6) + buffer : buffer, bc++ % 4) ? output.push(255 & bs >> (-2 * bc & 6)) : 0) {
+        buffer = decodeMap[buffer];
+    }
+    return output;
+}
+return fromBase64;
