@@ -1,2 +1,1 @@
-00aon,onvar onhashchange = on('hashchange');
-return onhashchange;
+00con,b,cs["hashchange"]var a=b(c);return a

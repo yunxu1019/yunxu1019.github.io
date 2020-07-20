@@ -1,4 +1,1 @@
-026window,clearTimeout,window,clearTimeoutvar cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || function (id) {
-    return clearTimeout(id);
-};
-return cancelAnimationFrame;
+01qwindow,clearTimeout,a,c,d,e,f,g5s["cancelAnimationFrame","mozCancelAnimationFrame","webkitCancelAnimationFrame","msCancelAnimationFrame"]var b=a[d]||a[e]||a[f]||a[g]||function(a){return c(a)};return b

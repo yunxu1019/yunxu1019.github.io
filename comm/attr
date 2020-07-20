@@ -1,15 +1,1 @@
-01qObject,isString,Object,isStringfunction attr(target, key, value) {
-    if (arguments.length === 3) {
-        if (value === null)
-            target.removeAttribute(key, value);
-        else
-            target.setAttribute(key, value);
-    } else if (key instanceof Object) {
-        for (var k in key) {
-            target.setAttribute(k, key[k]);
-        }
-    } else if (isString(key)) {
-        return target.getAttribute(key);
-    }
-}
-return attr;
+01iObject,isString,b,c,d,e,a,f38["length","removeAttribute","setAttribute","getAttribute"]function g(h,g,i){if(arguments[d]===3)i===null?h[e](g,i):h[a](g,i);else if(g instanceof b)for(var j in g)h[a](j,g[j]);else if(c(g))return h[f](g)}return g

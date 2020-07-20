@@ -1,6 +1,1 @@
-016isFunction,isFunctionfunction getValue() {
-    if (isFunction(this.getValue))
-        return this.getValue();
-    return this.value;
-}
-return getValue;
+00wisFunction,b,a,c14["getValue","value"]function d(){return b(this[a])?this[a]():this[c]}return d

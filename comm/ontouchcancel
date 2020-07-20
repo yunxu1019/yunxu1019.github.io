@@ -1,2 +1,1 @@
-00aon,onvar ontouchcancel = on('touchcancel');
-return ontouchcancel;
+00con,b,cu["touchcancel"]var a=b(c);return a

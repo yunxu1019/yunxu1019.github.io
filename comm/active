@@ -1,8 +1,1 @@
-02acreateEvent,dispatch,createEvent,dispatchfunction active(target, value, item) {
-    var activeEvent = createEvent('active');
-    activeEvent.item = item;
-    activeEvent.value = value;
-    activeEvent = dispatch(target, activeEvent);
-    return activeEvent && !activeEvent.defaultPrevented;
-}
-return active;
+01screateEvent,dispatch,a,b,c,d,e,f2g["active","item","value","defaultPrevented"]function g(h,i,j){var g=a(c);return g[d]=j,g[e]=i,g=b(h,g),g&&!g[f]}return g

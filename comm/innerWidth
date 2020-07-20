@@ -1,11 +1,1 @@
-var document = this.document;
-function innerWidth() {
-    return document.documentElement.clientWidth || document.body && document.body.clientWidth;
-}
-innerWidth['toString'] = function () {
-    return this()['toString']();
-};
-innerWidth['valueOf'] = function () {
-    return this();
-};
-return innerWidth;
+function c(){return b[i][e]||b[f]&&b[f][e]}var a=['toString','valueOf','document','documentElement','clientWidth','body'],d=a[0],g=a[1],h=a[2],i=a[3],e=a[4],f=a[5],b=this[h];return c[d]=function(){return this()[d]()},c[g]=function(){return this()},c

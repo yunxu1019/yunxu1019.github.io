@@ -1,7 +1,1 @@
-012div,cless,div,clessfunction main(e) {
-    if (e === void 0) {
-        e = div();
-    }
-    return e;
-}
-return cless(main, '.-bw {\n  box-sizing: border-box;\n  display: inline-block;\n  position: relative;\n  border: 6px solid transparent;\n}\n', '-bw padding padding');
+00ydiv,cless,a,b,c,d6q[".-bw{box-sizing:border-box;display:inline-block;position:relative;border:6px solid transparent}","-bw padding padding"]function e(b){return b===void 0&&(b=a()),b}return b(e,c,d)

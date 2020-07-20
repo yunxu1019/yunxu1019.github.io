@@ -1,10 +1,1 @@
-022div,care,css,cless,div,care,css,clessfunction main(elem) {
-    if (elem === void 0) {
-        elem = div();
-    }
-    care(elem, function (color) {
-        css(this, 'background', color);
-    });
-    return elem;
-}
-return cless(main, '.-aj {\n  width: 40px;\n  height: 20px;\n  background: #ccc;\n  display: inline-block;\n}\n', '-aj colorlabel colorlabel');
+01sdiv,care,css,cless,a,b,c,d,e,f,g64["background",".-aj{width:40px;height:20px;background:#ccc;display:inline-block}","-aj colorlabel colorlabel"]function h(d){return d===void 0&&(d=a()),b(d,function(a){c(this,e,a)}),d}return d(h,f,g)

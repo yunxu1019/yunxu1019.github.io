@@ -1,9 +1,1 @@
-026isFunction,document,isFunction,documentfunction text(node, text) {
-    if (arguments.length === 2) {
-        node.innerHTML = '';
-        isFunction(text) && (text = text());
-        isFunction(node.setText) ? node.setText(text) : node.appendChild(document.createTextNode(text));
-    }
-    return isFunction(node.getText) ? node.getText() : node.innerText;
-}
-return text;
+022isFunction,document,a,d,e,f,b,g,h,c,i4q["length","innerHTML","setText","appendChild","createTextNode","getText","innerText"]function j(j,k){return arguments[e]===2&&(j[f]='',a(k)&&(k=k()),a(j[b])?j[b](k):j[g](d[h](k))),a(j[c])?j[c]():j[i]}return j

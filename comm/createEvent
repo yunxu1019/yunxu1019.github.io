@@ -1,16 +1,1 @@
-00ydocument,documentvar createEvent = 'createEvent' in document ? function createEvent(eventName, canBubble, cancelable) {
-    if (canBubble === void 0) {
-        canBubble = false;
-    }
-    if (cancelable === void 0) {
-        cancelable = true;
-    }
-    var event = document.createEvent('Event');
-    event.initEvent(eventName, canBubble, cancelable);
-    return event;
-} : function createEventObject(eventName) {
-    var event = document.createEventObject();
-    event.type = eventName;
-    return event;
-};
-return createEvent;
+018document,a,c,d,e,f,g,h48["createEvent","Event","createEvent","initEvent","createEventObject","type"]var b=c in a?function b(i,c,g){c===void 0&&(c=!1),g===void 0&&(g=!0);var h=a[e](d);return h[f](i,c,g),h}:function b(d){var c=a[g]();return c[h]=d,c};return b

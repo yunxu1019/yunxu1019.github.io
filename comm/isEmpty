@@ -1,4 +1,1 @@
-02qundefined,isFinite,Array,undefined,isFinite,Arrayfunction isEmpty(value) {
-    return value === '' || value === null || value === undefined || typeof value === 'number' && !isFinite(value) || value instanceof Array && value.length === 0;
-}
-return isEmpty;
+01wundefined,isFinite,Array,a,b,c,d,e12["number","length"]function f(f){return f===''||f===null||f===a||typeof f===d&&!b(f)||f instanceof c&&f[e]===0}return f

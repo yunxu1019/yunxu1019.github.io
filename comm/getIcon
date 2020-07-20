@@ -1,15 +1,1 @@
-var reg = /^(https?\:|\/\/)/i;
-function getIcon(item) {
-    if (!item.icon)
-        return;
-    if (reg.test(item.icon))
-        return item.icon;
-    if (!reg.test(item.url))
-        return item.icon;
-    if (/^\//.test(item.icon))
-        return item.url.replace(/^((?:https?\:)?(?:\/\/)?[^\/]+)[\s\S]*$/i, '$1') + item.icon;
-    return item.url.replace(/[\?\#][\s\S]*$/, '').replace(/^((?:https?\:)?(?:\/\/)?[^\/]+[\s\S]*?)\/?[^\/]*$/, function (_, a) {
-        return a + '/' + item.icon;
-    });
-}
-return getIcon;
+function n(a){return a[b]?f[c](a[b])?a[b]:f[c](a[d])?h[c](a[b])?a[d][e](i,j)+a[b]:a[d][e](k,'')[e](l,function(d,c){return c+m+a[b]}):a[b]:void 0}var a=[/^(https?\:|\/\/)/i,/^\//,/^((?:https?\:)?(?:\/\/)?[^\/]+)[\s\S]*$/i,'$1',/[\?\#][\s\S]*$/,/^((?:https?\:)?(?:\/\/)?[^\/]+[\s\S]*?)\/?[^\/]*$/,'/','icon','test','url','replace'],g=a[0],h=a[1],i=a[2],j=a[3],k=a[4],l=a[5],m=a[6],b=a[7],c=a[8],d=a[9],e=a[10],f=g;return n

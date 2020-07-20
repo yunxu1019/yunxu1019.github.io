@@ -1,13 +1,1 @@
-00qObject,Objectvar hasOwnProperty = {}['hasOwnProperty'];
-function extendIfNeeded(o1) {
-    o1 = Object(o1);
-    for (var cx = 1, dx = arguments.length; cx < dx; cx++) {
-        var o2 = arguments[cx];
-        for (var k in o2) {
-            if (hasOwnProperty.call(o2, k) && !(k in o1))
-                o1[k] = o2[k];
-        }
-    }
-    return o1;
-}
-return extendIfNeeded;
+00sObject,b,c,d,e1w["hasOwnProperty","length","call"]function f(c){c=b(c);for(var g=1,i=arguments[d];g<i;g++){var h=arguments[g];for(var f in h)a[e](h,f)&&!(f in c)&&(c[f]=h[f])}return c}var a={}[c];return f

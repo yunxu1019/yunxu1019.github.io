@@ -1,15 +1,1 @@
-03misElement,getScreenPosition,Math,isElement,getScreenPosition,Mathfunction overlap(rect1, rect2) {
-    if (isElement(rect1))
-        rect1 = getScreenPosition(rect1);
-    if (isElement(rect2))
-        rect2 = getScreenPosition(rect2);
-    var xlap = linelap(rect1.left, rect1.width, rect2.left, rect2.width);
-    var ylap = linelap(rect1.top, rect1.height, rect2.top, rect2.height);
-    return xlap > 0 && ylap > 0 ? xlap * ylap : 0;
-}
-var min = Math.min, abs = Math.abs;
-function linelap(start1, length1, start2, length2) {
-    var center1 = start1 + length1 / 2, center2 = start2 + length2 / 2;
-    return min(length1, length2, (length1 + length2) / 2 - abs(center1 - center2));
-}
-return overlap;
+02sisElement,getScreenPosition,Math,a,b,c,d,e,f,g,k,l2e["left","width","top","height","min","abs"]function m(c,i){a(c)&&(c=b(c)),a(i)&&(i=b(i));var j=h(c[d],c[e],i[d],i[e]),k=h(c[f],c[g],i[f],i[g]);return j>0&&k>0?j*k:0}function h(e,a,f,b){var c=e+a/2,d=f+b/2;return i(a,b,(a+b)/2-j(c-d))}var i=c[k],j=c[l];return m

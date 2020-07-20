@@ -1,2 +1,1 @@
-00aon,onvar onkeydown = on('keydown');
-return onkeydown;
+00con,b,cm["keydown"]var a=b(c);return a

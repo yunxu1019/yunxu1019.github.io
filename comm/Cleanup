@@ -1,15 +1,1 @@
-00qisNode,isNodefunction Cleanup(list) {
-    function cleanup(target) {
-        if (isNode(this) && !isNode(target)) {
-            target = this;
-        }
-        for (var cx = list.length - 1; cx >= 0; cx--) {
-            var element = list[cx];
-            if (element === target) {
-                list.splice(cx, 1);
-            }
-        }
-    }
-    return cleanup;
-}
-return Cleanup;
+00oisNode,a,b,c12["length","splice"]function d(d){function e(f){a(this)&&!a(f)&&(f=this);for(var e=d[b]-1;e>=0;e--){var g=d[e];g===f&&d[c](e,1)}}return e}return d

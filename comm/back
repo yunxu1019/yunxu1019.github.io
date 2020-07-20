@@ -1,15 +1,1 @@
-046document,button,onclick,history,cless,document,button,onclick,history,clessvar back, Back, template, template = Back = back = {
-        'toString': function () {
-            return '<i></i><span>\u8fd4\u56de</span>';
-        }
-    };
-function main(bak) {
-    var e = bak || document.createElement('back');
-    e.innerHTML = back;
-    var btn = button(e);
-    onclick(btn, function () {
-        history.back();
-    });
-    return btn;
-}
-return cless(main, '.-wa > i {\n  font-style: normal;\n  margin-top: -12px;\n}\n.-wa > i:before {\n  content: "\u2039";\n  font-size: 24px;\n}\n.-wa > span {\n  margin-left: 10px;\n  margin-top: -10px;\n}\n.-wa > span,\n.-wa > i {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  height: 20px;\n  line-height: 20px;\n  font-style: normal;\n}\n', '-wa back back');
+03idocument,button,onclick,history,cless,d,e,f,g,h,i,j,k,l,m,n,o,pj0["toString","<i></i><span>\u8fd4\u56de</span>","back",".-wa>i{font-style:normal;margin-top:-12px}.-wa>i:before{content:\"\u2039\";font-size:24px}.-wa>span{margin-left:10px;margin-top:-10px}.-wa>span,.-wa>i{position:absolute;left:10px;top:50%;height:20px;line-height:20px;font-style:normal}","-wa back back","createElement","innerHTML","back"]function q(h){var a=h||d[n](k);a[o]=b;var c=e(a);return f(c,function(){g[p]()}),c}var a,b,r,c,c=(a={},a[i]=function(){return j},r=b=a);return h(q,l,m)

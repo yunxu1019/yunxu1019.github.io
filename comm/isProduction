@@ -1,4 +1,1 @@
-var isProduction = function develop() {
-    return develop.name !== 'develop';
-}();
-return isProduction;
+var a=['develop','name'],b=a[0],c=a[1],d=function a(){return a[c]!==b}();return d

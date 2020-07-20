@@ -1,4 +1,1 @@
-01idocument,noop,document,noopfunction cancelFullScreen() {
-    (document.exitFullscreen || document.msExitFullscreen || document.mozCancelFullScreen || document.webkitCancelFullScreen || noop).call(document);
-}
-return cancelFullScreen;
+01idocument,noop,a,b,c,d,e,f,g52["exitFullscreen","msExitFullscreen","mozCancelFullScreen","webkitCancelFullScreen","call"]function h(){(a[c]||a[d]||a[e]||a[f]||b)[g](a)}return h
