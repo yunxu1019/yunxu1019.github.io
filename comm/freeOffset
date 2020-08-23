@@ -1,3 +1,1 @@
-046calcPixel,parseFloat,renderPixelRatio,calcPixel,parseFloat,renderPixelRatioreturn function (d) {
-    return calcPixel(parseFloat(d) / renderPixelRatio);
-};
+02ecalcPixel,parseFloat,renderPixelRatio,a,b,creturn function(d){return a(b(d)/c)}

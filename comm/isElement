@@ -1,4 +1,1 @@
-00qisNode,isNodefunction isElement(o) {
-    return !!(isNode(o) && o.children);
-}
-return isElement;
+00kisNode,a,bo["children"]function c(c){return!!(a(c)&&c[b])}return c

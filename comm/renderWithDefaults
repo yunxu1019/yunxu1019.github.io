@@ -1,9 +1,1 @@
-042extendIfNeeded,renderDefaults,render,extendIfNeeded,renderDefaults,renderfunction main(page, $scope) {
-    if ($scope === void 0) {
-        $scope = {};
-    }
-    extendIfNeeded($scope, renderDefaults);
-    render(page, $scope);
-    return page;
-}
-return main;
+02cextendIfNeeded,renderDefaults,render,a,b,cfunction d(e,d){return d===void 0&&(d={}),a(d,b),c(e,d),e}return d

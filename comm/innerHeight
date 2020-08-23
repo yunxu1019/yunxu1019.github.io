@@ -1,11 +1,1 @@
-var document = this.document;
-function innerHeight() {
-    return document.documentElement.clientHeight || document.body && document.body.clientHeight;
-}
-innerHeight['toString'] = function () {
-    return this()['toString']();
-};
-innerHeight['valueOf'] = function () {
-    return this();
-};
-return innerHeight;
+function c(){return b[i][e]||b[f]&&b[f][e]}var a=['toString','valueOf','document','documentElement','clientHeight','body'],d=a[0],g=a[1],h=a[2],i=a[3],e=a[4],f=a[5],b=this[h];return c[d]=function(){return this()[d]()},c[g]=function(){return this()},c

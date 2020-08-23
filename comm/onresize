@@ -1,2 +1,1 @@
-00aon,onvar onresize = on('resize');
-return onresize;
+00con,b,ck["resize"]var a=b(c);return a

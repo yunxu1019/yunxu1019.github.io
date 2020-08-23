@@ -1,14 +1,1 @@
-02inavigator,css,parseInt,navigator,css,parseIntvar isIE8 = /MSIE\s*[2-8]/.test(navigator.userAgent);
-if (isIE8) {
-    var main = function (element, opacity) {
-        css(element, { filter: 'Alpha(opacity=' + parseInt(opacity * 100) + ')' });
-        [].map.call(element.children, function (element) {
-            css(element, 'filter:inherit');
-        });
-    };
-} else {
-    var main = function (element, opacity) {
-        css(element, { opacity: opacity });
-    };
-}
-return main;
+02knavigator,css,parseInt,d,b,e,f,g,h,i,j,k,l,m,n5e[/MSIE\s*[2-8]/,"Alpha(opacity=",")","filter:inherit","test","userAgent","map","call","children"]var c=f[j](d[k]);if(c)var a=function(a,c){b(a,{filter:g+e(c*100)+h}),[][l][m](a[n],function(a){b(a,i)})};else var a=function(a,c){b(a,{opacity:c})};return a

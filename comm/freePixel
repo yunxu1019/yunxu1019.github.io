@@ -1,3 +1,1 @@
-01urenderPixelRatio,renderPixelRatioreturn function (d) {
-    return d * .75 / renderPixelRatio;
-};
+010renderPixelRatio,areturn function(b){return b*.75/a}

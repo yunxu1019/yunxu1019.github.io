@@ -1,15 +1,1 @@
-01mkeys,deepEqual,keys,deepEqualfunction getChanges(current_props, previous_props) {
-    var changes = null;
-    keys(previous_props, current_props).forEach(function (key) {
-        if (!deepEqual.shallow(current_props[key], previous_props[key])) {
-            if (!changes)
-                changes = {};
-            changes[key] = {
-                previous: previous_props[key],
-                current: current_props[key]
-            };
-        }
-    });
-    return changes;
-}
-return getChanges;
+018keys,deepEqual,a,b,c,d16["forEach","shallow"]function e(f,g){var e=null;return a(g,f)[c](function(a){b[d](f[a],g[a])||(e||(e={}),e[a]={previous:g[a],current:f[a]})}),e}return e

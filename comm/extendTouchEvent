@@ -1,9 +1,1 @@
-function extendTouchEvent(e) {
-    var touch = e.touches[0];
-    for (var k in touch) {
-        if (!(k in e))
-            e[k] = touch[k];
-    }
-    return e;
-}
-return extendTouchEvent;
+function b(b){var d=b[a][0];for(var c in d)c in b||(b[c]=d[c]);return b}var a=['touches'][0];return b

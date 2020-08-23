@@ -1,2 +1,1 @@
-var playState = { width: 0 };
-return playState;
+var a={width:0};return a

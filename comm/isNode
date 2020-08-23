@@ -1,4 +1,1 @@
-function isNode(a) {
-    return !!(a && a.cloneNode);
-}
-return isNode;
+function b(b){return!!(b&&b[a])}var a=['cloneNode'][0];return b

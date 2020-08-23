@@ -1,4 +1,1 @@
-01mdocument,cless,document,clessfunction main() {
-    return document.createElement('textarea');
-}
-return cless(main, '.-ax {\n  box-sizing: border-box;\n  border-radius: 3px;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  outline: none;\n  padding: 4px 6px;\n  -webkit-appearance: none;\n}\n.-ax:focus {\n  border-color: rgba(0, 102, 255, 0.9333);\n}\nmodel > .-ax {\n  width: 100% !important;\n  display: block;\n  margin: 10px 0;\n  height: 120px;\n}\n', '-ax textarea textarea');
+01gdocument,cless,a,b,c,d,e,fh2["textarea",".-ax{box-sizing:border-box;border-radius:3px;border:1px solid rgba(0,0,0,0.2);outline:none;padding:4px 6px;-webkit-appearance:none}.-ax:focus{border-color:rgba(0,102,255,0.9333)}model>.-ax{width:100% !important;display:block;margin:10px 0;height:120px}","-ax textarea textarea","createElement"]function g(){return a[f](c)}return b(g,d,e)

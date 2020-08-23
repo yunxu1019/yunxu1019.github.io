@@ -1,7 +1,1 @@
-00ydocument,documentfunction form(elem) {
-    if (!elem) {
-        elem = document.createElement('form');
-    }
-    return elem;
-}
-return form;
+00sdocument,a,b,c1c["form","createElement"]function d(d){return d||(d=a[c](b)),d}return d

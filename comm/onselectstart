@@ -1,2 +1,1 @@
-00aon,onvar onselectstart = on('selectstart');
-return onselectstart;
+00con,b,cu["selectstart"]var a=b(c);return a

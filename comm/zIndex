@@ -1,6 +1,1 @@
-var count = 268435456;
-function zIndex() {
-    return count++;
-}
-;
-return zIndex;
+function b(){return a++}var a=268435456;return b

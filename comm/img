@@ -1,9 +1,1 @@
-02mcss,document,care,cless,css,document,care,clessvar setsrc = function (src) {
-    css(this, { backgroundImage: 'url(\'' + src + '\')' });
-};
-function img() {
-    var image = document.createElement('png');
-    care(image, setsrc);
-    return image;
-}
-return cless(img, '.-bu {\n  background-repeat: no-repeat;\n  background-position: center;\n  background-size: cover;\n  width: 100px;\n  height: 100px;\n  display: inline-block;\n}\n', '-bu img img');
+02ecss,document,care,cless,b,c,d,e,f,g,h,i,j,ka2["url('","')","png",".-bu{background-repeat:no-repeat;background-position:center;background-size:cover;width:100px;height:100px;display:inline-block}","-bu img img","createElement"]function l(){var b=c[k](h);return d(b,a),b}var a=function(a){b(this,{backgroundImage:f+a+g})};return e(l,i,j)

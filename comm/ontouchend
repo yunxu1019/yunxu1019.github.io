@@ -1,2 +1,1 @@
-00aon,onvar ontouchend = on('touchend');
-return ontouchend;
+00con,b,co["touchend"]var a=b(c);return a

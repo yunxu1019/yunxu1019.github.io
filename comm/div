@@ -1,18 +1,1 @@
-06qisNode,document,isString,isArray,appendChild,isElement,cless,isNode,document,isString,isArray,appendChild,isElement,clessfunction div(elem) {
-    if (isNode(elem) && /div/i.test(elem.tagName))
-        return elem;
-    var div = document.createElement('div');
-    if (elem) {
-        if (isString(elem)) {
-            div.innerHTML = elem;
-        } else if (isArray(elem)) {
-            appendChild(div, elem);
-        } else if (isElement(elem)) {
-            appendChild(div, [].concat.apply([], elem.children));
-        } else if (isNode(elem)) {
-            appendChild(div, elem);
-        }
-    }
-    return div;
-}
-return cless(div, '.-te {\n  box-sizing: border-box;\n  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);\n  -moz-box-sizing: border-box;\n  -webkit-box-sizing: border-box;\n  -o-box-sizing: border-box;\n  -ms-box-sizing: border-box;\n}\n', '-te div div');
+05cisNode,document,isString,isArray,appendChild,isElement,cless,b,c,d,e,a,f,g,h,i,j,k,l,m,n,o,p,q,rfy[/div/i,"div",".-te{box-sizing:border-box;-webkit-tap-highlight-color:rgba(255,255,255,0);-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box}","-te div div","test","tagName","createElement","innerHTML","concat","apply","children"]function s(g){if(b(g)&&h[l](g[m]))return g;var j=c[n](i);return g&&(d(g)?j[o]=g:e(g)?a(j,g):f(g)?a(j,[][p][q]([],g[r])):b(g)&&a(j,g)),j}return g(s,j,k)

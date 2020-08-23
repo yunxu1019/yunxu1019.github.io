@@ -1,10 +1,1 @@
-01mdesign,confirm,design,confirmvar field, Field, template, template = Field = field = {
-        'toString': function () {
-            return '<div>\u8bbe\u8ba1\u5b57\u6bb5</div><div><design></design></div><div><btn>\u786e\u5b9a</btn><btn>\u53d6\u6d88</btn></div>';
-        }
-    };
-function main() {
-    var page = design([]);
-    return confirm(page);
-}
-return main;
+018design,confirm,c,d,e,f7i["toString","<div>\u8bbe\u8ba1\u5b57\u6bb5</div><div><design></design></div><div><btn>\u786e\u5b9a</btn><btn>\u53d6\u6d88</btn></div>"]function g(){var a=c([]);return d(a)}var a,b,b=(a={},a[e]=function(){return f},a);return g
