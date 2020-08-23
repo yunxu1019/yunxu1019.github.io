@@ -1,1 +1,89 @@
-09owindow,isFunction,extendTouchEvent,onmousemove,onmouseup,ontouchmove,ontouchend,ontouchcancel,Error,onmousedown,ontouchstart,g,a,e,k,l,m,n,o,p,q,r,s,t,u,v,h,f,w,x,y,z,c,i,A,Ba6["\u8bf7\u4f20\u5165touchstartEvent\u6216\u8005mousedownEvent","touchstart","forEach","indexOf","splice","length","push","start","move","end","call","touches","type","preventDefault"]function C(a){b[u](function(b){return b(a)})}function j(e,c){var a=b[v](c);~a&&b[h](a,1),b[f]||(d=e(g,C)),b[w](c)}function D(){b[h](0,b[f]),a(d)&&d(),d=null}function E(b,C,v){var d=C[x],u=C[y],E=C[z],h=!1,F,G,H,K=function(d){a(u)&&u[c](b,d)},L=function(d){e(d),a(u)&&u[c](b,d)},w=function(d){if(d[i]&&d[i][f])return;D(),a(F)&&F(),a(H)&&H(),a(G)&&G(),h=!1,a(E)&&E[c](b,d)},I=function(){if(h)return;h=!0,j(k,K),F=l(g,w)},J=function(){if(h)return;h=!0,j(m,L),G=n(b,w),H=o(b,w)};if(!d){if(!v)throw new p(s);v[A]===t?(e(v),v[B](),J()):I();return}q(b,function(b){I(b),a(d)&&d[c](this,b)}),r(b,function(b){e(b),J(b),a(d)&&d[c](this,b)})}var b=[],d;return E
+0duwindow,isFunction,extendTouchEvent,onmousemove,onmouseup,ontouchmove,ontouchend,ontouchcancel,Error,onmousedown,ontouchstart,window,isFunction,extendTouchEvent,onmousemove,onmouseup,ontouchmove,ontouchend,ontouchcancel,Error,onmousedown,ontouchstartvar moveListeners = [], offhook;
+function mousemove(event) {
+    moveListeners.forEach(function (a) {
+        return a(event);
+    });
+}
+function addHookListeners(on, hook) {
+    var index = moveListeners.indexOf(hook);
+    if (~index) {
+        moveListeners.splice(index, 1);
+    }
+    if (!moveListeners.length) {
+        offhook = on(window, mousemove);
+    }
+    moveListeners.push(hook);
+}
+function removeAllListeners() {
+    moveListeners.splice(0, moveListeners.length);
+    if (isFunction(offhook))
+        offhook();
+    offhook = null;
+}
+function moveupon(target, _a, initialEvent) {
+    var start = _a.start, move = _a.move, end = _a.end;
+    var touchLocked = false;
+    var offmouseup, offtouchend, offtouchcancel;
+    var mousemove = function (event) {
+        if (isFunction(move))
+            move.call(target, event);
+    };
+    var touchmove = function (event) {
+        extendTouchEvent(event);
+        if (isFunction(move))
+            move.call(target, event);
+    };
+    var cancel = function (event) {
+        if (event.touches && event.touches.length)
+            return;
+        removeAllListeners();
+        if (isFunction(offmouseup))
+            offmouseup();
+        if (isFunction(offtouchcancel))
+            offtouchcancel();
+        if (isFunction(offtouchend))
+            offtouchend();
+        touchLocked = false;
+        if (isFunction(end))
+            end.call(target, event);
+    };
+    var hookmouse = function () {
+        if (touchLocked)
+            return;
+        touchLocked = true;
+        addHookListeners(onmousemove, mousemove);
+        offmouseup = onmouseup(window, cancel);
+    };
+    var hooktouch = function () {
+        if (touchLocked)
+            return;
+        touchLocked = true;
+        addHookListeners(ontouchmove, touchmove);
+        offtouchend = ontouchend(target, cancel);
+        offtouchcancel = ontouchcancel(target, cancel);
+    };
+    if (!start) {
+        if (!initialEvent)
+            throw new Error('\u8bf7\u4f20\u5165touchstartEvent\u6216\u8005mousedownEvent');
+        if (initialEvent.type === 'touchstart') {
+            extendTouchEvent(initialEvent);
+            initialEvent.preventDefault();
+            hooktouch();
+        } else {
+            hookmouse();
+        }
+        return;
+    }
+    onmousedown(target, function (event) {
+        hookmouse(event);
+        if (isFunction(start))
+            start.call(this, event);
+    });
+    ontouchstart(target, function (event) {
+        extendTouchEvent(event);
+        hooktouch(event);
+        if (isFunction(start))
+            start.call(this, event);
+    });
+}
+return moveupon;

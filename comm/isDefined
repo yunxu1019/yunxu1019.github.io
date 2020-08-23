@@ -1,1 +1,5 @@
-function a(a){return a!==b}var b;return a
+var b;
+function isDefined(a) {
+    return a !== b;
+}
+return isDefined;

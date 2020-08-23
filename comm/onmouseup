@@ -1,1 +1,2 @@
-00con,b,cm["mouseup"]var a=b(c);return a
+00aon,onvar onmouseup = on('mouseup');
+return onmouseup;

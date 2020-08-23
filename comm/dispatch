@@ -1,1 +1,29 @@
-03mdocument,isString,createEvent,isNode,window,b,c,d,e,f,g,h,i,j,k,l3o["dispatchEvent","on","dispatchEvent","type","fireEvent","length"]function m(){var i,g;for(var h=0,j=arguments[l];h<j;h++){var b=arguments[h];c(b)?g=d(b):e(b)?i=b:g=b}return a(i||f,g)?g:!1}var a=g in b?function a(b,c){return b[i](c)}:function a(c,d){var b=h+d[j];try{return c[k](b,d)}catch(a){return c[b]&&c[b](d)}};return m
+04udocument,isString,createEvent,isNode,window,document,isString,createEvent,isNode,windowvar dispatch = 'dispatchEvent' in document ? function dispatchEvent(target, event) {
+    return target.dispatchEvent(event);
+} : function fireEvent(target, event) {
+    var fire = 'on' + event.type;
+    try {
+        return target.fireEvent(fire, event);
+    } catch (e) {
+        return target[fire] && target[fire](event);
+    }
+};
+function main() {
+    var target, event;
+    for (var cx = 0, dx = arguments.length; cx < dx; cx++) {
+        var arg = arguments[cx];
+        if (isString(arg)) {
+            event = createEvent(arg);
+        } else if (isNode(arg)) {
+            target = arg;
+        } else {
+            event = arg;
+        }
+    }
+    if (dispatch(target || window, event)) {
+        return event;
+    }
+    ;
+    return false;
+}
+return main;

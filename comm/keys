@@ -1,1 +1,5 @@
-01aObject,extend,c,d,e,a,f1e["keys","apply","concat"]function g(){return c[e](d[a](null,[][f][a]([{}],arguments)))}var b=g;return b
+01iObject,extend,Object,extendfunction keysFrom() {
+    return Object.keys(extend.apply(null, [].concat.apply([{}], arguments)));
+}
+var main = keysFrom;
+return main;

@@ -1,1 +1,91 @@
-0coCleanup,fromOffset,div,css,fromPixel,Math,String,clearTimeout,onremove,setTimeout,remove,popup,Function,JSON,r,s,t,u,c,j,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,k,_,$,l,m,a0,a1,n,a2,a3,a4,e,a5,a6,f,a7,a8,a9x0["#2a53cd","#228B22","#dd6a16","#dc352e","top:",";height:0;line-height:",";left:0;right:0;font-size:","; transition: all 0.2s ease-out;position:absolute;color:#fff;text-align:center;","<div style='width: 720px;max-width:100%;display:inline-block;height:",";background-color:",";'>",", ","</div>","margin:-"," auto;opacity:0;",/^#(?:\w{6}|\w{3})$/,"string","boolean","number","function","return this.apply(",",arguments);","forEach","offsetTop","style","top","offsetHeight","length","max","apply","map","children","innerHTML","slice","call","join","initialStyle","test","log","push","stringify"]function o(){var g=v(this),c,d=!0,k,j=S;[][n][e](arguments,function(b){switch(typeof b){case T:c?j[f](c)?(g=c,c=b):c in a?(g=a[c],c=b):b in a?g=a[b]:j[f](b)&&(g=b):c=b;break;case U:case V:d=b;break;case W:k=b}});var i;j[f](g)?i=h(g,[c]):i=h(a[a7],[c]);var o=function(a){k&&k[e](this,a),p(this),q(),l&&w(l)};if(x(i,o),d){d===!0?d=c[m]*200+400:d<100&&(d*=1e3);var l=y(function(){z(i)},d)}return b[a8](i),A(i),i}var a={log:D,info:E,warn:F,error:G},b=[],p=r(b),q=function(){var a=0;b[Z](function(b){b[k]!==a&&(b[_][$]=s(a)),a+=b[l]})},g=16,d=g*3.125|0,h=function(f,h){var a=t();return u(a,H+c(b[m]?j[a0][a1](j,b[n](function(a){return a[k]+a[a2][0][l]})):0)+I+c(d)+J+c(g)+K),a[a3]=L+c(d)+M+f+N+[][a4][e](h,0)[a5](O)+P,a[a6]=Q+c(d)+R,a};for(var i in a)o[i]=new B(X+C[a9](a[i])+Y);return o
+0c2Cleanup,fromOffset,div,css,fromPixel,Math,String,clearTimeout,onremove,setTimeout,remove,popup,Function,JSON,Cleanup,fromOffset,div,css,fromPixel,Math,String,clearTimeout,onremove,setTimeout,remove,popup,Function,JSONvar styles = {
+    log: '#2a53cd',
+    info: '#228B22',
+    warn: '#dd6a16',
+    error: '#dc352e'
+};
+var alerts = [];
+var clean = Cleanup(alerts);
+var build = function () {
+    var sum = 0;
+    alerts.forEach(function (elem) {
+        if (elem.offsetTop !== sum) {
+            elem.style.top = fromOffset(sum);
+        }
+        ;
+        sum += elem.offsetHeight;
+    });
+};
+var fontSize = 16;
+var singleHeight = fontSize * 3.125 | 0;
+var _text = function (color, parameters) {
+    var box = div();
+    css(box, 'top:' + fromPixel(alerts.length ? Math.max.apply(Math, alerts.map(function (e) {
+        return e.offsetTop + e.children[0].offsetHeight;
+    })) : 0) + ';height:0;line-height:' + fromPixel(singleHeight) + ';left:0;right:0;font-size:' + fromPixel(fontSize) + '; transition: all 0.2s ease-out;position:absolute;color:#fff;text-align:center;');
+    box.innerHTML = '<div style=\'width: 720px;max-width:100%;display:inline-block;height:' + fromPixel(singleHeight) + ';background-color:' + color + ';\'>' + [].slice.call(parameters, 0).join(', ') + '</div>';
+    box.initialStyle = 'margin:-' + fromPixel(singleHeight) + ' auto;opacity:0;';
+    return box;
+};
+function alert() {
+    var color = String(this), text, autoclose = true, onclose;
+    var color_reg = /^#(?:\w{6}|\w{3})$/;
+    [].map.call(arguments, function (arg) {
+        switch (typeof arg) {
+        case 'string':
+            if (!text) {
+                text = arg;
+            } else if (color_reg.test(text)) {
+                color = text;
+                text = arg;
+            } else if (text in styles) {
+                color = styles[text];
+                text = arg;
+            } else if (arg in styles) {
+                color = styles[arg];
+            } else if (color_reg.test(arg)) {
+                color = arg;
+            }
+            break;
+        case 'boolean':
+        case 'number':
+            autoclose = arg;
+            break;
+        case 'function':
+            onclose = arg;
+        }
+    });
+    var elem;
+    if (color_reg.test(color)) {
+        elem = _text(color, [text]);
+    } else {
+        elem = _text(styles.log, [text]);
+    }
+    var _onclose = function (event) {
+        if (onclose) {
+            onclose.call(this, event);
+        }
+        clean(this);
+        build();
+        if (close_timer)
+            clearTimeout(close_timer);
+    };
+    onremove(elem, _onclose);
+    if (autoclose) {
+        if (autoclose === true) {
+            autoclose = text.length * 200 + 400;
+        } else if (autoclose < 100) {
+            autoclose = autoclose * 1e3;
+        }
+        var close_timer = setTimeout(function () {
+            remove(elem);
+        }, autoclose);
+    }
+    alerts.push(elem);
+    popup(elem);
+    return elem;
+}
+for (var k in styles) {
+    alert[k] = new Function('return this.apply(' + JSON.stringify(styles[k]) + ',arguments);');
+}
+return alert;

@@ -1,1 +1,7 @@
-00kwindow,b,cg["File"]function d(b){return a?b instanceof a:void 0}var a=b[c];return d
+00qwindow,windowvar File = window.File;
+function isFile(a) {
+    if (File) {
+        return a instanceof File;
+    }
+}
+return isFile;

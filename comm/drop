@@ -1,1 +1,15 @@
-01adiv,cless,e,f,g,h,i,j,bd2["toString","\xD7",".-an{padding:5px 10px;display:none;position:absolute;right:0;top:0;line-height:24px;font-size:20px;cursor:pointer}:hover>.-an{display:block}.-an:hover{color:#f26}.-an:active{color:#c26}","-an drop drop","innerHTML"]function k(a){return a===void 0&&(a=e()),a[b]||(a[b]=c),a}var a,c,l,d,d=(a={},a[g]=function(){return h},l=c=a);return f(k,i,j)
+012div,cless,div,clessvar drop, Drop, template, template = Drop = drop = {
+        'toString': function () {
+            return '\xD7';
+        }
+    };
+function main(elem) {
+    if (elem === void 0) {
+        elem = div();
+    }
+    if (!elem.innerHTML) {
+        elem.innerHTML = drop;
+    }
+    return elem;
+}
+return cless(main, '.-ao {\n  padding: 5px 10px;\n  display: none;\n  position: absolute;\n  right: 0;\n  top: 0;\n  line-height: 24px;\n  font-size: 20px;\n  cursor: pointer;\n}\n:hover > .-ao {\n  display: block;\n}\n.-ao:hover {\n  color: #f26;\n}\n.-ao:active {\n  color: #c26;\n}\n', '-ao drop drop');

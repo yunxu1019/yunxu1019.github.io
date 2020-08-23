@@ -1,1 +1,13 @@
-function j(a){return[a[b](),a[c]()+1,a[d](),a[e](),a[f](),a[g](),a[h](),a[i]()]}var a=['getFullYear','getMonth','getDate','getHours','getMinutes','getSeconds','getMilliseconds','getDay'],b=a[0],c=a[1],d=a[2],e=a[3],f=a[4],g=a[5],h=a[6],i=a[7];return j
+function getSplitedDate(date) {
+    return [
+        date.getFullYear(),
+        date.getMonth() + 1,
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds(),
+        date.getDay()
+    ];
+}
+return getSplitedDate;

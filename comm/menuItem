@@ -1,1 +1,17 @@
-02sdocument,Object,render,cless,d,e,f,g,h,i,j,k,l,m,ncq["toString","<i ng-class=\"menu.icon\" ng-if='useIcon||hasIcon||menu.icon'></i><span ng-model=\"menu.name\"></span><s></s>","menu-item",".-yf i{display:inline-block;width:1em}","-yf menuItem menuItem","createElement","innerHTML"]function o(g,c,h){var a=g||d[m](j);return a[n]=b,c instanceof e&&f(a,{menu:c,useIcon:h}),a}var a,b,p,c,c=(a={},a[h]=function(){return i},p=b=a);return g(o,k,l)
+036document,Object,render,cless,document,Object,render,clessvar menuItem, MenuItem, template, template = MenuItem = menuItem = {
+        'toString': function () {
+            return '<i ng-class="menu.icon" ng-if=\'useIcon||hasIcon||menu.icon\'></i><span ng-model="menu.name"></span><s></s>';
+        }
+    };
+function main(elem, scope, hasIcon) {
+    var item = elem || document.createElement('menu-item');
+    item.innerHTML = menuItem;
+    if (scope instanceof Object) {
+        render(item, {
+            menu: scope,
+            useIcon: hasIcon
+        });
+    }
+    return item;
+}
+return cless(main, '.-yg i {\n  display: inline-block;\n  width: 1em;\n}\n', '-yg menuItem menuItem');

@@ -1,1 +1,48 @@
-072form,render,select,list,button,setTimeout,autodragchildren,console,JSON,cless,i,e,j,k,l,m,n,o,p,q,r,s,t,u,v,a,w,b,c,x,y,z,A,B,C25k["toString","<div class=\"options\"><btn class=\"add\" ng-click=add()><i>+</i>\u6dfb\u52a0</btn></div><list ng-src='(field,cx) in fields' class=\"fields\"><div><span ng-bind='field.id'></span><input placeholder=\"\u8bf7\u8f93\u5165\u5b57\u6bb5\u540d\u79f0\" ng-model=field.name /><select aria-placeholder=\"\" ng-model=field.type><option value=\"\">\u8bf7\u9009\u62e9\u5b57\u6bb5\u7c7b\u578b</option><option ng-repeat=\"type in types\"></option></select><btn ng-click=remove(field)>\u79fb\u9664</btn></div></list>",".-tb{padding:16px 0;position:relative}.-tb>.options,.-tb>.fields>div{text-align:right;padding:0 16px;display:block;line-height:40px;width:400px;height:40px;position:relative}.-tb>.options>input,.-tb>.fields>div>input,.-tb>.options>select,.-tb>.fields>div>select,.-tb>.options>btn,.-tb>.fields>div>btn{width:auto;height:28px;border:none;line-height:28px;display:inline-block;vertical-align:middle;box-sizing:border-box}.-tb>.options>input,.-tb>.fields>div>input{border-radius:3px 0 0 3px}.-tb>.options>btn,.-tb>.fields>div>btn{padding:0 6px;border-radius:0 3px 3px 0}.-tb>.fields{max-height:400px;overflow:hidden;height:400px}.-tb i{font-style:normal;display:inline-block;margin-right:6px}.-tb .add{width:auto;padding:0 16px;height:28px;line-height:28px}","-tb design design","innerHTML","fields","push","length","splice","$scope","children","topIndex","refresh","log","stringify"]function D(s,t){var d=i();d[v]=f;var r=e(d,{select:j,fields:s,list:k,btn:l,add:function(){var c=this;this[a][w]({id:++h}),m(function(){g.go(c[a][b])})},remove:function(f){var e=this[a];for(var d=e[b]-1;d>=0;d--)e[d]===f&&e[c](d,1)},types:t})[x],q=d[y],u=q[0],g=q[1];return n(g,g,function(i,f){var h=g[z]();i+=h,f+=h;var d=r[a];f>=d[b]&&(f=d[b]-1);var j=d[c](i,1)[0];d[c](f,0,j),e[A](),o[B](p[C](d))}),d}var d,f,E,g,g=(d={},d[r]=function(){return s},E=f=d),h=0;return q(D,t,u)
+08mform,render,select,list,button,setTimeout,autodragchildren,console,JSON,cless,form,render,select,list,button,setTimeout,autodragchildren,console,JSON,clessvar design, Design, template, template = Design = design = {
+        'toString': function () {
+            return '<div class="options"><btn class="add" ng-click=add()><i>+</i>\u6dfb\u52a0</btn></div><list ng-src=\'(field,cx) in fields\' class="fields"><div><span ng-bind=\'field.id\'></span><input placeholder="\u8bf7\u8f93\u5165\u5b57\u6bb5\u540d\u79f0" ng-model=field.name /><select aria-placeholder="" ng-model=field.type><option value="">\u8bf7\u9009\u62e9\u5b57\u6bb5\u7c7b\u578b</option><option ng-repeat="type in types"></option></select><btn ng-click=remove(field)>\u79fb\u9664</btn></div></list>';
+        }
+    };
+var field_Id = 0;
+function main(fields, types) {
+    var page = form();
+    page.innerHTML = design;
+    var scope = render(page, {
+        select: select,
+        fields: fields,
+        list: list,
+        btn: button,
+        add: function () {
+            var _this = this;
+            this.fields.push({ id: ++field_Id });
+            setTimeout(function () {
+                fieldsContainer.go(_this.fields.length);
+            });
+        },
+        remove: function (field) {
+            var fields = this.fields;
+            for (var cx = fields.length - 1; cx >= 0; cx--) {
+                if (fields[cx] === field) {
+                    fields.splice(cx, 1);
+                }
+            }
+        },
+        types: types
+    }).$scope;
+    var _a = page.children, options = _a[0], fieldsContainer = _a[1];
+    autodragchildren(fieldsContainer, fieldsContainer, function (src, dst) {
+        var offset = fieldsContainer.topIndex();
+        src += offset;
+        dst += offset;
+        var fields = scope.fields;
+        if (dst >= fields.length) {
+            dst = fields.length - 1;
+        }
+        var field = fields.splice(src, 1)[0];
+        fields.splice(dst, 0, field);
+        render.refresh();
+        console.log(JSON.stringify(fields));
+    });
+    return page;
+}
+return cless(main, '.-tc {\n  padding: 16px 0;\n  position: relative;\n}\n.-tc > .options,\n.-tc > .fields > div {\n  text-align: right;\n  padding: 0 16px;\n  display: block;\n  line-height: 40px;\n  width: 400px;\n  height: 40px;\n  position: relative;\n}\n.-tc > .options > input,\n.-tc > .fields > div > input,\n.-tc > .options > select,\n.-tc > .fields > div > select,\n.-tc > .options > btn,\n.-tc > .fields > div > btn {\n  width: auto;\n  height: 28px;\n  border: none;\n  line-height: 28px;\n  display: inline-block;\n  vertical-align: middle;\n  box-sizing: border-box;\n}\n.-tc > .options > input,\n.-tc > .fields > div > input {\n  border-radius: 3px 0 0 3px;\n}\n.-tc > .options > btn,\n.-tc > .fields > div > btn {\n  padding: 0 6px;\n  border-radius: 0 3px 3px 0;\n}\n.-tc > .fields {\n  max-height: 400px;\n  overflow: hidden;\n  height: 400px;\n}\n.-tc i {\n  font-style: normal;\n  display: inline-block;\n  margin-right: 6px;\n}\n.-tc .add {\n  width: auto;\n  padding: 0 16px;\n  height: 28px;\n  line-height: 28px;\n}\n', '-tc design design');

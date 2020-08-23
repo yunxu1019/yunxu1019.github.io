@@ -1,1 +1,2 @@
-00con,b,co["mouseout"]var a=b(c);return a
+00aon,onvar onmouseleave = on('mouseout');
+return onmouseleave;

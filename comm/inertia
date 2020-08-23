@@ -1,1 +1,89 @@
-05mMath,Date,Function,requestAnimationFrame,cancelAnimationFrame,speed,a,c,m,f,g,n,o,p,q,b,r,s,h,i,j,t,u4o["abs","sign","sqrt","map","max","apply","forEach","call","length","smooth","reset"]function v(B,x){x===void 0&&(x=!0);var y=function(){var g=+new c,h=g-p;if(p=g,h>6){var d=0,i=o[b](function(f,g){var b=f()*h,c=k(b);return c<=1?f(0):(d=a[r](d,c),b-=l(b)*(c-e(c)*e(c-1)),f(b),b)});if(z(i),!(d>=1)){q instanceof m&&q();return}}v=f(y)},z=function(a){!1===B[s](A,a)&&o[h](function(a){return a(0)})},d,o,v,p=0,A,q,w=function(){g(v);var a=arguments;d?a[j]!==d[j]?d=null:(x||(a=[][b][i](a,function(a,b){return a-d[b]})),A=this,z(a),a=o[b](function(b,c){return b(a[c])}),p=+new c):(d=a,o=[][b][i](d,function(a){return n()}),o[h](function(a){return a(0)}),p=+new c)};return w[t]=function(a){q=a,o?v=f(y,20):q()},w[u]=function(){g(v),d=null,o=null,q=null},w}var k=a[o],d=a[p],l=d===void 0?function(a){return a>0?1:a<0?-1:0}:d,e=a[q];return v
+07iMath,Date,Function,requestAnimationFrame,cancelAnimationFrame,speed,Math,Date,Function,requestAnimationFrame,cancelAnimationFrame,speedvar abs = Math.abs, _a = Math.sign, sign = _a === void 0 ? function (a) {
+        if (a > 0)
+            return 1;
+        if (a < 0)
+            return -1;
+        return 0;
+    } : _a, sqrt = Math.sqrt;
+function main(gun, is_delta) {
+    if (is_delta === void 0) {
+        is_delta = true;
+    }
+    var smooth = function () {
+        var currentTime = +new Date();
+        var delta_time = currentTime - savedTime;
+        savedTime = currentTime;
+        if (delta_time > 6) {
+            var abs_speed = 0;
+            var args = speeds.map(function (_speed, i) {
+                var __speed = _speed() * delta_time;
+                var abs_spd = abs(__speed);
+                if (abs_spd <= 1) {
+                    return _speed(0);
+                }
+                abs_speed = Math.max(abs_speed, abs_spd);
+                __speed = __speed - sign(__speed) * (abs_spd - sqrt(abs_spd) * sqrt(abs_spd - 1));
+                _speed(__speed);
+                return __speed;
+            });
+            run(args);
+            if (!(abs_speed >= 1)) {
+                if (decrease instanceof Function)
+                    decrease();
+                return;
+            }
+        }
+        smooth_timer = requestAnimationFrame(smooth);
+    };
+    var run = function (args) {
+        if (false === gun.apply(that, args)) {
+            speeds.forEach(function (a) {
+                return a(0);
+            });
+        }
+    };
+    var saved_args, speeds, smooth_timer, savedTime = 0, that, decrease;
+    var trans = function () {
+        cancelAnimationFrame(smooth_timer);
+        var args = arguments;
+        if (!saved_args) {
+            saved_args = args;
+            speeds = [].map.call(saved_args, function (a) {
+                return speed();
+            });
+            speeds.forEach(function (a) {
+                return a(0);
+            });
+            savedTime = +new Date();
+        } else if (args.length !== saved_args.length) {
+            saved_args = null;
+        } else {
+            if (!is_delta) {
+                args = [].map.call(args, function (a, i) {
+                    return a - saved_args[i];
+                });
+            }
+            that = this;
+            run(args);
+            args = speeds.map(function (a, i) {
+                return a(args[i]);
+            });
+            savedTime = +new Date();
+        }
+    };
+    trans.smooth = function (d) {
+        decrease = d;
+        if (speeds)
+            smooth_timer = requestAnimationFrame(smooth, 20);
+        else
+            decrease();
+    };
+    trans.reset = function () {
+        cancelAnimationFrame(smooth_timer);
+        saved_args = null;
+        speeds = null;
+        decrease = null;
+    };
+    return trans;
+}
+return main;

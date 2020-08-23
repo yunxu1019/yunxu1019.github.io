@@ -1,1 +1,943 @@
-1d8Array,Object,JSON,keys,location,String,Error,extend,parseKV,RegExp,serialize,undefined,unescape,isFunction,isString,navigator,console,document,Promise,isEmpty,Date,seek,cross,isDefined,isProduction,alert,Function,enrich,deepEqual,setTimeout,LoadingArray,localStorage,sessionStorage,w,l,f,az,bd,ad,J,g,ae,be,aA,aB,bf,bg,V,bh,B,bi,m,aC,bj,aD,aE,bk,bl,aF,p,bm,bn,bo,aG,C,D,bp,bq,W,aH,aI,br,bs,bt,bu,bv,bw,X,af,Y,bx,aJ,by,bz,bA,bB,bC,bD,bE,bF,ag,bG,bH,bI,bJ,ah,bK,bL,bM,bN,bO,bP,bQ,bR,bS,bT,ai,bU,bV,bW,bX,bY,aK,bZ,b_,b$,c0,c1,aL,c2,c3,c4,aM,E,c5,c6,c7,c8,c9,aN,ca,cb,cc,cd,ce,cf,cg,ch,ci,cj,ck,cl,cm,cn,Z,co,cp,cq,_,cr,cs,ct,aO,cu,aP,h,q,aQ,K,cv,i,r,aR,a,x,cw,aj,ak,s,c,F,b,cx,cy,cz,aS,cA,cB,n,$,cC,cD,a0,cE,cF,aT,cG,al,aU,a1,cH,am,an,aV,cI,ao,d,aW,L,aX,M,ap,aY,cJ,aZ,cK,a_,a$,cL,cM,aq,b0,N,b1,b2,b3,a2,a3,ar,b4,b5,b6,cN,cO,y,as,cP,b7,cQ,at,cR,cS,cT,G,O,a4,t,u,a5,a6,cU,cV,o,cW,a7,b8,a8,cX4c2["datasource",";","string",/(?:\s+|,)/,"function","reason,message,desc,descption,msg,err,error",",","id","name","icon",/#(.*?)$/,"&","=","?",/([\s\S]*?)/,/[\?\#][\s\S]*$/,/[\.\*\+\-\[\]\{\}\(\)\\\/\!<\>\^]/g,"\\$&",/\:\w+/,/[\?#]*$/g,/[&#\?]+/,"^","$","ig",".",/^(\[\]|,)|(\[\]|,)$/g,/[\|\?\!\/]/,/[\:\>\\]/,/[\>\\]/,/\?/,/\|/,/\//,/^\s*(\{[\s\S]*\}|\[[\s\S]*\]|true|false|null|[\d\.]*|"[\s\S]*")\s*$/,/\?(.+?)$/,/\:\w+/g,/msie\s+[2-9]/i,/^\s*([\{\[]|"|true|\d|false|null)/,/^\s*</i,/<!--[\s\S]*?--\>|<\[CDATA\[[\s\S]*?\]\]>/ig,/^[\s\S]*?<html>([\s\S]*)<\/html>[\s\S]*?$/i,"$1",/^[\s\S]*?<body>([\s\S]*?)$/i,/<\/body>[\s\S]*?$/,/^[\s\_\.\w\$]+\s*\([\s\S]*\)\s*;?\s*$/,/^[^\(]+\(([\s\S]*)\)[^\)]*$/,/(?:\?([\s\S]*?))?(?:#([\s\S]*))?$/,/[\?#]/,/^\.([\?\#][\s\S]*)?$/,/^\./,"#",/^\w+/,/^(https?\:\/\/|\.?\/)/i,"hasOwnProperty","\u591a\u6b21\u8bbe\u7f6e\u7684id\u76f8\u540c\u7684api:%c","color:red","[","]("," ",")\r\n \u88ab [",") \u8986\u76d6",/\s+/,/(https?\:)?|\.?\//i,"id method url name comment",/\?[\s\S]*$/,/\:/,":","\u8df3\u8fc7\u4e86\u7f3a\u5c11\u53c2\u6570\u7684\u8bf7\u6c42:","\r\n\u7f3a\u5c11\u53c2\u6570\uFF1A",", ",/[\?\:][\s\S]*$/,"\u6ca1\u6709\u627e\u5230\u5bf9\u5e94\u7684\u63a5\u53e3 id ",/[\:\|\/\~\!\?]/,/\W+$/g,/#[\s\S]*$/,/^[\s\S]*?\?/,/\:[a-z\_][\w]*/i,/\*$/,"\u6ca1\u6709\u6307\u5b9a\u914d\u7f6e\u6587\u4ef6\u7684\u8def\u5f84\uFF0C\u8bf7\u4f7f\u7528data.loadConfig\u52a0\u8f7d\u914d\u7f6e","get","\u5df2\u4f7f\u7528\u9ed8\u8ba4\u7684\u62a5\u9519\u5de5\u5177\uFF0C\u60a8\u53ef\u4ee5\u4f7f\u7528 data.setReporter(error_reporter,error_finder) \u66ff\u6362! \u672c\u4fe1\u606f\u5728\u4ec5\u5728\u5f00\u53d1\u73af\u5883\u663e\u793a\u3002","error",/^\.*\/|\.\w+$/,"catch","serviceId \u53ea\u80fd\u662f\u5b57\u7b26\u4e32","number","outdate canceled.","source","head","body","map","stringify","inc","parse","pathname","split","length","shift","replace","forEach","reverse","querySelector","indexOf","slice","url","push","test","concat","apply","querySelectorAll","hasAttribute","getAttribute","trim","method","name","comment","userAgent","log","implementation","createHTMLDocument","innerHTML","documentElement","exec","toLowerCase","call","warn","headers","filter","keys","string","getApi","then","pack","fromApi","validApi","loadIgnoreConfig","resolve","required","join","getConfigPromise","index","prepare","uri","baseuri","coinmethod","search","selector","params","time","send","done","response","responseText","error","statusText","status","root","info","getItem","is_loading","loading_count","is_errored","error_message","error_object","is_loaded","fromURL","asyncInstance","pop","removeInstance","getInstance","responseLoading","loading_promise","setInstance","responseLoaded","responseCrash","loadAfterConfig","shallow","loading","abort","removeItem","rebuildInstance","setItem","splice"]function cY(a){var c=a[aO],d=a[cu],b=a[aP];return b instanceof w?b[h](function(b){var a={};return b[h](function(f,g){var b=d[g],e=c[b][f];a[b]=e}),a}):[]}function cZ(c){if(!(c instanceof w))return;var a={};c[h](function(g){for(var b in g){var d=g[b];if(d instanceof l)continue;a[b]||(a[b]={inc:0});var c=a[b],e=f[q](d);e in c||(c[e]=c[aQ]++)}});var b=az(a),d=c[h](function(c){return b[h](function(b){var d=f[q](c[b]);return a[b][d]})});return b[h](function(c){var b=a[c];delete b[aQ],a[c]=az(b)[h](f[K])}),{source:a,head:b,body:d}}function c_(a){if(!(a instanceof l))return ad(a);if(a instanceof J)return ad(a);var b=br[i](bs);while(b[r]){var c=b[aR]();if(a[c])return ad(a[c])}return f[q](a)}function b9(d){var b,c=[bt,bu,bv];return d[a](bw,function(d,a){return a=a[i](X),a[x](function(f,h){if(f){var a=f[i](af)[cw](),d=a[0],e=a[1],g=e===void 0?c[h]||d:e;b||(b={}),b[g]=d}}),''}),b}function au(a,e,f,k){if(!e)return a;if(a instanceof w){v||(v=[]);var i=a[h](function(a){return au(a,e,f,!1)});return k!==!1&&(v=null),i}j=g({},a&&a[aj]?null:a);for(var c in e){var d=e[c];if(!(c in j)){var b;d in j?(b=j[d],delete j[d]):b=P(a,d,f),c?j[c]=b:b instanceof w?j=g([],j,b):g(j,b)}}return j}function av(b,c){c===void 0&&(c=Y);var a=b[ak](c);return a<0||a>=b[r]-1?void 0:ae(b[s](a+1))}function c$(e,f){var g=bx[aO],d=[],h=e[c][a](aJ,'')[a](by,bz)[a](bA,function(a){return d[F](a[s](1)),g}),b={};return f=f[a](bB,function(a){return a[i](bC)[x](function(e){var a=e[i](af),c=a[0],d=a[1];b[c]=d}),''})[a](new be(bD+h+bE,bF),function(){var a=arguments;d[x](function(c,d){b[c]=a[d+1]})}),b=aA(b),e.id+Y+b}function ba(a,d){if(!d)return a;var b=d[i](ag);while(b[r]){var c=b[aR]();if(!(a!==null&&a!==aB&&c in a))return aB;a=a[c]}return a}function P(c,d,m){var n;if(m===void 0&&(m={}),c&&c[aj]){if(!d)return c;d=bf(d);var g=bG;if(g[b](d))return[][cx][cy]([],c[cz](d[a](g,'')));var g=bH,j,e;if(g[b](d)?(n=d[i](g),j=n[0],e=n[1]):j=d,j&&(c=c[aj](j)),c&&e){var o=bI,h,q=bJ[b](e);if(o[b](e)){var k=e[i](o),e=k[0],h=k[1],l=k[2];h=m[h]}if(bg(c[aS])&&c[aS](e)?c=c[cA](e):e in c?c=c[e]:c=ba(c,e),ah[b](d)&&v instanceof w){var p=v[ak](c);return p<0?(v[F](c),v[r]):p+1}return V(c)&&bK[b](d)&&(c=c[cB]()),V(c)&&bL[b](d)&&bM[b](c)&&(c=f[K](c)),h&&(c=c$(h,c),(l||q)&&(c=av(c),l&&(c=c[l]))),c}return c}return c=ba(c,d),c}function d0(d){var f=d[n],l=f===void 0?'':f,g=d[c],h=g===void 0?'':g,j=d.id,e=j===void 0?'':j,k=d[$],m=k===void 0?'':k,o=d[cC],b=[];return e=e[a](bN,function(c,a){return a=a[i](X),a[x](function(e){if(e){var c=e[i](af),a=c[0],d=c[1],f=d===void 0?a:d;b[a]||b[F](a),b[a]=f}}),''}),h[a](aJ,'')[a](bO,function(a){a=a[s](1),b[a]||(b[F](a),b[a]=a)}),{method:l,url:h,id:e,name:m,comment:o,required:b}}function d1(d,e){var l;if(!ab[b](d[c])&&e){var h=bY,i,j,f,g;if(aK[b](e)&&(l=h[al](e),i=l[1],j=l[2],e=e[a](h,'')),bZ[b](d[c])?d[c]=e+d[c][a](b_,''):d[c]=e+d[c],i||j){if(aK[b](d[c]))var m=h[al](d[c]),f=m[1],g=m[2];var k=d[c][a](h,'');i&&(f=f?i+X+f:i),j&&(g=g?j+X+g:j),f&&(k+=Y+f),g&&(k+=b$+g),d[c]=k}}d[n]=d[n][a](c0,function(a){return a[aU]()})}function z(t){function u(a){if(d1(a,p),o[a1](d,a.id)){var b=d[a.id];B[cH](c2+a.id,c3),B[a0](c4+a[$]+aM+b[n]+E+a[c]+c5+a[$]+aM+b[n]+E+b[c]+c6)}return d[a.id]=a,a[am]=q,a}function v(a){return a+E+m[a]}var d={},o={}[aL],p,q,g=t;for(var j in g){var e=j[i](c7),a=e[an](function(a){return ab[b](a)})[0];if(!a)var k=0;else k=e[ak](a)+1;var f=e[s](k)[0];if(f&&!ab[b](f)&&(q=ae(f)),!a)continue;p=c8[b](a)?a:'';var m=g[j],r=l[aV](m)[h](v);bb[cI](c9,r)[h](d0)[h](u)}return d}function d2(b,a){a[y]||this[as]--,a[cP]=!0,a[y]=!1,a[b7]=c_(b),a[cQ]=b,b instanceof l?g(a,b):a[ar]=b,T(a[b7],cp)}function d3(a){a[at]=!0,a[y]&&(a[y]=!1,this[as]--)}function d4(a){a[at]=!1,a[y]=!0,a[y]&&this[as]++}var a9,Q=bd[cv],k={},A=bp+Q,aa=bq,H={},aw={},bb=(a9={},a9[W]=function(c,a){if(a instanceof w){var b=c[i](aH);a=a[h](function(a){if(typeof a===W){var c={};return a[i](aH)[h](function(a,d){return c[b[d]]=a}),c}return a})}return a},a9[aI]=function(a,b,c){return a(b,c)},a9),v=null,bc=bP[b](bh[cD]),R=function(c){if(bQ[b](c))try{return f[K](c)}catch(a){B[a0](a)}if(bR[b](c)){var d=bi[cE][cF]('');return bc?(c=c[a](bS,'')[a](bT,ai)[a](bU,ai)[a](bV,''),d[aP][aT]=c):d[cG][aT]=c,d}if(bW[b](c))try{return f[K](c[a](bX,ai))}catch(a){B[a0](a)}return c},ab=c1,ax,I,e={loadAfterConfig:function(c,a){var b=this,e=this[ao](c)[d](function(d){return a=b[aW](c,a),b[L](d,a)});return e},pack:function(c,d){if(ah[b](c)&&(d=g({},av(c),d),c=c[a](aN,'')),ca[b](c)){var h=g({},d),f=av(c,cb);for(var i in f){var e=f[i];e in d&&(h[i]=d[e]),e in f||delete h[e]}}return d},fromApi:function(a,b){var d=a[c];return this[aX](a,b)?this[M](a[n],d,b,a):m[ap]()},validApi:function(b,d){if(b[aY]){var a=b[aY];if(d&&(a=a[an](function(a){return aC(d[a])}),a[an](function(a){var b=P(k,a);if(aC(b))return!0;a in d||(d[a]=b)})),a[r])return B[a0](cc+b.id+E+b[$]+E+b[c]+cd+a[cJ](ce)),!1}return!0},getApi:function(b){return this[aZ]()[d](function(d){b=b[a](cf,'');var c=d[b];if(!c)throw new J(cg+b+ag);return g({},c,{root:d})})},prepare:function(j,p,c){var d=ch[al](j),f;d?d=d[cK]:d=j[r];var m=j[s](0,d)[aU](),o=m[a](ci,''),e=p[a](cj,'');c=g({},c),ah[b](e)&&(f=e[a](ck,''));var k=[],l=e[a](aN,'')[a](cl,function(a){return a=a[s](1),k[F](a),P(c,a)||''}),n={}[aL];if(f){var i=ae(f);for(var h in i)n[a1](i,h)&&n[a1](c,h)&&(i[h]=c[h],k[F](h));f=aA(i),e=l+Y+f}else e=l;return k[x](function(a){return delete c[a]}),{method:o,coinmethod:m,selector:j[s](d+1),search:f,baseuri:l,uri:e,params:c}},loadIgnoreConfig:function(w,r,e,h){var g=h&&h[am],c=this[a_](w,r,e),i=c[n],s=c[a$],t=c[cL],u=c[cM],j=c[aq],v=c[b0],e=c[N],l=i+E+t,a=aw[l],o=f[q](e),p=+new bj;if(!a||p-a[b1]>60||o!==a[N]||a[aq]!==j){var a=new m(function(b,a){g&&(g=aD(k,g)),aE(i,s,g)[b2](e)[b3](function(a){b(a[a2]||a[a3])})[ar](function(b){try{a(R(b[a2]||b[a3]||b[b4]||b[b5]))}catch(b){a(b)}})});a[aq]=j,a[N]=o,a[b1]=p,aw[l]=a}return a[d](function(d){if(cm[b](u))return d;var a=R(d),c=ay(a),e=h&&h[b6];return a=au(P(a,v),b9(r),e),bk(c)?c:a})},getConfigPromise:function(){if(!I){if(!ax)throw new J(cn);I=this[M](Z,ax)[d](z)}return I}},S=0,ac=function(){return S++===S&&(S=1),S},T=bl?aF:function(a,b){T=aF,T(a,b),B[cN](co)},ay=function(a){},U=function(a,b){try{return f[K](a[cO](b))}catch(a){}},j={decodeStructure:cY,encodeStructure:cZ,responseLoaded:d3,responseCrash:d2,responseLoading:d4,setReporter:function(a,b){a instanceof p&&(T=a),b instanceof p&&(ay=b)},loading_count:0,loadConfig:function(a){return a&&(ax=a,I=null),e[aZ]()},getApi:function(a){return e[ao](a)},setConfig:function(a){I=m[ap](a)[d](z)},parseConfig:function(a){return a instanceof m?a[d](z):a instanceof l?z(a):V(a)?e[M](Z,a)[d](z):void 0},from:function(a,c,d){return c instanceof p&&(d=c,c={}),a instanceof l?this[L](a,c):cq[b](a)?this[cR](a,d):this[cS](a,c,d)},enrich:function(a){if(a===void 0&&(a=I),!a)return;if(V(a))a=e[M](Z,a)[d](z);else if(!(a instanceof m)){if(!(a instanceof l))return;a=m[ap](a)[d](z)}return bm({from:function(b,c){return a[d](function(d){var a=d[b];return e[L](a,c)})},queue:function(b,c,f){b=b[s](0),a[d](function(a){return new m(function(f){var a=function(c){if(!b[r])return f(c);var g=b[cT](),h=j[g];e[L](h,c)[d](a)};a(c)})})}})},fromApi:function(h,k,i){var b=this,a=i instanceof p?ac():0;a&&this[G](a);var g=h[c],f=this[O](a||g);this[a4](f);var j=f[t]=e[L](h,k)[d](function(c){return a?(b[u](a,i(c),!1),b[G](a)):b[u](g,c),b[a5](f),c});return j[_](function(a){b[a6](a,f)}),f},fromURL:function(f,g){var b=this,a=g instanceof p?ac():0;a&&this[G](a);var c=this[O](a||f);this[a4](c);var h=c[t]=e[M](Z,f)[d](function(d){return a?(b[u](a,g(d),!1),b[G](a)):b[u](f,d),b[a5](c),d});return h[_](function(a){b[a6](a,c)}),c},asyncInstance:function(f,h,g){var b=this;if(typeof f!==W)throw new J(cr);var a=g instanceof p||h?ac():0;a&&this[G](a);var c=this[O](a||f);this[a4](c);var i=c[t]=e[cU](f,h)[d](function(d){return a?(b[u](a,g instanceof p?g(d):d,!1),b[G](a)):b[u](f,d),b[a5](c),d});return i[_](function(a){b[a6](a,c)}),c},lazyInstance:function(){var g=this,h,i,l,q=600;[][x][a1](arguments,function(a){switch(typeof a){case W:h?i=a:h=a;break;case cs:q=a;break;case aI:l=a;break;default:i=a}});var j=ag+h,a=this[O](j),b=a[t];if(b){var r=b[N];if(bn[cV](i,r))return a}var f=new J(ct);return b=a[t]=new m(function(b){a[o]||(a[o]=!1),bo(b,q)})[d](function(){if(b!==a[t])throw f;return e[ao](h)})[d](function(j){if(b!==a[t])throw f;a[o]&&a[o][cW](),g[a4](a);var l=e[aW](h,i);if(!e[aX](j,l))throw f;var p=e[a_](j[n],j[c],l),q=p[n],r=p[a$],l=p[N],s=p[b0],u=new m(function(d,c){var b=j[am];b&&(b=aD(k,b)),a[o]=aE(q,r,b)[b2](l)[b3](function(b){if(a[o]!==b)return c(f);a[o]=null,d(b[a3]||b[a2])})[ar](function(b){if(a[o]!==b)return c(f);a[o]=null;try{c(R(b[a2]||b[a3]||b[b4]||b[b5]))}catch(a){c(a)}})})[d](function(a){return au(P(R(a),s),b9(j[c]),j[b6])});return u})[d](function(c){if(a[t]!==b)return;j?g[u](j,l instanceof p?l(c):c,!1):g[u](h,c),g[a5](a)}),b[_](function(b){if(b===f)return;g[a6](b,a)}),a},getInstance:function(b,c){if(c===void 0&&(c=!1),!H[b]){var a=H[b]=new aG,d=aa+b+Q;g(a,U(C,d)),c||g(a,U(D,d)),a[y]=!1,a[at]=!0}return H[b]},removeInstance:function(b){delete H[b];var a=aa+b+Q;C[a7](a),D[a7](a)},setSource:function(b,c){var a;b instanceof l?(this[b8](k,b),a=c):(k[b]=c,a=arguments[2]),a!==!1&&D[a8](A,f[q](k)),a&&C[a8](A,f[q](k))},clearSource:function(){C[a7](A),D[a7](A)},setInstance:function(b,c,a){a===void 0&&(a=0);var e=this[O](b);this[b8](e,c);var d=aa+b+Q;return a!==!1&&D[a8](d,f[q](c)),a&&C[a8](d,f[q](c)),H[b]},rebuildInstance:function(a,c,b){if(b===void 0&&(b=a),a===c)return;a instanceof w&&a[cX](0,a[r]);var d=new aG;l[aV](b)[x](function(c){a[c]===b[c]&&!(c in d)&&delete a[c]}),g(a,c)}};return g(k,U(C,A)),g(k,U(D,A)),j
+0vaArray,Object,JSON,keys,location,String,Error,extend,parseKV,RegExp,serialize,undefined,unescape,isFunction,isString,navigator,console,document,Promise,isEmpty,Date,seek,cross,isDefined,isProduction,alert,Function,enrich,deepEqual,setTimeout,LoadingArray,localStorage,sessionStorage,Array,Object,JSON,keys,location,String,Error,extend,parseKV,RegExp,serialize,undefined,unescape,isFunction,isString,navigator,console,document,Promise,isEmpty,Date,seek,cross,isDefined,isProduction,alert,Function,enrich,deepEqual,setTimeout,LoadingArray,localStorage,sessionStoragefunction decodeStructure(object) {
+    var source = object.source, head = object.head, body = object.body;
+    if (body instanceof Array) {
+        return body.map(function (arr) {
+            var o = {};
+            arr.map(function (a, cx) {
+                var k = head[cx];
+                var v = source[k][a];
+                o[k] = v;
+            });
+            return o;
+        });
+    }
+    return [];
+}
+function encodeStructure(array) {
+    if (!(array instanceof Array))
+        return;
+    var source = {};
+    array.map(function (obj) {
+        for (var k in obj) {
+            var v = obj[k];
+            if (v instanceof Object)
+                continue;
+            if (!source[k]) {
+                source[k] = { inc: 0 };
+            }
+            var o = source[k];
+            var s = JSON.stringify(v);
+            if (!(s in o))
+                o[s] = o.inc++;
+        }
+    });
+    var head = keys(source);
+    var body = array.map(function (obj) {
+        return head.map(function (k) {
+            var v = JSON.stringify(obj[k]);
+            return source[k][v];
+        });
+    });
+    head.map(function (key) {
+        var valuesmap = source[key];
+        delete valuesmap.inc;
+        source[key] = keys(valuesmap).map(JSON.parse);
+    });
+    return {
+        source: source,
+        head: head,
+        body: body
+    };
+}
+var pagePathName = location.pathname;
+var dataSourceMap = {};
+var sourceDataId = 'datasource' + pagePathName;
+var userPrefix = ';';
+var instanceDataMap = {};
+var cachedLoadingPromise = {};
+var formulaters = {
+    'string': function (formulate, data) {
+        if (data instanceof Array) {
+            var keys_1 = formulate.split(/(?:\s+|,)/);
+            data = data.map(function (item) {
+                if (typeof item === 'string') {
+                    var res_1 = {};
+                    item.split(/(?:\s+|,)/).map(function (value, cx) {
+                        return res_1[keys_1[cx]] = value;
+                    });
+                    return res_1;
+                }
+                return item;
+            });
+        }
+        return data;
+    },
+    'function': function (formulate, data, params) {
+        return formulate(data, params);
+    }
+};
+function getErrorMessage(error) {
+    if (!(error instanceof Object))
+        return String(error);
+    if (error instanceof Error)
+        return String(error);
+    var words = 'reason,message,desc,descption,msg,err,error'.split(',');
+    while (words.length) {
+        var a = words.shift();
+        if (error[a]) {
+            return String(error[a]);
+        }
+    }
+    return JSON.stringify(error);
+}
+function getTranspile(url) {
+    var transpile;
+    var keys = [
+        'id',
+        'name',
+        'icon'
+    ];
+    url.replace(/#(.*?)$/, function (_, s) {
+        s = s.split('&');
+        s.forEach(function (p, cx) {
+            if (p) {
+                var _a = p.split('=').reverse(), v = _a[0], _b = _a[1], k = _b === void 0 ? keys[cx] || v : _b;
+                if (!transpile)
+                    transpile = {};
+                transpile[k] = v;
+            }
+        });
+        return '';
+    });
+    return transpile;
+}
+var transpileMap = null;
+function transpile(src, trans, apiMap, delTransMap) {
+    if (!trans)
+        return src;
+    if (src instanceof Array) {
+        if (!transpileMap)
+            transpileMap = [];
+        var res = src.map(function (a) {
+            return transpile(a, trans, apiMap, false);
+        });
+        if (delTransMap !== false) {
+            transpileMap = null;
+        }
+        return res;
+    }
+    data = extend({}, src && src.querySelector ? null : src);
+    for (var k in trans) {
+        var v = trans[k];
+        if (!(k in data)) {
+            var value;
+            if (v in data) {
+                value = data[v];
+                delete data[v];
+            } else {
+                value = seekResponse(src, v, apiMap);
+            }
+            if (!k) {
+                if (value instanceof Array) {
+                    data = extend([], data, value);
+                } else {
+                    extend(data, value);
+                }
+            } else {
+                data[k] = value;
+            }
+        }
+    }
+    return data;
+}
+function getParamsFromUrl(url, s) {
+    if (s === void 0) {
+        s = '?';
+    }
+    var index = url.indexOf(s);
+    if (index < 0 || index >= url.length - 1)
+        return;
+    return parseKV(url.slice(index + 1));
+}
+function getUrlParamsForApi(api, url) {
+    var r = /([\s\S]*?)/.source;
+    var cap = [];
+    var base = api.url.replace(/[\?\#][\s\S]*$/, '').replace(/[\.\*\+\-\[\]\{\}\(\)\\\/\!<\>\^]/g, '\\$&').replace(/\:\w+/, function (a) {
+        cap.push(a.slice(1));
+        return r;
+    });
+    var params = {};
+    url = url.replace(/[\?#]*$/g, function (match) {
+        match.split(/[&#\?]+/).forEach(function (s) {
+            var _a = s.split('='), k = _a[0], v = _a[1];
+            params[k] = v;
+        });
+        return '';
+    }).replace(new RegExp('^' + base + '$', 'ig'), function () {
+        var args = arguments;
+        cap.forEach(function (a, cx) {
+            params[a] = args[cx + 1];
+        });
+    });
+    params = serialize(params);
+    return api.id + '?' + params;
+}
+function __seekprop(data, prop) {
+    if (!prop)
+        return data;
+    var props = prop.split('.');
+    while (props.length) {
+        var p = props.shift();
+        if (data !== null && data !== undefined && p in data) {
+            data = data[p];
+        } else {
+            return undefined;
+        }
+    }
+    return data;
+}
+function seekResponse(data, seeker, apiMap) {
+    var _a;
+    if (apiMap === void 0) {
+        apiMap = {};
+    }
+    if (data && data.querySelector) {
+        if (!seeker)
+            return data;
+        seeker = unescape(seeker);
+        var reg = /^(\[\]|,)|(\[\]|,)$/g;
+        if (reg.test(seeker)) {
+            return [].concat.apply([], data.querySelectorAll(seeker.replace(reg, '')));
+        }
+        var reg = /[\|\?\!\/]/, selector, prop;
+        if (reg.test(seeker)) {
+            _a = seeker.split(reg), selector = _a[0], prop = _a[1];
+        } else {
+            selector = seeker;
+        }
+        if (selector) {
+            data = data.querySelector(selector);
+        }
+        if (data && prop) {
+            var reg1 = /[\:\>\\]/, next;
+            var getNextValue = /[\>\\]/.test(prop);
+            if (reg1.test(prop)) {
+                var _b = prop.split(reg1), prop = _b[0], next = _b[1], pick = _b[2];
+                next = apiMap[next];
+            }
+            if (isFunction(data.hasAttribute) && data.hasAttribute(prop)) {
+                data = data.getAttribute(prop);
+            } else if (prop in data) {
+                data = data[prop];
+            } else {
+                data = __seekprop(data, prop);
+            }
+            if (/\?/.test(seeker) && transpileMap instanceof Array) {
+                var a = transpileMap.indexOf(data);
+                if (a < 0) {
+                    transpileMap.push(data);
+                    return transpileMap.length;
+                }
+                return a + 1;
+            }
+            if (isString(data) && /\|/.test(seeker)) {
+                data = data.trim();
+            }
+            if (isString(data) && /\//.test(seeker) && /^\s*(\{[\s\S]*\}|\[[\s\S]*\]|true|false|null|[\d\.]*|"[\s\S]*")\s*$/.test(data)) {
+                data = JSON.parse(data);
+            }
+            if (next) {
+                data = getUrlParamsForApi(next, data);
+                if (pick || getNextValue) {
+                    data = getParamsFromUrl(data);
+                    if (pick)
+                        data = data[pick];
+                }
+            }
+            return data;
+        }
+        return data;
+    }
+    data = __seekprop(data, seeker);
+    return data;
+}
+function parseConfig(api) {
+    var _a = api.method, method = _a === void 0 ? '' : _a, _b = api.url, url = _b === void 0 ? '' : _b, _c = api.id, id = _c === void 0 ? '' : _c, _d = api.name, name = _d === void 0 ? '' : _d, comment = api.comment;
+    var required = [];
+    id = id.replace(/\?(.+?)$/, function (m, s) {
+        s = s.split('&');
+        s.forEach(function (p) {
+            if (p) {
+                var _a = p.split('='), k = _a[0], _b = _a[1], v = _b === void 0 ? k : _b;
+                if (!required[k]) {
+                    required.push(k);
+                }
+                required[k] = v;
+            }
+        });
+        return '';
+    });
+    url.replace(/[\?\#][\s\S]*$/, '').replace(/\:\w+/g, function (p) {
+        p = p.slice(1);
+        if (!required[p]) {
+            required.push(p);
+            required[p] = p;
+        }
+    });
+    return {
+        method: method,
+        url: url,
+        id: id,
+        name: name,
+        comment: comment,
+        required: required
+    };
+}
+var isWorseIE = /msie\s+[2-9]/i.test(navigator.userAgent);
+var parseData = function (sourceText) {
+    if (/^\s*([\{\[]|"|true|\d|false|null)/.test(sourceText)) {
+        try {
+            return JSON.parse(sourceText);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    if (/^\s*</i.test(sourceText)) {
+        var doc = document.implementation.createHTMLDocument('');
+        if (isWorseIE) {
+            sourceText = sourceText.replace(/<!--[\s\S]*?-->|<\[CDATA\[[\s\S]*?\]\]>/ig, '').replace(/^[\s\S]*?<html>([\s\S]*)<\/html>[\s\S]*?$/i, '$1').replace(/^[\s\S]*?<body>([\s\S]*?)$/i, '$1').replace(/<\/body>[\s\S]*?$/, '');
+            doc.body.innerHTML = sourceText;
+        } else {
+            doc.documentElement.innerHTML = sourceText;
+        }
+        return doc;
+    }
+    if (/^[\s\_\.\w\$]+\s*\([\s\S]*\)\s*;?\s*$/.test(sourceText)) {
+        try {
+            return JSON.parse(sourceText.replace(/^[^\(]+\(([\s\S]*)\)[^\)]*$/, '$1'));
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    return sourceText;
+};
+function fixApi(api, href) {
+    var _a;
+    if (!reg.test(api.url)) {
+        if (href) {
+            var paramReg = /(?:\?([\s\S]*?))?(?:#([\s\S]*))?$/, extraSearch, extraHash, search, hash;
+            if (/[\?#]/.test(href)) {
+                _a = paramReg.exec(href), extraSearch = _a[1], extraHash = _a[2];
+                href = href.replace(paramReg, '');
+            }
+            if (/^\.([\?\#][\s\S]*)?$/.test(api.url)) {
+                api.url = href + api.url.replace(/^\./, '');
+            } else {
+                api.url = href + api.url;
+            }
+            if (extraSearch || extraHash) {
+                if (/[\?#]/.test(api.url)) {
+                    var _b = paramReg.exec(api.url), search = _b[1], hash = _b[2];
+                }
+                var url = api.url.replace(paramReg, '');
+                if (extraSearch) {
+                    search = search ? extraSearch + '&' + search : extraSearch;
+                }
+                if (extraHash) {
+                    hash = hash ? extraHash + '&' + hash : extraHash;
+                }
+                if (search)
+                    url += '?' + search;
+                if (hash)
+                    url += '#' + hash;
+                api.url = url;
+            }
+        }
+    }
+    api.method = api.method.replace(/^\w+/, function (a) {
+        return a.toLowerCase();
+    });
+}
+var reg = /^(https?\:\/\/|\.?\/)/i;
+function createApiMap(data) {
+    var apiMap = {};
+    var hasOwnProperty = {}['hasOwnProperty'];
+    var href, _headers;
+    function checkApi(api) {
+        fixApi(api, href);
+        if (hasOwnProperty.call(apiMap, api.id)) {
+            var lastApi = apiMap[api.id];
+            console.warn('\u591a\u6b21\u8bbe\u7f6e\u7684id\u76f8\u540c\u7684api:%c' + api.id, 'color:red');
+            console.log('[' + api.name + '](' + lastApi.method + ' ' + api.url + ')\r\n \u88ab [' + api.name + '](' + lastApi.method + ' ' + lastApi.url + ') \u8986\u76d6');
+        }
+        apiMap[api.id] = api;
+        api.headers = _headers;
+        return api;
+    }
+    function buildItem(k1) {
+        return k1 + ' ' + item1[k1];
+    }
+    var items1 = data;
+    for (var key in items1) {
+        var keeys = key.split(/\s+/);
+        var base = keeys.filter(function (a) {
+            return reg.test(a);
+        })[0];
+        if (!base) {
+            var headersIndex = 0;
+        } else {
+            headersIndex = keeys.indexOf(base) + 1;
+        }
+        var headers = keeys.slice(headersIndex)[0];
+        if (headers && !reg.test(headers)) {
+            _headers = parseKV(headers);
+        }
+        if (!base)
+            continue;
+        href = /(https?\:)?|\.?\//i.test(base) ? base : '';
+        var item1 = items1[key];
+        var items = Object.keys(item1).map(buildItem);
+        formulaters.string('id method url name comment', items).map(parseConfig).map(checkApi);
+    }
+    return apiMap;
+}
+var _configfileurl;
+var configPormise;
+var privates = {
+    loadAfterConfig: function (serviceId, params) {
+        var _this = this;
+        var promise = this.getApi(serviceId).then(function (api) {
+            params = _this.pack(serviceId, params);
+            return _this.fromApi(api, params);
+        });
+        return promise;
+    },
+    pack: function (serviceId, params) {
+        if (/\?/.test(serviceId)) {
+            params = extend({}, getParamsFromUrl(serviceId), params);
+            serviceId = serviceId.replace(/\?[\s\S]*$/, '');
+        }
+        if (/\:/.test(serviceId)) {
+            var params1 = extend({}, params);
+            var temp = getParamsFromUrl(serviceId, ':');
+            for (var k in temp) {
+                var v = temp[k];
+                if (v in params) {
+                    params1[k] = params[v];
+                }
+                if (!(v in temp)) {
+                    delete params1[v];
+                }
+            }
+        }
+        return params;
+    },
+    fromApi: function (api, params) {
+        var url = api.url;
+        if (this.validApi(api, params))
+            return this.loadIgnoreConfig(api.method, url, params, api);
+        return Promise.resolve();
+    },
+    validApi: function (api, params) {
+        if (api.required) {
+            var lacks = api.required;
+            if (params) {
+                lacks = lacks.filter(function (a) {
+                    return isEmpty(params[a]);
+                });
+                lacks.filter(function (k) {
+                    var v = seekResponse(dataSourceMap, k);
+                    if (isEmpty(v))
+                        return true;
+                    if (!(k in params)) {
+                        params[k] = v;
+                    }
+                });
+            }
+            if (lacks.length) {
+                console.log('\u8df3\u8fc7\u4e86\u7f3a\u5c11\u53c2\u6570\u7684\u8bf7\u6c42:' + api.id + ' ' + api.name + ' ' + api.url + '\r\n\u7f3a\u5c11\u53c2\u6570\uFF1A' + lacks.join(', '));
+                return false;
+            }
+        }
+        return true;
+    },
+    getApi: function (serviceId) {
+        return this.getConfigPromise().then(function (apiMap) {
+            serviceId = serviceId.replace(/[\?\:][\s\S]*$/, '');
+            var api = apiMap[serviceId];
+            if (!api) {
+                throw new Error('\u6ca1\u6709\u627e\u5230\u5bf9\u5e94\u7684\u63a5\u53e3 id ' + serviceId + '.');
+            }
+            return extend({}, api, { root: apiMap });
+        });
+    },
+    prepare: function (method, url, params) {
+        var spliterIndex = /[\:\|\/\~\!\?]/.exec(method), search;
+        if (spliterIndex)
+            spliterIndex = spliterIndex.index;
+        else
+            spliterIndex = method.length;
+        var coinmethod = method.slice(0, spliterIndex).toLowerCase();
+        var realmethod = coinmethod.replace(/\W+$/g, '');
+        var uri = url.replace(/#[\s\S]*$/, '');
+        params = extend({}, params);
+        if (/\?/.test(uri))
+            search = uri.replace(/^[\s\S]*?\?/, '');
+        var rest = [];
+        var baseuri = uri.replace(/\?[\s\S]*$/, '').replace(/\:[a-z\_][\w]*/i, function (d) {
+            d = d.slice(1);
+            rest.push(d);
+            return seekResponse(params, d) || '';
+        });
+        var hasOwnProperty = {}['hasOwnProperty'];
+        if (search) {
+            var searchParams = parseKV(search);
+            for (var k in searchParams) {
+                if (hasOwnProperty.call(searchParams, k) && hasOwnProperty.call(params, k)) {
+                    searchParams[k] = params[k];
+                    rest.push(k);
+                }
+            }
+            search = serialize(searchParams);
+            uri = baseuri + '?' + search;
+        } else {
+            uri = baseuri;
+        }
+        rest.forEach(function (k) {
+            return delete params[k];
+        });
+        return {
+            method: realmethod,
+            coinmethod: coinmethod,
+            selector: method.slice(spliterIndex + 1),
+            search: search,
+            baseuri: baseuri,
+            uri: uri,
+            params: params
+        };
+    },
+    loadIgnoreConfig: function (method, url, params, api) {
+        var headers = api && api.headers;
+        var _a = this.prepare(method, url, params), realmethod = _a.method, uri = _a.uri, baseuri = _a.baseuri, coinmethod = _a.coinmethod, search = _a.search, selector = _a.selector, params = _a.params;
+        var id = realmethod + ' ' + baseuri;
+        var promise = cachedLoadingPromise[id];
+        var temp = JSON.stringify(params);
+        var currentTime = +new Date();
+        if (!promise || currentTime - promise.time > 60 || temp !== promise.params || promise.search !== search) {
+            var promise = new Promise(function (ok, oh) {
+                if (headers) {
+                    headers = seek(dataSourceMap, headers);
+                }
+                cross(realmethod, uri, headers).send(params).done(function (e) {
+                    ok(e.response || e.responseText);
+                }).error(function (xhr) {
+                    try {
+                        oh(parseData(xhr.response || xhr.responseText || xhr.statusText || xhr.status));
+                    } catch (error) {
+                        oh(error);
+                    }
+                });
+            });
+            promise.search = search;
+            promise.params = temp;
+            promise.time = currentTime;
+            cachedLoadingPromise[id] = promise;
+        }
+        return promise.then(function (response) {
+            if (/\*$/.test(coinmethod))
+                return response;
+            var data = parseData(response);
+            var checked = error_check(data);
+            var apiMap = api && api.root;
+            data = transpile(seekResponse(data, selector), getTranspile(url), apiMap);
+            if (isDefined(checked)) {
+                return checked;
+            }
+            return data;
+        });
+    },
+    getConfigPromise: function () {
+        if (!configPormise) {
+            if (!_configfileurl) {
+                throw new Error('\u6ca1\u6709\u6307\u5b9a\u914d\u7f6e\u6587\u4ef6\u7684\u8def\u5f84\uFF0C\u8bf7\u4f7f\u7528data.loadConfig\u52a0\u8f7d\u914d\u7f6e');
+            }
+            configPormise = this.loadIgnoreConfig('get', _configfileurl).then(createApiMap);
+        }
+        return configPormise;
+    }
+};
+var instanceId = 0;
+var getInstanceId = function () {
+    if (instanceId++ === instanceId) {
+        instanceId = 1;
+    }
+    return instanceId;
+};
+var error_report = isProduction ? alert : function (error, type) {
+    error_report = alert;
+    error_report(error, type);
+    console.info('\u5df2\u4f7f\u7528\u9ed8\u8ba4\u7684\u62a5\u9519\u5de5\u5177\uFF0C\u60a8\u53ef\u4ee5\u4f7f\u7528 data.setReporter(error_reporter,error_finder) \u66ff\u6362! \u672c\u4fe1\u606f\u5728\u4ec5\u5728\u5f00\u53d1\u73af\u5883\u663e\u793a\u3002');
+};
+var error_check = function (data) {
+};
+var loadInstance = function (storage, id) {
+    try {
+        return JSON.parse(storage.getItem(id));
+    } catch (_a) {
+    }
+};
+function responseCrash(e, data) {
+    if (data.is_loading)
+        this.loading_count--;
+    data.is_errored = true;
+    data.is_loading = false;
+    data.error_message = getErrorMessage(e);
+    data.error_object = e;
+    if (e instanceof Object) {
+        extend(data, e);
+    } else {
+        data.error = e;
+    }
+    error_report(data.error_message, 'error');
+}
+function responseLoaded(response) {
+    response.is_loaded = true;
+    if (response.is_loading) {
+        response.is_loading = false;
+        this.loading_count--;
+    }
+}
+function responseLoading(response) {
+    response.is_loaded = false;
+    response.is_loading = true;
+    if (response.is_loading)
+        this.loading_count++;
+}
+var data = {
+    decodeStructure: decodeStructure,
+    encodeStructure: encodeStructure,
+    responseLoaded: responseLoaded,
+    responseCrash: responseCrash,
+    responseLoading: responseLoading,
+    setReporter: function (report, checker) {
+        if (report instanceof Function) {
+            error_report = report;
+        }
+        if (checker instanceof Function) {
+            error_check = checker;
+        }
+    },
+    loading_count: 0,
+    loadConfig: function (defaultConfigFile) {
+        if (defaultConfigFile) {
+            _configfileurl = defaultConfigFile;
+            configPormise = null;
+        }
+        return privates.getConfigPromise();
+    },
+    getApi: function (a) {
+        return privates.getApi(a);
+    },
+    setConfig: function (data) {
+        configPormise = Promise.resolve(data).then(createApiMap);
+    },
+    parseConfig: function (o) {
+        if (o instanceof Promise) {
+            return o.then(createApiMap);
+        }
+        if (o instanceof Object) {
+            return createApiMap(o);
+        }
+        if (isString(o)) {
+            return privates.loadIgnoreConfig('get', o).then(createApiMap);
+        }
+    },
+    from: function (ref, params, parse) {
+        if (params instanceof Function) {
+            parse = params;
+            params = {};
+        }
+        if (ref instanceof Object) {
+            return this.fromApi(ref, params);
+        } else if (/^\.*\/|\.\w+$/.test(ref)) {
+            return this.fromURL(ref, parse);
+        } else {
+            return this.asyncInstance(ref, params, parse);
+        }
+    },
+    enrich: function (config) {
+        if (config === void 0) {
+            config = configPormise;
+        }
+        if (!config)
+            return;
+        if (isString(config)) {
+            config = privates.loadIgnoreConfig('get', config).then(createApiMap);
+        } else if (!(config instanceof Promise)) {
+            if (!(config instanceof Object))
+                return;
+            config = Promise.resolve(config).then(createApiMap);
+        }
+        return enrich({
+            from: function (id, params) {
+                return config.then(function (data) {
+                    var a = data[id];
+                    return privates.fromApi(a, params);
+                });
+            },
+            queue: function (ids, params, cb) {
+                ids = ids.slice(0);
+                config.then(function (res) {
+                    return new Promise(function (ok) {
+                        var run = function (res) {
+                            if (!ids.length)
+                                return ok(res);
+                            var id = ids.pop();
+                            var a = data[id];
+                            privates.fromApi(a, res).then(run);
+                        };
+                        run(params);
+                    });
+                });
+            }
+        });
+    },
+    fromApi: function (api, params, parse) {
+        var _this = this;
+        var id = parse instanceof Function ? getInstanceId() : 0;
+        if (id)
+            this.removeInstance(id);
+        var url = api.url;
+        var response = this.getInstance(id || url);
+        this.responseLoading(response);
+        var p = response.loading_promise = privates.fromApi(api, params).then(function (data) {
+            if (id) {
+                _this.setInstance(id, parse(data), false);
+                _this.removeInstance(id);
+            } else {
+                _this.setInstance(url, data);
+            }
+            _this.responseLoaded(response);
+            return data;
+        });
+        p['catch'](function (e) {
+            _this.responseCrash(e, response);
+        });
+        return response;
+    },
+    fromURL: function (url, parse) {
+        var _this = this;
+        var id = parse instanceof Function ? getInstanceId() : 0;
+        if (id)
+            this.removeInstance(id);
+        var response = this.getInstance(id || url);
+        this.responseLoading(response);
+        var p = response.loading_promise = privates.loadIgnoreConfig('get', url).then(function (data) {
+            if (id) {
+                _this.setInstance(id, parse(data), false);
+                _this.removeInstance(id);
+            } else {
+                _this.setInstance(url, data);
+            }
+            _this.responseLoaded(response);
+            return data;
+        });
+        p['catch'](function (e) {
+            _this.responseCrash(e, response);
+        });
+        return response;
+    },
+    asyncInstance: function (sid, params, parse) {
+        var _this = this;
+        if (typeof sid !== 'string')
+            throw new Error('serviceId \u53ea\u80fd\u662f\u5b57\u7b26\u4e32');
+        var id = parse instanceof Function || params ? getInstanceId() : 0;
+        if (id)
+            this.removeInstance(id);
+        var response = this.getInstance(id || sid);
+        this.responseLoading(response);
+        var p = response.loading_promise = privates.loadAfterConfig(sid, params).then(function (data) {
+            if (id) {
+                _this.setInstance(id, parse instanceof Function ? parse(data) : data, false);
+                _this.removeInstance(id);
+            } else {
+                _this.setInstance(sid, data);
+            }
+            _this.responseLoaded(response);
+            return data;
+        });
+        p['catch'](function (e) {
+            _this.responseCrash(e, response);
+        });
+        return response;
+    },
+    lazyInstance: function () {
+        var _this = this;
+        var sid, params1, parse, timeout = 600;
+        [].forEach.call(arguments, function (arg) {
+            switch (typeof arg) {
+            case 'string':
+                if (!sid)
+                    sid = arg;
+                else
+                    params1 = arg;
+                break;
+            case 'number':
+                timeout = arg;
+                break;
+            case 'function':
+                parse = arg;
+                break;
+            default:
+                params1 = arg;
+            }
+        });
+        var id = '.' + sid;
+        var instance = this.getInstance(id);
+        var promise1 = instance.loading_promise;
+        if (promise1) {
+            var params = promise1.params;
+            if (deepEqual.shallow(params1, params)) {
+                return instance;
+            }
+        }
+        var outdate = new Error('outdate canceled.');
+        promise1 = instance.loading_promise = new Promise(function (ok) {
+            if (!instance.loading) {
+                instance.loading = false;
+            }
+            setTimeout(ok, timeout);
+        }).then(function () {
+            if (promise1 !== instance.loading_promise)
+                throw outdate;
+            return privates.getApi(sid);
+        }).then(function (api) {
+            if (promise1 !== instance.loading_promise)
+                throw outdate;
+            if (instance.loading) {
+                instance.loading.abort();
+            }
+            _this.responseLoading(instance);
+            var params = privates.pack(sid, params1);
+            if (!privates.validApi(api, params))
+                throw outdate;
+            var _a = privates.prepare(api.method, api.url, params), method = _a.method, uri = _a.uri, params = _a.params, selector = _a.selector;
+            var promise = new Promise(function (ok, oh) {
+                var headers = api.headers;
+                if (headers) {
+                    headers = seek(dataSourceMap, headers);
+                }
+                instance.loading = cross(method, uri, headers).send(params).done(function (xhr) {
+                    if (instance.loading !== xhr)
+                        return oh(outdate);
+                    instance.loading = null;
+                    ok(xhr.responseText || xhr.response);
+                }).error(function (xhr) {
+                    if (instance.loading !== xhr)
+                        return oh(outdate);
+                    instance.loading = null;
+                    try {
+                        oh(parseData(xhr.response || xhr.responseText || xhr.statusText || xhr.status));
+                    } catch (error) {
+                        oh(error);
+                    }
+                });
+            }).then(function (response) {
+                return transpile(seekResponse(parseData(response), selector), getTranspile(api.url), api.root);
+            });
+            return promise;
+        }).then(function (data) {
+            if (instance.loading_promise !== promise1)
+                return;
+            if (id) {
+                _this.setInstance(id, parse instanceof Function ? parse(data) : data, false);
+            } else {
+                _this.setInstance(sid, data);
+            }
+            _this.responseLoaded(instance);
+        });
+        promise1['catch'](function (e) {
+            if (e === outdate)
+                return;
+            _this.responseCrash(e, instance);
+        });
+        return instance;
+    },
+    getInstance: function (instanceId, onlyFromLocalStorage) {
+        if (onlyFromLocalStorage === void 0) {
+            onlyFromLocalStorage = false;
+        }
+        if (!instanceDataMap[instanceId]) {
+            var data_1 = instanceDataMap[instanceId] = new LoadingArray();
+            var storageId = userPrefix + instanceId + pagePathName;
+            extend(data_1, loadInstance(localStorage, storageId));
+            if (!onlyFromLocalStorage) {
+                extend(data_1, loadInstance(sessionStorage, storageId));
+            }
+            data_1.is_loading = false;
+            data_1.is_loaded = true;
+        }
+        return instanceDataMap[instanceId];
+    },
+    removeInstance: function (instanceId) {
+        delete instanceDataMap[instanceId];
+        var storageId = userPrefix + instanceId + pagePathName;
+        localStorage.removeItem(storageId);
+        sessionStorage.removeItem(storageId);
+    },
+    setSource: function (sourceid, value) {
+        var rememberWithStorage;
+        if (sourceid instanceof Object) {
+            this.rebuildInstance(dataSourceMap, sourceid);
+            rememberWithStorage = value;
+        } else {
+            dataSourceMap[sourceid] = value;
+            rememberWithStorage = arguments[2];
+        }
+        if (rememberWithStorage !== false) {
+            sessionStorage.setItem(sourceDataId, JSON.stringify(dataSourceMap));
+        }
+        if (rememberWithStorage) {
+            localStorage.setItem(sourceDataId, JSON.stringify(dataSourceMap));
+        }
+    },
+    clearSource: function () {
+        localStorage.removeItem(sourceDataId);
+        sessionStorage.removeItem(sourceDataId);
+    },
+    setInstance: function (instanceId, data, rememberWithStorage) {
+        if (rememberWithStorage === void 0) {
+            rememberWithStorage = 0;
+        }
+        var instance = this.getInstance(instanceId);
+        this.rebuildInstance(instance, data);
+        var storageId = userPrefix + instanceId + pagePathName;
+        if (rememberWithStorage !== false) {
+            sessionStorage.setItem(storageId, JSON.stringify(data));
+        }
+        if (rememberWithStorage) {
+            localStorage.setItem(storageId, JSON.stringify(data));
+        }
+        return instanceDataMap[instanceId];
+    },
+    rebuildInstance: function (instance, data, old) {
+        if (old === void 0) {
+            old = instance;
+        }
+        if (instance === data) {
+            return;
+        }
+        if (instance instanceof Array)
+            instance.splice(0, instance.length);
+        var sample = new LoadingArray();
+        Object.keys(old).forEach(function (k) {
+            if (instance[k] === old[k] && !(k in sample)) {
+                delete instance[k];
+            }
+        });
+        extend(instance, data);
+    }
+};
+extend(dataSourceMap, loadInstance(localStorage, sourceDataId));
+extend(dataSourceMap, loadInstance(sessionStorage, sourceDataId));
+return data;

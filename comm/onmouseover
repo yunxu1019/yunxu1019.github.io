@@ -1,1 +1,2 @@
-00con,b,cq["mouseover"]var a=b(c);return a
+00aon,onvar onmouseover = on('mouseover');
+return onmouseover;

@@ -1,1 +1,7 @@
-var a=['previousSibling','nodeType','push'],b=a[0],c=a[1],d=a[2],e=function(a){var e=[];while(a[b])a=a[b],a[c]===1&&e[d](a);return e};return e
+var getPreviousElementSiblings = function (target) {
+    var previousElements = [];
+    while (target.previousSibling)
+        target = target.previousSibling, target.nodeType === 1 && previousElements.push(target);
+    return previousElements;
+};
+return getPreviousElementSiblings;

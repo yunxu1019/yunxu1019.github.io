@@ -1,1 +1,2 @@
-00con,b,cg["blur"]var a=b(c);return a
+00aon,onvar onblur = on('blur');
+return onblur;

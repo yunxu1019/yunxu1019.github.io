@@ -1,1 +1,4 @@
-function b(b){return typeof b===a}var a=['function'][0];return b
+function isFunction(o) {
+    return typeof o === 'function';
+}
+return isFunction;

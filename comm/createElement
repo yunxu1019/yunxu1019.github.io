@@ -1,1 +1,62 @@
-086addClass,removeClass,appendChild,Error,remove,isFunction,onclick,dispatch,render,isNode,document,extend,i,j,a,k,c,d,l,m,n,o,p,q,r,s,e,f,t,u,v,w,x,ba4["The node before which the new node is to be inserted is not a child of this node","click","slice","call","parentNode","before","childNodes","cloneNode","createElement","className"]function y(c){var e=o(c)?c[w]():d(c)?c():p[x](c);return c[b]&&(e[b]=c[b]),a(e,g[f](arguments,1)),q(e,h),e}var g=[][e],h={addClass:function(a){return i(this,a),this},removeClass:function(a){return j(this,a),this},append:function(){return a(this,[][e][f](arguments,0)),this},insertBefore:function(b,c){if(c){if(c[t]!==this)throw new k(r);a[u](c,b,!1)}else a(this,b,!1);return b},appendChild:function(b){return a(this,b,!1),b},appendTo:function(b){return a(b,this),this},remove:function(){return c(this),this},empty:function(){return c(this[v]),this},click:function(a){return d(a)?l(this,a):m(this,s),this},render:function(a){return n(this,a),this}};return y
+0biaddClass,removeClass,appendChild,Error,remove,isFunction,onclick,dispatch,render,isNode,document,extend,addClass,removeClass,appendChild,Error,remove,isFunction,onclick,dispatch,render,isNode,document,extendvar slice = [].slice;
+var prototype = {
+    addClass: function (clazz) {
+        addClass(this, clazz);
+        return this;
+    },
+    removeClass: function (clazz) {
+        removeClass(this, clazz);
+        return this;
+    },
+    append: function () {
+        appendChild(this, [].slice.call(arguments, 0));
+        return this;
+    },
+    insertBefore: function (child, referer) {
+        if (referer) {
+            if (referer.parentNode !== this)
+                throw new Error('The node before which the new node is to be inserted is not a child of this node');
+            appendChild.before(referer, child, false);
+        } else {
+            appendChild(this, child, false);
+        }
+        return child;
+    },
+    appendChild: function (child) {
+        appendChild(this, child, false);
+        return child;
+    },
+    appendTo: function (target) {
+        appendChild(target, this);
+        return this;
+    },
+    remove: function () {
+        remove(this);
+        return this;
+    },
+    empty: function () {
+        remove(this.childNodes);
+        return this;
+    },
+    click: function (action) {
+        if (isFunction(action)) {
+            onclick(this, action);
+        } else {
+            dispatch(this, 'click');
+        }
+        return this;
+    },
+    render: function (scope) {
+        render(this, scope);
+        return this;
+    }
+};
+function createElement(name) {
+    var node = isNode(name) ? name.cloneNode() : isFunction(name) ? name() : document.createElement(name);
+    if (name.className)
+        node.className = name.className;
+    appendChild(node, slice.call(arguments, 1));
+    extend(node, prototype);
+    return node;
+}
+return createElement;

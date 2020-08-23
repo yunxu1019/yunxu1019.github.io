@@ -1,1 +1,10 @@
-010document,b,c,a,d,e34["isMounted","isMounted","documentElement","parentNode"]function f(g){if(c in g)return g[a];var f=g;while(f&&f!==b[d])f=f[e];return g[a]=!!f}return f
+00ydocument,documentfunction isMounted(parent) {
+    if ('isMounted' in parent)
+        return parent.isMounted;
+    var temp = parent;
+    while (temp && temp !== document.documentElement) {
+        temp = temp.parentNode;
+    }
+    return parent.isMounted = !!temp;
+}
+return isMounted;

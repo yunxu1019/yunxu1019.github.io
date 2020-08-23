@@ -1,1 +1,51 @@
-02aItem,Object,d,e,c,f,g,a,b,h,i,j,k,l,m,n,o5w["tab","count","filter","forEach","push","parentId","keys","map","apply","parent","root","length","total"]function p(r){var p=[];p[c]=-Infinity,p[f]=0;var q={};r=r[g](function(a){return!!a}),r[a](function(a){var c=new d(a);a.id?q[a.id]=c:p[b](c)}),r[a](function(a){if(!a)return;var c=q[a[h]];if(c){var d=q[a.id];delete q[a.id],c&&c[b](d)}});var u=e[i](q)[j](function(a){return q[a]});p[b][k](p,u);var s=0,t=function(b,e){b[c]=s;var d=0;return b[l]=e,b[m]=p,b[n]&&(s++,b[a](function(a){return d+=t(a,e)}),s--),b[o]=d||1};return t(p),p}return p
+01aItem,Object,Item,Objectfunction getTreeFromData(array) {
+    var root = [];
+    root.tab = -Infinity;
+    root.count = 0;
+    var map = {};
+    array = array.filter(function (a) {
+        return !!a;
+    });
+    array.forEach(function (data) {
+        var item = new Item(data);
+        if (data.id) {
+            map[data.id] = item;
+        } else {
+            root.push(item);
+        }
+    });
+    array.forEach(function (data) {
+        if (!data)
+            return;
+        var parent = map[data.parentId];
+        if (parent) {
+            var item = map[data.id];
+            delete map[data.id];
+            if (parent) {
+                parent.push(item);
+            }
+        }
+    });
+    var items = Object.keys(map).map(function (a) {
+        return map[a];
+    });
+    root.push.apply(root, items);
+    var tab = 0;
+    var run = function (item, parent) {
+        item.tab = tab;
+        var total = 0;
+        item.parent = parent;
+        item.root = root;
+        if (item.length) {
+            tab++;
+            item.forEach(function (item) {
+                return total += run(item, parent);
+            });
+            tab--;
+        }
+        return item.total = total || 1;
+    };
+    run(root);
+    return root;
+}
+return getTreeFromData;

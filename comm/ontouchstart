@@ -1,1 +1,2 @@
-00con,b,cs["touchstart"]var a=b(c);return a
+00aon,onvar ontouchstart = on('touchstart');
+return ontouchstart;

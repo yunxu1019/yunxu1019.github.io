@@ -1,1 +1,7 @@
-01mdocument,noop,b,c,d,e,f,g,h,i6i["documentElement","requestFullscreen","msRequestFullscreen","mozRequestFullScreen","webkitRequestFullScreen","call"]var a=function(a){a||(a=b[d]),(a[e]||a[f]||a[g]||a[h]||c)[i](a)};return a
+01idocument,noop,document,noopvar requestFullScreen = function (doc) {
+    if (!doc) {
+        doc = document.documentElement;
+    }
+    (doc.requestFullscreen || doc.msRequestFullscreen || doc.mozRequestFullScreen || doc.webkitRequestFullScreen || noop).call(doc);
+};
+return requestFullScreen;

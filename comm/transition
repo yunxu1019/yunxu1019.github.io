@@ -1,1 +1,98 @@
-090document,parseKV,Object,clearTimeout,isString,Array,String,Math,extendIfNeeded,setTimeout,extend,e,j,k,l,y,z,A,m,B,d,f,C,n,o,p,D,q,r,E,F,G,s,g,b,t,u,v,w,H,c,I,J,xek["transition","mozTransition","webkitTransition","msTransition","string",";",":","all .3s ease",/([\.\d]+)(m?)s/gi,"none","with","body","style","initialStyle","recoverStyle","transitionTimerStart","transitionTimerEnd","map","transition","length","replace","max"]function h(e,n,p){if(p===void 0&&(p=e[t]),!e)return;typeof n===D&&(n=j(n,q,r)),n instanceof k&&(p===!0||!p)&&(p=n,n=arguments[2]);var g=p||e[t],o=e[u],C=e[v],K=e[w];if(l(C),l(K),y(g)&&(g=j(g,q,r)),e instanceof z)e[H](function(a){h(a,n,p)});else if(g instanceof k){var i=100;g[c]||(g[c]=E),a[I]>10&&(g[a]=g[c]),A(g[c])[J](F,function(b,a,c){return c?i=m[x](+a,i):i=m[x](a*1e3,i),b}),i=a?i||260:0,o||(o={});var L={},N=e[b];for(var M in g)L[M]=N[M];return B(o,L),n?(C=d(function(){f(e[b],g)}),K=d(function(){a&&(e[b][a]=o[c])},i+2)):(f(e[b],g),a&&(e[b][a]=G),C=d(function(){delete o[c],a&&(e[b][a]=g[c]),f(e[b],o)}),K=d(function(c){return function(){a&&(e[b][a]=c)}}(o[c]||''),i)),e[v]=C,e[w]=K,e[u]=o,e[s]&&h(e[s],n,p),i}}var a=C,i=e[g][b];return!a in e[g][b]&&(n in e[g][b]?a=n:o in i?a=o:p in i?a=p:a=''),h
+0aqdocument,parseKV,Object,clearTimeout,isString,Array,String,Math,extendIfNeeded,setTimeout,extend,document,parseKV,Object,clearTimeout,isString,Array,String,Math,extendIfNeeded,setTimeout,extendvar transitionKey = 'transition';
+var bodyStyle = document.body.style;
+if (!transitionKey in document.body.style) {
+    if ('mozTransition' in document.body.style)
+        transitionKey = 'mozTransition';
+    else if ('webkitTransition' in bodyStyle) {
+        transitionKey = 'webkitTransition';
+    } else if ('msTransition' in bodyStyle) {
+        transitionKey = 'msTransition';
+    } else {
+        transitionKey = '';
+    }
+}
+function transition(target, isLeave, _initialStyle) {
+    if (_initialStyle === void 0) {
+        _initialStyle = target.initialStyle;
+    }
+    if (!target)
+        return;
+    if (typeof isLeave === 'string') {
+        isLeave = parseKV(isLeave, ';', ':');
+    }
+    if (isLeave instanceof Object && (_initialStyle === true || !_initialStyle)) {
+        _initialStyle = isLeave;
+        isLeave = arguments[2];
+    }
+    var initialStyle = _initialStyle || target.initialStyle;
+    var recoverStyle = target.recoverStyle, transitionTimerStart = target.transitionTimerStart, transitionTimerEnd = target.transitionTimerEnd;
+    clearTimeout(transitionTimerStart);
+    clearTimeout(transitionTimerEnd);
+    if (isString(initialStyle)) {
+        initialStyle = parseKV(initialStyle, ';', ':');
+    }
+    if (target instanceof Array) {
+        target.map(function (target) {
+            transition(target, isLeave, _initialStyle);
+        });
+    } else if (initialStyle instanceof Object) {
+        var transitionDuration_1 = 100;
+        if (!initialStyle.transition) {
+            initialStyle.transition = 'all .3s ease';
+        }
+        if (transitionKey.length > 10)
+            initialStyle[transitionKey] = initialStyle.transition;
+        String(initialStyle.transition).replace(/([\.\d]+)(m?)s/gi, function (m, d, t) {
+            if (t)
+                transitionDuration_1 = Math.max(+d, transitionDuration_1);
+            else
+                transitionDuration_1 = Math.max(d * 1e3, transitionDuration_1);
+            return m;
+        });
+        transitionDuration_1 = transitionKey ? transitionDuration_1 || 260 : 0;
+        if (!recoverStyle) {
+            recoverStyle = {};
+        }
+        var savedStyle = {};
+        {
+            var originalStyle = target.style;
+            for (var k in initialStyle) {
+                savedStyle[k] = originalStyle[k];
+            }
+        }
+        extendIfNeeded(recoverStyle, savedStyle);
+        if (isLeave) {
+            transitionTimerStart = setTimeout(function () {
+                extend(target.style, initialStyle);
+            });
+            transitionTimerEnd = setTimeout(function () {
+                if (transitionKey)
+                    target.style[transitionKey] = recoverStyle.transition;
+            }, transitionDuration_1 + 2);
+        } else {
+            extend(target.style, initialStyle);
+            if (transitionKey)
+                target.style[transitionKey] = 'none';
+            transitionTimerStart = setTimeout(function () {
+                delete recoverStyle.transition;
+                if (transitionKey)
+                    target.style[transitionKey] = initialStyle.transition;
+                extend(target.style, recoverStyle);
+            });
+            transitionTimerEnd = setTimeout(function (transition) {
+                return function () {
+                    if (transitionKey)
+                        target.style[transitionKey] = transition;
+                };
+            }(recoverStyle.transition || ''), transitionDuration_1);
+        }
+        target.transitionTimerStart = transitionTimerStart;
+        target.transitionTimerEnd = transitionTimerEnd;
+        target.recoverStyle = recoverStyle;
+        if (target['with']) {
+            transition(target['with'], isLeave, _initialStyle);
+        }
+        return transitionDuration_1;
+    }
+}
+return transition;

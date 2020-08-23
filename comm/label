@@ -1,1 +1,5 @@
-00ycreateElement,a,ci["label"]function d(){return a(b)}var b=a(c);return d
+01icreateElement,createElementvar _label = createElement('label');
+function label() {
+    return createElement(_label);
+}
+return label;

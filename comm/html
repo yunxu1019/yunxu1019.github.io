@@ -1,1 +1,7 @@
-function d(a,d){return arguments[c]==2&&(a[b]=d),a[b]}var a=['length','innerHTML'],c=a[0],b=a[1];return d
+function html(target, innerHTML) {
+    if (arguments.length == 2) {
+        target.innerHTML = innerHTML;
+    }
+    return target.innerHTML;
+}
+return html;

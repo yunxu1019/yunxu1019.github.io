@@ -1,1 +1,70 @@
-06kwindow,devicePixelRatio,Array,Object,document,care,m,c,v,w,x,y,n,h,z,A,B,o,p,i,C,d,b,a,j,k,e,f,g,q,r,D,s,l,t,E,F,G,H,Ih4["2d","rgba(0,189,123,0.8314)","#ffffff",/^canvas$/i,"canvas","devicePixelRatio","getContext","moveTo","apply","beginPath","width","height","length","lineTo","strokeStyle","lineWidth","stroke","offsetWidth","offsetHeight","clearRect","volume","call","forEach","data","color","test","tagName","createElement"]function u(r,z,s){s===void 0&&(s=m[o]||1);var l=this,c=l[p](n);c[i][C](c,r[0]),c[d]();var u=l[b],v=l[a];for(var q=1,w=r[j];q<w;q++){var t=r[q],x=t[0],y=t[1];c[k](x*u,y*v)}c[e]=z||h,c[f]=s,c[g]()}function J(A){var G=this,y=this,x=y[p](n);y[b]!==y[q]*c&&(y[b]=y[q]*c),y[a]!==y[r]*c&&(y[a]=y[r]*c),x[D](0,0,y[b],y[a]),x[d](),x[e]=h,x[f]=m[o]||1;var H=2,B=(this[s]>=0?this[s]:1)*A[j]-.5,I=0,J=y[a]/2;x[i](I,J);var C=y[b]/A[j];A[0]instanceof v?u[l](this,A):A[0]instanceof w?A[t](function(a){return u[l](G,a[E],a[F],a[b])}):([][t][l](A,function(f,b){var c=b*C,e=y[a]/2-f/H*y[a];x[k](c,e),b<=B&&b+1>B&&(x[g](),x[d]())}),x[f]=1,x[e]=h,x[g](),this===L&&(x[d](),x[i](B*C,0),x[k](B*C,y[a]),x[f]=1,x[e]=z,x[g]()))}function K(b){var a=A[G](b[H])?b:x[I](B);return y(a,J),a}var L;return K
+05mwindow,devicePixelRatio,Array,Object,document,care,window,devicePixelRatio,Array,Object,document,carevar activeDevice;
+function line(buffer, style, lineWidth) {
+    if (lineWidth === void 0) {
+        lineWidth = window.devicePixelRatio || 1;
+    }
+    var canvas = this;
+    var context = canvas.getContext('2d');
+    context.moveTo.apply(context, buffer[0]);
+    context.beginPath();
+    var width = canvas.width, height = canvas.height;
+    for (var cx = 1, dx = buffer.length; cx < dx; cx++) {
+        var _a = buffer[cx], x = _a[0], y = _a[1];
+        context.lineTo(x * width, y * height);
+    }
+    context.strokeStyle = style || 'rgba(0,189,123,0.8314)';
+    context.lineWidth = lineWidth;
+    context.stroke();
+}
+function draw(buffer) {
+    var _this = this;
+    var canvas = this;
+    var context = canvas.getContext('2d');
+    if (canvas.width !== canvas.offsetWidth * devicePixelRatio)
+        canvas.width = canvas.offsetWidth * devicePixelRatio;
+    if (canvas.height !== canvas.offsetHeight * devicePixelRatio)
+        canvas.height = canvas.offsetHeight * devicePixelRatio;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+    context.strokeStyle = 'rgba(0,189,123,0.8314)';
+    context.lineWidth = window.devicePixelRatio || 1;
+    var max = 2;
+    var v = (this.volume >= 0 ? this.volume : 1) * buffer.length - .5;
+    var x1 = 0, y1 = canvas.height / 2;
+    context.moveTo(x1, y1);
+    var ratio = canvas.width / buffer.length;
+    if (buffer[0] instanceof Array) {
+        line.call(this, buffer);
+    } else if (buffer[0] instanceof Object) {
+        buffer.forEach(function (a) {
+            return line.call(_this, a.data, a.color, a.width);
+        });
+    } else {
+        [].forEach.call(buffer, function (db, cx) {
+            var x = cx * ratio;
+            var y = canvas.height / 2 - db / max * canvas.height;
+            context.lineTo(x, y);
+            if (cx <= v && cx + 1 > v) {
+                context.stroke();
+                context.beginPath();
+            }
+        });
+        context.lineWidth = 1;
+        context.strokeStyle = 'rgba(0,189,123,0.8314)';
+        context.stroke();
+        if (this === activeDevice) {
+            context.beginPath();
+            context.moveTo(v * ratio, 0);
+            context.lineTo(v * ratio, canvas.height);
+            context.lineWidth = 1;
+            context.strokeStyle = '#ffffff';
+            context.stroke();
+        }
+    }
+}
+function dance(elem) {
+    var canvas = /^canvas$/i.test(elem.tagName) ? elem : document.createElement('canvas');
+    care(canvas, draw);
+    return canvas;
+}
+return dance;

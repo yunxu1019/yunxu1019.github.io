@@ -1,1 +1,69 @@
-0b0createElement,div,button,isElement,label,back,text,document,appendChild,addClass,isArray,isString,isNode,Object,isFunction,onclick,cless,b,f,l,m,n,o,g,p,a,c,q,r,s,h,t,u,v,w,x,y,z,A,B,C,D,d,E,i,F,G,H1cw["string","object","boolean","menus","back","menu",".-vc{color:#ffffff;opacity:.98;z-index:2;text-align:center;line-height:50px;font-size:24px;height:50px;position:absolute;top:0px;left:0px;right:0px;width:100%;border:1px solid #18333c;background-color:rgba(24,51,60,0.6);backdrop-filter:blur(20px);box-shadow:inset 0 0 6px #51ddf6,inset 200px -160px 200px -200px #51ddf6;cursor:default}.-vc>label{overflow:hidden;text-overflow:ellipsis;padding:0 10px;display:block;max-height:100%}.-vc>div,.-vc>back{position:absolute;background-color:transparent;top:0;bottom:0;height:100%;line-height:50px}.-vc>back{display:block;left:0;width:60px}.-vc>.menus>div{height:100%;position:relative;vertical-align:top;display:inline-block;min-width:60px;background:transparent}.-vc>.menus,.-vc>.menu{min-width:60px;right:0}","-vc titlebar titlebar","length","title","map","keys","setTitle","button"]function e(b){var a=l(b);return a}function j(L){if(m(L))return L;var M,j,D;for(var H=0,N=arguments[d];H<N;H++){var C=arguments[H];switch(typeof C){case w:M=C;break;case x:j=C;break;case y:D=C;break}}D=D!==!1;var l=b(k),I=b(n),J=b(o);g(I,M||p[E]),a(l,I);var v=f();if(c(v,z),a(l,v),D&&(a(l,J),c(J,A)),q(j)){if(j=j[i](function(a){return r(a)?e(a):a}),j[d]>1)a(v,j);else if(j[d]===1){var K=j[0];c(K,B),a(v,K)}}else s(j)?a(j,j):j instanceof h&&(j=h[F](j)[i](function(c){var a=j[c],b=e(c);return t(a)&&u(b,a),b}),a(v,j));return l[G]=function(a){g(I,a)},l}var k=b(f);return j[H]=e,v(j,C,D)
+0f6createElement,div,button,isElement,label,back,text,document,appendChild,addClass,isArray,isString,isNode,Object,isFunction,onclick,cless,createElement,div,button,isElement,label,back,text,document,appendChild,addClass,isArray,isString,isNode,Object,isFunction,onclick,clessvar nav = createElement(div);
+function btn(element) {
+    var opt = button(element);
+    return opt;
+}
+function titlebar(elem) {
+    if (isElement(elem))
+        return elem;
+    var page_title, option_buttons, use_back;
+    {
+        for (var cx = 0, dx = arguments.length; cx < dx; cx++) {
+            var arg = arguments[cx];
+            switch (typeof arg) {
+            case 'string':
+                page_title = arg;
+                break;
+            case 'object':
+                option_buttons = arg;
+                break;
+            case 'boolean':
+                use_back = arg;
+                break;
+            }
+        }
+    }
+    use_back = use_back !== false;
+    var bar = createElement(nav);
+    var title = createElement(label);
+    var _back = createElement(back);
+    text(title, page_title || document.title);
+    appendChild(bar, title);
+    var menu_group = div();
+    addClass(menu_group, 'menus');
+    appendChild(bar, menu_group);
+    if (use_back) {
+        appendChild(bar, _back);
+        addClass(_back, 'back');
+    }
+    if (isArray(option_buttons)) {
+        option_buttons = option_buttons.map(function (button) {
+            return isString(button) ? btn(button) : button;
+        });
+        if (option_buttons.length > 1) {
+            appendChild(menu_group, option_buttons);
+        } else if (option_buttons.length === 1) {
+            var button = option_buttons[0];
+            addClass(button, 'menu');
+            appendChild(menu_group, button);
+        }
+    } else if (isNode(option_buttons)) {
+        appendChild(option_buttons, option_buttons);
+    } else if (option_buttons instanceof Object) {
+        option_buttons = Object.keys(option_buttons).map(function (key) {
+            var value = option_buttons[key];
+            var button = btn(key);
+            if (isFunction(value)) {
+                onclick(button, value);
+            }
+            return button;
+        });
+        appendChild(menu_group, option_buttons);
+    }
+    bar.setTitle = function (name) {
+        text(title, name);
+    };
+    return bar;
+}
+titlebar.button = btn;
+return cless(titlebar, '.-vd {\n  color: #ffffff;\n  opacity: 0.98;\n  z-index: 2;\n  text-align: center;\n  line-height: 50px;\n  font-size: 24px;\n  height: 50px;\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  width: 100%;\n  border: 1px solid #18333c;\n  background-color: rgba(24, 51, 60, 0.6);\n  backdrop-filter: blur(20px);\n  box-shadow: inset 0 0 6px #51ddf6, inset 200px -160px 200px -200px #51ddf6;\n  cursor: default;\n}\n.-vd > label {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  padding: 0 10px;\n  display: block;\n  max-height: 100%;\n}\n.-vd > div,\n.-vd > back {\n  position: absolute;\n  background-color: transparent;\n  top: 0;\n  bottom: 0;\n  height: 100%;\n  line-height: 50px;\n}\n.-vd > back {\n  display: block;\n  left: 0;\n  width: 60px;\n}\n.-vd > .menus > div {\n  height: 100%;\n  position: relative;\n  vertical-align: top;\n  display: inline-block;\n  min-width: 60px;\n  background: transparent;\n}\n.-vd > .menus,\n.-vd > .menu {\n  min-width: 60px;\n  right: 0;\n}\n', '-vd titlebar titlebar');

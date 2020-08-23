@@ -1,1 +1,862 @@
-1acObject,window,isNode,document,getTargetIn,isFunction,isDate,extend,Array,getChanges,createEvent,dispatch,Function,onappend,onremove,appendChild,remove,Error,deepEqual,once,repeat,removeClass,isString,addClass,setTimeout,cast,text,undefined,html,css,on,isElement,isNumber,isArray,lazy,Promise,m,af,U,ag,ay,V,bh,E,W,bi,bj,bk,l,az,aA,F,X,n,j,ah,bl,bm,aB,aC,bn,bo,aD,G,ai,aE,aj,bp,bq,br,bs,bt,Y,bu,bv,aF,bw,aG,aH,bx,by,bz,bA,aI,bB,aJ,bC,ak,bD,bE,bF,aK,bG,bH,bI,bJ,bK,bL,aL,aM,t,bM,bN,bO,al,bP,bQ,bR,bS,bT,aN,bU,bV,aO,bW,bX,bY,aP,Z,_,bZ,aQ,aR,b_,b$,c0,aS,aT,aU,am,aV,c1,c2,c3,c4,c5,c6,c7,c8,c9,aW,aX,ca,cb,aY,aZ,cc,a_,a$,cd,ce,cf,cg,b0,ch,ci,cj,ck,cl,cm,cn,an,co,b,cp,d,c,h,p,a,cq,ao,cr,f,i,x,cs,b1,$,e,b2,H,ct,b3,b4,b5,g,I,cu,q,cv,b6,J,a0,K,a1,cw,o,u,a2,r,y,L,b7,a3,cx,M,cy,a4,a5,cz,cA,a6,a7,ap,z,N,b8,a8,v,b9,aq,cB,s,ba,cC,cD,cE,cF,cG,bb4d8["hasOwnProperty","changes",/([^\:\,\+\=\-\!%\^\|\/\&\*\!\;\?\>\<~\{\}\s]|\?\.(?=[^\d])|\s*\.\s*)+/g,/\?\.(?=[^\d])/,/[\=]/,"(",")","!==void 0&&","!==null?",".",":null","event","try{","with(this.$scope)return ","}catch(e){/*console.warn(String(e))*/}"," ",/if/i,/^(?:let\b|var\b|const\b)?\s*(?:[\(\{\[]\s*)?(.+?)((?:\s*,\s*.+?)*)?(?:\s*[\)\}\]]\s*|\s+)(in|of)\s+(.+?)(\s+?:track\s*by\s+(.+?))?$/i,"in",/,/,"of","no recognition for repeat expression: ","\u6570\u636e\u91cf\u8fc7\u5927\uFF0C\u53d6\u6d88\u7ed8\u5236\uFF01","$key","$item","$index","repeat","append","if","\u4e0d\u80fd\u8bc6\u522brepeat\u8868\u8fbe\u5f0f\uFF1A",/[\(\)]|&&|;/g,";","&&","\u8bf7\u4e0d\u8981\u5728if\u8868\u8fbe\u5f0f\u4e2d\u4f7f\u7528\u592a\u591a\u7684\u6761\u4ef6!",/^[^\.\?\s]+/,/\s/g,"for","dirty","pending","img",/^img$/i,"src","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=","this.getValue()",/^input$/i,/^checkbox$/i,"with(this.$scope)","=","this.checked","value","this.value",/^(select|input|textarea)$/i,"html","'value' in this?this.value:html(this)","none","class",/\s+/,/^\d+$/,/\-(\w)/g,/\-[a-z]/g,"renderid","elementid","id","\u540c\u4e00\u4e2aid\u4e0d\u80fd\u4f7f\u7528\u4e24\u6b21:",/(?:^|\-+)([a-z])/ig,"style","placeholder",/[\-]/,"with(this.$parentScopes[","])",/^(?:(v|ng|on|once)\-|v\-on\:|@|once|on)/i,/^(?:class|style|src)$/i,/^(ng|v|.*?)\-/i,"once","on",/^([\_\:\.]|v\-bind\:)/,/[\_\@\:\.]$/,"\u7236\u7ea7\u4f5c\u7528\u57df\u94fe\u5e94\u4ee5\u6570\u7ec4\u7684\u7c7b\u578b\u4f20\u5165","\u7236\u4f5c\u7528\u57df\u94fe\u7684\u957f\u5ea6\u5fc5\u987b\u76f8\u7b49\u7740",/^(ng|V|.*?)\-/i,"\u8bf7\u4e0d\u8981\u5728\u540c\u4e00\u5143\u7d20\u4e0a\u4f7f\u7528\u4e09\u6b21\u53ca\u4ee5\u4e0a\u7684\u7ed3\u6784\u5c5e\u6027:",/^if$/i,"\u8bf7\u4e0d\u8981\u5728\u540c\u4e00\u5143\u7d20\u4e0a\u4f7f\u7528\u591a\u6b21if\u7ed3\u6784!","\u8bf7\u4e0d\u8981\u5728\u540c\u4e00\u5143\u7d20\u4e0a\u4f7f\u7528\u591a\u6b21repeat\u7c7b\u578b\u7684\u5c5e\u6027!","change,click,paste,resize,keydown,keypress,keyup,input,drop",",","render",/\-(\w)/,/^\w/,"create","renderElements","renderid","documentElement","renders","push","length","forEach","call","needchanges","keys","changes","test","replace","split","createComment","after","exec","map","trim","filter","keyName","itemName","indexName","srcName","bind","slice","shallow","$parentScopes","cloneNode","innerHTML","$scope","before","parentNode","lastIndex","pop","name","value","repeat","removeAttribute","setAttribute","join","dirty","src","createElement","tagName","complete","getValue","setValue","type","checked","style","display","className","concat","toUpperCase","hasAttribute","getAttribute","apply","isMounted","attributes","nextSibling","toLowerCase","children","digest","refresh","parseRepeat","register","prototype","then"]function cH(f){var e=[],g=ag[cp];for(var i in C){var b=C[i];f&&f[d]?ay(f,b)&&O(b):(O(b),ay(g,b)||e[c](b))}e[h]&&e[p](function(b){return ab[a](b)})}function O(b){if(!b[cq]){b[d][p](function(c){return c[a](b)});return}var c={};m[ao](b)[p](function(d){var a=b[d];c[d]=a instanceof m&&!V(a)&&!bh(a)&&!U(a)?E(a instanceof W?[]:{},a):a}),b[d][p](function(c){return c[a](b)});var e=bi(b,c);if(e){var f=bj(bu);f[cr]=e,bk(f,b)}}function P(g,j,x){if(j===void 0&&(j=g[J]),x===void 0&&(x=g[q]),!U(g)&&g[h])return[][z][v]([],g)[e](function(a){return P(a,j,x)});if(!bp(g))return g;bq(g[b])||cI(g,j,x);var w=g[a8](c2)||g[a8](c3)||g[a8](c4);if(w)if(j[w]){if(j[w]!==g)throw new n(c5+w)}else j[w]=g;if(g[b]<0)return g;var E=!g[b];g[b]=1;var t=g[K];if(t&&(t[b]>1||t[b9])&&(g[b]=2),E){var C=[][z][v]([],g[aq]),k=g[M],t=g[K],G=g[cB];j[k]||(k=k[s]()),j[k]||(k=k[i](c6,function(b,a){return a[N]()})),j[k]||(k=k[I](0,1)[s]()+k[I](1));var H=j[k]||ar[k];if(V(H)){var A={},l=H[a](j,g);U(l)&&g!==l&&(G?F[a0](G,l):t&&F(t,l),g[K]===t&&X(g),C[e](function(c){var a=c[o],b=c[u];switch(a[s]()){case aT:aC(l,b);break;case c7:aE(l,b);break;case aO:case c8:l[a]=b;break;default:c9[f](a)?A[a]=c:l[y](a,b)}}),g=l,g[J]=j),[][z][v]([],g[aq])[p](function(a){A[a[o]]&&delete A[a[o]],A[a[o]]=a}),C=m[ao](A)[e](function(a){return A[a]})}}if(g[ba][h]&&P(g[ba],j,x),!E)return g;g[d]=g[d]?[][z](g[d]):[];var B=x?x[e](function(b,a){return aW+a+aX})[L](''):'',D=ca,Q=[];return C[e](function(j){var b=j[o],d=j[u];if(cb[f](b))return;var e=b[i](aY,'')[s]();if(ad[Y](e)&&V(ad[e]))ad[e][a](g,[B,d]),g[r](b);else if(D[f](b)){var h=D[$](b),k=(h[1]||h[0])[s]()===aZ?aZ:cc;g[r](b),Q[c]([T[k],b[i](D,''),d])}else if(a_[f](b))av._[a](g,b[i](a_,''),[B,d]),g[r](b);else if(a$[f](b))av[''][a](g,b[i](a$,''),[B,d]),g[r](b);else{b=b[i](aV,function(b,a){return a[N]()});try{g[b]=d===''?!0:d}catch(a){}}}),O(g),Q[p](function(b){var c=b[0],d=b[1],e=b[2];return c[a](g,d,[B,e])}),g[d][h]&&(az(g,aa),aA(g,ab),(g[b9]||g[b]>1)&&aa[a](g)),w&&(j[w]=g),g}function cI(c,l,d){if(d===void 0&&(d=[]),d!==null&&!br(d))throw new n(cd);if(c[J]=l,d){if(c[b]&&!c[q]||c[q]&&c[q][h]!==d[h])return new n(ce);c[q]=d}var j=[][z][v]([],c[aq]),k=d?d[e](function(b,a){return aW+a+aX})[L](''):'';j=j[H](function(a){return D[Y](a[o][i](cf,'')[s]())});var g={};if(j[h]>2)throw new n(cg+j[e](function(a){return a[o]}));j[e](function(d){var e=d[o],a=e[i](aY,'')[s]();if(D[Y](a)&&V(D[a])){if(c[b]<=-2)if(b0[f](a)){if(g[t])throw new n(ch)}else if(g[a2])throw new n(ci);b0[f](a)?g[t]=d:g[a2]=d,c[b]?c[b]=-2:c[b]=-1,c[r](e)}}),c[b]<=-1&&bd[a](c,g[t],g[a2],k)}function A(a,b,c){return P(a,b,c)}var B,a9,Q={}[Y],C=m[an](null),ar=m[an](null);af[co]=C;var as=10,aa=function(){var a=this;if(!U(a))return;a[b]<10&&a[b]>0&&(a[b]=++as),C[a[b]]=a,O(a)},ab=function(){var a=this;delete C[a[b]]},at=bv,k=function(d,b){b===void 0&&(b=!0);var c=d[0],a=d[1];return aF[f](a)&&(a=a[i](at,function(b){var a;return b[x](aF)[p](function(b){a?(bw[f](a)&&(a=aG+a+aH),a=a+bx+a+by+a+bz+b+bA):a=b}),a})),b?new l(aI,bB+c+aJ+a+bC):new l(aI,c+aJ+a)},R=function(e,c,g){var a=ag[cs](c+ak+g);return a[d]=e,a[b]=++as,az(a,aa),aA(a,ab),F[b1](this,a),bD[f](c)||X(this),O(a),a},ac=function(p){var j=bE,a=j[$](p);if(!a)return a;var q=a[0],b=a[1],c=a[2],k=a[3],l=a[4],m=a[5],g,d,f,n=m,o=l;switch(k){case bF:b&&(d=b);if(c)var h=c[x](aK)[e](function(a){return a[b2]()})[H](function(a){return!!a}),g=h[0],f=h[1];break;case bG:b&&(d=b);if(c){g=b;var i=c[x](aK)[e](function(a){return a[b2]()})[H](function(a){return!!a}),d=i[0],f=i[1]}break}return{keyName:g,itemName:d,indexName:f,trackBy:n,srcName:o}},S=function(p,l){l===void 0&&(l=0);var r=p[0],d=p[1],c=ac(d);if(!c)throw new n(bH+d+ak);var s=c[ct],t=c[b3],u=c[b4],v=c[b5],w=k([r,v])[g](this),f=this,i=[],x,o=[function(){var a=w();if(a=a instanceof W?a[I](0):E({},a),j[cu](x,a))return;x=a,X(i);var c=a instanceof W?a[e](function(b,a){return a}):m[ao](a);if(c[h]>600)throw new n(bI);var d=f[q]||[];i=c[e](function(h,i){var e,c=f[cv]();c[b6]=f[b6],c[b]=l,c[q]=d;var g=E(m[an](f[J]),(e={},e[s||bJ]=h,e[t||bK]=a[h],e[u||bL]=i,e));return c[J]=g,c=P(c,g,c[q]),c},this),F[a0](this,i)}];this[K]?R[a](this,o,aL,d):ah(aM)(this,R[g](this,o,aL,d))},au=function(d,e){e===void 0&&(e=0);var h=k(d)[g](this),c=this,i,f=[function(){var a=h();if(a=!!a,i===a)return;i=a,a?(F[a0](this,c),c[b]<0&&(c[b]=e,P(c))):X(c)}];this[K]?R[a](this,f,t,d[1]):ah(aM)(this,R[g](this,f,t,d[1]))},bc=function(a,o){var e=ac(o);if(!e)throw new n(bM+bl);var f=[],g=[],b=0,d=bN;d[a1]=0;var l=function(){var i=d[$](a),e=d[a1];if(i)switch(i[0]){case aG:f[c](e);break;case aH:f[cw]();break;case bO:case al:f[h]||(g[c](a[I](b,e-2)),b=e);break}else g[c](a[I](b,a[h])),b=a[h]},m=0;while(d[a1]<a[h]){if(m++>100)throw new n(bP);if(d[a1]<b)break;l()}var j=[],k=[];return g[p](function(a){var b=!1;a[i](at,function(c){var a=bQ[$](c)[0];a&&(a=a[i](bR,''),(a===e[b5]||a===e[b3]||a===e[b4])&&(b=!0))}),b?k[c](a):j[c](a)}),{before:j[H](function(a){return!!a}),after:k[H](function(a){return!!a})}},bd=function(m,n,d){var f=m===void 0?{}:m,g=f[o],e=f[u],i=n===void 0?{}:n,p=i[o],c=i[u],b=this;if(!e)return D[a2][a](b,[d,c]);if(!c)return D[t][a](b,[d,e]);var j=bc(e,c),k=j[a0],l=j[b1];l[h]?b[y](g,l[L](al)):b[r](g),k[h]>0?au[a](b,[d,k[L](al)],null):(b[r](p),S[a](b,[d,c],null))},D=(B={},B[t]=function(b){au[a](this,b)},B.repeat=function(b){S[a](this,b)},B[bS]=function(b){S[a](this,b)},B.each=function(b){S[a](this,b)},B),be=function(){this[b7]||(this[b7]=!0,this[y](bT,''))},ad=(a9={src:function(n){var i=k(n)[g](this),a,b,l=function(){h[a3]=a,bm(h,aN),b=0},e=ag[cx](bU),h=this;this[d][c](function(){var c=i();if(j(c,a))return;if(c instanceof W?a=E([],c):c instanceof m?a=E({},c):a=c||'',bV[f](this[M])){if(this[y](aO,bW),!aB(c))return;c&&(e[a3]=c,e[cy]?this[a3]=c:b||(aC(this,aN),b=bn(l)))}else this[a3]=c,bo(this,c)})},bind:function(e){var a=k(e)[g](this),b;this[d][c](function(){var c=a();if(j(c,b))return;b=c,aD(this)!==c&&aD(this,c)})},model:function(b){var o=this,i=k(b)[g](this),a,m=this[a4]instanceof l?bX:'',n=this[a5]instanceof l?function(){var b=i();if(b===G&&(b=''),j(a,b))return;a=b,this[a5](b)}:null;if(bY[f](this[M])&&aP[f](this[cz])||aP[f](this[M])){this[d][c](n||function(){var b=i();if(b===G&&(b=''),j(a,b))return;a=b,this[cA]=b});var h=new l(b[0]+Z+b[1]+_+(m||bZ))[g](this)}else if((aQ in this||this[a4]instanceof l)&&this[a5]instanceof l){this[d][c](n||function(){var b=i();if(b===G&&(b=''),j(a,b))return;a=b,(this[a4]instanceof l?this[a4]():this[u])!==b&&this[a5](b)});var h=new l(b[0]+Z+b[1]+_+(m||aR))[g](this)}else if(b_[f](this[M])||aQ in this){this[d][c](n||function(){var b=i();if(b===G&&(b=''),j(a,b))return;a=b,this[u]!==b&&(this[u]=b)});var h=new l(b[0]+Z+b[1]+_+(m||aR))[g](this)}else{this[d][c](n||function(){var b=i();if(b===G&&(b=''),j(a,b))return;a=b,ai(this)!==b&&ai(this,b)});var h=new l(b$,b[0]+Z+b[1]+_+(m||c0))[g](this,ai)}var p=h;ae[e](function(a){return a(o,p)}),ae[e](function(a){return a(o,be)})},hide:function(e){var a=k(e)[g](this),b;this[d][c](function(){var c=!!a();if(j(b,c))return;b=c,c?this[a6][a7]=aS:this[a6][a7]=''})},show:function(e){var a=k(e)[g](this),b;this[d][c](function(){var c=!!a();if(j(b,c))return;b=c,c?this[a6][a7]='':this[a6][a7]=aS})}},a9[aT]=function(l){var h=k(l)[g](this),b={},i;this[d][c](function(){var d=h();if(j(i,d))return;i=d;var g=[];this[ap][x](aU)[e](function(d){d&&!Q[a](b,d)&&!Q[a](g,d)&&(am[f](d)||g[c](g[d]=d))});var k=[];if(aB(d))d[x](aU)[e](function(b){Q[a](g,b)||am[f](b)||k[c](k[b]=b)});else if(d instanceof m)for(var l in d)!Q[a](g,l)&&d[l]&&(am[f](l)||k[c](k[l]=l));var n=g[z](k)[L](ak);b=k,this[ap]!==n&&(this[ap]=n)})},a9.style=function(e){var a=k(e)[g](this),b;this[d][c](function(){var c=a();if(j(b,c))return;b=c,aE(this,c)})},a9),av={_:function(a,f){a=a[i](aV,function(b,a){return a[N]()});var b=k(f)[g](this),e;this[d][c](function(){var c=b();if(j(c,e))return;e=c,this[a]!==c&&(this[a]=this[a[i](c1,function(a){return a[N]()})]=c)})},'':function(a,f){var b=k(f)[g](this),e;this[d][c](function(){var c=b();if(j(c,e))return;e=c,c===!0||c===''?this[b8](a)||this[y](a,''):c===!1||c===null?this[b8](a)&&this[r](a):this[a8](a)!==c&&this[y](a,c)})}},T={on:function(c,d){var b=k(d,!1);aj(c)(this,function(c){b[a](this,c),w()})},once:function(c,d){var b=k(d,!1);ah(c)(this,function(c){b[a](this,c),w()})}};T.v=T.ng=T.on;var w=bs(cH);A[cC]=A[v]=A[cD]=w,A[cE]=ac;var ae=cj[x](ck)[e](function(a){return aj(a)});ae[e](function(a){return a(af,w)}),aj(cl)(af,w);var aw=function(a,b){a=a[i](cm,function(b,a){return a[N]()})[i](cn,function(a){return a[s]()}),ar[a]=b};A[cF]=function(a,c){if(a instanceof m)for(var b in a)aw(b,a[b]);else arguments[h]===2&&aw(a,c)};var ax=bt[cG],bf=ax[bb],bg=function(a){return a instanceof l?function(){var b=a[v](this,arguments);return w(),b}:a};return ax[bb]=function(){return bf[v](this,[][e][a](arguments,bg))},A
+0weObject,window,isNode,document,getTargetIn,isFunction,isDate,extend,Array,getChanges,createEvent,dispatch,Function,onappend,onremove,appendChild,remove,Error,deepEqual,once,repeat,removeClass,isString,addClass,setTimeout,cast,text,undefined,html,css,on,isElement,isNumber,isArray,lazy,Promise,Object,window,isNode,document,getTargetIn,isFunction,isDate,extend,Array,getChanges,createEvent,dispatch,Function,onappend,onremove,appendChild,remove,Error,deepEqual,once,repeat,removeClass,isString,addClass,setTimeout,cast,text,undefined,html,css,on,isElement,isNumber,isArray,lazy,Promisevar hasOwnProperty = {}['hasOwnProperty'];
+var renderElements = Object.create(null);
+var presets = Object.create(null);
+window.renderElements = renderElements;
+var renderidOffset = 10;
+var renderidClosed = 0;
+var addRenderElement = function () {
+    var element = this;
+    if (!isNode(element))
+        return;
+    if (element.renderid < 10 && element.renderid > 0)
+        element.renderid = ++renderidOffset;
+    renderElements[element.renderid] = element;
+    rebuild(element);
+};
+var removeRenderElement = function () {
+    var element = this;
+    delete renderElements[element.renderid];
+};
+function refresh(root) {
+    var rest = [];
+    var body = document.documentElement;
+    for (var k in renderElements) {
+        var element = renderElements[k];
+        if (root && root.renders) {
+            if (getTargetIn(root, element))
+                rebuild(element);
+        } else {
+            rebuild(element);
+            if (!getTargetIn(body, element)) {
+                rest.push(element);
+            }
+        }
+    }
+    if (rest.length)
+        rest.forEach(function (a) {
+            return removeRenderElement.call(a);
+        });
+}
+function rebuild(element) {
+    if (!element.needchanges) {
+        element.renders.forEach(function (a) {
+            return a.call(element);
+        });
+        return;
+    }
+    var props = {};
+    Object.keys(element).forEach(function (key) {
+        var data = element[key];
+        props[key] = data instanceof Object && !isFunction(data) && !isDate(data) && !isNode(data) ? extend(data instanceof Array ? [] : {}, data) : data;
+    });
+    element.renders.forEach(function (a) {
+        return a.call(element);
+    });
+    var changes = getChanges(element, props);
+    if (changes) {
+        var event = createEvent('changes');
+        event.changes = changes;
+        dispatch(event, element);
+    }
+}
+var variableReg = /([^\:\,\+\=\-\!%\^\|\/\&\*\!\;\?\>\<~\{\}\s]|\?\.(?=[^\d])|\s*\.\s*)+/g;
+var createGetter = function (search, usetry) {
+    if (usetry === void 0) {
+        usetry = true;
+    }
+    var withContext = search[0], searchContext = search[1];
+    if (/\?\.(?=[^\d])/.test(searchContext)) {
+        searchContext = searchContext.replace(variableReg, function (context) {
+            var dist;
+            context.split(/\?\.(?=[^\d])/).forEach(function (search) {
+                if (dist) {
+                    if (/[\=]/.test(dist))
+                        dist = '(' + dist + ')';
+                    dist = dist + '!==void 0&&' + dist + '!==null?' + dist + '.' + search + ':null';
+                } else {
+                    dist = search;
+                }
+            });
+            return dist;
+        });
+    }
+    if (usetry) {
+        return new Function('event', 'try{' + withContext + 'with(this.$scope)return ' + searchContext + '}catch(e){/*console.warn(String(e))*/}');
+    }
+    return new Function('event', withContext + 'with(this.$scope)return ' + searchContext);
+};
+var initialComment = function (renders, type, expression) {
+    var comment = document.createComment(type + ' ' + expression);
+    comment.renders = renders;
+    comment.renderid = ++renderidOffset;
+    onappend(comment, addRenderElement);
+    onremove(comment, removeRenderElement);
+    appendChild.after(this, comment);
+    if (!/if/i.test(type))
+        remove(this);
+    rebuild(comment);
+    return comment;
+};
+var parseRepeat = function (expression) {
+    var reg = /^(?:let\b|var\b|const\b)?\s*(?:[\(\{\[]\s*)?(.+?)((?:\s*,\s*.+?)*)?(?:\s*[\)\}\]]\s*|\s+)(in|of)\s+(.+?)(\s+?:track\s*by\s+(.+?))?$/i;
+    var res = reg.exec(expression);
+    if (!res)
+        return res;
+    var _ = res[0], i = res[1], k = res[2], r = res[3], s = res[4], t = res[5];
+    var keyName, itemName, indexName, trackBy = t, srcName = s;
+    switch (r) {
+    case 'in':
+        if (i)
+            itemName = i;
+        if (k) {
+            var _a = k.split(/,/).map(function (a) {
+                    return a.trim();
+                }).filter(function (a) {
+                    return !!a;
+                }), keyName = _a[0], indexName = _a[1];
+        }
+        break;
+    case 'of':
+        if (i)
+            itemName = i;
+        if (k) {
+            keyName = i;
+            var _b = k.split(/,/).map(function (a) {
+                    return a.trim();
+                }).filter(function (a) {
+                    return !!a;
+                }), itemName = _b[0], indexName = _b[1];
+        }
+        break;
+    }
+    return {
+        keyName: keyName,
+        itemName: itemName,
+        indexName: indexName,
+        trackBy: trackBy,
+        srcName: srcName
+    };
+};
+var createRepeat = function (search, id) {
+    if (id === void 0) {
+        id = 0;
+    }
+    var context = search[0], expression = search[1];
+    var res = parseRepeat(expression);
+    if (!res)
+        throw new Error('no recognition for repeat expression: ' + expression + ' ');
+    var keyName = res.keyName, itemName = res.itemName, indexName = res.indexName, srcName = res.srcName;
+    var getter = createGetter([
+        context,
+        srcName
+    ]).bind(this);
+    var element = this, clonedElements = [], savedValue;
+    var renders = [function () {
+            var result = getter();
+            result = result instanceof Array ? result.slice(0) : extend({}, result);
+            if (deepEqual.shallow(savedValue, result))
+                return;
+            savedValue = result;
+            remove(clonedElements);
+            var keys = result instanceof Array ? result.map(function (_, i) {
+                return i;
+            }) : Object.keys(result);
+            if (keys.length > 600) {
+                throw new Error('\u6570\u636e\u91cf\u8fc7\u5927\uFF0C\u53d6\u6d88\u7ed8\u5236\uFF01');
+            }
+            var $parentScopes = element.$parentScopes || [];
+            clonedElements = keys.map(function (key, cx) {
+                var _a;
+                var clone = element.cloneNode();
+                clone.innerHTML = element.innerHTML;
+                clone.renderid = id;
+                clone.$parentScopes = $parentScopes;
+                var $scope = extend(Object.create(element.$scope), (_a = {}, _a[keyName || '$key'] = key, _a[itemName || '$item'] = result[key], _a[indexName || '$index'] = cx, _a));
+                clone.$scope = $scope;
+                clone = renderElement(clone, $scope, clone.$parentScopes);
+                return clone;
+            }, this);
+            appendChild.before(this, clonedElements);
+        }];
+    if (this.parentNode) {
+        initialComment.call(this, renders, 'repeat', expression);
+    } else {
+        once('append')(this, initialComment.bind(this, renders, 'repeat', expression));
+    }
+};
+var createIf = function (search, id) {
+    if (id === void 0) {
+        id = 0;
+    }
+    var getter = createGetter(search).bind(this);
+    var element = this;
+    var savedValue;
+    var renders = [function () {
+            var result = getter();
+            result = !!result;
+            if (savedValue === result)
+                return;
+            savedValue = result;
+            if (result) {
+                appendChild.before(this, element);
+                if (element.renderid < 0) {
+                    element.renderid = id;
+                    renderElement(element);
+                }
+            } else {
+                remove(element);
+            }
+        }];
+    if (this.parentNode) {
+        initialComment.call(this, renders, 'if', search[1]);
+    } else {
+        once('append')(this, initialComment.bind(this, renders, 'if', search[1]));
+    }
+};
+var parseIfWithRepeat = function (ifExpression, repeatExpression) {
+    var repeater = parseRepeat(repeatExpression);
+    if (!repeater) {
+        throw new Error('\u4e0d\u80fd\u8bc6\u522brepeat\u8868\u8fbe\u5f0f\uFF1A' + repeat);
+    }
+    var pair = [];
+    var rest = [], savedIndex = 0;
+    var reg = /[\(\)]|&&|;/g;
+    reg.lastIndex = 0;
+    var run = function () {
+        var res = reg.exec(ifExpression);
+        var lastIndex = reg.lastIndex;
+        if (res) {
+            switch (res[0]) {
+            case '(':
+                pair.push(lastIndex);
+                break;
+            case ')':
+                pair.pop();
+                break;
+            case ';':
+            case '&&':
+                if (!pair.length) {
+                    rest.push(ifExpression.slice(savedIndex, lastIndex - 2));
+                    savedIndex = lastIndex;
+                }
+                break;
+            }
+        } else {
+            rest.push(ifExpression.slice(savedIndex, ifExpression.length));
+            savedIndex = ifExpression.length;
+        }
+    };
+    var inc = 0;
+    while (reg.lastIndex < ifExpression.length) {
+        if (inc++ > 100)
+            throw new Error('\u8bf7\u4e0d\u8981\u5728if\u8868\u8fbe\u5f0f\u4e2d\u4f7f\u7528\u592a\u591a\u7684\u6761\u4ef6!');
+        if (reg.lastIndex < savedIndex)
+            break;
+        run();
+    }
+    var beforeRepeat = [], afterRepeat = [];
+    rest.forEach(function (result) {
+        var match = false;
+        result.replace(variableReg, function (variable) {
+            var name = /^[^\.\?\s]+/.exec(variable)[0];
+            if (name) {
+                name = name.replace(/\s/g, '');
+                if (name === repeater.srcName || name === repeater.itemName || name === repeater.indexName) {
+                    match = true;
+                }
+            }
+        });
+        if (match) {
+            afterRepeat.push(result);
+        } else {
+            beforeRepeat.push(result);
+        }
+    });
+    return {
+        before: beforeRepeat.filter(function (a) {
+            return !!a;
+        }),
+        after: afterRepeat.filter(function (a) {
+            return !!a;
+        })
+    };
+};
+var createStructure = function (_a, _b, context) {
+    var _c = _a === void 0 ? {} : _a, ifkey = _c.name, ifexp = _c.value;
+    var _d = _b === void 0 ? {} : _b, forkey = _d.name, repeat = _d.value;
+    var element = this;
+    if (!ifexp)
+        return structures.repeat.call(element, [
+            context,
+            repeat
+        ]);
+    if (!repeat)
+        return structures['if'].call(element, [
+            context,
+            ifexp
+        ]);
+    var _e = parseIfWithRepeat(ifexp, repeat), before = _e.before, after = _e.after;
+    if (!after.length) {
+        element.removeAttribute(ifkey);
+    } else {
+        element.setAttribute(ifkey, after.join('&&'));
+    }
+    if (before.length > 0) {
+        createIf.call(element, [
+            context,
+            before.join('&&')
+        ], null);
+    } else {
+        element.removeAttribute(forkey);
+        createRepeat.call(element, [
+            context,
+            repeat
+        ], null);
+    }
+};
+var structures = {
+    'if': function (search) {
+        createIf.call(this, search);
+    },
+    repeat: function (search) {
+        createRepeat.call(this, search);
+    },
+    'for': function (search) {
+        createRepeat.call(this, search);
+    },
+    each: function (search) {
+        createRepeat.call(this, search);
+    }
+};
+var changed = function () {
+    if (!this.dirty)
+        this.dirty = true, this.setAttribute('dirty', '');
+};
+var directives = {
+    src: function (search) {
+        var getter = createGetter(search).bind(this);
+        var oldValue, pending;
+        var refresh = function () {
+            that.src = oldValue;
+            removeClass(that, 'pending');
+            pending = 0;
+        };
+        var img = document.createElement('img');
+        var that = this;
+        this.renders.push(function () {
+            var value = getter();
+            if (deepEqual(value, oldValue))
+                return;
+            if (value instanceof Array) {
+                oldValue = extend([], value);
+            } else if (value instanceof Object) {
+                oldValue = extend({}, value);
+            } else {
+                oldValue = value || '';
+            }
+            if (/^img$/i.test(this.tagName)) {
+                this.setAttribute('src', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQYV2NgAAIAAAUAAarVyFEAAAAASUVORK5CYII=');
+                if (!isString(value)) {
+                    return;
+                }
+                if (value) {
+                    img.src = value;
+                    if (img.complete) {
+                        this.src = value;
+                    } else if (!pending) {
+                        addClass(this, 'pending');
+                        pending = setTimeout(refresh);
+                    }
+                }
+            } else {
+                this.src = value;
+                cast(this, value);
+            }
+        });
+    },
+    bind: function (search) {
+        var getter = createGetter(search).bind(this);
+        var oldValue;
+        this.renders.push(function () {
+            var value = getter();
+            if (deepEqual(value, oldValue))
+                return;
+            oldValue = value;
+            if (text(this) !== value)
+                text(this, value);
+        });
+    },
+    model: function (search) {
+        var _this = this;
+        var getter = createGetter(search).bind(this);
+        var oldValue;
+        var getstr = this.getValue instanceof Function ? 'this.getValue()' : '';
+        var setter = this.setValue instanceof Function ? function () {
+            var value = getter();
+            if (value === undefined)
+                value = '';
+            if (deepEqual(oldValue, value))
+                return;
+            oldValue = value;
+            this.setValue(value);
+        } : null;
+        if (/^input$/i.test(this.tagName) && /^checkbox$/i.test(this.type) || /^checkbox$/i.test(this.tagName)) {
+            this.renders.push(setter || function () {
+                var value = getter();
+                if (value === undefined)
+                    value = '';
+                if (deepEqual(oldValue, value))
+                    return;
+                oldValue = value;
+                this.checked = value;
+            });
+            var change = new Function(search[0] + 'with(this.$scope)' + search[1] + '=' + (getstr || 'this.checked')).bind(this);
+        } else if (('value' in this || this.getValue instanceof Function) && this.setValue instanceof Function) {
+            this.renders.push(setter || function () {
+                var value = getter();
+                if (value === undefined)
+                    value = '';
+                if (deepEqual(oldValue, value))
+                    return;
+                oldValue = value;
+                if ((this.getValue instanceof Function ? this.getValue() : this.value) !== value)
+                    this.setValue(value);
+            });
+            var change = new Function(search[0] + 'with(this.$scope)' + search[1] + '=' + (getstr || 'this.value')).bind(this);
+        } else if (/^(select|input|textarea)$/i.test(this.tagName) || 'value' in this) {
+            this.renders.push(setter || function () {
+                var value = getter();
+                if (value === undefined)
+                    value = '';
+                if (deepEqual(oldValue, value))
+                    return;
+                oldValue = value;
+                if (this.value !== value)
+                    this.value = value;
+            });
+            var change = new Function(search[0] + 'with(this.$scope)' + search[1] + '=' + (getstr || 'this.value')).bind(this);
+        } else {
+            this.renders.push(setter || function () {
+                var value = getter();
+                if (value === undefined)
+                    value = '';
+                if (deepEqual(oldValue, value))
+                    return;
+                oldValue = value;
+                if (html(this) !== value)
+                    html(this, value);
+            });
+            var change = new Function('html', search[0] + 'with(this.$scope)' + search[1] + '=' + (getstr || '\'value\' in this?this.value:html(this)')).bind(this, html);
+        }
+        var onchange = change;
+        eventsHandlers.map(function (on) {
+            return on(_this, onchange);
+        });
+        eventsHandlers.map(function (on) {
+            return on(_this, changed);
+        });
+    },
+    hide: function (search) {
+        var getter = createGetter(search).bind(this);
+        var oldValue;
+        this.renders.push(function () {
+            var value = !!getter();
+            if (deepEqual(oldValue, value))
+                return;
+            oldValue = value;
+            if (value) {
+                this.style.display = 'none';
+            } else {
+                this.style.display = '';
+            }
+        });
+    },
+    show: function (search) {
+        var getter = createGetter(search).bind(this);
+        var oldValue;
+        this.renders.push(function () {
+            var value = !!getter();
+            if (deepEqual(oldValue, value))
+                return;
+            oldValue = value;
+            if (value) {
+                this.style.display = '';
+            } else {
+                this.style.display = 'none';
+            }
+        });
+    },
+    'class': function (search) {
+        var getter = createGetter(search).bind(this);
+        var generatedClassNames = {};
+        var oldValue;
+        this.renders.push(function () {
+            var className = getter();
+            if (deepEqual(oldValue, className))
+                return;
+            oldValue = className;
+            var originalClassNames = [];
+            this.className.split(/\s+/).map(function (k) {
+                if (k && !hasOwnProperty.call(generatedClassNames, k) && !hasOwnProperty.call(originalClassNames, k)) {
+                    if (!/^\d+$/.test(k))
+                        originalClassNames.push(originalClassNames[k] = k);
+                }
+            });
+            var deltaClassNames = [];
+            if (isString(className)) {
+                className.split(/\s+/).map(function (k) {
+                    if (!hasOwnProperty.call(originalClassNames, k)) {
+                        if (!/^\d+$/.test(k))
+                            deltaClassNames.push(deltaClassNames[k] = k);
+                    }
+                });
+            } else if (className instanceof Object) {
+                for (var k in className) {
+                    if (!hasOwnProperty.call(originalClassNames, k) && className[k]) {
+                        if (!/^\d+$/.test(k))
+                            deltaClassNames.push(deltaClassNames[k] = k);
+                    }
+                }
+            }
+            var destClassName = originalClassNames.concat(deltaClassNames).join(' ');
+            generatedClassNames = deltaClassNames;
+            if (this.className !== destClassName) {
+                this.className = destClassName;
+            }
+        });
+    },
+    style: function (search) {
+        var getter = createGetter(search).bind(this);
+        var oldValue;
+        this.renders.push(function () {
+            var stylesheet = getter();
+            if (deepEqual(oldValue, stylesheet))
+                return;
+            oldValue = stylesheet;
+            css(this, stylesheet);
+        });
+    }
+};
+var binders = {
+    _: function (attr, search) {
+        attr = attr.replace(/\-(\w)/g, function (_, w) {
+            return w.toUpperCase();
+        });
+        var getter = createGetter(search).bind(this);
+        var oldValue;
+        this.renders.push(function () {
+            var value = getter();
+            if (deepEqual(value, oldValue))
+                return;
+            oldValue = value;
+            if (this[attr] !== value) {
+                this[attr] = this[attr.replace(/\-[a-z]/g, function (a) {
+                    return a.toUpperCase();
+                })] = value;
+            }
+        });
+    },
+    '': function (attr, search) {
+        var getter = createGetter(search).bind(this);
+        var oldValue;
+        this.renders.push(function () {
+            var value = getter();
+            if (deepEqual(value, oldValue))
+                return;
+            oldValue = value;
+            if (value === true || value === '') {
+                if (!this.hasAttribute(attr)) {
+                    this.setAttribute(attr, '');
+                }
+            } else if (value === false || value === null) {
+                if (this.hasAttribute(attr)) {
+                    this.removeAttribute(attr);
+                }
+            } else if (this.getAttribute(attr) !== value)
+                this.setAttribute(attr, value);
+        });
+    }
+};
+var emiters = {
+    on: function (key, search) {
+        var getter = createGetter(search, false);
+        on(key)(this, function (e) {
+            getter.call(this, e);
+            digest();
+        });
+    },
+    once: function (key, search) {
+        var getter = createGetter(search, false);
+        once(key)(this, function (e) {
+            getter.call(this, e);
+            digest();
+        });
+    }
+};
+emiters.v = emiters.ng = emiters.on;
+function renderElement(element, scope, parentScopes) {
+    if (scope === void 0) {
+        scope = element.$scope;
+    }
+    if (parentScopes === void 0) {
+        parentScopes = element.$parentScopes;
+    }
+    if (!isNode(element) && element.length) {
+        return [].concat.apply([], element).map(function (element) {
+            return renderElement(element, scope, parentScopes);
+        });
+    }
+    if (!isElement(element)) {
+        return element;
+    }
+    if (!isNumber(element.renderid)) {
+        renderStructure(element, scope, parentScopes);
+    }
+    var elementid = element.getAttribute('renderid') || element.getAttribute('elementid') || element.getAttribute('id');
+    if (elementid) {
+        if (scope[elementid]) {
+            if (scope[elementid] !== element)
+                throw new Error('\u540c\u4e00\u4e2aid\u4e0d\u80fd\u4f7f\u7528\u4e24\u6b21:' + elementid);
+        } else {
+            scope[elementid] = element;
+        }
+    }
+    if (element.renderid < 0) {
+        return element;
+    }
+    var isFirstRender = !element.renderid;
+    element.renderid = 1;
+    var parentNode = element.parentNode;
+    if (parentNode) {
+        if (parentNode.renderid > 1 || parentNode.isMounted)
+            element.renderid = 2;
+    }
+    if (isFirstRender) {
+        var attrs = [].concat.apply([], element.attributes);
+        var tagName = element.tagName, parentNode = element.parentNode, nextSibling = element.nextSibling;
+        if (!scope[tagName])
+            tagName = tagName.toLowerCase();
+        if (!scope[tagName])
+            tagName = tagName.replace(/(?:^|\-+)([a-z])/ig, function (_, w) {
+                return w.toUpperCase();
+            });
+        if (!scope[tagName])
+            tagName = tagName.slice(0, 1).toLowerCase() + tagName.slice(1);
+        var createReplacer = scope[tagName] || presets[tagName];
+        if (isFunction(createReplacer)) {
+            var attrsMap = {};
+            var replacer = createReplacer.call(scope, element);
+            if (isNode(replacer) && element !== replacer) {
+                if (nextSibling)
+                    appendChild.before(nextSibling, replacer);
+                else if (parentNode)
+                    appendChild(parentNode, replacer);
+                if (element.parentNode === parentNode)
+                    remove(element);
+                attrs.map(function (attr) {
+                    var name = attr.name, value = attr.value;
+                    switch (name.toLowerCase()) {
+                    case 'class':
+                        addClass(replacer, value);
+                        break;
+                    case 'style':
+                        css(replacer, value);
+                        break;
+                    case 'src':
+                    case 'placeholder':
+                        replacer[name] = value;
+                        break;
+                    default:
+                        if (!/[\-]/.test(name)) {
+                            replacer.setAttribute(name, value);
+                        } else {
+                            attrsMap[name] = attr;
+                        }
+                    }
+                });
+                element = replacer;
+                element.$scope = scope;
+            }
+            [].concat.apply([], element.attributes).forEach(function (attr) {
+                if (attrsMap[attr.name]) {
+                    delete attrsMap[attr.name];
+                }
+                attrsMap[attr.name] = attr;
+            });
+            attrs = Object.keys(attrsMap).map(function (key) {
+                return attrsMap[key];
+            });
+        }
+    }
+    if (element.children.length)
+        renderElement(element.children, scope, parentScopes);
+    if (!isFirstRender)
+        return element;
+    element.renders = element.renders ? [].concat(element.renders) : [];
+    var withContext = parentScopes ? parentScopes.map(function (_, cx) {
+        return 'with(this.$parentScopes[' + cx + '])';
+    }).join('') : '';
+    var emiter_reg = /^(?:(v|ng|on|once)\-|v\-on\:|@|once|on)/i;
+    var ons = [];
+    attrs.map(function (attr) {
+        var name = attr.name, value = attr.value;
+        if (/^(?:class|style|src)$/i.test(name))
+            return;
+        var key = name.replace(/^(ng|v|.*?)\-/i, '').toLowerCase();
+        if (directives['hasOwnProperty'](key) && isFunction(directives[key])) {
+            directives[key].call(element, [
+                withContext,
+                value
+            ]);
+            element.removeAttribute(name);
+        } else if (emiter_reg.test(name)) {
+            var match = emiter_reg.exec(name);
+            var ngon = (match[1] || match[0]).toLowerCase() === 'once' ? 'once' : 'on';
+            element.removeAttribute(name);
+            ons.push([
+                emiters[ngon],
+                name.replace(emiter_reg, ''),
+                value
+            ]);
+        } else if (/^([\_\:\.]|v\-bind\:)/.test(name)) {
+            binders._.call(element, name.replace(/^([\_\:\.]|v\-bind\:)/, ''), [
+                withContext,
+                value
+            ]);
+            element.removeAttribute(name);
+        } else if (/[\_\@\:\.]$/.test(name)) {
+            binders[''].call(element, name.replace(/[\_\@\:\.]$/, ''), [
+                withContext,
+                value
+            ]);
+            element.removeAttribute(name);
+        } else {
+            name = name.replace(/\-(\w)/g, function (_, w) {
+                return w.toUpperCase();
+            });
+            try {
+                element[name] = value === '' ? true : value;
+            } catch (e) {
+            }
+        }
+    });
+    rebuild(element);
+    ons.forEach(function (_a) {
+        var on = _a[0], key = _a[1], value = _a[2];
+        return on.call(element, key, [
+            withContext,
+            value
+        ]);
+    });
+    if (element.renders.length) {
+        onappend(element, addRenderElement);
+        onremove(element, removeRenderElement);
+        if (element.isMounted || element.renderid > 1)
+            addRenderElement.call(element);
+    }
+    if (elementid)
+        scope[elementid] = element;
+    return element;
+}
+function renderStructure(element, scope, parentScopes) {
+    if (parentScopes === void 0) {
+        parentScopes = [];
+    }
+    if (parentScopes !== null && !isArray(parentScopes)) {
+        throw new Error('\u7236\u7ea7\u4f5c\u7528\u57df\u94fe\u5e94\u4ee5\u6570\u7ec4\u7684\u7c7b\u578b\u4f20\u5165');
+    }
+    element.$scope = scope;
+    if (parentScopes) {
+        if (element.renderid && !element.$parentScopes || element.$parentScopes && element.$parentScopes.length !== parentScopes.length) {
+            return new Error('\u7236\u4f5c\u7528\u57df\u94fe\u7684\u957f\u5ea6\u5fc5\u987b\u76f8\u7b49\u7740');
+        }
+        element.$parentScopes = parentScopes;
+    }
+    var attrs = [].concat.apply([], element.attributes);
+    var withContext = parentScopes ? parentScopes.map(function (_, cx) {
+        return 'with(this.$parentScopes[' + cx + '])';
+    }).join('') : '';
+    attrs = attrs.filter(function (a) {
+        return structures['hasOwnProperty'](a.name.replace(/^(ng|V|.*?)\-/i, '').toLowerCase());
+    });
+    var types = {};
+    if (attrs.length > 2)
+        throw new Error('\u8bf7\u4e0d\u8981\u5728\u540c\u4e00\u5143\u7d20\u4e0a\u4f7f\u7528\u4e09\u6b21\u53ca\u4ee5\u4e0a\u7684\u7ed3\u6784\u5c5e\u6027:' + attrs.map(function (a) {
+            return a.name;
+        }));
+    attrs.map(function (attr) {
+        var name = attr.name;
+        var key = name.replace(/^(ng|v|.*?)\-/i, '').toLowerCase();
+        if (structures['hasOwnProperty'](key) && isFunction(structures[key])) {
+            if (element.renderid <= -2) {
+                if (/^if$/i.test(key)) {
+                    if (types['if']) {
+                        throw new Error('\u8bf7\u4e0d\u8981\u5728\u540c\u4e00\u5143\u7d20\u4e0a\u4f7f\u7528\u591a\u6b21if\u7ed3\u6784!');
+                    }
+                } else {
+                    if (types.repeat) {
+                        throw new Error('\u8bf7\u4e0d\u8981\u5728\u540c\u4e00\u5143\u7d20\u4e0a\u4f7f\u7528\u591a\u6b21repeat\u7c7b\u578b\u7684\u5c5e\u6027!');
+                    }
+                }
+            }
+            if (/^if$/i.test(key)) {
+                types['if'] = attr;
+            } else {
+                types.repeat = attr;
+            }
+            if (!element.renderid)
+                element.renderid = -1;
+            else
+                element.renderid = -2;
+            element.removeAttribute(name);
+        }
+    });
+    if (element.renderid <= -1)
+        createStructure.call(element, types['if'], types.repeat, withContext);
+}
+function render(element, scope, parentScopes) {
+    return renderElement(element, scope, parentScopes);
+}
+var digest = lazy(refresh);
+render.digest = render.apply = render.refresh = digest;
+render.parseRepeat = parseRepeat;
+var eventsHandlers = 'change,click,paste,resize,keydown,keypress,keyup,input,drop'.split(',').map(function (k) {
+    return on(k);
+});
+eventsHandlers.map(function (on) {
+    return on(window, digest);
+});
+on('render')(window, digest);
+var register = function (key, creater) {
+    key = key.replace(/\-(\w)/, function (_, a) {
+        return a.toUpperCase();
+    }).replace(/^\w/, function (a) {
+        return a.toLowerCase();
+    });
+    presets[key] = creater;
+};
+render.register = function (key, name) {
+    if (key instanceof Object) {
+        for (var k in key) {
+            register(k, key[k]);
+        }
+    } else if (arguments.length === 2) {
+        register(key, name);
+    }
+};
+var promisePrototype = Promise.prototype;
+var __then = promisePrototype.then;
+var __wrap = function (f) {
+    if (f instanceof Function) {
+        return function () {
+            var res = f.apply(this, arguments);
+            digest();
+            return res;
+        };
+    }
+    return f;
+};
+promisePrototype.then = function () {
+    return __then.apply(this, [].map.call(arguments, __wrap));
+};
+return render;

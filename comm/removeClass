@@ -1,1 +1,24 @@
-01yString,isString,f,g,a,h,b,c,d,e,i,j3e[/\s+/," ","className","trim","split","length","push","join"]function k(s,t){var u=s[b],p=f(u)[c]()[d](a),l={};for(var k=0,m=p[e];k<m;k++){var n=p[k];l[n]=!0}if(g(t)){var q=t[c]()[d](a);for(var k=0,m=q[e];k<m;k++){var n=q[k];delete l[n]}}var r=[];for(var o in l)o&&l[o]&&r[i](o);s[b]=r[j](h)}return k
+01qString,isString,String,isStringfunction removeClass(target, classNames) {
+    var _className = target.className;
+    var arr = String(_className).trim().split(/\s+/);
+    var cls = {};
+    for (var cx = 0, dx = arr.length; cx < dx; cx++) {
+        var c = arr[cx];
+        cls[c] = true;
+    }
+    if (isString(classNames)) {
+        var clsNames = classNames.trim().split(/\s+/);
+        for (var cx = 0, dx = clsNames.length; cx < dx; cx++) {
+            var c = clsNames[cx];
+            delete cls[c];
+        }
+    }
+    var newarr = [];
+    for (var k in cls) {
+        if (k && cls[k]) {
+            newarr.push(k);
+        }
+    }
+    target.className = newarr.join(' ');
+}
+return removeClass;

@@ -1,1 +1,42 @@
-03ygetTargetIn,document,appendChild,remove,g,b,h,i,c,j,d,e,k,l,m,n,f,o,p,q74["pop","lastIndexOf","splice","length","activeElement","style","zIndex","mount","parentNode","push","documentElement","unmount"]var a=[];return a[c]=function(o){if(o){var h=a[j](o);~h&&a[d](h,1);return}var f=0,p;for(var c=a[e]-1;c>=0;c--){var i=a[c];if(g(i,b[k]))break;var n=i[l][m];n>f&&(f=n,p=c)}return f>0&&(c=p),c<0&&(c=a[e]-1),a[d](c,1)[0]},a[n]=function(c){if(c[f])return;a[o](c),h(b[p],c)},a[q]=function(b){if(!b[f])return;a[c](b),i(b)},a
+04egetTargetIn,document,appendChild,remove,getTargetIn,document,appendChild,removevar rootElements = [];
+rootElements.pop = function (elem) {
+    if (elem) {
+        var index = rootElements.lastIndexOf(elem);
+        if (~index) {
+            rootElements.splice(index, 1);
+        }
+        return;
+    }
+    var maxZIndex = 0, maxCX;
+    for (var cx = rootElements.length - 1; cx >= 0; cx--) {
+        var element = rootElements[cx];
+        if (getTargetIn(element, document.activeElement)) {
+            break;
+        }
+        var zIndex = element.style.zIndex;
+        if (zIndex > maxZIndex) {
+            maxZIndex = zIndex;
+            maxCX = cx;
+        }
+    }
+    if (maxZIndex > 0) {
+        cx = maxCX;
+    }
+    if (cx < 0) {
+        cx = rootElements.length - 1;
+    }
+    return rootElements.splice(cx, 1)[0];
+};
+rootElements.mount = function (elem) {
+    if (elem.parentNode)
+        return;
+    rootElements.push(elem);
+    appendChild(document.documentElement, elem);
+};
+rootElements.unmount = function (elem) {
+    if (!elem.parentNode)
+        return;
+    rootElements.pop(elem);
+    remove(elem);
+};
+return rootElements;

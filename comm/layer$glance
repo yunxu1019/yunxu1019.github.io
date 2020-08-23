@@ -1,1 +1,169 @@
-0l8preventOverflowScrolling,moveupon,Math,MOVELOCK_DELTA,freeOffset,fromOffset,div,Object,on,zimoli,appendChild,getScreenPosition,parseInt,getComputedStyle,addClass,removeClass,css,setTimeout,dispatch,window,cless,L,M,d,k,l,m,N,O,n,c,o,P,p,q,r,g,h,Q,R,S,T,U,V,W,X,Y,Z,_,s,$,a0,t,u,v,a1,a2,a3,a4,a5,a6,a7,a8,i,w,x,y,a9,aa,ab,ac,z,ad,ae,A,e,a,b,B,f,af,ag,ah,ai,aj,ak,al,C,D,E,F,G,am,H,an1zu["toString","<div layer=left></div><div layer=top></div>",/(input|textarea)/i,"contenteditable","none","append","switch","layer","left","top","close","open","margin-left:0","close open","margin-left:","transitionend","render",".-uz{line-height:1.6;width:100%;height:100%;max-width:100%;position:relative;border-radius:3px;overflow:hidden;padding-left:260px;box-sizing:border-box;overflow:visible;padding-top:44px;transition:padding-left .2s ease-out,margin-left .2s ease-out,left .2s ease-out}.-uz>[layer=left]{background-color:#222d32;color:#fff;width:260px;margin-left:-260px;height:100%;position:absolute;top:0}.-uz>[layer=top]{min-height:44px;width:100%;position:absolute;top:0;border-bottom:1px solid rgba(0,0,0,0.16)}.-uz.close{padding-left:0 !important}@media all and (min-width:961px){.-uz.open{margin-left:0 !important}}@media all and (max-width:960px){.-uz{border-radius:0;padding-left:0 !important;margin-left:0}}","-uz glance glance","page","menu","clientX","clientY","offsetWidth","target","test","tagName","childNodes","length","nodeType","getAttribute","parentNode","moveLocked","abs","style","left","transition","deltaX","restX","toRight","toLeft","innerHTML","top","main","children","setAttribute","replace","closeLeft","openLeft","prepare","width","paddingLeft","switchLeft"]function ao(e,z){z===void 0&&(z='');var a=N();if(a[ai]=I,e instanceof O)var k=e,f=k[b],i=k[aj],e=k[ak];var A=a[al],d=A[0],l=A[1];n(Z)(a,function(){var g=2;c[_](z,a,e);var b=function(){if(--g!==0)return;if(f){var b=c.go(f,null,d);b[C](s,$),o[D](d,b),d=b,K({page:a,toLeft:a[E],toRight:a[F],menu:d})}if(i){var b=c.go(i,null,l);b[C](s,a0),o[D](l,b),l=b}c()};f?c[G](f,b):b(),i?c[G](i,b):b()});var j=!1,B=function(){var a=P(d),c=a[b]+a[am];return c<=0},w=function(){if(j){var b=p(q(a)[H])===0;r(a,t),g(a,u),h(a,v),b&&g(a,a1)}else r(a,u),g(a,t),h(a,a2+m(d[x])),Q(function(){var b=p(q(a)[H])===0;b||h(a,v)},20)};return n(a3)(a,function(a){if(a[y]!==this)return;R(S,a4)}),a[E]=function(){j=!0,w()},a[F]=function(){j=!1,w()},a[an]=function(){j=!B(),w()},a}var j,I,ap,J,J=(j={},j[U]=function(){return V},ap=I=j),K=function(h){var n,o,c,j,g=h[a7],p=h[a8];L(g),M(g,{start:function(d){n=d[i],o=d[w],j=p[x];var a=d[y];if(c=null,W[a9](a[aa]))c=!1;else{var e=a[ab];for(var b=0,f=e[ac];b<f;b++){var g=e[b];if(g[z]===3){c=!1;break}}if(c!==!1)do{var h=a[ad](X)!==null;if(h){c=!1;break}a=a[ae]}while(a[z]==1)}},move:function(h){if(c===!1)return;if(h[A])return;var j=n-h[i],p=o-h[w];if(!c){if(d[e](j)<k&&d[e](p)<k)return;d[e](p)>=d[e](j)?c=-1:(c={restX:l(g[a][b]||0)-n},g[a][B]=Y)}if(c===-1)return;h[A]=!0,c[f]=j;var q=h[i]+c[af];g[a][b]=m(q)},end:function(){if(g[a][B]='',c&&c!==-1){var d=l(g[a][b]||0);c[f]<0&&d>j*.3||c[f]>0&&d>j*.7||!c[f]&&d>j>>1?(g[a][b]=0,h[ag]()):(h[ah](),g[a][b]=0)}}})};return T(ao,a5,a6)
+0nepreventOverflowScrolling,moveupon,Math,MOVELOCK_DELTA,freeOffset,fromOffset,div,Object,on,zimoli,appendChild,getScreenPosition,parseInt,getComputedStyle,addClass,removeClass,css,setTimeout,dispatch,window,cless,preventOverflowScrolling,moveupon,Math,MOVELOCK_DELTA,freeOffset,fromOffset,div,Object,on,zimoli,appendChild,getScreenPosition,parseInt,getComputedStyle,addClass,removeClass,css,setTimeout,dispatch,window,clessvar glance, Glance, template, template = Glance = glance = {
+        'toString': function () {
+            return '<div layer=left></div><div layer=top></div>';
+        }
+    };
+var dragview = function (dragview) {
+    var savedX, savedY, moving, offsetWidth;
+    var page = dragview.page, menu = dragview.menu;
+    preventOverflowScrolling(page);
+    moveupon(page, {
+        start: function (event) {
+            savedX = event.clientX;
+            savedY = event.clientY;
+            offsetWidth = menu.offsetWidth;
+            var target = event.target;
+            moving = null;
+            if (/(input|textarea)/i.test(target.tagName)) {
+                moving = false;
+            } else {
+                var childNodes = target.childNodes;
+                for (var cx = 0, dx = childNodes.length; cx < dx; cx++) {
+                    var child = childNodes[cx];
+                    if (child.nodeType === 3) {
+                        moving = false;
+                        break;
+                    }
+                }
+                if (moving !== false)
+                    do {
+                        var contentEditbale = target.getAttribute('contenteditable') !== null;
+                        if (contentEditbale) {
+                            moving = false;
+                            break;
+                        }
+                        target = target.parentNode;
+                    } while (target.nodeType == 1);
+            }
+        },
+        move: function (event) {
+            if (moving === false)
+                return;
+            if (event.moveLocked)
+                return;
+            var deltaX = savedX - event.clientX;
+            var deltaY = savedY - event.clientY;
+            if (!moving) {
+                if (Math.abs(deltaX) < MOVELOCK_DELTA && Math.abs(deltaY) < MOVELOCK_DELTA)
+                    return;
+                if (Math.abs(deltaY) >= Math.abs(deltaX)) {
+                    moving = -1;
+                } else {
+                    moving = { restX: freeOffset(page.style.left || 0) - savedX };
+                    page.style.transition = 'none';
+                }
+            }
+            if (moving === -1)
+                return;
+            event.moveLocked = true;
+            moving.deltaX = deltaX;
+            var left = event.clientX + moving.restX;
+            page.style.left = fromOffset(left);
+        },
+        end: function () {
+            page.style.transition = '';
+            if (moving && moving !== -1) {
+                var left = freeOffset(page.style.left || 0);
+                if (moving.deltaX < 0 && left > offsetWidth * .3 || moving.deltaX > 0 && left > offsetWidth * .7 || !moving.deltaX && left > offsetWidth >> 1) {
+                    page.style.left = 0;
+                    dragview.toRight();
+                } else {
+                    dragview.toLeft();
+                    page.style.left = 0;
+                }
+            }
+        }
+    });
+};
+function main(mainPath, historyName) {
+    if (historyName === void 0) {
+        historyName = '';
+    }
+    var layer = div();
+    layer.innerHTML = glance;
+    if (mainPath instanceof Object) {
+        var _a = mainPath, leftPath = _a.left, topPath = _a.top, mainPath = _a.main;
+    }
+    var _b = layer.children, leftLayer = _b[0], topLayer = _b[1];
+    on('append')(layer, function () {
+        var index = 2;
+        zimoli['switch'](historyName, layer, mainPath);
+        var hook = function () {
+            if (--index !== 0)
+                return;
+            if (leftPath) {
+                var page = zimoli.go(leftPath, null, leftLayer);
+                page.setAttribute('layer', 'left');
+                appendChild.replace(leftLayer, page);
+                leftLayer = page;
+                dragview({
+                    page: layer,
+                    toLeft: layer.closeLeft,
+                    toRight: layer.openLeft,
+                    menu: leftLayer
+                });
+            }
+            if (topPath) {
+                var page = zimoli.go(topPath, null, topLayer);
+                page.setAttribute('layer', 'top');
+                appendChild.replace(topLayer, page);
+                topLayer = page;
+            }
+            zimoli();
+        };
+        if (leftPath) {
+            zimoli.prepare(leftPath, hook);
+        } else
+            hook();
+        if (topPath) {
+            zimoli.prepare(topPath, hook);
+        } else
+            hook();
+    });
+    var closed = false;
+    var isClosed = function () {
+        var computed = getScreenPosition(leftLayer);
+        var delta = computed.left + computed.width;
+        return delta <= 0;
+    };
+    var bindClass = function () {
+        if (closed) {
+            var collapse = parseInt(getComputedStyle(layer).paddingLeft) === 0;
+            addClass(layer, 'close');
+            removeClass(layer, 'open');
+            css(layer, 'margin-left:0');
+            if (collapse) {
+                removeClass(layer, 'close open');
+            }
+        } else {
+            addClass(layer, 'open');
+            removeClass(layer, 'close');
+            css(layer, 'margin-left:' + fromOffset(leftLayer.offsetWidth));
+            setTimeout(function () {
+                var collapse = parseInt(getComputedStyle(layer).paddingLeft) === 0;
+                if (!collapse) {
+                    css(layer, 'margin-left:0');
+                }
+            }, 20);
+        }
+    };
+    on('transitionend')(layer, function (event) {
+        if (event.target !== this)
+            return;
+        dispatch(window, 'render');
+    });
+    layer.closeLeft = function () {
+        closed = true;
+        bindClass();
+    };
+    layer.openLeft = function () {
+        closed = false;
+        bindClass();
+    };
+    layer.switchLeft = function () {
+        closed = !isClosed();
+        bindClass();
+    };
+    return layer;
+}
+return cless(main, '.-ua {\n  line-height: 1.6;\n  width: 100%;\n  height: 100%;\n  max-width: 100%;\n  position: relative;\n  border-radius: 3px;\n  overflow: hidden;\n  padding-left: 260px;\n  box-sizing: border-box;\n  overflow: visible;\n  padding-top: 44px;\n  transition: padding-left 0.2s ease-out, margin-left 0.2s ease-out, left 0.2s ease-out;\n}\n.-ua > [layer=left] {\n  background-color: #222d32;\n  color: #fff;\n  width: 260px;\n  margin-left: -260px;\n  height: 100%;\n  position: absolute;\n  top: 0;\n}\n.-ua > [layer=top] {\n  min-height: 44px;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.16);\n}\n.-ua.close {\n  padding-left: 0 !important;\n}\n@media all and (min-width: 961px) {\n  .-ua.open {\n    margin-left: 0 !important;\n  }\n}\n@media all and (max-width: 960px) {\n  .-ua {\n    border-radius: 0;\n    padding-left: 0 !important;\n    margin-left: 0;\n  }\n}\n', '-ua glance glance');

@@ -1,1 +1,44 @@
-03winnerWidth,innerHeight,undefined,k,l,m,b,c,d,n,o,e,p,q,r,s,f,g,a,h,i,jam["getBoundingClientRect","offsetLeft","offsetTop","offsetWidth","offsetHeight","offsetParent","scrollLeft","clientLeft","scrollTop","clientTop","left","top","width","height","right","bottom"]function t(t){if(t||(t={offsetTop:0,offsetLeft:0,offsetWidth:+k,offsetHeight:+l}),!t[b]){var v=t[c],w=t[d],x=t[n],y=t[o];while(t[e])t=t[e],v+=t[c]-t[p]+t[q],w+=t[d]-t[r]+t[s];var z=v+x,A=w+y;return{left:v,right:z,bottom:A,top:w,width:x,height:y}}var u=t[b](),v=u[f],w=u[g],x=u[a],y=u[h],z=u[i],A=u[j];return u={left:v,top:w,width:x,height:y,right:z,bottom:A},u[a]===m&&(u[a]=u[i]-u[f],u[h]=u[j]-u[g]),u}return t
+03minnerWidth,innerHeight,undefined,innerWidth,innerHeight,undefinedfunction getScreenPosition(target) {
+    if (!target) {
+        target = {
+            offsetTop: 0,
+            offsetLeft: 0,
+            offsetWidth: +innerWidth,
+            offsetHeight: +innerHeight
+        };
+    }
+    ;
+    if (!target.getBoundingClientRect) {
+        var left = target.offsetLeft, top = target.offsetTop, width = target.offsetWidth, height = target.offsetHeight;
+        while (target.offsetParent) {
+            target = target.offsetParent;
+            left += target.offsetLeft - target.scrollLeft + target.clientLeft;
+            top += target.offsetTop - target.scrollTop + target.clientTop;
+        }
+        var right = left + width, bottom = top + height;
+        return {
+            left: left,
+            right: right,
+            bottom: bottom,
+            top: top,
+            width: width,
+            height: height
+        };
+    }
+    var rect = target.getBoundingClientRect();
+    var left = rect.left, top = rect.top, width = rect.width, height = rect.height, right = rect.right, bottom = rect.bottom;
+    rect = {
+        left: left,
+        top: top,
+        width: width,
+        height: height,
+        right: right,
+        bottom: bottom
+    };
+    if (rect.width === undefined) {
+        rect.width = rect.right - rect.left;
+        rect.height = rect.bottom - rect.top;
+    }
+    return rect;
+}
+return getScreenPosition;

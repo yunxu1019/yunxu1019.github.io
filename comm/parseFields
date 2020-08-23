@@ -1,1 +1,63 @@
-04eArray,f,g,d,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,e,h,C,D,a,b,i,c,j,E,F,G,H,I,J,K,Lmk["string",/\s+/,"key name type",/^[\+\!]|^[\+\!]$/,/^\-|\-$/,/^\$|\$$/,/^\!|\!$/,/^\&|\&$/,/^\*|\*$/,/^\?|\?$/,/^\~|\~$/,/^[\?\~\*\!\+\-\$]|[\?\~\*\!\+\-\$]$/g,/^\|.*?\|$/,"center",/^\||\|$/,"|","left","right",/^\||\$/g,"split","slice","map","forEach","key","test","replace","type","text_align","is_inlist","is_hidden","is_append","is_inform","is_required","is_editable","delete_onempty","delete_onsubmit"]var k=function(k){if(!k)return;var M;return typeof k[0]===g?(M=k[0][e](d),k=k[h](1)):k[0]instanceof f?(M=k[0],k=k[h](1)):M=l[e](d),k=k[C](function(k){if(typeof k===g&&(k=k[e](d)),k instanceof f){var h={};M[D](function(a,b){return h[a]=k[b]})}else h=k;if(h&&h[a]){var l=m[b](h[a]),C=n[b](h[a]),N=o[b](h[a]),O=!p[b](h[a]),P=!q[b](h[a]),Q=r[b](h[a]),R=s[b](h[a]),S=t[b](h[a]);h[a]=h[a][i](u,''),v[b](h[c])?h[j]=w:x[b](h[c])&&(h[j]=h[c][0]===y?z:A,h[c]=h[c][i](B,'')),l&&(h[E]=!0),C&&(h[F]=!0),N&&(h[G]=!0),O||(h[H]=!1),Q&&(h[I]=!0),P||(h[J]=!1),R&&(h[K]=!0),S&&(h[L]=!0)}return h}),k};return k
+00mArray,Arrayvar parseFields = function (data) {
+    if (!data)
+        return;
+    var keys;
+    if (typeof data[0] === 'string') {
+        keys = data[0].split(/\s+/);
+        data = data.slice(1);
+    } else if (data[0] instanceof Array) {
+        keys = data[0];
+        data = data.slice(1);
+    } else {
+        keys = 'key name type'.split(/\s+/);
+    }
+    data = data.map(function (string) {
+        if (typeof string === 'string') {
+            string = string.split(/\s+/);
+        }
+        if (string instanceof Array) {
+            var res = {};
+            keys.forEach(function (k, i) {
+                return res[k] = string[i];
+            });
+        } else {
+            res = string;
+        }
+        if (res && res.key) {
+            var is_inlist = /^[\+\!]|^[\+\!]$/.test(res.key);
+            var is_hidden = /^\-|\-$/.test(res.key);
+            var is_append = /^\$|\$$/.test(res.key);
+            var is_inform = !/^\!|\!$/.test(res.key);
+            var is_editable = !/^\&|\&$/.test(res.key);
+            var is_required = /^\*|\*$/.test(res.key);
+            var delete_onempty = /^\?|\?$/.test(res.key);
+            var delete_onsubmit = /^\~|\~$/.test(res.key);
+            res.key = res.key.replace(/^[\?\~\*\!\+\-\$]|[\?\~\*\!\+\-\$]$/g, '');
+            if (/^\|.*?\|$/.test(res.type)) {
+                res.text_align = 'center';
+            } else if (/^\||\|$/.test(res.type)) {
+                res.text_align = res.type[0] === '|' ? 'left' : 'right';
+                res.type = res.type.replace(/^\||\$/g, '');
+            }
+            if (is_inlist)
+                res.is_inlist = true;
+            if (is_hidden)
+                res.is_hidden = true;
+            if (is_append)
+                res.is_append = true;
+            if (!is_inform)
+                res.is_inform = false;
+            if (is_required)
+                res.is_required = true;
+            if (!is_editable)
+                res.is_editable = false;
+            if (delete_onempty)
+                res.delete_onempty = true;
+            if (delete_onsubmit)
+                res.delete_onsubmit = true;
+        }
+        return res;
+    });
+    return data;
+};
+return parseFields;

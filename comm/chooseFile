@@ -1,1 +1,36 @@
-066document,Promise,navigator,alert,on,window,setTimeout,c,d,e,a,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,b,z,A,B,Cns["form","<input type='file'"," accept=\"","\""," multiple"," />",/msie\s+[2-9]/i,"\u65e0\u6cd5\u5728\u5f53\u524d\u6d4f\u89c8\u5668\u64cd\u4f5c\uFF01","change","\u60a8\u7684\u6d4f\u89c8\u5668\u73af\u5883\u65e0\u6cd5\u9009\u62e9\u6587\u4ef6\uFF01","Scripting.FileSystemObject","\u6253\u5f00\u6587\u4ef6\u5931\u8d25\uFF01","createElement","innerHTML","children","test","userAgent","files","value","ActiveXObject","GetFile","click"]function D(F,H){var D=c[u](i);D[v]=j+(F?k+F+l:'')+(H?m:'')+n;var E=D[w][0],G=new d(function(c){if(o[x](e[y]))return a(p);f(q)(E,function(){var f=this;if(!this[b]){var d=this[z];if(!d)return;var e=g[A];if(!e){a(r);return}try{var i=new e(s),j=i[B](d);c([j])}catch(b){a(b+t)}}else h(function(){c(f[b])},100)})});return E[C](),G}return D
+05ydocument,Promise,navigator,alert,on,window,setTimeout,document,Promise,navigator,alert,on,window,setTimeoutfunction chooseFile(accept, multiple) {
+    var form = document.createElement('form');
+    form.innerHTML = '<input type=\'file\'' + (accept ? ' accept="' + accept + '"' : '') + (multiple ? ' multiple' : '') + ' />';
+    var input = form.children[0];
+    var result = new Promise(function (ok) {
+        if (/msie\s+[2-9]/i.test(navigator.userAgent))
+            return alert('\u65e0\u6cd5\u5728\u5f53\u524d\u6d4f\u89c8\u5668\u64cd\u4f5c\uFF01');
+        on('change')(input, function () {
+            var _this = this;
+            if (!this.files) {
+                var value = this.value;
+                if (!value)
+                    return;
+                var ActiveXObject = window.ActiveXObject;
+                if (!ActiveXObject) {
+                    alert('\u60a8\u7684\u6d4f\u89c8\u5668\u73af\u5883\u65e0\u6cd5\u9009\u62e9\u6587\u4ef6\uFF01');
+                    return;
+                }
+                try {
+                    var fso = new ActiveXObject('Scripting.FileSystemObject');
+                    var file = fso.GetFile(value);
+                    ok([file]);
+                } catch (e) {
+                    alert(e + '\u6253\u5f00\u6587\u4ef6\u5931\u8d25\uFF01');
+                }
+            } else {
+                setTimeout(function () {
+                    ok(_this.files);
+                }, 100);
+            }
+        });
+    });
+    input.click();
+    return result;
+}
+return chooseFile;

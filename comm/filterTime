@@ -1,1 +1,90 @@
-060String,Array,getSplitedDate,Date,i,j,d,a,k,l,B,C,D,E,F,G,H,e,I,J,m,n,o,c,p,q,r,b,f,s,t,u,g,v,K,L,M,N,w,x,O,yv2["0","\u5929\u4e00\u4e8c\u4e09\u56db\u4e94\u516d","yMdhmsSD","\u5e74\u6708\u65e5\u65f6\u5206\u79d2",/[yY\u5e74]+|[M\u6708]+|[hH\u65f6]+|\u6beb\u79d2|[m+\u5206]+|[sS]{3}|[Ss\u79d2]+|[\u661f\u671f\u5468\u5929][dD]*|[dD]{3}|[\u65e5\u53f7dD]+/g,/^[dD]{3}$/,/\u661f\u671f\u5468\u5929/,/[\u5929\u661f\u671f]/,/\u5929/g,"\u65e5",/\W+/g,/[\w\u5929]+/,/^[\-\/]+$/,":","\u661f\u671f","\u70b9","\u521a\u521a","\u6628\u5929","\u524d\u5929","\u6708"," ","\u53bb\u5e74","\u524d\u5e74","\u5e74","length","join","split","forEach","Day","replace","test","charAt","map","call"]function z(a,b){return b===void 0&&(b=2),a=i(a),a[g]>=b?a:new j(b-a[g]+1)[v](k)+a}function A(v,g){var A=new a(v);if(!+A)return v;if(g&&!m[w](g))return g[y](A,g);g&&(g=g[x](0));var i=d(A),B=i[0],j=i[1],C=i[2],k=i[3],E=i[4],N=i[5],O=i[6],H=i[7],l=d(new a),F=l[0],G=l[1],I=l[2],J=l[3],K=l[4],L=new a(F,G-1,I),M=new a(B,j-1,C),D=(L-M)/24/36e5,v=k+n+z(E);if(D<6&&D>2)return o+h[H]+k+c;switch(D){case 0:return E===K&&k===J?p:v;case 1:return q+k+c;case 2:return r+k+c;default:switch(F-B){case 0:return''+j+(g||b)+C+(g?'':e)+f;case 1:return G%12-j%12===1?''+j+(g||b)+C+(g?'':e)+f:s+j+b;case 2:return t+j+b}return''+B+(g||u)}}var h=l;return A
+03mString,Array,getSplitedDate,Date,String,Array,getSplitedDate,Datefunction fixLength(minute, length) {
+    if (length === void 0) {
+        length = 2;
+    }
+    minute = String(minute);
+    if (minute.length >= length)
+        return minute;
+    return new Array(length - minute.length + 1).join('0') + minute;
+}
+var days = '\u5929\u4e00\u4e8c\u4e09\u56db\u4e94\u516d';
+function format(formater) {
+    var v = getSplitedDate(this);
+    var o = {};
+    'yMdhmsSD'.split('').forEach(function (k, i) {
+        o[k] = v[i];
+    });
+    '\u5e74\u6708\u65e5\u65f6\u5206\u79d2'.split('').forEach(function (k, i) {
+        o[k] = v[i];
+    });
+    o.Y = o.y;
+    o.D = o.d;
+    o.H = o.h;
+    o.Day = v[v.length - 1];
+    formater.replace(/[yY\u5e74]+|[M\u6708]+|[hH\u65f6]+|\u6beb\u79d2|[m+\u5206]+|[sS]{3}|[Ss\u79d2]+|[\u661f\u671f\u5468\u5929][dD]*|[dD]{3}|[\u65e5\u53f7dD]+/g, function (m) {
+        if (/^[dD]{3}$/.test(m)) {
+            return o.Day;
+        }
+        if (/\u661f\u671f\u5468\u5929/.test(m)) {
+            var v = days[o.Day];
+            if (!/[\u5929\u661f\u671f]/.test(m)) {
+                m = m.replace(/\u5929/g, '\u65e5');
+            }
+        } else {
+            var a = m.charAt(0);
+            var v = o[a];
+        }
+        var l = m.replace(/\W+/g, '');
+        var b = m.split(/[\w\u5929]+/).map(function (a) {
+            return a || fixLength(v, l.length);
+        }).join('');
+        return b;
+    });
+}
+function filterTime(time, format) {
+    var value = new Date(time);
+    if (!+value) {
+        return time;
+    }
+    if (format && !/^[\-\/]+$/.test(format)) {
+        return format.call(value, format);
+    }
+    if (format) {
+        format = format.charAt(0);
+    }
+    var splited = getSplitedDate(value);
+    var year = splited[0], month = splited[1], date = splited[2], hour = splited[3], minute = splited[4], second = splited[5], milli = splited[6], day = splited[7];
+    var _a = getSplitedDate(new Date()), year1 = _a[0], month1 = _a[1], date1 = _a[2], hour1 = _a[3], minute1 = _a[4];
+    var today = new Date(year1, month1 - 1, date1);
+    var thatday = new Date(year, month - 1, date);
+    var delta = (today - thatday) / 24 / 36e5;
+    var time = hour + ':' + fixLength(minute);
+    if (delta < 6 && delta > 2) {
+        return '\u661f\u671f' + days[day] + hour + '\u70b9';
+    }
+    switch (delta) {
+    case 0:
+        if (minute === minute1 && hour === hour1) {
+            return '\u521a\u521a';
+        }
+        return time;
+    case 1:
+        return '\u6628\u5929' + hour + '\u70b9';
+    case 2:
+        return '\u524d\u5929' + hour + '\u70b9';
+    default:
+        switch (year1 - year) {
+        case 0:
+            return '' + month + (format || '\u6708') + date + (format ? '' : '\u65e5') + ' ';
+        case 1:
+            if (month1 % 12 - month % 12 === 1) {
+                return '' + month + (format || '\u6708') + date + (format ? '' : '\u65e5') + ' ';
+            }
+            return '\u53bb\u5e74' + month + '\u6708';
+        case 2:
+            return '\u524d\u5e74' + month + '\u6708';
+        }
+        return '' + year + (format || '\u5e74');
+    }
+}
+return filterTime;

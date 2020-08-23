@@ -1,1 +1,659 @@
-17idocument,window,location,sessionStorage,navigator,onselectstart,createElement,css,appendChild,onhashchange,Object,parseKV,String,JSON,console,isNumber,isString,isNode,remove,createEvent,dispatch,isFunction,user,Function,extend,init,undefined,Promise,titlebar,Error,checkroles,alert,i18n,Array,rootElements,setTimeout,put,popup,transition,modules,ao,E,e,a4,ap,b0,b1,a5,r,b2,A,b3,aq,s,a6,ar,i,as,Q,b4,b5,n,o,b6,b7,at,a7,b8,b9,ba,au,bb,bc,av,t,bd,be,R,aw,bf,bg,bh,bi,B,bj,bk,bl,bm,bn,ax,bo,bp,bq,br,ay,bs,bt,bu,bv,bw,bx,by,bz,bA,az,bB,bC,aA,bD,c,bE,bF,bG,bH,bI,bJ,aB,bK,bL,bM,aC,bN,aD,bO,a,aE,C,S,bP,F,u,bQ,bR,aF,T,bS,bT,bU,bV,bW,U,aG,aH,G,aI,a8,aJ,a9,y,bX,j,aK,aL,aa,aM,bY,bZ,V,b_,H,m,aN,b$,c0,c1,W,I,X,c2,D,c3,c4,c5,c6,c7,c8,c9,ab,k,v,Y,ca,J,ac,Z,cb,cc,cd,_,aO,ad,aP,aQ,ce,cf,cg,ch,ci2kg["__zimoli_session_init_hash",/#([\/\w\:@\.\_\(\)\+\-\*\$@!~_'\?,&~%]+)$/,"manual","#",/MSIE\s*[2-7]/,"iframe","display:none","<script>result=parent.onhistorychange();onload=function(){history.forward()}</script>","html","100%","\"SF Pro SC\",\"SF Pro Text\",\"SF Pro Icons\",\"PingFang SC\",\"Helvetica Neue\",\"Helvetica\",\"Arial\",sans-serif","#f2f4f9","body","none","0","hidden","_zimoli_parameters:","_zimoli_page_state:",";",":",/transform|left|top|right|bottom|margin/i,/(\-?\d*\.?\d+)(deg|p[xt]|r?em|[cm]m|%|)/ig,"\u5b58\u50a8\u7a7a\u95f4\u88ab\u7834\u574f","\u5199\u5165\u5b58\u50a8\u7a7a\u95f4\u5931\u8d25\uFF01","zimoli",/^[@#!]/,"toString","valueOf","return ","with",/^[^\\\/]/,/[^\/]*$/,"action","\u8c03\u7528create\u524d\u8bf7\u786e\u4fddprepare\u6267\u884c\u5b8c\u6bd5:","\u6ca1\u6709\u6743\u9650\uFF01","No Access!","/main","_zimoli_history_key:","/",/\#[\s\S]*$/,":empty","switch","body","history","length","pathname","getItem","hash","scrollRestoration","replace","test","userAgent","onhistorychange","preventDefault","insert","contentWindow","document","open","write","close","setItem","indexOf","slice","parse","warn","stringify","removeItem","data","path","need","roles","options","activate","activateNode","$reload","zimoli","prepares","forEach","error","loginPath","push","state","action","assign","resolve","prepare","apply","concat","map","onback","onrelease","ondestroy","titlebar","login","shift","isLogin","call","className","initialStyle","holdupStyle","backupStyle","from","splice","ing","href","pop","app","exitApp","layer","global","create","clean","transition","modules","setStorage","clearHistory","getCurrentHistory","inithash"]function cj(a){a instanceof A||(a=b3(a,bv,bw));var c={},d=function(c,a,b){return b?-a+b:+a?1/a:c};for(var b in a)bx[u](b)?c[b]=aq(a[b])[F](by,d):c[b]=a[b];return c}function p(c,g,e,n){if(e||(e=d),ar(c)&&i(e)){var h=b[e]||[];c=h[c<1?h[a]+c-1:c],n=h[h[a]-1],arguments[a]===1&&(g=ak(c)[a9])}if(c instanceof A)var k=c,c=k[y],s=k[bX],q=k[j],m=q===void 0?s:q,g=k[a9],o=k[aK];else var r=ak(c),m=r[j],o=r[aK];if(!c)return!0;if(aV(c,{data:g,from:n,options:o,roles:m}),w(c,function(a){(!a[j]||a[j]===!0)&&(a[j]=!!m)}),!l[c])return f(c,g,e,n);var t=l[c],p=function(){try{var b=ae(c,g,n),f=aX(c,e,n);if(as(e)){if(e[aL]===c&&e[aa]===b)return N--;Q(e[aa]),e[aL]=c,e[aa]=b}if(i(c)){if(N>0)return;N=1;var d=b4(az);d[aM]=p,d[bY]={path:c,roles:m,data:g,target:b,options:o},b5(E,d),N=0}aR(b,e,f),t[bZ][V](function(b){ar(b)&&(b=h[b<1?h[a]+b-1:b]),i(b)&&w(b)}),b&&(b[aM]=p)}catch(a){a6[b_](a)}return b};return p()}function w(d,e){var d=al(d);if(l[d]){if(n(e)){var g=l[d];g[j]?w(o[H],function(a){e(g)}):e(g)}return}if(z[d]){n(e)&&z[d][m](e);return}z[d]=[],n(e)&&z[d][m](e);var t=aU+d,b=function b(d,f){var e;f===void 0&&(f=d!==null);var g=h[C](t),c;if(g)try{c=s[G](g)}catch(a){c={}}else c={};return d instanceof A&&f?(c instanceof A||(e={},e[bC]=function(){return aq(this[aA]())},e[aA]=new b6(bD+c),c=e),c=b7(c,d)):arguments[a]&&(c=d),arguments[a]&&h[U](t,s[a8](c)||null),c};b[aN]=b;var k=[];b[c]=function(a){return a&&k[m](a),k},b[y]=function(a){return i(a)&&bE[u](a)&&(a=d[F](bF,a)),a},b.go=function(c,e,f){var a=function(a,c,e){return p(b[y](a),c,e,d)};a=l[d]?l[d].go||a:a,n(a)&&a(c,e,f)},at(bG,function(a){b[b$]=function(c,f){var e;return i(c)?e=b.go(c,f):c&&c[y]?(c=A[c0]({},c,{path:b[y](c[y])}),e=p(c,a7,a7,d)):e=a(c),b8[c1](e)}});var q=[];b[W]=b.go[W]=function(a){q[m][I](q,[][X](a)[c2](b[y]))};var v=[];b[D]=b[c3]=b[c4]=function(a){v=a},b[c5]=function(){var a=b9[I](null,arguments);return b[c](a),a};var f=g||null;b[c6]=function(){f||(f=[]);for(var b=0,c=arguments[a];b<c;b++)f[m](arguments[b])};var r=function(m){var e;m&&(e={pg:m,roles:f,state:b},e[c]=k,e.onback=v,e.prepares=q,l[d]=e);var g=l[d],h=z[d];if(h){var p=!g[j];while(h[a]){var i=h[c7]();if(n(i)&&i(g),p&&g[j]){w(o[H],function(){return r()});return}}}delete z[d]};return at(d,function(a){if(!a)return;if(f)return w(o[H],function(){return r(a)});r(a)},b)}function ae(f,b,q,r){var d=f instanceof A?f:l[al(f)];if(!d)throw new ba(bH+f);var g=d.pg,e=d[c],h=d[aN],i=d[D],p=d[j];if(!(au(o[j],p)&&au(o[j],r)))return!o[c8]&&o[H]?ae(o[H]):bb(bc(bI,bJ),0);e=[][X](e),h[c]=function(a){return a&&e[m](a),e},h[D]=function(a){i=a},(a7===b||null===b)&&(b={});var a=g[c9](h,b,q);if(a){if(g[ab]&&(a[ab]=g[ab]),a[c]=e,b[k]&&(a[k]=b[k]),b[v]&&(a[v]=b[v]),a[k]&&!a[v]&&(a[v]=cj(a[k]),a[Y]=a[k],a[c])){var n=function(b){b[k]||(b[v]=a[v],b[Y]=a[Y],b[k]=a[k])};a[c]instanceof av?a[c][V](n):a[c]&&n(a[c])}a[D]=i}return a}function f(c,i,f,j){if(arguments[a]===0){f=d;var g=b[f]||[];am=g[0]||aB,c=g[g[a]-1]||aB;try{var e=s[G](h[C](M+c))||{}}catch(a){var e={}}var k=e[a9],m=e[ca];i=k,j=m}return l[c]?p(c,i,f,j):w(c,function(){return p(c,i,f,j)})}function af(a,b){a[k]=(b?a[Y]:a[v])||a[k],a[c]instanceof av?a[c][V](function(a){return af(a,b)}):a[c]&&af(a[c],b)}function aR(a,c,e){if(c===void 0&&(c=null),i(c)){if(O[c]===a)return;var d=O[c];d&&af(d,e),n(g[_])?g[_](a,d,b):(Q(d),e?r[T](g,a):r(g,a)),O[c]=a}else as(c)?e?r[T](c,a):r(c,a):n(c)?c(a):a&&(n(g[_])?g[_](a):e?r[T](g,a):r(g,a),t[m](a))}var g=ao[aD],K=E[bO],ck=K[a],ag=bg+e[aE],ah=a4[C](ag),h=a4,L=bh,ai=e[S],$=0,cl=ah===null,aS=ah===ai,aT=!!e[S],x=!1;if(K[bP]=bi,aT&&!aS&&e[F](B),bj[u](ap[bQ])){E[bR]=function(a){if($++,$<2)return;if(x)return x=!1,K.go(-1);x===void 0?a3&&a3()===!0:x=void 0},b0(g,function(a){return a[aF]()});var a0=b1(bk);a5(a0,bl),r[T](g,a0);var a1=a0[bS][bT],aj=function(a){a1[bU](),a1[bV](a!==!1?'':bm),a1[bW]()};aj(!1),aj()}else b2(E,function(h){$++;var b=e[S];if(a4[U](ag,b),L[u](b)){var c=an();if(c&&c===b)return;var f=b[aG](B+d);if(f<0)return;var g=b[aH](f+d[a]+1);p(g);return}if(x)return x=!1;h[aF](),a3()});a5(bn,{height:ax,fontFamily:bo,backgroundColor:bp}),a5(bq,{border:br,margin:ay,padding:ay,height:ax,overflow:bs});var a2=e[aE],M=bt+a2+B,aU=bu+a2+B,ak=function(a){try{return s[G](h[C](M+a))||{}}catch(a){a6[aI](bz)}},aV=function(c,d){try{var b=s[a8](d);b[a]===2?h[aJ](M+c):h[U](M+c,b)}catch(a){a6[aI](bA,a)}},N=0,l={},z={},al=function(a){return bB[u](a)?a[aH](1):a},O={},b={},d,aW=d=az;b[d]=[];var P=bK+a2;try{b=s[G](h[C](P))||b}catch(a){}var am,aX=function(j,e,l){var g=!1;if(e||(e=d),!i(e))return;if(!b[e])b[e]=[j];else{var c=b[e];c[aG](l)<0&&(c[J](am===c[0],c[a]),g=!0);for(var f=0,k=c[a];f<k;f++)if(c[f]===j){c[J](f,k-f),g=!0;break}c[m](j),c[a]&&q()}return h[U](P,s[a8](b)||null),g},aY=function(h,e){if(e||(e=d),!i(e))return;if(!b[e])return;var f=b[e];for(var c=0,g=f[a];c<g;c++)if(f[c]===h){f[J](c,g-c);break}},an=function(){var c=b[d];if(t[a])return B+d+bL;if(c[a]<2)return'';var e=B+d+(c[a]?c[c[a]-1]:'');return e},q=function(){if(q[ac])return;q[ac]=bd(function(){q[ac]=!1;var a=an();L[u](a)?(a=e[Z][F](bM,'')+a,L[u](e[Z])?e[S]!==a&&e[F](a):e[Z]=a):L[u](e[Z])&&(x=!0,K.go(-1))},0)},aZ=function(e){for(var c=0,f=e[a];c<f;c++){var d=e[c],b=d&&d[D];if(n(b)&&(b=d[D]()),b===!1||i(b))break}return b};be(aC,function(){return null});var a3=function(){if(t[a]){q(),Q(t[cb]());return}var b=aZ([O[d]]);if(b===!1){q();return}if(i(b))return p(b);if(p(-1)===!0)try{ap[cc][cd]()}catch(a){}},cm=f[bN]=function(a,c,e){a===void 0&&(a=aW),c===void 0&&(c=ao[aD]),i(a)&&(d=a),c&&(g=c),e!==!1&&!b[a]&&(am=(b[a]=[][X](e||aC))[0])};R[aO]=f[aO]=aR,R.go=f.go=p,R[W]=w,p[ad]=R[ad]=f[ad]=ae,o[aP]=f[aP]=function(){var a=[][X][I]([],arguments);a[V](function(a){return aY(a)})};var a_=t[m],a$=t[J];return t[m]=function(){var a=a_[I](this,arguments);return q(),a},t[J]=function(){var a=a$[I](this,arguments);return q(),a},r[aQ]=aw,Q[aQ]=aw,E[ce]=bf,f[W]=w,f[cf]=function(a){h=a;try{b=s[G](h[C](P))||b}catch(a){}},f[cg]=function(){h[aJ](P),b={}},f[ch]=function(){return b[d]},f[ci]=ai,f
+12edocument,window,location,sessionStorage,navigator,onselectstart,createElement,css,appendChild,onhashchange,Object,parseKV,String,JSON,console,isNumber,isString,isNode,remove,createEvent,dispatch,isFunction,user,Function,extend,init,undefined,Promise,titlebar,Error,checkroles,alert,i18n,Array,rootElements,setTimeout,put,popup,transition,modules,document,window,location,sessionStorage,navigator,onselectstart,createElement,css,appendChild,onhashchange,Object,parseKV,String,JSON,console,isNumber,isString,isNode,remove,createEvent,dispatch,isFunction,user,Function,extend,init,undefined,Promise,titlebar,Error,checkroles,alert,i18n,Array,rootElements,setTimeout,put,popup,transition,modulesvar body = document.body;
+var onbacks = [];
+var window_history = window.history;
+var window_history_length = window_history.length;
+var sessionSavedHashKey = '__zimoli_session_init_hash' + location.pathname;
+var sessionInitHash = sessionStorage.getItem(sessionSavedHashKey);
+var hostoryStorage = sessionStorage;
+var pagehash_reg = /#([\/\w\:@\.\_\(\)\+\-\*\$@!~_'\?,&~%]+)$/;
+var locationInitHash = location.hash;
+var hashchangecount = 0;
+var isFirstTimeLoad = sessionInitHash === null;
+var isSimpleRefresh = sessionInitHash === locationInitHash;
+var isWithHashLoad = !!location.hash;
+var preventNextHashChange = false;
+window_history.scrollRestoration = 'manual';
+if (isWithHashLoad && !isSimpleRefresh) {
+    location.replace('#');
+}
+if (/MSIE\s*[2-7]/.test(navigator.userAgent)) {
+    window.onhistorychange = function (url) {
+        hashchangecount++;
+        if (hashchangecount < 2)
+            return;
+        if (preventNextHashChange)
+            return preventNextHashChange = false, window_history.go(-1);
+        if (preventNextHashChange === void 0 ? onback && onback() === true : preventNextHashChange = void 0) {
+        }
+    };
+    onselectstart(body, function (e) {
+        return e.preventDefault();
+    });
+    var frame = createElement('iframe');
+    css(frame, 'display:none');
+    appendChild.insert(body, frame);
+    var doc = frame.contentWindow.document;
+    var backman = function (isloaded) {
+        doc.open();
+        doc.write(isloaded !== false ? '' : '<script>result=parent.onhistorychange();onload=function(){history.forward()}</script>');
+        doc.close();
+    };
+    backman(false);
+    backman();
+} else {
+    onhashchange(window, function (event) {
+        hashchangecount++;
+        var targetHash = location.hash;
+        sessionStorage.setItem(sessionSavedHashKey, targetHash);
+        if (pagehash_reg.test(targetHash)) {
+            var currentHash = getCurrentHash();
+            if (currentHash && currentHash === targetHash)
+                return;
+            var targetHashIndex = targetHash.indexOf('#' + current_history);
+            if (targetHashIndex < 0)
+                return;
+            var targetpath = targetHash.slice(targetHashIndex + current_history.length + 1);
+            go(targetpath);
+            return;
+        }
+        if (preventNextHashChange)
+            return preventNextHashChange = false;
+        event.preventDefault();
+        onback();
+    });
+}
+css('html', {
+    height: '100%',
+    fontFamily: '"SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif',
+    backgroundColor: '#f2f4f9'
+});
+css('body', {
+    border: 'none',
+    margin: '0',
+    padding: '0',
+    height: '100%',
+    overflow: 'hidden'
+});
+var location_pathname = location.pathname;
+var _zimoli_params_key = '_zimoli_parameters:' + location_pathname + '#';
+var _zimoli_state_prefix = '_zimoli_page_state:' + location_pathname + '#';
+function getReverseStyle(style) {
+    if (!(style instanceof Object)) {
+        style = parseKV(style, ';', ':');
+    }
+    var dest = {};
+    var replacer = function (m, d, t) {
+        if (t)
+            return -d + t;
+        return +d ? 1 / d : m;
+    };
+    for (var k in style) {
+        if (/transform|left|top|right|bottom|margin/i.test(k)) {
+            dest[k] = String(style[k]).replace(/(\-?\d*\.?\d+)(deg|p[xt]|r?em|[cm]m|%|)/ig, replacer);
+        } else {
+            dest[k] = style[k];
+        }
+    }
+    return dest;
+}
+var getZimoliParams = function (pagepath) {
+    try {
+        return JSON.parse(hostoryStorage.getItem(_zimoli_params_key + pagepath)) || {};
+    } catch (e) {
+        console.warn('\u5b58\u50a8\u7a7a\u95f4\u88ab\u7834\u574f');
+    }
+    return {};
+};
+var setZimoliParams = function (pagepath, args) {
+    try {
+        var stringified_args = JSON.stringify(args);
+        if (stringified_args.length === 2)
+            hostoryStorage.removeItem(_zimoli_params_key + pagepath);
+        else
+            hostoryStorage.setItem(_zimoli_params_key + pagepath, stringified_args);
+    } catch (e) {
+        console.warn('\u5199\u5165\u5b58\u50a8\u7a7a\u95f4\u5931\u8d25\uFF01', e);
+    }
+};
+var fullfill_is_dispatched = 0;
+function go(pagepath, args, history_name, oldpagepath) {
+    if (!history_name)
+        history_name = current_history;
+    if (isNumber(pagepath)) {
+        if (isString(history_name)) {
+            var _history = history[history_name] || [];
+            pagepath = _history[pagepath < 1 ? _history.length + pagepath - 1 : pagepath];
+            oldpagepath = _history[_history.length - 1];
+            if (arguments.length === 1) {
+                args = getZimoliParams(pagepath).data;
+            }
+        }
+    }
+    if (pagepath instanceof Object) {
+        var _a = pagepath, pagepath = _a.path, need = _a.need, _b = _a.roles, roles = _b === void 0 ? need : _b, args = _a.data, options = _a.options;
+    } else {
+        var _c = getZimoliParams(pagepath), roles = _c.roles, options = _c.options;
+    }
+    if (!pagepath)
+        return true;
+    setZimoliParams(pagepath, {
+        data: args,
+        from: oldpagepath,
+        options: options,
+        roles: roles
+    });
+    prepare(pagepath, function (res) {
+        if (!res.roles || res.roles === true)
+            res.roles = !!roles;
+    });
+    if (!page_generators[pagepath]) {
+        return zimoli(pagepath, args, history_name, oldpagepath);
+    }
+    var page_object = page_generators[pagepath];
+    var fullfill = function () {
+        try {
+            var _page = create(pagepath, args, oldpagepath);
+            var isDestroy = pushstate(pagepath, history_name, oldpagepath);
+            if (isNode(history_name)) {
+                if (history_name.activate === pagepath && history_name.activateNode === _page)
+                    return fullfill_is_dispatched--;
+                else
+                    remove(history_name.activateNode);
+                history_name.activate = pagepath;
+                history_name.activateNode = _page;
+            }
+            if (isString(pagepath)) {
+                if (fullfill_is_dispatched > 0)
+                    return;
+                fullfill_is_dispatched = 1;
+                var event = createEvent('zimoli');
+                event.$reload = fullfill;
+                event.zimoli = {
+                    path: pagepath,
+                    roles: roles,
+                    data: args,
+                    target: _page,
+                    options: options
+                };
+                dispatch(window, event);
+                fullfill_is_dispatched = 0;
+            }
+            addGlobal(_page, history_name, isDestroy);
+            page_object.prepares.forEach(function (url) {
+                if (isNumber(url)) {
+                    url = _history[url < 1 ? _history.length + url - 1 : url];
+                }
+                if (isString(url))
+                    prepare(url);
+            });
+            if (_page) {
+                _page.$reload = fullfill;
+            }
+        } catch (e) {
+            console.error(e);
+        }
+        return _page;
+    };
+    return fullfill();
+}
+var page_generators = {};
+var loading_tree = {};
+var getpgpath = function (pagepath) {
+    return /^[@#!]/.test(pagepath) ? pagepath.slice(1) : pagepath;
+};
+function prepare(pgpath, ok) {
+    var pgpath = getpgpath(pgpath);
+    if (page_generators[pgpath]) {
+        if (isFunction(ok)) {
+            var res = page_generators[pgpath];
+            if (!res.roles) {
+                ok(res);
+            } else {
+                prepare(user.loginPath, function (_) {
+                    ok(res);
+                });
+            }
+        }
+        return;
+    }
+    if (loading_tree[pgpath]) {
+        if (isFunction(ok)) {
+            loading_tree[pgpath].push(ok);
+        }
+        return;
+    }
+    loading_tree[pgpath] = [];
+    if (isFunction(ok)) {
+        loading_tree[pgpath].push(ok);
+    }
+    var _zimoli_state_key = _zimoli_state_prefix + pgpath;
+    var state = function state(condition, setAsAdditional) {
+        if (setAsAdditional === void 0) {
+            setAsAdditional = condition !== null;
+        }
+        var state_string = hostoryStorage.getItem(_zimoli_state_key);
+        var state_object;
+        if (state_string) {
+            try {
+                state_object = JSON.parse(state_string);
+            } catch (e) {
+                state_object = {};
+            }
+        } else {
+            state_object = {};
+        }
+        if (condition instanceof Object && setAsAdditional) {
+            if (!(state_object instanceof Object)) {
+                state_object = {
+                    'toString': function () {
+                        return String(this['valueOf']());
+                    },
+                    'valueOf': new Function('return ' + state_object)
+                };
+            }
+            state_object = extend(state_object, condition);
+        } else if (arguments.length) {
+            state_object = condition;
+        }
+        if (arguments.length) {
+            hostoryStorage.setItem(_zimoli_state_key, JSON.stringify(state_object) || null);
+        }
+        return state_object;
+    };
+    state.state = state;
+    var _with_elements = [];
+    state['with'] = function (element) {
+        if (element)
+            _with_elements.push(element);
+        return _with_elements;
+    };
+    state.path = function (url) {
+        if (isString(url) && /^[^\\\/]/.test(url)) {
+            url = pgpath.replace(/[^\/]*$/, url);
+        }
+        return url;
+    };
+    state.go = function (url, args, _history_name) {
+        var to = function (_url, args, _history_name) {
+            return go(state.path(_url), args, _history_name, pgpath);
+        };
+        to = page_generators[pgpath] ? page_generators[pgpath].go || to : to;
+        if (isFunction(to))
+            to(url, args, _history_name);
+    };
+    init('action', function (action) {
+        state.action = function (menu, item) {
+            var res;
+            if (isString(menu)) {
+                res = state.go(menu, item);
+            } else if (menu && menu.path) {
+                menu = Object.assign({}, menu, { path: state.path(menu.path) });
+                res = go(menu, undefined, undefined, pgpath);
+            } else {
+                res = action(menu);
+            }
+            return Promise.resolve(res);
+        };
+    });
+    var prepares = [];
+    state.prepare = state.go.prepare = function (urls) {
+        prepares.push.apply(prepares, [].concat(urls).map(state.path));
+    };
+    var _pageback_listener = [];
+    state.onback = state.onrelease = state.ondestroy = function (handler) {
+        _pageback_listener = handler;
+    };
+    state.titlebar = function () {
+        var realTitleBar = titlebar.apply(null, arguments);
+        state['with'](realTitleBar);
+        return realTitleBar;
+    };
+    var roles = res || null;
+    state.login = function () {
+        if (!roles)
+            roles = [];
+        for (var cx = 0, dx = arguments.length; cx < dx; cx++) {
+            roles.push(arguments[cx]);
+        }
+    };
+    var emit = function (pg) {
+        if (pg) {
+            page_generators[pgpath] = {
+                pg: pg,
+                roles: roles,
+                state: state,
+                'with': _with_elements,
+                onback: _pageback_listener,
+                prepares: prepares
+            };
+        }
+        var res = page_generators[pgpath];
+        var emiters = loading_tree[pgpath];
+        if (emiters) {
+            var noRoles = !res.roles;
+            while (emiters.length) {
+                var ok = emiters.shift();
+                if (isFunction(ok)) {
+                    ok(res);
+                }
+                if (noRoles && res.roles) {
+                    prepare(user.loginPath, function () {
+                        return emit();
+                    });
+                    return;
+                }
+            }
+        }
+        delete loading_tree[pgpath];
+    };
+    return init(pgpath, function (pg) {
+        if (!pg)
+            return;
+        if (roles)
+            return prepare(user.loginPath, function () {
+                return emit(pg);
+            });
+        emit(pg);
+    }, state);
+}
+function create(pagepath, args, from, needroles) {
+    var page_object = pagepath instanceof Object ? pagepath : page_generators[getpgpath(pagepath)];
+    if (!page_object) {
+        throw new Error('\u8c03\u7528create\u524d\u8bf7\u786e\u4fddprepare\u6267\u884c\u5b8c\u6bd5:' + pagepath);
+    }
+    var pg = page_object.pg, _with_elements = page_object['with'], state = page_object.state, _pageback_listener = page_object.onback, roles = page_object.roles;
+    if (!checkroles(user.roles, roles) || !checkroles(user.roles, needroles)) {
+        if (!user.isLogin && user.loginPath) {
+            return create(user.loginPath);
+        }
+        return alert(i18n('\u6ca1\u6709\u6743\u9650\uFF01', 'No Access!'), 0);
+    }
+    _with_elements = [].concat(_with_elements);
+    state['with'] = function (element) {
+        if (element)
+            _with_elements.push(element);
+        return _with_elements;
+    };
+    state.onback = function (handler) {
+        _pageback_listener = handler;
+    };
+    if (undefined === args || null === args)
+        args = {};
+    var _page = pg.call(state, args, from);
+    if (_page) {
+        if (pg.className)
+            _page.className = pg.className;
+        _page['with'] = _with_elements;
+        if (args.initialStyle)
+            _page.initialStyle = args.initialStyle;
+        if (args.holdupStyle)
+            _page.holdupStyle = args.holdupStyle;
+        if (_page.initialStyle && !_page.holdupStyle) {
+            _page.holdupStyle = getReverseStyle(_page.initialStyle);
+            _page.backupStyle = _page.initialStyle;
+            if (_page['with']) {
+                var run = function (a) {
+                    if (!a.initialStyle) {
+                        a.holdupStyle = _page.holdupStyle;
+                        a.backupStyle = _page.backupStyle;
+                        a.initialStyle = _page.initialStyle;
+                    }
+                };
+                if (_page['with'] instanceof Array) {
+                    _page['with'].forEach(run);
+                } else if (_page['with']) {
+                    run(_page['with']);
+                }
+            }
+        }
+        _page.onback = _pageback_listener;
+    }
+    return _page;
+}
+function zimoli(pagepath, args, history_name, oldpagepath) {
+    if (arguments.length === 0) {
+        history_name = current_history;
+        var _history = history[history_name] || [];
+        root_path = _history[0] || '/main';
+        pagepath = _history[_history.length - 1] || '/main';
+        try {
+            var saveddata = JSON.parse(hostoryStorage.getItem(_zimoli_params_key + pagepath)) || {};
+        } catch (e) {
+            var saveddata = {};
+        }
+        var data = saveddata.data, from = saveddata.from;
+        args = data;
+        oldpagepath = from;
+    }
+    if (page_generators[pagepath])
+        return go(pagepath, args, history_name, oldpagepath);
+    return prepare(pagepath, function () {
+        return go(pagepath, args, history_name, oldpagepath);
+    });
+}
+var global = {};
+var history = {};
+var current_history, default_history = current_history = 'zimoli';
+history[current_history] = [];
+var history_session_object_key = '_zimoli_history_key:' + location_pathname;
+try {
+    history = JSON.parse(hostoryStorage.getItem(history_session_object_key)) || history;
+} catch (e) {
+}
+var root_path;
+var pushstate = function (path_name, history_name, oldpagepath) {
+    var isDestroy = false;
+    if (!history_name) {
+        history_name = current_history;
+    }
+    if (!isString(history_name))
+        return;
+    if (!history[history_name]) {
+        history[history_name] = [path_name];
+    } else {
+        var _history = history[history_name];
+        if (_history.indexOf(oldpagepath) < 0) {
+            _history.splice(root_path === _history[0], _history.length);
+            isDestroy = true;
+        }
+        for (var cx = 0, dx = _history.length; cx < dx; cx++) {
+            if (_history[cx] === path_name) {
+                _history.splice(cx, dx - cx);
+                isDestroy = true;
+                break;
+            }
+        }
+        _history.push(path_name);
+        if (_history.length)
+            fixurl();
+    }
+    hostoryStorage.setItem(history_session_object_key, JSON.stringify(history) || null);
+    return isDestroy;
+};
+var popstate = function (path_name, history_name) {
+    if (!history_name)
+        history_name = current_history;
+    if (!isString(history_name))
+        return;
+    if (!history[history_name])
+        return;
+    var _history = history[history_name];
+    for (var cx = 0, dx = _history.length; cx < dx; cx++) {
+        if (_history[cx] === path_name) {
+            _history.splice(cx, dx - cx);
+            break;
+        }
+    }
+};
+var getCurrentHash = function () {
+    var _historylist = history[current_history];
+    if (rootElements.length) {
+        return '#' + current_history + '/';
+    }
+    if (_historylist.length < 2)
+        return '';
+    var targeturl = '#' + current_history + (_historylist.length ? _historylist[_historylist.length - 1] : '');
+    return targeturl;
+};
+var fixurl = function () {
+    if (fixurl.ing)
+        return;
+    fixurl.ing = setTimeout(function () {
+        fixurl.ing = false;
+        var targeturl = getCurrentHash();
+        if (pagehash_reg.test(targeturl)) {
+            targeturl = location.href.replace(/\#[\s\S]*$/, '') + targeturl;
+            if (!pagehash_reg.test(location.href))
+                location.href = targeturl;
+            else if (location.hash !== targeturl)
+                location.replace(targeturl);
+        } else if (pagehash_reg.test(location.href)) {
+            preventNextHashChange = true;
+            window_history.go(-1);
+        }
+    }, 0);
+};
+var checkonback = function (elements) {
+    for (var cx = 0, dx = elements.length; cx < dx; cx++) {
+        var element = elements[cx];
+        var onback = element && element.onback;
+        if (isFunction(onback)) {
+            onback = element.onback();
+        }
+        if (onback === false || isString(onback)) {
+            break;
+        }
+    }
+    return onback;
+};
+put(':empty', function () {
+    return null;
+});
+var onback = function () {
+    if (rootElements.length) {
+        fixurl();
+        remove(rootElements.pop());
+        return;
+    }
+    var onback = checkonback([global[current_history]]);
+    if (onback === false) {
+        fixurl();
+        return;
+    }
+    if (isString(onback)) {
+        return go(onback);
+    }
+    if (go(-1) === true) {
+        try {
+            navigator.app.exitApp();
+        } catch (e) {
+        }
+    } else {
+    }
+};
+function setWithStyle(target, isDestroy) {
+    target.initialStyle = (isDestroy ? target.backupStyle : target.holdupStyle) || target.initialStyle;
+    if (target['with'] instanceof Array) {
+        target['with'].forEach(function (a) {
+            return setWithStyle(a, isDestroy);
+        });
+    } else if (target['with']) {
+        setWithStyle(target['with'], isDestroy);
+    }
+}
+function addGlobal(element, name, isDestroy) {
+    if (name === void 0) {
+        name = null;
+    }
+    if (isString(name)) {
+        if (global[name] === element)
+            return;
+        var oldElement = global[name];
+        if (oldElement) {
+            setWithStyle(oldElement, isDestroy);
+        }
+        if (isFunction(body.layer)) {
+            body.layer(element, oldElement, history);
+        } else {
+            remove(oldElement);
+            if (isDestroy)
+                appendChild.insert(body, element);
+            else
+                appendChild(body, element);
+        }
+        global[name] = element;
+    } else if (isNode(name)) {
+        if (isDestroy)
+            appendChild.insert(name, element);
+        else
+            appendChild(name, element);
+    } else if (isFunction(name)) {
+        name(element);
+    } else if (element) {
+        if (isFunction(body.layer)) {
+            body.layer(element);
+        } else {
+            if (isDestroy)
+                appendChild.insert(body, element);
+            else
+                appendChild(body, element);
+        }
+        rootElements.push(element);
+    }
+}
+var _switch = zimoli['switch'] = function (history_name, target_body, emptyState) {
+    if (history_name === void 0) {
+        history_name = default_history;
+    }
+    if (target_body === void 0) {
+        target_body = document.body;
+    }
+    if (isString(history_name))
+        current_history = history_name;
+    if (target_body)
+        body = target_body;
+    if (emptyState !== false && !history[history_name])
+        root_path = (history[history_name] = [].concat(emptyState || ':empty'))[0];
+};
+popup.global = zimoli.global = addGlobal;
+popup.go = zimoli.go = go;
+popup.prepare = prepare;
+go.create = popup.create = zimoli.create = create;
+user.clean = zimoli.clean = function () {
+    var pathnames = [].concat.apply([], arguments);
+    pathnames.forEach(function (pathname) {
+        return popstate(pathname);
+    });
+};
+var rootElements_push = rootElements.push;
+var rootElements_splice = rootElements.splice;
+rootElements.push = function () {
+    var length = rootElements_push.apply(this, arguments);
+    fixurl();
+    return length;
+};
+rootElements.splice = function () {
+    var element = rootElements_splice.apply(this, arguments);
+    fixurl();
+    return element;
+};
+appendChild.transition = transition;
+remove.transition = transition;
+window.modules = modules;
+zimoli.prepare = prepare;
+zimoli.setStorage = function (storage) {
+    hostoryStorage = storage;
+    try {
+        history = JSON.parse(hostoryStorage.getItem(history_session_object_key)) || history;
+    } catch (e) {
+    }
+};
+zimoli.clearHistory = function () {
+    hostoryStorage.removeItem(history_session_object_key);
+    history = {};
+};
+zimoli.getCurrentHistory = function () {
+    return history[current_history];
+};
+zimoli.inithash = locationInitHash;
+return zimoli;

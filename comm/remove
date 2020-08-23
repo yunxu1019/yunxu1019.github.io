@@ -1,1 +1,64 @@
-064isNode,clearTimeout,isFunction,setTimeout,createEvent,dispatch,isArray,k,l,d,m,n,o,p,e,q,f,b,r,g,h,s,c,t,u,v,i80["with","remove","length","removeTimer","initialStyle","transition","parentNode","removeChild","isMounted","childNodes","onremove","map","call"]function a(c,o){if(!c)return;if(k(c))if(o!==!1)var i=arguments;else var i=[c];else var i=c;for(var n=i[f]-1;n>=0;n--){if(c=i[n],!c)continue;if(c[b]&&l(c[b]),c[r]&&o!==!1&&d(a[g])){var p=a[g](c,!0);p?c[b]=m(function(b){return function(){a(b,!1)}}(c),+p||100):a(c,!1)}else j(c),c[h]&&c[h][s](c),c[e]&&a(c[e],o)}}function j(a,b){if(!a||a[c]===!1)return;var g=a[t];if(a[c]){var e=a[u];b||(b=n(q)),o(a,b),p(e)&&e[v](function(a){a[i](this,b)},a),d(e)&&e[i](a,b),a[c]=!1}if(g)for(var h=0,k=g[f];h<k;h++)j(g[h],b)}return a
+07uisNode,clearTimeout,isFunction,setTimeout,createEvent,dispatch,isArray,isNode,clearTimeout,isFunction,setTimeout,createEvent,dispatch,isArrayfunction remove(node, transition) {
+    if (!node)
+        return;
+    if (isNode(node)) {
+        if (transition !== false) {
+            var args = arguments;
+        } else {
+            var args = [node];
+        }
+    } else {
+        var args = node;
+    }
+    for (var cx = args.length - 1; cx >= 0; cx--) {
+        node = args[cx];
+        if (!node)
+            continue;
+        if (node.removeTimer)
+            clearTimeout(node.removeTimer);
+        if (node.initialStyle && transition !== false && isFunction(remove.transition)) {
+            var duration = remove.transition(node, true);
+            if (duration) {
+                node.removeTimer = setTimeout(function (node) {
+                    return function () {
+                        remove(node, false);
+                    };
+                }(node), +duration || 100);
+            } else {
+                remove(node, false);
+            }
+        } else {
+            _onremove(node);
+            node.parentNode && node.parentNode.removeChild(node);
+            if (node['with']) {
+                remove(node['with'], transition);
+            }
+        }
+    }
+}
+function _onremove(node, event) {
+    if (!node || node.isMounted === false)
+        return;
+    var children = node.childNodes;
+    if (node.isMounted) {
+        var onremove = node.onremove;
+        if (!event) {
+            event = createEvent('remove');
+        }
+        dispatch(node, event);
+        if (isArray(onremove)) {
+            onremove.map(function (remove_hindler) {
+                remove_hindler.call(this, event);
+            }, node);
+        }
+        if (isFunction(onremove)) {
+            onremove.call(node, event);
+        }
+        node.isMounted = false;
+    }
+    if (children)
+        for (var cx = 0, dx = children.length; cx < dx; cx++) {
+            _onremove(children[cx], event);
+        }
+}
+return remove;

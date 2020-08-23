@@ -1,1 +1,6 @@
-01kgetIndexFromOrderedArray,b,ck["splice"]var a=function(a,d,g){var e=b(a,d,g),f=a[e]===d;a[c](e+(1-f),f,d)};return a
+02qgetIndexFromOrderedArray,getIndexFromOrderedArrayvar saveToOrderedArray = function (orderArray, newItem, isLE) {
+    var cx = getIndexFromOrderedArray(orderArray, newItem, isLE);
+    var replace = orderArray[cx] === newItem;
+    orderArray.splice(cx + (1 - replace), replace, newItem);
+};
+return saveToOrderedArray;

@@ -1,1 +1,4 @@
-00kString,b,ck["string"]var a=function a(d){return typeof d===c||d instanceof b};return a
+00qString,Stringvar isString = function isString(o) {
+    return typeof o === 'string' || o instanceof String;
+};
+return isString;

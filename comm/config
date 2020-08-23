@@ -1,1 +1,19 @@
-02wPromise,location,cross,b,c,d,a,e,f,g,h,i,j,k,l,m,n,o9c["fc","efront.cc:5989","http://efront.cc:5989/",/(localhost|127\.0\.0\.1)/i,"localhost:5984","http://localhost:5984/","get","test","hostname","api_base","done","error"]return new b(function(b){var p={target:a,api_domain:e,api_base:f};if(!g[k](c[l]))return b(p);var q={target:a,api_domain:h,api_base:i};d(j,q[m])[n](function(a){return b(q)})[o](function(a){return b(p)})})
+02iPromise,location,cross,Promise,location,crossreturn new Promise(function (ok) {
+    var config = {
+        target: 'fc',
+        api_domain: 'efront.cc:5989',
+        api_base: 'http://efront.cc:5989/'
+    };
+    if (!/(localhost|127\.0\.0\.1)/i.test(location.hostname))
+        return ok(config);
+    var testconfig = {
+        target: 'fc',
+        api_domain: 'localhost:5984',
+        api_base: 'http://localhost:5984/'
+    };
+    cross('get', testconfig.api_base).done(function (e) {
+        return ok(testconfig);
+    }).error(function (e) {
+        return ok(config);
+    });
+});

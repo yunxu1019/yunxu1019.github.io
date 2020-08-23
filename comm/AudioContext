@@ -1,1 +1,1 @@
-00owindow,a,b,c22["webkitAudioContext","AudioContext"]return a[b]||a[c]
+00qwindow,windowreturn window.webkitAudioContext || window.AudioContext;

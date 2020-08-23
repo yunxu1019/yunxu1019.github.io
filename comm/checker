@@ -1,1 +1,25 @@
-03idocument,addClass,removeClass,cless,f,g,h,i,j,k,l,b,m,n,o,p,q,cpu["toString","<s>\u2713</s>","check","checked",".-ag{display:inline-block;height:1em;width:1em;border-radius:2px;border:.1em solid;position:relative;vertical-align:middle;margin-right:4px}.-ag>s{display:none;border-radius:50%;width:1em;height:1em;line-height:1;text-decoration:none;text-align:center;position:absolute;margin:-0.5em;font-weight:bold;top:50%;left:50%}.-ag.checked>s{display:block}","-ag checker checker","createElement","innerHTML","setValue","value"]function r(e){e===void 0&&(e=f[o](l));var a=e;return a[p]=d,a[q]=function(d){if(d=!!d,d===this[c])return;this[c]=d,d?g(a,b):h(a,b)},a}var a,d,s,e,e=(a={},a[j]=function(){return k},s=d=a);return i(r,m,n)
+03ydocument,addClass,removeClass,cless,document,addClass,removeClass,clessvar checker, Checker, template, template = Checker = checker = {
+        'toString': function () {
+            return '<s>\u2713</s>';
+        }
+    };
+function main(elem) {
+    if (elem === void 0) {
+        elem = document.createElement('check');
+    }
+    var page = elem;
+    page.innerHTML = checker;
+    page.setValue = function (value) {
+        value = !!value;
+        if (value === this.value)
+            return;
+        this.value = value;
+        if (value) {
+            addClass(page, 'checked');
+        } else {
+            removeClass(page, 'checked');
+        }
+    };
+    return page;
+}
+return cless(main, '.-ah {\n  display: inline-block;\n  height: 1em;\n  width: 1em;\n  border-radius: 2px;\n  border: 0.1em solid;\n  position: relative;\n  vertical-align: middle;\n  margin-right: 4px;\n}\n.-ah > s {\n  display: none;\n  border-radius: 50%;\n  width: 1em;\n  height: 1em;\n  line-height: 1;\n  text-decoration: none;\n  text-align: center;\n  position: absolute;\n  margin: -0.5em;\n  font-weight: bold;\n  top: 50%;\n  left: 50%;\n}\n.-ah.checked > s {\n  display: block;\n}\n', '-ah checker checker');

@@ -1,1 +1,14 @@
-034createElement,attr,input,appendChild,b,c,a,f,g,h,i,j,k,d2s["form","prototype","input","name","value","form"]function e(a){a||(a=b(g)),this[d]=a}return e[h]={append:function(e,g){b(i),c(a,j,e),c(a,k,g),f(this[d],a)}},e
+042createElement,attr,input,appendChild,createElement,attr,input,appendChildfunction FormData(form) {
+    if (!form)
+        form = createElement('form');
+    this.form = form;
+}
+FormData['prototype'] = {
+    append: function (key, value) {
+        createElement('input');
+        attr(input, 'name', key);
+        attr(input, 'value', value);
+        appendChild(this.form, input);
+    }
+};
+return FormData;

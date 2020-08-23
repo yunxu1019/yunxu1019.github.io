@@ -1,1 +1,7 @@
-010data,b,c,d,e,f,g,h3u["musicList","getInstance","forEach","activate","active_hash","hash"]var a=b[d](c);return a[e](function(b){b[f]&&(a[g]=b[h])}),a
+00idata,datavar musicList = data.getInstance('musicList');
+musicList.forEach(function (music) {
+    if (music.activate) {
+        musicList.active_hash = music.hash;
+    }
+});
+return musicList;

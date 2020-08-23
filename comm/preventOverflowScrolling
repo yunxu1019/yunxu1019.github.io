@@ -1,1 +1,11 @@
-01sdocument,ontouchmove,b,c,d,e,f,g3w["webkitOverflowScrolling","documentElement","style","preventDefault"]if(d in b[e][f])var a=function(a){c(a,function(a){return a[g]()})};else var a=function(){};return a
+02adocument,ontouchmove,document,ontouchmoveif ('webkitOverflowScrolling' in document.documentElement.style) {
+    var preventOverflowScrolling = function (target) {
+        ontouchmove(target, function (event) {
+            return event.preventDefault();
+        });
+    };
+} else {
+    var preventOverflowScrolling = function () {
+    };
+}
+return preventOverflowScrolling;

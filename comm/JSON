@@ -1,1 +1,243 @@
-0asString,Function,isNumber,Array,isString,isFunction,Date,Object,Boolean,Number,isNaN,i,H,I,j,J,K,L,e,M,N,O,P,Q,f,R,S,T,U,V,o,k,r,s,p,t,W,X,Y,Z,u,_,$,a0,v,a1,a2,a3,a4,w,b,c,a,l,x,m,a5,y,a6,g,a7,a8ke["stringify json failed!","parse json failed!","\"",/\\[\s\S]|"/g,"-",/(?:0|[1-9]\d*)(?:\.\d*)?(e\-?\d+)?/g,/null|false|true/g,/[^\s]/g,"]","}","{",":",",","[","n","f","t","return "," ",/[\\"]/g,"\\$1","object","null","valueOf","number","boolean","string","\n","charAt","lastIndex","length","exec","index","join","replace","pop","toISOString","push","keys","indexOf"]var z=P,A=Q,B=function(e,h){if(e[b](h)!==f)return!1;var d=R;d[c]=h+1;while(d[c]<e[a]){var g=d[l](e);if(!g)return!1;if(g[0]===f)break}return d[c]},C=function(e,d){e[b](d)===S&&d++;var a=T;a[c]=d;var f=a[l](e);return f?a[c]:!1},D=function(e,d){var a=U;a[c]=d;var b=a[l](e);return b&&b[x]===d?a[c]:!1},d=function(e,f){var b=V;b[c]=f;var d=b[l](e);return d?d[x]:e[a]},h=function(e,c){c=d(e,c);switch(e[b](c)){case o:case k:return c;case f:c=B(e,c);break;case r:var g=e[a];c++;if(c>=g)return!1;while(c<g){if(c=h(e,c),c===!1)return c;if(c=d(e,c),e[b](c)===k)return c+1;if(e[b](c)!==s)return!1;if(c++,c=h(e,c),c===!1)return c;if(c=d(e,c),e[b](c)===p){c++;continue}if(e[b](c)!==k)return!1;c++;break}break;case t:var g=e[a];c++;if(c>=g)return!1;while(c<g){if(c=h(e,c),c===!1)return c;if(c=d(e,c),e[b](c)===p){c++;continue}if(e[b](c)!==o)return!1;c++;break}break;case W:case X:case Y:c=D(e,c);break;default:c=C(e,c)}return c===!1?c:d(e,c)},E=function(b){b=i(b);var c=h(b,0);if(c===b[a])return new H(Z+b)();else throw A},F=function(d,e,b){I(b)&&(b=new j(b+1)[m](u)),J(b)||(b='');var c=q(d,e,b);return c[a]?c[m](''):void 0},n=function(a){return f+a[a5](_,$)+f},q=function(b,F,l){var H=K(F),I=function(){d[y](),A[y]()},G=function(b){if(b instanceof L&&(b=b[a6]()),H){var f=F(x,b);f instanceof e&&b!==f&&(f=q(f,F,l)),b=f}switch(typeof b){case a0:if(b===null)return v;if(b instanceof M||b instanceof N)return b=b[a1](),i(b);if(b instanceof i)return n(b);if(b instanceof e)return b;case a2:(O(b)||b===Infinity)&&(b=null);case a3:return i(b);case a4:return n(b);default:if(!c&&d[a]>1)return v}},x='',f,c,D=[],d=[],A=[[0]];b=G(b),b instanceof e?d[g](b):b&&D[g](b);while(d[a]){var b=d[d[a]-1],B=A[A[a]-1],f=B[0],c=B[1];b instanceof j||c||(B[1]=c=e[a7](b));var h='';f===0&&(h+=c?r:t);var E=(c?c:b)[a];while(f<E){x=c?c[f]:f,f>0&&(h+=p),l&&(h+=w+new j(d[a]+1)[m](l)),c&&(h+=n(x)+s,l&&(h+=u));var C=G(b[x]);if(C instanceof e){if(B[0]=f+1,d[a8](C)>=0)throw z;d[g](C),A[g]([0]);break}h+=C,f++}f===E&&(E>0&&l&&(h+=w+new j(d[a])[m](l)),h+=c?k:o,I()),D[g](h)}return D},G={parse:E,stringify:F};return G
+09aString,Function,isNumber,Array,isString,isFunction,Date,Object,Boolean,Number,isNaN,String,Function,isNumber,Array,isString,isFunction,Date,Object,Boolean,Number,isNaNvar stringify_failed_error_message = 'stringify json failed!';
+var parse_failed_error_message = 'parse json failed!';
+var scan_string = function (str, start) {
+    if (str.charAt(start) !== '"')
+        return false;
+    var reg = /\\[\s\S]|"/g;
+    reg.lastIndex = start + 1;
+    while (reg.lastIndex < str.length) {
+        var match = reg.exec(str);
+        if (!match)
+            return false;
+        if (match[0] === '"')
+            break;
+    }
+    return reg.lastIndex;
+};
+var scan_number = function (str, start) {
+    if (str.charAt(start) === '-')
+        start++;
+    var reg = /(?:0|[1-9]\d*)(?:\.\d*)?(e\-?\d+)?/g;
+    reg.lastIndex = start;
+    var match = reg.exec(str);
+    if (!match)
+        return false;
+    return reg.lastIndex;
+};
+var scan_null = function (str, start) {
+    var reg = /null|false|true/g;
+    reg.lastIndex = start;
+    var match = reg.exec(str);
+    if (match && match.index === start)
+        return reg.lastIndex;
+    return false;
+};
+var scan_blank = function (str, start) {
+    var reg = /[^\s]/g;
+    reg.lastIndex = start;
+    var match = reg.exec(str);
+    if (match)
+        return match.index;
+    return str.length;
+};
+var _safeparse = function (str, start) {
+    start = scan_blank(str, start);
+    switch (str.charAt(start)) {
+    case ']':
+    case '}':
+        return start;
+    case '"':
+        start = scan_string(str, start);
+        break;
+    case '{':
+        var end = str.length;
+        start++;
+        if (start >= end)
+            return false;
+        while (start < end) {
+            start = _safeparse(str, start);
+            if (start === false)
+                return start;
+            start = scan_blank(str, start);
+            if (str.charAt(start) === '}')
+                return start + 1;
+            if (str.charAt(start) !== ':')
+                return false;
+            start++;
+            start = _safeparse(str, start);
+            if (start === false)
+                return start;
+            start = scan_blank(str, start);
+            if (str.charAt(start) === ',') {
+                start++;
+                continue;
+            }
+            if (str.charAt(start) !== '}') {
+                return false;
+            }
+            start++;
+            break;
+        }
+        break;
+    case '[':
+        var end = str.length;
+        start++;
+        if (start >= end)
+            return false;
+        while (start < end) {
+            start = _safeparse(str, start);
+            if (start === false)
+                return start;
+            start = scan_blank(str, start);
+            if (str.charAt(start) === ',') {
+                start++;
+                continue;
+            }
+            if (str.charAt(start) !== ']') {
+                return false;
+            }
+            start++;
+            break;
+        }
+        break;
+    case 'n':
+    case 'f':
+    case 't':
+        start = scan_null(str, start);
+        break;
+    default:
+        start = scan_number(str, start);
+    }
+    if (start === false)
+        return start;
+    return scan_blank(str, start);
+};
+var parse = function (string) {
+    string = String(string);
+    var parsed = _safeparse(string, 0);
+    if (parsed === string.length) {
+        return new Function('return ' + string)();
+    } else {
+        throw parse_failed_error_message;
+    }
+};
+var stringify = function (object, filter, space) {
+    if (isNumber(space)) {
+        space = new Array(space + 1).join(' ');
+    }
+    if (!isString(space)) {
+        space = '';
+    }
+    var res = getString(object, filter, space);
+    if (res.length)
+        return res.join('');
+};
+var toString = function (object) {
+    return '"' + object.replace(/[\\"]/g, '\\$1') + '"';
+};
+var getString = function (object, filter, space) {
+    var hasFilter = isFunction(filter);
+    var pop = function () {
+        objects.pop();
+        keys.pop();
+    };
+    var get = function (object) {
+        if (object instanceof Date) {
+            object = object.toISOString();
+        }
+        if (hasFilter) {
+            var object1 = filter(key, object);
+            if (object1 instanceof Object && object !== object1) {
+                object1 = getString(object1, filter, space);
+            }
+            object = object1;
+        }
+        switch (typeof object) {
+        case 'object':
+            if (object === null) {
+                return 'null';
+            }
+            if (object instanceof Boolean || object instanceof Number) {
+                object = object['valueOf']();
+                return String(object);
+            }
+            if (object instanceof String) {
+                return toString(object);
+            }
+            if (object instanceof Object) {
+                return object;
+            }
+        case 'number':
+            if (isNaN(object) || object === Infinity) {
+                object = null;
+            }
+        case 'boolean':
+            return String(object);
+        case 'string':
+            return toString(object);
+        default:
+            if (!ks && objects.length > 1) {
+                return 'null';
+            }
+        }
+    };
+    var key = '', cx, ks, result = [], objects = [], keys = [[0]];
+    object = get(object);
+    if (object instanceof Object)
+        objects.push(object);
+    else if (object)
+        result.push(object);
+    while (objects.length) {
+        var object = objects[objects.length - 1];
+        var key1 = keys[keys.length - 1];
+        var cx = key1[0], ks = key1[1];
+        if (!(object instanceof Array) && !ks) {
+            key1[1] = ks = Object.keys(object);
+        }
+        var str = '';
+        if (cx === 0) {
+            str += ks ? '{' : '[';
+        }
+        var dx = (ks ? ks : object).length;
+        while (cx < dx) {
+            key = ks ? ks[cx] : cx;
+            if (cx > 0)
+                str += ',';
+            if (space)
+                str += '\n' + new Array(objects.length + 1).join(space);
+            if (ks) {
+                str += toString(key) + ':';
+                if (space)
+                    str += ' ';
+            }
+            ;
+            var v = get(object[key]);
+            if (v instanceof Object) {
+                key1[0] = cx + 1;
+                if (objects.indexOf(v) >= 0)
+                    throw stringify_failed_error_message;
+                objects.push(v);
+                keys.push([0]);
+                break;
+            } else {
+                str += v;
+            }
+            cx++;
+        }
+        if (cx === dx) {
+            if (dx > 0) {
+                if (space)
+                    str += '\n' + new Array(objects.length).join(space);
+            }
+            str += ks ? '}' : ']';
+            pop();
+        }
+        result.push(str);
+    }
+    return result;
+};
+var JSON = {
+    parse: parse,
+    stringify: stringify
+};
+return JSON;

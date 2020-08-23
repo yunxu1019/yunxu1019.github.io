@@ -1,1 +1,4 @@
-00eArray,afunction b(b){return b instanceof a}return b
+00mArray,Arrayfunction isArray(o) {
+    return o instanceof Array;
+}
+return isArray;

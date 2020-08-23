@@ -1,1 +1,9 @@
-function d(d,e){for(var a=d[b]-1;a>=0;a--)d[a]===e&&d[c](a,1);return d}var a=['length','splice'],b=a[0],c=a[1];return d
+function removeFromList(list, item) {
+    for (var cx = list.length - 1; cx >= 0; cx--) {
+        if (list[cx] === item) {
+            list.splice(cx, 1);
+        }
+    }
+    return list;
+}
+return removeFromList;

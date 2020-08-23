@@ -1,1 +1,45 @@
-01sPromise,Function,f,g,e,h,i,d,b,c34["catch","resolve","prototype","then","apply","_enrich"]var a=function a(l){var j=f[h](),n=function(){};n[i]=l;var m=new n;for(var k in l)l[k]instanceof g&&(j[k]=function(c,a){return c=l[k],a=function(){'use strict';var a=arguments;return this[d](function(){return c[b](m,a)})},m[k]=function(){return a[b](j,arguments)},a}());j[c]=function(a){if(!a[c])for(var b in j)a[b]=j[b];return a};var o=j[d],p=j[e];return j[d]=function(){var a=o[b](this,arguments);return this[c](a)},j[e]=function(){var a=p[b](this,arguments);return this[c](a)},m},a=a;return a
+01uPromise,Function,Promise,Functionvar enrich = function enrich(obj) {
+    var _promise = Promise.resolve();
+    var Base = function () {
+    };
+    Base.prototype = obj;
+    var _object = new Base();
+    for (var k in obj) {
+        if (obj[k] instanceof Function) {
+            _promise[k] = function () {
+                var method = obj[k];
+                var caller = function () {
+                    'use strict';
+                    var args = arguments;
+                    return this.then(function () {
+                        return method.apply(_object, args);
+                    });
+                };
+                _object[k] = function () {
+                    return caller.apply(_promise, arguments);
+                };
+                return caller;
+            }();
+        }
+    }
+    _promise._enrich = function (promise) {
+        if (!promise._enrich) {
+            for (var k in _promise)
+                promise[k] = _promise[k];
+        }
+        return promise;
+    };
+    var _then = _promise.then;
+    var _catch = _promise['catch'];
+    _promise.then = function () {
+        var promise = _then.apply(this, arguments);
+        return this._enrich(promise);
+    };
+    _promise['catch'] = function () {
+        var promise = _catch.apply(this, arguments);
+        return this._enrich(promise);
+    };
+    return _object;
+};
+var enrich = enrich;
+return enrich;

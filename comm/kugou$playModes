@@ -1,1 +1,23 @@
-01wkugou$musicList,Math,a,c,d,e,f,b,g5k["\u5217\u8868\u5faa\u73af","\u968f\u673a\u64ad\u653e","\u5355\u66f2\u5faa\u73af","length","random"]return[{name:d,next:function(c){return c++,c%=a[b],c}},{name:e,next:function(e){var d=(a[b]-1)*c[g]()|0;return e+d}},{name:f,next:function(a){return a}}]
+02akugou$musicList,Math,kugou$musicList,Mathreturn [
+    {
+        name: '\u5217\u8868\u5faa\u73af',
+        next: function (index) {
+            index++;
+            index %= kugou$musicList.length;
+            return index;
+        }
+    },
+    {
+        name: '\u968f\u673a\u64ad\u653e',
+        next: function (index) {
+            var delta = (kugou$musicList.length - 1) * Math.random() | 0;
+            return index + delta;
+        }
+    },
+    {
+        name: '\u5355\u66f2\u5faa\u73af',
+        next: function (index) {
+            return index;
+        }
+    }
+];

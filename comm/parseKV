@@ -1,1 +1,27 @@
-02kdecodeURIComponent,undefined,f,g,c,d,h,i,b,j,e2y["&","=","string","split","length","indexOf","slice"]function a(r,l,m){l===void 0&&(l=c),m===void 0&&(m=d);var o={},p=l===c&&m===d?f:function(a){return a};if(typeof r===h){var q=r[i](l);for(var n=0,s=q[b];n<s;n++){var a=q[n];if(!a)continue;var k=a[j](m);k<0&&(k=a[b]),o[p(a[e](0,k))]=k===a[b]?g:p(a[e](k+1))}}return o}var a=a;return a
+036decodeURIComponent,undefined,decodeURIComponent,undefinedfunction parseKV(string, spliter, equals) {
+    if (spliter === void 0) {
+        spliter = '&';
+    }
+    if (equals === void 0) {
+        equals = '=';
+    }
+    var object = {};
+    var decode = spliter === '&' && equals === '=' ? decodeURIComponent : function (a) {
+        return a;
+    };
+    if (typeof string === 'string') {
+        var kvs = string.split(spliter);
+        for (var cx = 0, dx = kvs.length; cx < dx; cx++) {
+            var kv = kvs[cx];
+            if (!kv)
+                continue;
+            var index = kv.indexOf(equals);
+            if (index < 0)
+                index = kv.length;
+            object[decode(kv.slice(0, index))] = index === kv.length ? undefined : decode(kv.slice(index + 1));
+        }
+    }
+    return object;
+}
+var parseKV = parseKV;
+return parseKV;

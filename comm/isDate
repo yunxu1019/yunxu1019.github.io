@@ -1,1 +1,4 @@
-00cDate,afunction b(b){return b instanceof a}return b
+00iDate,Datefunction isDate(o) {
+    return o instanceof Date;
+}
+return isDate;

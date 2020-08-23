@@ -1,1 +1,28 @@
-058Promise,Object,Function,isString,getParams,extend,popup,data,g,c,h,i,j,k,d,l,e,m,a,n,b,o,f,p,q42["do","catch","modal","path","params","prepare","actionId","from","then"]function r(r,s){return new g(function(g,w){if(!r)return g();if(r instanceof c){if(r[e]instanceof h){r[e]();return}if(r[a]){var t=i(r[a])?r[a]:r[a][n];if(r[b])var u=j(s,r[b]);var v=k({},r[a]instanceof c?r[a]:{path:r[a]},r[b]?{params:u}:{},s?{item:s}:{});d[o](t,function(){var a=d(t,v);g(a)});return}r[f]&&l[p](r[f])[q](g)[m](w)}})}return r
+06qPromise,Object,Function,isString,getParams,extend,popup,data,Promise,Object,Function,isString,getParams,extend,popup,datafunction main(config, item) {
+    return new Promise(function (ok, oh) {
+        if (!config)
+            return ok();
+        if (config instanceof Object) {
+            if (config['do'] instanceof Function) {
+                config['do']();
+                return;
+            }
+            if (config.modal) {
+                var path = isString(config.modal) ? config.modal : config.modal.path;
+                if (config.params) {
+                    var params = getParams(item, config.params);
+                }
+                var args = extend({}, config.modal instanceof Object ? config.modal : { path: config.modal }, config.params ? { params: params } : {}, item ? { item: item } : {});
+                popup.prepare(path, function () {
+                    var page = popup(path, args);
+                    ok(page);
+                });
+                return;
+            }
+            if (config.actionId) {
+                data.from(config.actionId).then(ok)['catch'](oh);
+            }
+        }
+    });
+}
+return main;
