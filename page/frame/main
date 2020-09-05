@@ -1,1 +1,1 @@
-01slayer$glance,cless,a,b,c,d,e,f,g50["/frame/left","/frame/top","/page/grinch",".-n{padding-top:0;width:100%}","-n main main"]function h(){var b=a({left:c,top:d,main:e});return b}return b(h,f,g)
+01slayer$glance,cless,a,b,c,d,e,f,g50["/frame/left","/frame/top","/page/grinch",".-o{padding-top:0;width:100%}","-o main main"]function h(){var b=a({left:c,top:d,main:e});return b}return b(h,f,g)

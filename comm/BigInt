@@ -1,0 +1,1 @@
+var a=['toString','valueOf','BigInt','val','prototype'],c=a[0],d=a[1],e=a[2],b=a[3],f=a[4],g=this[e]||function(e,g){function a(c){if(!(this instanceof a))return c instanceof a?c:new a(c);if(e[c])return e[c];this[b]=c,e[c]=this}return e={},g=new a,g[c]=function(){return this[b]},g[d]=function(){return this},a[f]=g,a}();return g
