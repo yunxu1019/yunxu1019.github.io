@@ -1,1 +1,1 @@
-01sdiv,care,css,cless,a,b,c,d,e,f,g64["background",".-bv{width:40px;height:20px;background:#ccc;display:inline-block}","-bv colorlabel colorlabel"]function h(d){return d===void 0&&(d=a()),b(d,function(a){c(this,e,a)}),d}return d(h,f,g)
+01sdiv,care,css,cless,a,b,c,d,e,f,g64["background",".-bw{width:40px;height:20px;background:#ccc;display:inline-block}","-bw colorlabel colorlabel"]function h(d){return d===void 0&&(d=a()),b(d,function(a){c(this,e,a)}),d}return d(h,f,g)
