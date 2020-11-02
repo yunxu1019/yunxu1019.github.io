@@ -1,4 +1,4 @@
-precision mediump float;
+0tgcision mediump float;
 
 // our texture
 uniform sampler2D u_image;
@@ -17,5 +17,5 @@ void main() {
    gl_FragColor = (
        texture2D(u_image, v_texCoord) +
        texture2D(u_image, v_texCoord + vec2(onePixel.x, 0.0)) +
-       texture2D(u_image, v_texCoord + vec2(-onePixel.x, 0.0))) / 3.0;
+       texture2D(u_image, v_texCoord + vec2(-onePixel.x, 0.0))) / 3;
 }

@@ -1,1 +1,1 @@
-var a=['\n<div ng-if=\'showTitle!==false\' ng-bind="viewTitle"></div><div class="close" ng-if=\'closeable!==false\' ng-click=closeView()>×</div>'][0];return a
+00qcless,a,b,c,df2["<div ng-if='showTitle!==false' ng-bind=\"viewTitle\"></div><div class=\"close\" ng-if='closeable!==false' ng-click=closeView()>\xD7</div>",".-an.close{display:block;position:absolute;right:0;top:0}.-an.close:hover{color:#fff;background:#f00}","-an viewTitle viewTitle"]return a(b,c,d)
