@@ -1,1 +1,1 @@
-02gisObject,deepEqual,Object,keys,a,b,c,f,d,e,g1o["shallow","create","forEach"]function h(h,i){if(!(a(h)||a(i)))return b[d](h,i);a(h)||(h=c[e](null)),a(i)||(i=c[e](null));var j=null;return f(i,h)[g](function(a){b[d](h[a],i[a])||(j||(j={}),j[a]={previous:i[a],current:h[a]})}),j}return h
+02gisObject,deepEqual,Object,keys,a,b,c,f,d,e,g1o["shallow","create","forEach"]function h(h,i){if(!(a(h)||a(i)))return!b[d](h,i);a(h)||(h=c[e](null)),a(i)||(i=c[e](null));var j=null;return f(i,h)[g](function(a){b[d](h[a],i[a])||(j||(j={}),j[a]={previous:i[a],current:h[a]})}),j}return h
