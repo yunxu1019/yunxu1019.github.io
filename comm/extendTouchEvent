@@ -1,1 +1,1 @@
-function b(b){var d=b[a][0];for(var c in d)c in b||(b[c]=d[c]);return b}var a=['touches'][0];return b
+018window,a,b,c,d,e,f,g,h48["touches","screenX","screenLeft","clientX","screenY","screenTop","clientY"]function i(i){var k=i[b][0];for(var j in k)j in i||(i[j]=k[j]);return i[c]=a[d]+i[e],i[f]=a[g]+i[h],i}return i
