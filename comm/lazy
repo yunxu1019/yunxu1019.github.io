@@ -1,1 +1,1 @@
-02crequestAnimationFrame,setTimeout,b,d,a,c,e1c["ing","apply","length"]function f(g,f){return function(){var h=function(){h[a]===!0&&g[c](i,arguments),h[a]=!1},i=this;if(arguments[e]){var j=arguments;return b(function(){g[c](i,j)})}if(h[a])return h[a]=!0;f=+f,f>0?(d(h,f),h[a]=!0):(h[a]=b(h),f===!1||f===0?h[a]=!0:g())}}return f
+024setTimeout,requestAnimationFrame,a,b,ci["apply"]function d(g,e){e===void 0&&(e=!1);var d,h,i,f=function(){d===!0&&g[c](i,h),d=!1};return function(){if(h=arguments,i=this,d)return d=!0;e>0?(a(f,+e),d=!0):(d=b(f),e===!1||e===0?d=!0:g())}}return d
