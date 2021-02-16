@@ -1,1 +1,1 @@
-034createElement,attr,input,appendChild,b,c,a,f,g,h,i,j,k,d2s["form","prototype","input","name","value","form"]function e(a){a||(a=b(g)),this[d]=a}return e[h]={append:function(e,g){b(i),c(a,j,e),c(a,k,g),f(this[d],a)}},e
+034createElement,attr,input,appendChild,d,e,a,g,b,h,i,j,k,l2w["form","prototype","append","input","name","value"]function f(a){a||(a=d(b)),this[b]=a}var c;return c={},c[i]=function(c,f){d(j),e(a,k,c),e(a,l,f),g(this[b],a)},f[h]=c,f

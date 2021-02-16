@@ -1,1 +1,1 @@
-var a=['Microsoft.XMLHTTP','XMLHttpRequest','ActiveXObject','bind'],b=a[0],c=a[1],d=a[2],e=a[3];return this[c]||this[d][e](null,b)
+var a=['XMLHttpRequest','ActiveXObject','bind','Microsoft.XMLHTTP'],b=a[0],c=a[1],d=a[2],e=a[3];return this[b]||this[c][d](null,e)

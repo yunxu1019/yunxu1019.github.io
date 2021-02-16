@@ -1,1 +1,1 @@
-01wonresize,window,dispatch,b,c,d,e,f12["resize","length"]b(c,function(){for(var b=0,c=a[f];b<c;b++)d(a[b],e)});var a=[];return a
+01wonresize,window,dispatch,b,c,d,e,f12["length","resize"]b(c,function(){for(var b=0,c=a[e];b<c;b++)d(a[b],f)});var a=[];return a

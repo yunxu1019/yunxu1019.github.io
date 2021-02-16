@@ -1,1 +1,1 @@
-function d(e){var a=e[b],d=e[c];return{width:14,height:14,left:a-7,right:a+7,top:d-7,bottom:d+7}}var a=['clientX','clientY'],b=a[0],c=a[1];return d
+function j(l){var a,j=l[b],k=l[c];return a={},a[d]=14,a[e]=14,a[f]=j-7,a[g]=j+7,a[h]=k-7,a[i]=k+7,a}var a=['clientX','clientY','width','height','left','right','top','bottom'],b=a[0],c=a[1],d=a[2],e=a[3],f=a[4],g=a[5],h=a[6],i=a[7];return j

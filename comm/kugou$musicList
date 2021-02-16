@@ -1,1 +1,1 @@
-010data,b,c,d,e,f,g,h3u["musicList","getInstance","forEach","activate","active_hash","hash"]var a=b[d](c);return a[e](function(b){b[f]&&(a[g]=b[h])}),a
+010data,b,c,d,e,f,g,h3u["getInstance","musicList","forEach","activate","active_hash","hash"]var a=b[c](d);return a[e](function(b){b[f]&&(a[g]=b[h])}),a

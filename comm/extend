@@ -1,1 +1,1 @@
-var a=['hasOwnProperty','Object','assign','length','call'],c=a[0],d=a[1],e=a[2],f=a[3],g=a[4],h={}[c],b=this[d],i=b[e]||function(a){a=b(a);for(var c=1,i=arguments[f];c<i;c++){var d=arguments[c];for(var e in d)h[g](d,e)&&(a[e]=d[e])}return a};return i
+var a=['hasOwnProperty','constructor','assign','length','call'],c=a[0],d=a[1],e=a[2],f=a[3],g=a[4],h={}[c],b={}[d],i=b[e]||function(a){a=b(a);for(var c=1,i=arguments[f];c<i;c++){var d=arguments[c];for(var e in d)h[g](d,e)&&(a[e]=d[e])}return a};return i

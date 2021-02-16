@@ -1,1 +1,1 @@
-var a=['develop','name'],b=a[0],c=a[1],d=function a(){return a[c]!==b}();return d
+var a=['name','develop'],b=a[0],c=a[1],d=function a(){return a[b]!==c}();return d

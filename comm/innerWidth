@@ -1,1 +1,1 @@
-function c(){return b[i][e]||b[f]&&b[f][e]}var a=['toString','valueOf','document','documentElement','clientWidth','body'],d=a[0],g=a[1],h=a[2],i=a[3],e=a[4],f=a[5],b=this[h];return c[d]=function(){return this()[d]()},c[g]=function(){return this()},c
+function c(){return b[h][d]||b[e]&&b[e][d]}var a=['document','documentElement','clientWidth','body','toString','valueOf'],g=a[0],h=a[1],d=a[2],e=a[3],f=a[4],i=a[5],b=this[g];return c[f]=function(){return this()[f]()},c[i]=function(){return this()},c
