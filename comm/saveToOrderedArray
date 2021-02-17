@@ -1,1 +1,1 @@
-01kgetIndexFromOrderedArray,b,ck["splice"]var a=function(a,d,g){var e=b(a,d,g),f=a[e]===d;a[c](e+(1-f),f,d)};return a
+01kgetIndexFromOrderedArray,b,ck["splice"]var a=function(d,e,g){var a=b(d,e,g),f=d[a]===e;return f||d[c](a+1,1,e),a+1-f};return a
