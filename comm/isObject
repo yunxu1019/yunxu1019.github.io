@@ -1,1 +1,1 @@
-function b(b){return b!==null&&typeof b===a}var a=['object'][0];return b
+00omodule,a,b,c14["exports","object"]return a[b]=function a(b){return b!==null&&typeof b===c}
